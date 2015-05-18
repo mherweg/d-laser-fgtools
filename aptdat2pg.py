@@ -46,7 +46,7 @@
 
 
 #known bugs:
-# cannot process the airport LOWI
+# cannot process the airport LOWI from the 2013 file
 
 
 
@@ -55,6 +55,8 @@ import psycopg2
 from lxml import etree
 
 db_params = {"host":"localhost", "database":"landcover", "user":"mherweg"}
+infile = open("apt.dat.lowi-in", 'r')
+
 
 try:
     conn = psycopg2.connect(**db_params)
@@ -85,7 +87,7 @@ def insert_or_update(icao,linearray):
              
 
 # main loop
-infile = open("apt.dat", 'r')
+
 icao=""
 counter = 0
 for line in infile:
@@ -95,7 +97,8 @@ for line in infile:
             
             #the previous icao:
             #if icao != "" and icao !="LOWI":
-            if icao == "LOWI":    
+            if icao != "":
+            #if icao == "LOWI":    
                 # write previous airport to DB
                 print icao, counter
                 counter = counter +1
@@ -109,14 +112,14 @@ for line in infile:
             apt_header = line.split()
             icao = apt_header[4]
             name = ' '.join(apt_header[5:])
-            print icao, name
+            #print icao, name
             
             linearray = []
             linearray.append(line)
              
         else:
             #read all the lines of that airport
-            if icao != "" and line != "":
+            if icao != "" and line != "" and line != "99":
                 linearray.append(line)
                 
 # last airport in apt.dat:
