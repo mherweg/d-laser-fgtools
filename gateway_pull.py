@@ -19,30 +19,46 @@
 #
 
 #import socket
-import json, base64
+import json, base64, os, getopt, sys
 #import http.client
 import httplib
 import zipfile
 
-icao="EDLN"
-sids=[]
-author =""
+helptext = 'gateway_pull.py -i <ICAO> \ngateway_pull.py -s <sceneryId>'
 
-conn = httplib.HTTPConnection('gateway.x-plane.com')
-#conn.request("GET", "/apiv1/releases")
-conn.request("GET", "/apiv1/airport/" + icao)
-r1 = conn.getresponse()
-r2 = r1.read()
-result = json.loads(r2)
 
-for key, value in result["airport"].items():
-    if key == "recommendedSceneryId":
-        #print key,value
-        recommendedSceneryId=value
+def main(argv):
+    
+    icao="KATL"
+    sid = ""
+    sids=[]
+    author =""
+
+    try:
+        opts, args = getopt.getopt(argv,"hi:s:")
+    except getopt.GetoptError:
+        print helptext
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print helptext
+            sys.exit()
+        elif opt == "-i":
+            icao = arg
+        elif opt == "-s":
+            sid = arg
+    conn = httplib.HTTPConnection('gateway.x-plane.com')
+    
+    if sid == "":
         
-for key, value in result["airport"].items():        
-    if key == "scenery":
-        for s in value:
+        conn.request("GET", "/apiv1/airport/" + icao)
+        r1 = conn.getresponse()
+        r2 = r1.read()
+        result = json.loads(r2)
+        sid=result["airport"]["recommendedSceneryId"]
+
+        sceneries =  result["airport"]["scenery"] 
+        for s in sceneries:
             for k2, v2 in s.items():
                 if k2 in ["dateDeclined","dateAccepted","DateAccepted","DateApproved","DateDeclined","userId","type"]:
                     pass
@@ -50,35 +66,44 @@ for key, value in result["airport"].items():
                     print k2, v2
             if s['Status']=="Approved":
                     sids.append(s['sceneryId'])
-            if s["sceneryId"]  ==  recommendedSceneryId:
+            if s["sceneryId"]  ==  sid:
                 author = s["userName"]
             print "-----------------"
             
+        print "approved scenery ids for " + icao + ":", sids            
+        #print "highest approved id:", max(sids)
+        print "recommended SceneryId:" , sid , "by author:", author
 
-print "approved scenery ids for ", icao, sids            
-print "highest approved id:", max(sids)
-print "recommendedSceneryId" , recommendedSceneryId , "by author:", author
+
+    conn.request("GET", "/apiv1/scenery/" + str(sid))
+    r1 = conn.getresponse()
+    r2 = r1.read()
+    result = json.loads(r2)
+
+    encoded_zip = result["scenery"]["masterZipBlob"]
+
+    blob = base64.b64decode(encoded_zip)
+
+    print "writing ", icao + ".zip"
+    file = open(icao + ".zip","wb")
+    file.write(blob)
+    file.close()
+
+    print "reading ", icao + ".zip"
+    myZip = zipfile.ZipFile(icao + ".zip","r")
+
+    print "writing ", icao + ".dat"
+    myZip.extract(icao + ".dat")
+
+    print "deleting ", icao + ".zip"
+    os.remove(icao + ".zip")
 
 
-conn.request("GET", "/apiv1/scenery/" + str(recommendedSceneryId))
-r1 = conn.getresponse()
-r2 = r1.read()
-result = json.loads(r2)
 
-#for key, value in result["scenery"].items(): 
 
-encoded_zip = result["scenery"]["masterZipBlob"]
-
-blob = base64.b64decode(encoded_zip)
-file = open(icao + ".zip","wb")
-file.write(blob)
-file.close()
 
 #newFileByteArray = bytearray(zipfile)
 #newFile.write(blob)
-
-myZip = zipfile.ZipFile(icao + ".zip","r")
-myZip.extract(icao + ".dat")
 
 #for zipContentFile in myZip.namelist():
 #    data = myZip.read(zipContentFile)
@@ -89,5 +114,10 @@ myZip.extract(icao + ".dat")
 
 #myZip = zipfile.ZipFile(icao + "_Scenery_Pack.zip","r")
 #myZip.extract(icao + "_Scenery_Pack/Earth nav data/apt.dat")
+
+
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
 
 

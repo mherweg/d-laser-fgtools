@@ -48,14 +48,17 @@
 #known bugs:
 # cannot process the airport LOWI from the 2013 file
 
+# LOWI
+#invalid byte sequence for encoding "UTF8": 0xf6 0x64 0x20 0x74
+
+# EDRZ
+#invalid byte sequence for encoding "UTF8": 0xfc
 
 
 import os, sys
 import psycopg2
 from lxml import etree
-
-db_params = {"host":"localhost", "database":"landcover", "user":"mherweg"}
-infile = open("apt.dat.lowi-in", 'r')
+from settings import *
 
 
 try:
