@@ -29,7 +29,7 @@ helptext = 'gateway_pull.py -i <ICAO> \ngateway_pull.py -s <sceneryId>'
 
 def main(argv):
     
-    icao="KATL"
+    icao="XXXX"
     sid = ""
     sids=[]
     author =""

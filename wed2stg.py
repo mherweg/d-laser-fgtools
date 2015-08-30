@@ -1,6 +1,21 @@
 #!/usr/bin/python
 
-
+# wed2stg.py  
+# --------------------------------------------------------------------------
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software Foundation,
+# --------------------------------------------------------------------------
 
 
 #<?xml version="1.0" encoding="UTF-8"?>
@@ -23,7 +38,7 @@
 import sys, getopt
 import xml.etree.ElementTree as ET
 
-helptext = 'wed2stg.py -i <inputfile> -e <elevation>'
+helptext = 'wed2stg.py -i <inputfile> -e <elevation>   > out.stg'
 
 def main(argv):
     #model = "Models/Industrial/GenericStorageTank15m.ac"
@@ -75,10 +90,7 @@ def main(argv):
                         if ccc.tag == "obj_placement":
                             xppath = ccc.attrib['resource']
                             model =  xppath.replace("objects/", "")
-                            model = model.replace(".obj", ".xml")
-                            #TODO : use .ac if .xml does not exist
-                            #       use .xml if it exists
-                            
+                            model = model.replace(".obj", "")
                             place=True
                     if point and place:
                         print "OBJECT_SHARED", model, lon,lat, elev, heading
