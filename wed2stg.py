@@ -85,7 +85,7 @@ def main(argv):
                     place=False
                     for ccc in cc:
                         if ccc.tag == 'point':
-                            heading = ccc.attrib['heading']
+                            heading = (360 - float(ccc.attrib['heading']) ) +90
                             lat = ccc.attrib['latitude']
                             lon = ccc.attrib['longitude']
                             point=True
