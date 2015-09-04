@@ -17,7 +17,8 @@
 # along with this program; if not, write to the Free Software Foundation,
 # --------------------------------------------------------------------------
 
-
+#Example earth.wed.xml
+#
 #<?xml version="1.0" encoding="UTF-8"?>
 #<doc>
 #    <objects>
@@ -31,6 +32,7 @@
 #        </object>
 #    </objects>
 
+# in WED  |     in the directory tree:
 #  lib/   see: Resources/default scenery/sim objects/library.txt
 # objects/    = Custom Scenery/ICAO/objects
 # objects/foo = Custom Scenery/ICAO/objects/foo
