@@ -17,7 +17,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # --------------------------------------------------------------------------
 
-#Example earth.wed.xml
+#Example of WED's output file earth.wed.xml
 #
 #<?xml version="1.0" encoding="UTF-8"?>
 #<doc>
@@ -85,7 +85,9 @@ def main(argv):
                     place=False
                     for ccc in cc:
                         if ccc.tag == 'point':
-                            heading = ccc.attrib['heading']
+                            heading = (360 - float(ccc.attrib['heading']) ) +90
+                            if heading >= 360:
+								heading = heading - 360
                             lat = ccc.attrib['latitude']
                             lon = ccc.attrib['longitude']
                             point=True
@@ -93,12 +95,18 @@ def main(argv):
                             xppath = ccc.attrib['resource']
                             model =  xppath.replace("objects/", "")
                             model = model.replace(".obj", "")
+                            #TODO: ignore the "lib/...." stuff
                             place=True
                     if point and place:
-                        print "OBJECT_SHARED", model, lon,lat, elev, heading
-                        point=False
-                        place=False
-                        ncount+=1
+						#TODO: maybe use fgelev in the future
+						a = model.find('Models/')
+						if (a == -1):
+							print "OBJECT_STATIC", model, lon,lat, elev, heading
+						else:
+							print "OBJECT_SHARED", model, lon,lat, elev, heading
+						point=False
+						place=False
+						ncount+=1
        
                  
                     
