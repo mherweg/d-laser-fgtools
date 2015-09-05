@@ -87,7 +87,7 @@ def main(argv):
                         if ccc.tag == 'point':
                             heading = (360 - float(ccc.attrib['heading']) ) +90
                             if heading >= 360:
-								heading = heading - 360
+				heading = heading - 360
                             lat = ccc.attrib['latitude']
                             lon = ccc.attrib['longitude']
                             point=True
