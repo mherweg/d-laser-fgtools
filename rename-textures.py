@@ -17,8 +17,8 @@
 # along with this program; if not, write to the Free Software Foundation,
 # --------------------------------------------------------------------------
 
-# rename texture filenames inside an .ac file 
-# and also renames the .png files
+# rename (PNG-)texture-filenames inside an .ac file 
+# and also creates .png files with the new names
 
 # this script was not tested on any other OS than Linux
 
@@ -26,15 +26,14 @@
 import sys, getopt, re
 import fileinput, subprocess
 
-helptext = 'remane-textures.py -i <inputfile> '
-
-
+helptext = 'rename-textures.py -i <inputfile> '
 
 def read_ac(ac_file):
     
-    l = []
-    n = []
-    with open(ac_file,"r") as fp:
+    l = []  # list of old png filenames
+    n = []  # list of new png filenames, only used for debug output
+    
+    with open(ac_file,"r") as fp:     # collect all old png-filenames, avoiding duplicates
         index = 0
         for line in fp:
             #print line
@@ -51,26 +50,40 @@ def read_ac(ac_file):
                         newname = ac_file.rstrip('.ac') + ".png"
                     else:
                         newname = ac_file.rstrip('.ac') + "_" + str(index) + ".png"
-                    #subprocess.call(["cp", texname, newname])
-                    subprocess.call(["mv", texname, newname])
-                    n.append(newname)
-                    index = index +1
                     
-    print "old:",l 
-    print "new:",n               
+                    extension = texname[-4:]
+                    if extension in [".png" ,".PNG"]:  
+                        #print texname , newname
+                        # I use cp and not ml because many models might use the same texture file
+                        subprocess.call(["cp", texname, newname])  #rename the png file on the harddisk
+                        # todo: call convert to scale to a factor of 2
+                        n.append(newname)
+                        index = index +1
+                    else:
+                        print "WARNING: not a png:" , texname 
+    for i in range(0, len(l)):            
+        print l[i],"->", n[i] 
+                  
     index = 0
+    # modify the .ac file inplace, write the original version to NAME.ac.bak
+    # no "print" for debugging allowed in this loop
+    # because stdout is written to the .ac
     for line in fileinput.input(files=(ac_file),inplace=1, backup='.bak'):
         col = line.find("texture")
-        if col == 0:
+        if col == 0:  # a texture line is found
+            texname = line[8:].rstrip('"\r\n')
+            texname = texname.lstrip('"')
             index = 0
             for name in l:
-                if index == 0:
-                    newname = ac_file.rstrip('.ac') + ".png"
-                else:
-                    newname = ac_file.rstrip('.ac') + "_" + str(index) + ".png"
-                if (name != newname):    
-                    line = re.sub(name,newname, line)
-
+                if name == texname:
+                    if index == 0:
+                        newname = ac_file.rstrip('.ac') + ".png"
+                    else:
+                        newname = ac_file.rstrip('.ac') + "_" + str(index) + ".png"
+                    if (name != newname):
+                        #debug = texname, name, newname + "\n"
+                        #print (debug)    
+                        line = re.sub(name,newname, line)  # replace the filename in the .ac file
                 index = index +1
         sys.stdout.write(line)
      
