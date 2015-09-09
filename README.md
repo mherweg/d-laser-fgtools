@@ -5,7 +5,7 @@ various tools for [Flightgear](http://www.flightgear.org) development
 
 [contact me](http://wiki.flightgear.org/User:Laserman/)
 
-# managing apt.dat (tha airports database)
+# managing apt.dat (the airports database)
 
 ## pg2aptdat
 Read an airport from Postgres DB, write in apt.dat format to STDOUT
