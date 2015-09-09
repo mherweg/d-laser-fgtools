@@ -19,9 +19,10 @@
 
 # rename (PNG-)texture-filenames inside an .ac file 
 # and also creates .png files with the new names
+# the result will be in the output folder
 
 # this script was not tested on any other OS than Linux
-
+# it will crash if you use non-png textures like .rgb .dds 
 
 import sys, getopt, re
 import fileinput, subprocess
@@ -32,6 +33,7 @@ def read_ac(ac_file):
     
     l = []  # list of old png filenames
     n = []  # list of new png filenames, only used for debug output
+    subprocess.call(["mkdir", "output"])
     
     with open(ac_file,"r") as fp:     # collect all old png-filenames, avoiding duplicates
         index = 0
@@ -45,24 +47,27 @@ def read_ac(ac_file):
                 if texname in l:
                     pass
                 else:
-                    l.append(texname)
                     if index == 0:
                         newname = ac_file.rstrip('.ac') + ".png"
                     else:
                         newname = ac_file.rstrip('.ac') + "_" + str(index) + ".png"
                     
                     extension = texname[-4:]
-                    if extension in [".png" ,".PNG"]:  
+                    if extension in [".png" ,".PNG"]:
+                        l.append(texname)  
                         #print texname , newname
                         # I use cp and not ml because many models might use the same texture file
-                        subprocess.call(["cp", texname, newname])  #rename the png file on the harddisk
+                        newpath = "output/" + newname
+                        subprocess.call(["cp", texname, newpath])  #rename the png file on the harddisk
                         # todo: call convert to scale to a factor of 2
                         n.append(newname)
                         index = index +1
                     else:
-                        print "WARNING: not a png:" , texname 
-    for i in range(0, len(l)):            
-        print l[i],"->", n[i] 
+                        print "ERROR: not a png:" , texname 
+                        #exit(1)
+                        
+    for i in range(0, len(n)):            
+        print l[i],"-> output/"+ n[i] 
                   
     index = 0
     # modify the .ac file inplace, write the original version to NAME.ac.bak
@@ -86,13 +91,9 @@ def read_ac(ac_file):
                         line = re.sub(name,newname, line)  # replace the filename in the .ac file
                 index = index +1
         sys.stdout.write(line)
+    
+    subprocess.call(["cp", ac_file, "output"])
      
-                
-                
-                
-  
-   
-
 def main(argv):
     model = ""
     ac_file = "terminal-A-B.ac"
