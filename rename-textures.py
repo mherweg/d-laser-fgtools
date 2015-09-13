@@ -22,7 +22,7 @@
 # the result will be in the output folder
 
 # this script was not tested on any other OS than Linux
-# it will crash if you use non-png textures like .rgb .dds 
+# non-png textures like .rgb .dds  will be ignored.
 
 import sys, getopt, re
 import fileinput, subprocess
