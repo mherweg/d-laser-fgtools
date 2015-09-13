@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# wed2stg.py  
+# taxisigns2stg.py  
 # --------------------------------------------------------------------------
 # 
 # This program is free software; you can redistribute it and/or

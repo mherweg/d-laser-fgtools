@@ -79,6 +79,19 @@ SYNOPSIS:
     osm-center2stg.py -i <inputfile> -m <path to shared model> -e <elevation>'
 
 
+## taxisigns2stg
+reads X-plane/WED/Flightgear apt.dat lines with taxi-sign information 
+(lines that begin with "20")
+and writes stg lines for Flightgear scenery to stdout
+
+known limitation :
+* elevation is fixed for all signs 
+
+SYNOPSIS:
+
+    taxisigns2stg.py -f <input apt.dat file> -i <ICAO> -e <elevation>    >nnnnnn.stg
+
+
 
 # working with AC3D models
 
@@ -162,9 +175,6 @@ wed2stg.py
 SYNOPSIS:
 
     wed2stg.py -i <inputfile> -e <elevation>   > out.stg
-
-
-
 
 
 
