@@ -1,5 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# --------------------------------------------------------------------------
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software Foundation,
+# --------------------------------------------------------------------------
 
 #grep ^"1 " apt.dat | wc -l
 #
@@ -15,19 +30,33 @@ import sys
 import os
 import re
 
+
+
+def convert_lat(lat):
+    if lat < 0:
+		    lat2 = "S%d %f"%(int(abs(lat)), (abs(lat) - int(abs(lat)) )* 60)
+    else:
+		    lat2 = "N%d %f"%(int(abs(lat)), (abs(lat) - int(abs(lat)) )* 60)
+    return(lat2)
+    
+def convert_lon(lon):
+    if lon < 0:
+		    lon2 = "W%d %f"%(int(abs(lon)), (abs(lon) - int(abs(lon)) )* 60)
+    else:
+		    lon2 = "E%d %f"%(int(abs(lon)), (abs(lon) - int(abs(lon)) )* 60)
+    return (lon2)
+    
+
+
+
+
 #Umlaute entfernen
 p = re.compile('[^a-zA-Z0-9]')
 
-# There are two lines that describe parkings: line 15 and line 1300
-pattern15 = re.compile(r"^15\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
-pattern1300 = re.compile(r"^1300\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\w|]*)\s*(.*)$")
       
-infile = open("apt.dat", 'r')
-
 found = False
 
-con = lite.connect('test.db')
-
+con = lite.connect('groundnets.db')
 with con:
     
     cur = con.cursor()   
@@ -44,7 +73,7 @@ with con:
         #mkpath
         path="Airports"
         
-        cur.execute("SELECT Pname,Lat,Lon,Heading FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
+        cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
         prows = cur.fetchall()
         #print prows, type(prows)
         if prows:
@@ -64,18 +93,61 @@ with con:
             print path
             f = open(path, 'w')
             #write head
-            f.write('<?xml version="1.0"?>\n<groundnet>\n    <parkingList>\n')
-            
-            #cur.execute("SELECT Pname,Lat,Lon,Heading FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
-            #prows = cur.fetchall() 
-            i=0
+            f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n  <parkingList>\n')
+            #  <Parking index="0"
+            # type="cargo"
+            # name="R"
+            # number="02"
+            # lat="N52 17.655"
+            # lon="E04 44.492"
+            # heading="328.8"
+            # radius="43"
+            # pushBackRoute="616" 
+            # airlineCodes="" />
             for prow in prows:
                 #print prow
                 #write parkings to XML
-                f.write('        <Parking index="%d" type="gate" name="%s" lat="%s" lon="%s" heading="%s" />\n'%(i, prow[0], prow[1][:12], prow[2][:12], prow[3]))
-                i=i+1
+                lat = convert_lat(prow[1])
+                lon = convert_lon(prow[2])
+                f.write('        <Parking index="%d" type="gate" name="%s" lat="%s" lon="%s" heading="%s"  radius="44" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4], prow[0], lat, lon, prow[3],prow[5]))
+                
             #write foot
-            f.write("    </parkingList>\n</groundnet>\n")
+            f.write("    </parkingList>\n")
+            
+            #write nodes
+            #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
+            f.write('<TaxiNodes>\n')
+            cur.execute("SELECT Lat,Lon,NewId,isOnRunway,holdPointType FROM TaxiNodes WHERE Aid=:Aid", {"Aid": aid}) 
+            nodes = cur.fetchall()
+            for n in nodes:
+                #TODO  holdPointType
+                lat = convert_lat(n[0])
+                lon = convert_lon(n[1])
+                #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
+                #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
+                f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
+                
+            
+            f.write('</TaxiNodes>\n')
+            
+            # write arc
+            # but only taxiways, not runways       WHERE Aid=:Aid AND twrw LIKE "taxiway"
+            #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
+            # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
+            f.write('<TaxiWaySegments>\n')
+            cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw LIKE "taxiway"', {"Aid": aid}) 
+            arcs = cur.fetchall()
+            for a in arcs:
+                f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
+                if a[2]=="twoway":
+                    f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
+                    
+            
+            f.write('</TaxiWaySegments>\n')
+            
+            
+            
+            f.write("</groundnet>\n")
             #close file
             f.close()
         

@@ -8,11 +8,11 @@
 import sys, numpy
 
 
-#filename="EDLM.dat"
-#airport="EDLM"
+filename="EDLM.dat"
+airport="EDLM"
 
-airport = sys.argv[2]
-filename = sys.argv[1]
+#airport = sys.argv[2]
+#filename = sys.argv[1]
 
 infile = open(filename, 'r')
 
@@ -33,8 +33,8 @@ def convert_lon(lon):
     return (lon2)
     
 def calculate_distance(p,n):    
-    a = numpy.array((p[0] ,p[1], 0))
-    b = numpy.array((n[1], n[2], 0))
+    a = numpy.array((p[0] ,p[1]))
+    b = numpy.array((n[1], n[2]))
     dist = numpy.linalg.norm(a-b)
     return dist
     
@@ -92,7 +92,7 @@ for line in infile:
                             
             # If found, convert values
             if lat != -555:
-		parkings.append([lat, lon, heading, name, -1])                
+		parkings.append([lat, lon, heading, name, -1, -1])                
 
             # taxinode
             #                                      1              2            3      4       5   
@@ -133,10 +133,12 @@ for line in infile:
            
 infile.close()
 
+
+# connect  the parking spots to their nearest node
 i=900
 for p in parkings:
     i = i + 1
-    p[4]=i
+    p[4]=i     # parking index number: 901...
     mindist=1.0
     bestnode=-1
     for n in taxinodes:

@@ -32,7 +32,8 @@ insert/update one of more airports into DB:
 
 
 # Generating many groundnet files
-(parking/startup locations for >7000 airports)
+parking/startup locations for >7000 airports + groundnet including
+pushBackRoute Taxinodes and Taxiway Segments
 
 * Step 1:
     aptdat2sqlite.py
