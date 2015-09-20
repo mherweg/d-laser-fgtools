@@ -114,40 +114,42 @@ with con:
                 #print ('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
                 
             #write foot
-            f.write("    </parkingList>\n")
+            f.write(" </parkingList>\n")
             
             #write nodes
             #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
-            f.write('<TaxiNodes>\n')
+            
             cur.execute("SELECT Lat,Lon,NewId,isOnRunway,holdPointType FROM TaxiNodes WHERE Aid=:Aid", {"Aid": aid}) 
             nodes = cur.fetchall()
-            for n in nodes:
-                #TODO  holdPointType
-                lat = convert_lat(n[0])
-                lon = convert_lon(n[1])
-                #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
-                #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
-                f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
+            if nodes:
+                f.write(' <TaxiNodes>\n')
+                for n in nodes:
+                    #TODO  holdPointType
+                    lat = convert_lat(n[0])
+                    lon = convert_lon(n[1])
+                    #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
+                    #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
+                    f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
+                    
                 
-            
-            f.write('</TaxiNodes>\n')
+                f.write(' </TaxiNodes>\n')
             
             # write arc
             # but only taxiways, not runways       WHERE Aid=:Aid AND twrw LIKE "taxiway"
             #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
             # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
-            f.write('<TaxiWaySegments>\n')
+            
             cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw LIKE "taxiway"', {"Aid": aid}) 
             arcs = cur.fetchall()
-            for a in arcs:
-                f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
-                if a[2]=="twoway":
-                    f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
-                    
-            
-            f.write('</TaxiWaySegments>\n')
-            
-            
+            if arcs:
+                f.write(' <TaxiWaySegments>\n')
+                for a in arcs:
+                    f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
+                    if a[2]=="twoway":
+                        f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
+                        
+                
+                f.write(' </TaxiWaySegments>\n')
             
             f.write("</groundnet>\n")
             #close file

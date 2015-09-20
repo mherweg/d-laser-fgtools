@@ -40,8 +40,8 @@ pattern1300 = re.compile(r"^1300\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*
 pattern1201 = re.compile(r"^1201\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\-0-9\.]*)\s*(.*)$")
 pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s*(.*)$")
 
-#infile = open("apt.dat", 'r')
-infile = open("EXXX.dat", 'r')
+infile = open("apt.dat", 'r')
+#infile = open("problematic.dat", 'r')
 
 found = False
 
@@ -221,11 +221,16 @@ with con:
                             radius = 8
                             fgtype = "ga"
                             
-                 
-                        pname = result.group(6).replace(' ', '_')
-                        pname = pname.replace('&','and')
+                        pname = result.group(6) 
+                        newid = offset  
+                        #print pname 
+                        if pname:
+                            pname = pname.replace(' ', '_')
+                            pname = pname.replace('&','and')
+                        else:
+                            pname = newid
                         #print icao, pname, lat, lon , heading
-                        newid = offset
+                        
                         #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
                         cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
                         offset=offset+1
@@ -238,8 +243,14 @@ with con:
                     lat = result.group(1)
                     lon = result.group(2)
                     heading = float(result.group(3))
-                    pname = result.group(4).replace(' ', '_')
+                    pname = result.group(4)
                     newid = offset
+                    if pname:
+                            pname = pname.replace(' ', '_')
+                            pname = pname.replace('&','_and_')
+                    else:
+                            pname = newid
+                    
                     cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',44)", (lid,icao,pname,lat,lon,heading,newid))
                     offset=offset+1
                     
