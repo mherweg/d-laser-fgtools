@@ -17,10 +17,13 @@
 # along with this program; if not, write to the Free Software Foundation,
 # --------------------------------------------------------------------------
 
-#TODO: service -> radius
-#      type -> type
-# speedup by using more int and less TXT ?
+#this script runs 15 minutes on a 
+#Intel Core2 Duo CPU     P8600  @ 2.40GHz
 
+# you can strip apd.dat before running this tool:
+#time egrep '^1 |^16 |^17 |^100 |^101 |^102 |^14 |^15 |^1300 |^1201 |^1202 ' apt.dat.18.9.2015 > apt.stripped
+#real	0m1.863s
+#... but you win only 20 seconds ;-)
 
 #grep ^"1 " apt.dat | wc -l
 
@@ -34,25 +37,15 @@ p = re.compile('[^a-zA-Z0-9]')
   # There are two lines that describe parkings: line 15 and line 1300
 pattern15 = re.compile(r"^15\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
 pattern1300 = re.compile(r"^1300\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\w|]*)\s*(.*)$")
-      
-infile = open("apt.dat.18.9.2015", 'r')
+pattern1201 = re.compile(r"^1201\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\-0-9\.]*)\s*(.*)$")
+pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s*(.*)$")
+
+#infile = open("apt.dat", 'r')
+infile = open("EXXX.dat", 'r')
 
 found = False
 
 
-def convert_lat(lat):
-    if lat < 0:
-		    lat2 = "S%d %f"%(int(abs(lat)), (abs(lat) - int(abs(lat)) )* 60)
-    else:
-		    lat2 = "N%d %f"%(int(abs(lat)), (abs(lat) - int(abs(lat)) )* 60)
-    return(lat2)
-    
-def convert_lon(lon):
-    if lon < 0:
-		    lon2 = "W%d %f"%(int(abs(lon)), (abs(lon) - int(abs(lon)) )* 60)
-    else:
-		    lon2 = "E%d %f"%(int(abs(lon)), (abs(lon) - int(abs(lon)) )* 60)
-    return (lon2)
     
 def calculate_distance(x1,y1,x2,y2):    
     a = numpy.array((x1 ,y1))
@@ -83,32 +76,34 @@ def dumpall():
 def connect_parkings(lid):   
     # connect  the parking spots to their nearest node
     # and add this node als pushback route for that spot
+    #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+    #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
+    #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
+  
     cur = con.cursor()    
-    cur.execute("SELECT * FROM Parkings WHERE Aid = ? ",(lid,))
+    cur.execute("SELECT NewId,Lat,Lon,Pname,pushBackRoute FROM Parkings WHERE Aid = ? ",(lid,))
     parkings = cur.fetchall()
-    cur.execute("SELECT * FROM Taxinodes WHERE Aid = ? ",(lid,))
+    cur.execute("SELECT NewId,Lat,Lon FROM Taxinodes WHERE Aid = ? ",(lid,))
     nodes =  cur.fetchall()
-    #Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TEXT, Lat TXT, Lon TXT, Heading TXT, NewId TXT)")
-    #Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT)")
     countp =0
     for p in parkings:
         #print "connect_parkings: airportId", p[1]
         mindist=1.0
-        bestnode=-1
+        bestnode_id=-1
         countp+=1
         for n in nodes:
             
-            dist = calculate_distance(p[4],p[5], n[4],n[5])
+            dist = calculate_distance(p[1],p[2], n[1],n[2])
             if dist < mindist:
                 mindist=dist
                 #print "new mindist" , dist
-                bestnode = n
+                bestnode_id = n[0]
             #print p , bestnode
-        if bestnode != -1:
-            cur.execute("INSERT INTO Arc(Aid, OldId1, NewId1, OldId2, NewId2, onetwo, twrw, name,isPushbackRoute) VALUES (?,?,?,?,?,?,?,?,?)", (lid,"",p[7],"",bestnode[3],"twoway","taxiway", p[3],1))
-            #print "parking primary key ",  bestnode[3], p[0]
-            cur.execute("UPDATE Parkings SET pushBackRoute = ? WHERE NewId = ? AND Aid = ?;",(bestnode[3], p[7], lid ))
-            cur.execute('UPDATE Taxinodes SET holdPointType = "PushBack" WHERE NewID = ? AND Aid = ?',(bestnode[3],lid))
+        if bestnode_id != -1:
+            cur.execute('INSERT INTO Arc(Aid, NewId1, NewId2, onetwo, twrw, name, isPushbackRoute) VALUES (?,?,?,?,?,?,"1")', (lid,p[0],bestnode_id,"twoway","taxiway", p[3]))
+            #print "parking NewID ",  bestnode[3], p[0]
+            cur.execute("UPDATE Parkings SET pushBackRoute = ? WHERE NewId = ? AND Aid = ?;",(bestnode_id, p[0], lid ))
+            cur.execute('UPDATE Taxinodes SET holdPointType = "PushBack" WHERE NewID = ? AND Aid = ?',(bestnode_id,lid))
         #else:
             #print "WARNING: no Taxinode found for ", p
     if countp > 0:
@@ -125,12 +120,15 @@ def set_isOnRunway(lid):
         cur.execute('UPDATE Taxinodes SET isOnRunway = "1" WHERE NewId = ? AND Aid = ?;',(a[3],lid))
         cur.execute('UPDATE Taxinodes SET isOnRunway = "1" WHERE NewId = ? AND Aid = ?;',(a[5],lid))
         # do not use runways for taxiing
+        # see sqlite2xml line 133
         #cur.execute('DELETE FROM Arc WHERE twrw LIKE "runway" ')
         
-
-
-
-
+        
+        
+        
+        
+        
+        
 # main apt.dat parsing loop
 con = lite.connect('groundnets.db')
 print "DB connected, ",
@@ -142,9 +140,9 @@ with con:
     cur.execute("DROP TABLE IF EXISTS Parkings")
     cur.execute("DROP TABLE IF EXISTS Taxinodes")
     cur.execute("DROP TABLE IF EXISTS Arc")
-    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TEXT, Lat TXT, Lon TXT, Heading TXT, NewId TXT, pushBackRoute TXT)")
-    cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT, holdPointType TXT)")
-    cur.execute("CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute TXT)")
+    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+    cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
+    cur.execute("CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
     print "tables created."    
 
     id = 0
@@ -164,59 +162,92 @@ with con:
                 icao = apt_header[4]
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
-                print ">" , icao , '<' , name ,
-                
-                try:
-                    cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
-                    lid = cur.lastrowid
-                    print "lid:" , lid
-                except lite.Error, e:
-                    print "Error %s:" % e.args[0]
-                    sys.exit(1)
-                offset=0
-            else:
-                lat = -555                                                                                                                                             
-                lon = -555
-                heading = 0
-                result = pattern15.match(line)
-                # Match line 15
-                if result:
-                        lat = float(result.group(1))
-                        lon = float(result.group(2))
-                        heading = float(result.group(3))
-                        pname = result.group(4).replace(' ', '_')
-                        newid = offset
-                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId) VALUES (?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid))
-                        offset=offset+1
+                print icao , name
 
+                cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
+                lid = cur.lastrowid
+                    #print "lid:" , lid
+                
+                offset=0
+            elif line.startswith("1300 "):
+                #lat = -555                                                                                                                                             
+                #lon = -555
+                #heading = 0
+               
                 # Match line 1300
                 result = pattern1300.match(line)
                 if result:
                         lat = result.group(1)
                         lon = result.group(2)
-                        heading = float(result.group(3))
+                        heading = result.group(3)
                         # group 4 has the type of aircraft and group 5 is services available at the parking
                         # type: misc, tie-down, gate, hangar
                         #print "type:", result.group(4),
-                        #service        -> radius
-                        #heavy 
-                        #jets
-                        #turboprops
-                        #props
-                        #helos
-                        #print "services:", result.group(5)
+                        
+                        xptype = result.group(4)
+                        
+                        if xptype == "tie-down":
+                            fgtype = "ga"
+                        else:
+                            fgtype = "gate"
+                       
+                        #xp services    -> FG radius
+                        #heavy              44
+                        #jets               24
+                        #turboprops         21
+                        #props              10
+                        #helos               8
+                        
+                        #FG types:                        
+                        #ga (general aviation),
+                        #cargo (cargo)
+                        #gate (commercial passenger traffic)
+                        #mil-fighter (military fighter)
+                        #mil-cargo (military transport)
+                        
+                        services = result.group(5)
+                        sl = services.split('|')
+                        #print sl
+                        if "heavy" in sl:
+                            radius = 44
+                        elif "jet" in sl:
+                            radius = 24
+                        elif "turboprops" in sl:
+                            radius = 24
+                        elif "props" in sl:
+                            radius = 10
+                            fgtype = "ga"
+                        elif "helos" in sl:
+                            radius = 8
+                            fgtype = "ga"
+                            
+                 
                         pname = result.group(6).replace(' ', '_')
+                        pname = pname.replace('&','and')
                         #print icao, pname, lat, lon , heading
                         newid = offset
-                        
-                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId) VALUES (?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid))
+                        #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
                         offset=offset+1
-                        
+                 
+            elif line.startswith("15 "):
+                result = pattern15.match(line)
+                # Match line 15
+                if result:
+                    #print "PATTERN 15 found!"
+                    lat = result.group(1)
+                    lon = result.group(2)
+                    heading = float(result.group(3))
+                    pname = result.group(4).replace(' ', '_')
+                    newid = offset
+                    cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',44)", (lid,icao,pname,lat,lon,heading,newid))
+                    offset=offset+1
+                    
+            elif line.startswith("1201 "):
                 #print "offset", offset
-                 # taxinode
                 #                                      1              2            3      4       5   
                 # 1201 = taxi node                   lat            lon          type    id       name
-                pattern1201 = re.compile(r"^1201\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\-0-9\.]*)\s*(.*)$")
+               
                 result = pattern1201.match(line)
                 if result:
                     #print result.group(1), result.group(2),  result.group(3) ,result.group(4), result.group(5)
@@ -229,12 +260,13 @@ with con:
                     nodename = result.group(5).replace(' ', '_')
                     
                     cur.execute("INSERT INTO Taxinodes(Aid, OldId, NewId, Lat, Lon, Type, Name,isOnRunway,holdPointType) VALUES (?,?,?,?,?,?,?,?,?)", (lid,nodeid,newid,lat,lon,nodetype, nodename,"0","none"))
-
-        # TaxiWaySegments
+                
+            elif line.startswith("1202 "):
+                # TaxiWaySegments
                 #1202 taxi edge   node-id1  node-id2 “twoway” or “oneway”  “taxiway” or “runway”  name
                 #                                      1              2            3      4       5   
                 # 1202 = taxi edge                    node         node        1/2way    tw/rw    name
-                pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s*(.*)$")
+               
                 result = pattern1202.match(line)
                 if result:
                     #print "TAXI EDGE"
@@ -251,7 +283,7 @@ with con:
                     cur.execute("INSERT INTO Arc(Aid, OldId1, NewId1, OldId2, NewId2, onetwo, twrw, name,isPushBackRoute) VALUES (?,?,?,?,?,?,?,?,?)", (lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0"))
 
 
-    #process the last airport
+    #process the last airport?
     connect_parkings(lid)
     set_isOnRunway(lid)
               

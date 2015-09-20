@@ -58,7 +58,6 @@ found = False
 
 con = lite.connect('groundnets.db')
 with con:
-    
     cur = con.cursor()   
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='HI13')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")    
@@ -73,7 +72,7 @@ with con:
         #mkpath
         path="Airports"
         
-        cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
+        cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute,Type,Radius FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
         prows = cur.fetchall()
         #print prows, type(prows)
         if prows:
@@ -107,9 +106,12 @@ with con:
             for prow in prows:
                 #print prow
                 #write parkings to XML
+                #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+    
                 lat = convert_lat(prow[1])
                 lon = convert_lon(prow[2])
-                f.write('        <Parking index="%d" type="gate" name="%s" lat="%s" lon="%s" heading="%s"  radius="44" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4], prow[0], lat, lon, prow[3],prow[5]))
+                f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
+                #print ('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
                 
             #write foot
             f.write("    </parkingList>\n")
