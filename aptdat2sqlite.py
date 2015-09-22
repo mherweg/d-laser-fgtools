@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+#(c) 2015 d-laser  http://wiki.flightgear.org/User:Laserman
 # --------------------------------------------------------------------------
 # 
 # This program is free software; you can redistribute it and/or
