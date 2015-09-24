@@ -93,6 +93,17 @@ SYNOPSIS:
     taxisigns2stg.py -f <input apt.dat file> -i <ICAO> -e <elevation in meters above MSL>    >nnnnnn.stg
 
 
+## taxisigns2aptdat
+reads .stg lines with OBJECT_SIGN and merges them with apt.dat (of ONE airport) into output.dat
+output.dat can then be imported and edited in WED and uploaded to the gateway
+
+SYNOPSIS:
+
+    taxisigns2aptdat.py -s <input .stg file> -a <input apt.dat file>
+
+
+
+
 ## parkingxml2aptdat
 convert from Flightgear/TaxiDraw parking.xml or ICAO.groundnet.xml
 to "1300" type lines in apt.dat format

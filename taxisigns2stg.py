@@ -76,7 +76,7 @@ def main(argv):
 
         #                          l             l             heading          0            size           text
     pattern20 = re.compile(r"^20\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
-                                                                                                                                                       
+    count=0                                                                                                                                                   
     for line in infile:                                                                                                                                             
                 line = line.strip()                                                                                                                                     
                 # If the airport description ends, break                                                                                                               
@@ -96,6 +96,7 @@ def main(argv):
                         # apt.dat: Orientation of sign in true degrees (heading of someone looking at sign’s front)
                         # STG: the same but counter clockwise ?
                         #wed-heading = float(result.group(3))
+                        # is this correct ???
                         heading = 360 - float(result.group(3))
                         
                         #print lat, lon , heading  
@@ -103,8 +104,12 @@ def main(argv):
                         text = result.group(6)
                         # OBJECT_SIGN <text> <longitude> <latitude> <elevation-m> <heading-deg> <size>
                         print "OBJECT_SIGN", text, lon , lat, elev, heading, size
+                        count+=1
+                        
                
-              
+    if count == 0:
+        print "The input file did not contain any Taxi Signs for airport", airport
+                  
     infile.close()
 
 
