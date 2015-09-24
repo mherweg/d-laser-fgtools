@@ -81,7 +81,7 @@ def main(argv):
                     lon = col[2]
                     lat = col[3]
                     # heading correct ?
-                    heading = col[5]
+                    heading = 360 - float( col[5] )
                     if text[:4] == "{@B}":
                         size = "5"
                     else:
@@ -96,7 +96,7 @@ def main(argv):
                     #20  50.03633307  008.54686715 159.0900 0 3 {@Y}{^l}3012M
                     #print("bla %11.8f  %11.8f  %8.4  0 %d %s" % ( float(lat), float(lon), float(heading),size,"foo" ))
                     #print "20 ", lat,lon,heading,0,size,text
-                    signline = "20  "+lat+"  "+lon+"  "+heading+"  0  "+size+"  "+text+"\n"
+                    signline = "20  "+lat+"  "+lon+"  "+str(heading)+"  0  "+size+"  "+text+"\n"
                     #print signline
                     out.write(signline)
                     index+=1
