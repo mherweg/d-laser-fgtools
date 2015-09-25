@@ -18,12 +18,26 @@
 # along with this program; if not, write to the Free Software Foundation,
 # --------------------------------------------------------------------------
 
+# use aptdat2sqlite.py before running this program!
+# mkdir Airports  
+    
+# This program reads airport ground networks from the sqlite DB file "groundnets.db"
+# and writes Flightgear-compatible ICAO.groundnet files into the Airports folder structure,
+# e.g. Airports/E/D/D/EDDF.groundnet.xml
+
+# used together with aptdat2sqlite.py it  generates >7000 airport ground networks
+# with parking locations and >900 ground networks for AI ground traffic.
+
+# I suggest that you not overwrite the 90 ground networks that already exist in
+# Flightgear
+# http://wiki.flightgear.org/Airports_with_ground_networks
+
 #grep ^"1 " apt.dat | wc -l
 #
 # 27486 airports
 #
 # find Airports -type f  | wc -l
-# 6412 with parking
+# 7900 with parking
 
 
 

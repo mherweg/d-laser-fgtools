@@ -18,42 +18,83 @@
 # along with this program; if not, write to the Free Software Foundation,
 # --------------------------------------------------------------------------
 
-#this script runs 15 minutes on a 
+# this program reads AI ground networks from X-Plane/WED apt.dat file
+# adds index numbers to the parking positiouns (0...n) and renumbers the
+# taxinodes (n+1...m)
+# adds one additional taxi node per parking position for a straight line pushback
+# and 2 TaxiwaySegments(arc) that connect the parking to the new node and the new node
+# to the nearest node of the groundnet(bestnode_id).
+# both of those TaxiwaySegments are bi-directional and marked as "pushBackRoute"
+# bestnode_id is maked as holdPointType = "PushBack"
+# the parking gets a pushBackRoute= entry that is bestnode_id
+#
+# the result is written into a sqlite DB "groundnets.de"
+# which  can be read by the tool sqlite2xml.py
+
+#this script runs 21 minutes on a 
 #Intel Core2 Duo CPU     P8600  @ 2.40GHz
 
 # you can strip apd.dat before running this tool:
 #time egrep '^1 |^16 |^17 |^100 |^101 |^102 |^14 |^15 |^1300 |^1201 |^1202 ' apt.dat.18.9.2015 > apt.stripped
-#real	0m1.863s
 #... but you win only 20 seconds ;-)
+
+# don't forget to run  sqlite2xml.py after this script
+# run both together like this:
+# ./aptdat2sqlite.py && ./sqlite2xml.py
 
 #grep ^"1 " apt.dat | wc -l
 
 import sqlite3 as lite
 import sys, numpy
-import re
+import re, math
 
-#msg = "blöbber"
+
+
+input_filename = "apt.dat"
+infile = open(input_filename, 'r')
+
+# lenght of straight pushback route in lat degree
+#at the equator, one latitudinal second measures 30.715 metres, one latitudinal minute is 1843 metres and
+# one latitudinal degree is 110.6 kilometres
+# 1 deg  = 110600m 
+push_dist=float(50.0*(1.0/110600))
+#also not bad:
+#push_dist=float(100.0*(1.0/110600))
+
+
+
 p = re.compile('[^a-zA-Z0-9]')
 #p.subn('_', msg)
-  # There are two lines that describe parkings: line 15 and line 1300
+# There are two lines that describe parkings: line 15 and line 1300
 pattern15 = re.compile(r"^15\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
 pattern1300 = re.compile(r"^1300\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\w|]*)\s*(.*)$")
+# TaxiNode
 pattern1201 = re.compile(r"^1201\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\-0-9\.]*)\s*(.*)$")
+# TaxiWay Segment  / "Arc"
 pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s*(.*)$")
 
-infile = open("apt.dat", 'r')
-#infile = open("problematic.dat", 'r')
 
 found = False
 
 
+def find_pusback_node(x,y,heading):
+    #print push_dist
+    xp= float(x) - (math.sin(math.radians(heading))*push_dist)
+    yp =float(y) - (math.cos(math.radians(heading))*push_dist)
+    return xp,yp
+    
     
 def calculate_distance(x1,y1,x2,y2):    
     a = numpy.array((x1 ,y1))
     b = numpy.array((x2, y2))
     dist = numpy.linalg.norm(a-b)
     return dist
-    
+
+def calc_dist_lazy(x1,y1,x2,y2):
+    dx=abs(x1-x2)
+    dy=abs(y1-y2)
+    return dx+dy
+
 def dumpall():
     # show content of all tables            
     cur = con.cursor()    
@@ -93,8 +134,8 @@ def connect_parkings(lid):
         bestnode_id=-1
         countp+=1
         for n in nodes:
-            
-            dist = calculate_distance(p[1],p[2], n[1],n[2])
+            dist=calc_dist_lazy(p[1],p[2], n[1],n[2])
+            #dist = calculate_distance(p[1],p[2], n[1],n[2])
             if dist < mindist:
                 mindist=dist
                 #print "new mindist" , dist
@@ -117,7 +158,7 @@ def set_isOnRunway(lid):
     cur.execute('SELECT * FROM Arc WHERE twrw LIKE "runway" AND Aid = ? ',(lid,))
     arcs =  cur.fetchall()    
     for a in arcs:
-        print "on runway:" , a[3], a[5]
+        #print "on runway:" , a[3], a[5]
         cur.execute('UPDATE Taxinodes SET isOnRunway = "1" WHERE NewId = ? AND Aid = ?;',(a[3],lid))
         cur.execute('UPDATE Taxinodes SET isOnRunway = "1" WHERE NewId = ? AND Aid = ?;',(a[5],lid))
         # do not use runways for taxiing
@@ -125,8 +166,50 @@ def set_isOnRunway(lid):
         #cur.execute('DELETE FROM Arc WHERE twrw LIKE "runway" ')
         
         
+def add_pushback_routes(lid,newid):
+    # add a straight part, then connet to texiway
+    cur = con.cursor()    
+    cur.execute("SELECT NewId,Lat,Lon,Pname,Heading FROM Parkings WHERE Aid = ? ",(lid,))
+    parkings = cur.fetchall()    
+    cur.execute("SELECT NewId,Lat,Lon FROM Taxinodes WHERE Aid = ? ",(lid,))
+    nodes =  cur.fetchall()
+
+    for p in parkings:
+        newid+=1
+        heading = p[4]
+        lon = p[2]
+        lat = p[1] 
+        lonp,latp = find_pusback_node(lon,lat,heading)
+        #print "park", lon,lat 
+        #print "pb  ", lonp,latp
+         #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
+        cur.execute('INSERT INTO Taxinodes(Aid, NewId,Lat, Lon,isOnRunway,holdPointType) VALUES (?,?,?,?,0,"none")',(lid,newid,latp,lonp ))
+       
+        cur.execute('INSERT INTO Arc(Aid, NewId1, NewId2, onetwo, twrw, name, isPushbackRoute) VALUES (?,?,?,?,?,?,"1")', (lid,p[0],newid,"twoway","taxiway", p[3]))
         
+        ## connect the new node to the groundnet
+        mindist=1.0
+        bestnode_id=-1
+        #countp+=1
+        for n in nodes:
+            #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
+            # lat, lon
+            dist=calc_dist_lazy(latp,lonp, n[1],n[2])
+            #dist = calculate_distance(p[1],p[2], n[1],n[2])
+            if dist < mindist:
+                mindist=dist
+                #print "new mindist" , dist
+                bestnode_id = n[0]
+            #print p , bestnode
+        if bestnode_id != -1:
+            cur.execute('INSERT INTO Arc(Aid, NewId1, NewId2, onetwo, twrw, name, isPushbackRoute) VALUES (?,?,?,?,?,?,"1")', (lid,newid,bestnode_id,"twoway","taxiway", p[3]))
+            cur.execute("UPDATE Parkings SET pushBackRoute = ? WHERE NewId = ? AND Aid = ?;",(bestnode_id, p[0], lid ))
+            cur.execute('UPDATE Taxinodes SET holdPointType = "PushBack" WHERE NewID = ? AND Aid = ?',(bestnode_id,lid))
+        #else:
+            #print "WARNING: no Taxinode found for ", p
         
+
+    
         
         
         
@@ -148,6 +231,7 @@ with con:
 
     id = 0
     lid = -1
+    newid=0
     for line in infile:
             line = line.strip()
             # 1 for airports, 16 for seaports
@@ -156,7 +240,8 @@ with con:
                 
                 #process the previous airport
                 if lid >= 0 :
-                    connect_parkings(lid)
+                    add_pushback_routes(lid,newid)
+                    #connect_parkings(lid)
                     set_isOnRunway(lid)
               
                 apt_header = line.split()
@@ -296,7 +381,8 @@ with con:
 
 
     #process the last airport?
-    connect_parkings(lid)
+    #connect_parkings(lid)
+    add_pushback_routes(lid,newid)
     set_isOnRunway(lid)
               
     print "all data is stored in sqlite db"

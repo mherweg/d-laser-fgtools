@@ -2,8 +2,9 @@
 
 various tools for [Flightgear](http://www.flightgear.org) development
 
-
 [contact me](http://wiki.flightgear.org/User:Laserman/)
+
+required: Python 2.x
 
 # managing apt.dat (the airports database)
 
@@ -33,7 +34,8 @@ insert/update one of more airports into Postgres DB:
 
 # Generating many groundnet files
 parking/startup locations for >7000 airports + groundnet including
-pushBackRoutes Taxinodes and Taxiway Segments
+pushBackRoutes Taxinodes and Taxiway Segments. read more details in the comment
+at the beginning of the 2 python files
 
 * Step 1:
     aptdat2sqlite.py
