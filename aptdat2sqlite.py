@@ -31,7 +31,7 @@
 # the result is written into a sqlite DB "groundnets.de"
 # which  can be read by the tool sqlite2xml.py
 
-#this script runs 21 minutes on a 
+#this script runs 3 minutes on a 
 #Intel Core2 Duo CPU     P8600  @ 2.40GHz
 
 # you can strip apd.dat before running this tool:
@@ -49,9 +49,14 @@ import sys, numpy
 import re, math
 
 
+# only parking, without AI-groundnet: 17 seconds
+#park_only=True
+park_only=False
 
 input_filename = "apt.dat"
 infile = open(input_filename, 'r')
+
+#exclude = ("KPHX","KJFK",)
 
 # lenght of straight pushback route in lat degree
 #at the equator, one latitudinal second measures 30.715 metres, one latitudinal minute is 1843 metres and
@@ -118,6 +123,7 @@ def dumpall():
 def connect_parkings(lid):   
     # connect  the parking spots to their nearest node
     # and add this node als pushback route for that spot
+    # -------- not used any more. see: add_pushback_routes
     #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
     #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
     #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
@@ -211,7 +217,8 @@ def add_pushback_routes(lid,newid):
 
     
         
-        
+groundnet_counter=0
+parking_counter=0        
         
 # main apt.dat parsing loop
 con = lite.connect('groundnets.db')
@@ -232,6 +239,7 @@ with con:
     id = 0
     lid = -1
     newid=0
+    has_groundnet=False
     for line in infile:
             line = line.strip()
             # 1 for airports, 16 for seaports
@@ -239,16 +247,25 @@ with con:
                 
                 
                 #process the previous airport
-                if lid >= 0 :
-                    add_pushback_routes(lid,newid)
-                    #connect_parkings(lid)
-                    set_isOnRunway(lid)
-              
+                if park_only == False and has_groundnet:
+                    #print "OK"
+                    if lid >= 0 :
+                        groundnet_counter+=1
+                        add_pushback_routes(lid,newid)
+                        #connect_parkings(lid)
+                        set_isOnRunway(lid)
+                        print icao
+                        has_groundnet=False
+                #else:
+                #    print "."
+                
+                
                 apt_header = line.split()
+                #previous = icao
                 icao = apt_header[4]
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
-                print icao , name
+                
 
                 cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
                 lid = cur.lastrowid
@@ -320,6 +337,7 @@ with con:
                         #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
                         cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
                         offset=offset+1
+                       
                  
             elif line.startswith("15 "):
                 result = pattern15.match(line)
@@ -339,8 +357,9 @@ with con:
                     
                     cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',44)", (lid,icao,pname,lat,lon,heading,newid))
                     offset=offset+1
+                  
                     
-            elif line.startswith("1201 "):
+            elif line.startswith("1201 ") and park_only == False:
                 #print "offset", offset
                 #                                      1              2            3      4       5   
                 # 1201 = taxi node                   lat            lon          type    id       name
@@ -358,7 +377,7 @@ with con:
                     
                     cur.execute("INSERT INTO Taxinodes(Aid, OldId, NewId, Lat, Lon, Type, Name,isOnRunway,holdPointType) VALUES (?,?,?,?,?,?,?,?,?)", (lid,nodeid,newid,lat,lon,nodetype, nodename,"0","none"))
                 
-            elif line.startswith("1202 "):
+            elif line.startswith("1202 ") and park_only == False:
                 # TaxiWaySegments
                 #1202 taxi edge   node-id1  node-id2 “twoway” or “oneway”  “taxiway” or “runway”  name
                 #                                      1              2            3      4       5   
@@ -366,6 +385,8 @@ with con:
                
                 result = pattern1202.match(line)
                 if result:
+                    
+                    has_groundnet = True
                     #print "TAXI EDGE"
                     #print result.group(1), result.group(2),  result.group(3) ,result.group(4), result.group(5)
                     n1 = result.group(1)
@@ -380,13 +401,19 @@ with con:
                     cur.execute("INSERT INTO Arc(Aid, OldId1, NewId1, OldId2, NewId2, onetwo, twrw, name,isPushBackRoute) VALUES (?,?,?,?,?,?,?,?,?)", (lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0"))
 
 
-    #process the last airport?
+    #process the last airport:
     #connect_parkings(lid)
-    add_pushback_routes(lid,newid)
-    set_isOnRunway(lid)
-              
-    print "all data is stored in sqlite db"
-         
+    if park_only:
+        dumpall()
+    else:
+        add_pushback_routes(lid,newid)
+        set_isOnRunway(lid)
+                  
+    print "number of AI ground networks:", groundnet_counter
+    print "all data is stored in groundnets.db"
+    print "now you can run sqlite2xml.py"
+
+           
    
         
         
