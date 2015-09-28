@@ -2,8 +2,9 @@
 
 various tools for [Flightgear](http://www.flightgear.org) development
 
-
 [contact me](http://wiki.flightgear.org/User:Laserman/)
+
+required: Python 2.x
 
 # managing apt.dat (the airports database)
 
@@ -26,14 +27,15 @@ or
     ./gateway_pull.py -s <sceneryId>
 
 ##aptdat2pg
-insert/update one of more airports into DB:
+insert/update one of more airports into Postgres DB:
 
     ./aptdat2pg.py -f INPUTFILE
 
 
 # Generating many groundnet files
 parking/startup locations for >7000 airports + groundnet including
-pushBackRoute Taxinodes and Taxiway Segments
+pushBackRoutes Taxinodes and Taxiway Segments. read more details in the comment
+at the beginning of the 2 python files
 
 * Step 1:
     aptdat2sqlite.py
@@ -42,7 +44,7 @@ pushBackRoute Taxinodes and Taxiway Segments
     sqlite2xml.py
 
 make_parkings.py is an older version of that tool. still ok,
-but it cannot handle 30000 airports.
+but it cannot handle 30000 airports and it does only parking, no other ground network.
 
 # from OpenStreetMap  to .stg file:
 
@@ -86,11 +88,31 @@ reads X-plane/WED/Flightgear apt.dat lines with taxi-sign information
 and writes stg lines for Flightgear scenery to stdout
 
 known limitation :
-* elevation is fixed for all signs 
+* elevation is the same for all signs 
 
 SYNOPSIS:
 
-    taxisigns2stg.py -f <input apt.dat file> -i <ICAO> -e <elevation>    >nnnnnn.stg
+    taxisigns2stg.py -f <input apt.dat file> -i <ICAO> -e <elevation in meters above MSL>    >nnnnnn.stg
+
+
+## taxisigns2aptdat
+reads .stg lines with OBJECT_SIGN and merges them with apt.dat (of ONE airport) into output.dat
+output.dat can then be imported and edited in WED and uploaded to the gateway
+
+SYNOPSIS:
+
+    taxisigns2aptdat.py -s <input .stg file> -a <input apt.dat file>
+
+
+
+
+## parkingxml2aptdat
+convert from Flightgear/TaxiDraw parking.xml or ICAO.groundnet.xml
+to "1300" type lines in apt.dat format
+
+SYNOPSIS:
+
+    parkingxml2aptdat.py -i inputfile.xml
 
 
 
@@ -169,7 +191,7 @@ You will find the file:
 
     Custom Scenery/Your-Project/earth.wed.xml
 
-That is the input file for the converter script:
+earth.wed.xml is the input file for the converter script
 
 wed2stg.py
 

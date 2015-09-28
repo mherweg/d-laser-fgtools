@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-# wed2stg.py  
+# wed2stg.py  - place ojects in WED and use them in Flightgear
+
+#
 # --------------------------------------------------------------------------
 # 
 # This program is free software; you can redistribute it and/or
