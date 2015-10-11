@@ -125,6 +125,13 @@ def main(argv):
     print("reading %s.zip" % icao)
 #    myZip = zipfile.ZipFile("%s.zip" % icao, "r")
     datstring = zip_fhandle.read("%s.dat" % icao)
+    try:
+	txtstring = zip_fhandle.read("%s.txt" % icao)
+    except:
+        print "(2D)"
+    else:
+        print " 3D :-)"
+
     dat_handle = StringIO()
     dat_handle.write(datstring)
     dat_handle.seek(0)
