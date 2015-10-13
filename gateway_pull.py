@@ -79,23 +79,31 @@ def main(argv):
     r1 = conn.getresponse()
     r2 = r1.read()
     result = json.loads(r2)
-
+    #print result
     encoded_zip = result["scenery"]["masterZipBlob"]
 
     blob = base64.b64decode(encoded_zip)
 
-    print "writing ", icao + ".zip"
+    #print "writing ", icao + ".zip"
     file = open(icao + ".zip","wb")
     file.write(blob)
     file.close()
 
-    print "reading ", icao + ".zip"
+    #print "reading ", icao + ".zip"
     myZip = zipfile.ZipFile(icao + ".zip","r")
+    
 
-    print "writing ", icao + ".dat"
+    print "writing ", icao + ".dat",
     myZip.extract(icao + ".dat")
+    try:
+        #print "writing ", icao + ".txt"
+        myZip.extract(icao + ".txt")
+    except:
+        print "(2D)"
+    else:
+        print " 3D :-)"
 
-    print "deleting ", icao + ".zip"
+    #print "deleting ", icao + ".zip"
     os.remove(icao + ".zip")
 
 

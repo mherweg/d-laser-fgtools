@@ -39,6 +39,13 @@
 # find Airports -type f  | wc -l
 # 7900 with parking
 
+# running time: approx. 6 minutes
+
+#grep -R -l "<arc" Airports | wc -l
+#920
+#grep -R -l Park Airports | wc -l
+#7970
+
 
 
 import sqlite3 as lite
@@ -46,7 +53,7 @@ import sys
 import os
 import re
 
-
+park_only=False
 
 def convert_lat(lat):
     if lat < 0:
@@ -61,23 +68,48 @@ def convert_lon(lon):
     else:
 		    lon2 = "E%d %f"%(int(abs(lon)), (abs(lon) - int(abs(lon)) )* 60)
     return (lon2)
+
+
+def find_dups(cur):
+    acout=0
+    #cur.execute("SELECT Aid,Pname,Lat,Lon,COUNT(*) FROM Parkings GROUP BY Lat,Lon HAVING COUNT(*) > 1")
+      #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
+    #cur.execute("SELECT Aid,NewId,Lat,Lon,Name,COUNT(*) FROM Taxinodes GROUP BY Lat,Lon HAVING COUNT(*) > 1")
+       #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")   
+    #cur.execute("SELECT Aid,OldId1,OldId2,Name,COUNT(*) FROM Arc GROUP BY Aid,OldId1,OldId2 HAVING COUNT(*) > 1")
+    #cur.execute("SELECT Aid,OldId1,OldId2,Name,COUNT(*) FROM Arc GROUP BY Aid,OldId1,OldId2 HAVING COUNT(*) > 1")
     
-
-
-
+    
+    rows = cur.fetchall()
+    for row in rows:
+        aid = row[0]
+        cur.execute("SELECT Id,Icao FROM Airports WHERE Id=:Aid", {"Aid": aid})
+        ap_rows = cur.fetchall()
+        for ap in ap_rows:
+            print ap[1] ,
+        print row
+    
 
 #Umlaute entfernen
 p = re.compile('[^a-zA-Z0-9]')
 
       
 found = False
+parking_counter=0
+groundnet_counter=0
 
 con = lite.connect('groundnets.db')
 with con:
-    cur = con.cursor()   
+    cur = con.cursor() 
+    
+    #find_dups(cur)
+    #exit(0)
+      
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='HI13')")
-    #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")    
-    cur.execute("SELECT Id,Icao FROM Airports")
+    #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")
+    #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN '0' AND 'M' ")
+    #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'N' AND 'Z' ")
+    cur.execute("SELECT Airports.Id,Airports.Icao FROM Airports  WHERE EXISTS (SELECT 1 FROM Parkings WHERE Airports.Id=Parkings.Aid)")
     rows = cur.fetchall()
     for row in rows:
         #print row
@@ -93,7 +125,7 @@ with con:
         #print prows, type(prows)
         if prows:
             #print "parkings found"
-       
+            parking_counter+=1
             for i in range(len(icao)-1):
                 path = os.path.join(path, icao[i])
                 if os.path.exists(path):
@@ -105,7 +137,7 @@ with con:
             #open file for writing
             gf = '.'.join([icao, 'groundnet.xml'])
             path = os.path.join(path, gf)
-            print path
+            print aid,path
             f = open(path, 'w')
             #write head
             f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n  <parkingList>\n')
@@ -134,42 +166,48 @@ with con:
             
             #write nodes
             #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
-            
-            cur.execute("SELECT Lat,Lon,NewId,isOnRunway,holdPointType FROM TaxiNodes WHERE Aid=:Aid", {"Aid": aid}) 
-            nodes = cur.fetchall()
-            if nodes:
-                f.write(' <TaxiNodes>\n')
-                for n in nodes:
-                    #TODO  holdPointType
-                    lat = convert_lat(n[0])
-                    lon = convert_lon(n[1])
-                    #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
-                    #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
-                    f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
-                    
-                
-                f.write(' </TaxiNodes>\n')
-            
-            # write arc
-            # but only taxiways, not runways       WHERE Aid=:Aid AND twrw LIKE "taxiway"
-            #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
-            # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
-            
-            cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw LIKE "taxiway"', {"Aid": aid}) 
-            arcs = cur.fetchall()
-            if arcs:
-                f.write(' <TaxiWaySegments>\n')
-                for a in arcs:
-                    f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
-                    if a[2]=="twoway":
-                        f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
+            if not park_only:
+                cur.execute("SELECT Lat,Lon,NewId,isOnRunway,holdPointType FROM TaxiNodes WHERE Aid=:Aid", {"Aid": aid}) 
+                nodes = cur.fetchall()
+                if nodes:
+                    groundnet_counter+=1
+                    f.write(' <TaxiNodes>\n')
+                    for n in nodes:
+                        #TODO  holdPointType
+                        lat = convert_lat(n[0])
+                        lon = convert_lon(n[1])
+                        #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
+                        #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
+                        f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
                         
+                    
+                    f.write(' </TaxiNodes>\n')
                 
-                f.write(' </TaxiWaySegments>\n')
+                # write arc
+                # but only taxiways, not runways       WHERE Aid=:Aid AND twrw LIKE "taxiway"
+                #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
+                # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
+                
+                cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw LIKE "taxiway"', {"Aid": aid}) 
+                arcs = cur.fetchall()
+                if arcs:
+                    f.write(' <TaxiWaySegments>\n')
+                    for a in arcs:
+                        f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
+                        if a[2]=="twoway":
+                            f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
+                            
+                    
+                    f.write(' </TaxiWaySegments>\n')
             
             f.write("</groundnet>\n")
             #close file
             f.close()
+        else:
+            print ".",
+
+print "number of airports with parking locations:", parking_counter            
+print "number of AI ground networks:", groundnet_counter
         
         
         
