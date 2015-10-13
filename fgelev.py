@@ -19,7 +19,7 @@ class Probe_fgelev(object):
        By default, queries are cached. Call save_cache() to
        save the cache to disk before freeing the object.
     """
-    def __init__(self, path_to_fgelev, path_to_scenery, fake=False, cache=True, auto_save_every=50000):
+    def __init__(self, path_to_fgelev, path_to_scenery, inputfilename, fake=False, cache=True, auto_save_every=50000):
         """Open pipe to fgelev.
            Unless disabled by cache=False, initialize the cache and try to read
            it from disk. Automatically save the cache to disk every auto_save_every misses.
@@ -33,7 +33,8 @@ class Probe_fgelev(object):
         self.fgelev_pipe = None
             
         if cache:
-            self.pkl_fname = 'elev.pkl'
+            self.pkl_fname = inputfilename+ '_elev.pkl'
+            #print inputfilename
             try:
                 logger.info("Loading %s", self.pkl_fname)
                 fpickle = open(self.pkl_fname, 'rb')
@@ -48,7 +49,7 @@ class Probe_fgelev(object):
 
     def open_fgelev(self):
         logger.info("Spawning fgelev")
-        fg_root = "$FG_ROOT"
+        fg_root = "/usr/share/games/flightgear"
         self.fgelev_pipe = subprocess.Popen(self.path_to_fgelev + ' --expire 1000000 --fg-root ' + fg_root + ' --fg-scenery '+ self.PATH_TO_SCENERY, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         # -- This should catch spawn errors, but it doesn't. We 
         #    check for sane return values on fgelev calls later.

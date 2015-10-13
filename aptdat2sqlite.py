@@ -53,7 +53,8 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "apt.dat"
+input_filename = "apt.dat.18.9.2015all"
+input_filename = "EDDL.dat"
 infile = open(input_filename, 'r')
 
 #exclude = ("KPHX","KJFK",)
@@ -120,14 +121,12 @@ def dumpall():
     for row in rows:
         print row
         
-def connect_parkings(lid):   
+def connect_parkings(lid): 
+    # !!! depricated !!!
     # connect  the parking spots to their nearest node
     # and add this node als pushback route for that spot
     # -------- not used any more. see: add_pushback_routes
-    #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
-    #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
-    #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
-  
+   
     cur = con.cursor()    
     cur.execute("SELECT NewId,Lat,Lon,Pname,pushBackRoute FROM Parkings WHERE Aid = ? ",(lid,))
     parkings = cur.fetchall()
@@ -173,7 +172,7 @@ def set_isOnRunway(lid):
         
         
 def add_pushback_routes(lid,newid):
-    # add a straight part, then connet to texiway
+    # add a straight part, then connet to taxiway
     cur = con.cursor()    
     cur.execute("SELECT NewId,Lat,Lon,Pname,Heading FROM Parkings WHERE Aid = ? ",(lid,))
     parkings = cur.fetchall()    
@@ -252,7 +251,7 @@ with con:
                     if lid >= 0 :
                         groundnet_counter+=1
                         add_pushback_routes(lid,newid)
-                        #connect_parkings(lid)
+                        connect_parkings(lid)
                         set_isOnRunway(lid)
                         print icao
                         has_groundnet=False
@@ -288,16 +287,19 @@ with con:
                         #print "type:", result.group(4),
                         
                         xptype = result.group(4)
-                        
+                        radius = 10
                         if xptype == "tie-down":
                             fgtype = "ga"
                         else:
                             fgtype = "gate"
-                       
+                        #http://wiki.flightgear.org/Aircraft_radii
+                        # a320, b737 : 19
+                        # fokker100  : 18
+                        
                         #xp services    -> FG radius
                         #heavy              44
                         #jets               24
-                        #turboprops         21
+                        #turboprops         19
                         #props              10
                         #helos               8
                         
@@ -316,7 +318,7 @@ with con:
                         elif "jet" in sl:
                             radius = 24
                         elif "turboprops" in sl:
-                            radius = 24
+                            radius = 19
                         elif "props" in sl:
                             radius = 10
                             fgtype = "ga"
@@ -408,6 +410,7 @@ with con:
     else:
         add_pushback_routes(lid,newid)
         set_isOnRunway(lid)
+        groundnet_counter+=1
                   
     print "number of AI ground networks:", groundnet_counter
     print "all data is stored in groundnets.db"

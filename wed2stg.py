@@ -39,6 +39,11 @@
 # objects/    = Custom Scenery/ICAO/objects
 # objects/foo = Custom Scenery/ICAO/objects/foo
 
+#"lib/airport/Ramp_Equipment/Jetway_500cm.obj"/>
+#"lib/airport/Ramp_Equipment/Jetway_250cm.obj"/>
+#"lib/airport/Ramp_Equipment/Uni_Jetway.obj"/>
+
+
 import sys, getopt
 import xml.etree.ElementTree as ET
 
@@ -97,18 +102,22 @@ def main(argv):
                             xppath = ccc.attrib['resource']
                             model =  xppath.replace("objects/", "")
                             model = model.replace(".obj", "")
-                            #TODO: ignore the "lib/...." stuff
+                            
+                            l = model.find("lib/")
+                            if (l != -1):
+                                model = "Models/" + model + ".xml"
                             place=True
                     if point and place:
 						#TODO: maybe use fgelev in the future
-						a = model.find('Models/')
-						if (a == -1):
-							print "OBJECT_STATIC", model, lon,lat, elev, heading
-						else:
+						#a = model.find('Models/')
+                        a=0
+                        if (a == -1):
+                            print "OBJECT_STATIC", model, lon,lat, elev, heading
+                        else:
 							print "OBJECT_SHARED", model, lon,lat, elev, heading
-						point=False
-						place=False
-						ncount+=1
+                        point=False
+                        place=False
+                        ncount+=1
        
                  
                     

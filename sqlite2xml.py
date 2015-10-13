@@ -68,7 +68,28 @@ def convert_lon(lon):
     else:
 		    lon2 = "E%d %f"%(int(abs(lon)), (abs(lon) - int(abs(lon)) )* 60)
     return (lon2)
+
+
+def find_dups(cur):
+    acout=0
+    #cur.execute("SELECT Aid,Pname,Lat,Lon,COUNT(*) FROM Parkings GROUP BY Lat,Lon HAVING COUNT(*) > 1")
+      #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
+    #cur.execute("SELECT Aid,NewId,Lat,Lon,Name,COUNT(*) FROM Taxinodes GROUP BY Lat,Lon HAVING COUNT(*) > 1")
+       #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")   
+    #cur.execute("SELECT Aid,OldId1,OldId2,Name,COUNT(*) FROM Arc GROUP BY Aid,OldId1,OldId2 HAVING COUNT(*) > 1")
+    #cur.execute("SELECT Aid,OldId1,OldId2,Name,COUNT(*) FROM Arc GROUP BY Aid,OldId1,OldId2 HAVING COUNT(*) > 1")
     
+    
+    rows = cur.fetchall()
+    for row in rows:
+        aid = row[0]
+        cur.execute("SELECT Id,Icao FROM Airports WHERE Id=:Aid", {"Aid": aid})
+        ap_rows = cur.fetchall()
+        for ap in ap_rows:
+            print ap[1] ,
+        print row
+    
+
 #Umlaute entfernen
 p = re.compile('[^a-zA-Z0-9]')
 
@@ -79,7 +100,11 @@ groundnet_counter=0
 
 con = lite.connect('groundnets.db')
 with con:
-    cur = con.cursor()   
+    cur = con.cursor() 
+    
+    #find_dups(cur)
+    #exit(0)
+      
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='HI13')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN '0' AND 'M' ")
