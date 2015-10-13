@@ -52,13 +52,14 @@ logger = logging.getLogger('dsf2stg')
 logger.setLevel("DEBUG")
 
 libfilename="library.txt"
-inputfilename="EDLM.txt"
+inputfilename="EDDF.txt"
 path_to_stg =inputfilename
 alt = 72
 
 path_to_fgelev = "fgelev"
 path_to_scenery = "/home/mherweg/.fgfs/TerraSync/"
-elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery)
+
+elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
 OUR_MAGIC = "dsf2stg"
 
 objects = []
@@ -82,7 +83,7 @@ class Object_def(object):
 
 
 class Object(object):
-    def __init__(self, obj_def, lon, lat, hdg, fgpath, msl=None):
+    def __init__(self, obj_def, lon, lat, hdg, fgpath,zoff, msl=None):
         self.pos = vec2d(lon, lat)
         self.hdg = hdg
         self.msl = msl
@@ -91,6 +92,7 @@ class Object(object):
         self.ext = obj_def.ext
         self.textures_list = []
         self.fgpath=fgpath
+        self.zoff=zoff
     
     def __str__(self):
         return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
@@ -155,9 +157,9 @@ def read_obj_def(infile):
     od=[]
     ID=0
     for line in infile:
-        line = line.strip()
+        #line = line.strip()
         #print line
-        if line.startswith("OBJECT_DEF "):
+        if line.startswith("OBJECT_DEF"):
             cols = line.split()
             xpath = cols[1]
             od.append(xpath)
@@ -184,10 +186,11 @@ def read_obj(infile,od):
                 lon = float(col[2])
                 lat =float(col[3])
                 heading = (360 - float(col[4]) ) +hoff
+                
                 if heading >= 360:
                     heading = heading - 360
                 
-                o = Object(objects_def[index], lon, lat, heading,fgpath)  
+                o = Object(objects_def[index], lon, lat, heading,fgpath,zoff)  
                 objects.append(o)  
                 #stg_file_name = calc_tile.construct_stg_file_name(o.pos)
                 #stg_path = calc_tile.construct_path_to_stg(path_to_fg_out, o.pos)
@@ -237,14 +240,14 @@ def main():
         for o in objects:
             if o.msl == None:
                 if True: 
-                    o.msl = elev_prober(o.pos)
+                    o.msl = elev_prober(o.pos) + o.zoff
                 else:
-                    o.msl = 0.
-                #logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
+                    o.msl = 72
+                logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
             else:
                 #pass
                 logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
-            stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, 90-o.hdg)
+            stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
             linecount+=1
         elev_prober.save_cache()
         
