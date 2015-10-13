@@ -1,16 +1,16 @@
 lib/cars/car_static.obj Models/Transport/hatchback_red.ac 0 0 0 0
 lib/airport/Common_Elements/Parking/10_Spaces_dual.obj Models/StreetFurniture/10_spaces_dual.ac 0 0 0 90 
-lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
-lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
-lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
-lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
-lib/airport/Ramp_Equipment/Jetway_500cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
-lib/airport/Ramp_Equipment/Jetway_250cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
-lib/airport/Ramp_Equipment/Jetway_400cm.obj Models/Airport/Jetway/generic.ac 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Jetway_500cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Jetway_250cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Jetway_400cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/Airport/RampParkingStripe.ac 0 0 0 0
 lib/g10/global_objects/CafeTbls4x2.obj Models/Misc/picnic_table.ac 0 0 0 0
 lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj Models/Misc/picnic_table.ac 0 0 0 0
-lib/airport/Ramp_Equipment/GPU_1.obj Models/Airport/Vehicles/generic-GPU.xml 0 0 0 0
+lib/airport/Ramp_Equipment/GPU_1.obj Models/Airport/Vehicle/generic-GPU.xml 0 0 0 0
 lib/g10/forests/autogen_tree1.obj Models/Trees/deciduous-tree.xml 0 0 0 0 
 lib/g10/forests/autogen_tree2.obj Models/Trees/deciduous-tree.xml 0 0 0 0 
 lib/g10/forests/autogen_tree3.obj Models/Trees/deciduous-tree.xml 0 0 0 0 
@@ -64,7 +64,7 @@ lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/
 #lib/airport/Common_Elements/Parking_Items/Row_of_Cars_2.agp
 #lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp
 #lib/airport/Common_Elements/Parking_Items/Row_of_Cars_6.agp
-lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle/fedextruck.xml
+lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle/fedextruck.xml 0 0 0 90
 #PRIVATE
 #lib/airport/Common_Elements/Vehicles/comTruck_Base.obj
 #PUBLIC
@@ -120,12 +120,14 @@ lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle
 lib/airport/aircraft/GA/Cessna_172.obj Models/Aircraft/Cessna172_red.xml 
 #lib/airport/aircraft/GA/KingAirC90B.obj
 #lib/airport/aircraft/GA/Osprey_GP5.obj
-#lib/airport/aircraft/heavy_metal/747_United.obj
+
+lib/airport/aircraft/heavy_metal/747_United.obj Models/Aircraft/B747.xml 0 0 0 90
+
 #PRIVATE
 #lib/airport/Classic_Airports/Facades/10m_RTU.obj
 #lib/airport/Classic_Airports/Facades/aCLTerm2_chairs.obj
 #PUBLIC
-lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Large.obj Models/Industrial/generic_tank_050m_grey.ac 0 0 -80 0
+lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Large.obj Models/Airport/egkk_oil.xml
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Medium.obj Models/Industrial/generic_tank_030m_grey.ac 0 0 -85 0
 lib/airport/Common_Elements/Fuel_Storage/Single_Tank_Large.obj Models/Industrial/generic_tank_020m_grey.ac 0 0 -90 0
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Small.obj Models/Industrial/generic_tank_005m_grey.ac 0 0 -90 0
@@ -238,60 +240,50 @@ lib/airport/Common_Elements/Miscellaneous/Tree.obj Models/Trees/platanus_acerifo
 #lib/airport/Common_Elements/Parking/Yellow_Lines_8-1.obj
 #lib/airport/Common_Elements/Parking/Yellow_Triangle-1.obj
 #lib/airport/Common_Elements/Parking/Yellow_Triangle-2.obj
-#lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj
+lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj Models/Airport/Vehicle/fedextruck.xml 0 0 0 270
+lib/airport/Common_Elements/Vehicles/Cargo_Truck.obj Models/Airport/Vehicle/fedextruck.xml 0 0 0 270
 
-#lib/airport/Common_Elements/Vehicles/Cargo_Truck.obj
-#lib/airport/Common_Elements/vehicles/Small_Fuel_Truck.obj
-#lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj
+lib/airport/Common_Elements/vehicles/Small_Fuel_Truck.obj Models/Airport/Vehicle/citerne.xml
+lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj Models/Airport/Vehicle/citerne.xml
 #lib/airport/Common_Elements/Water_Towers/1990.obj
-#PRIVATE
-#lib/airport/Common_Elements/Miscellaneous/Term2_AC_onRoof.obj
-#lib/airport/Modern_Airports/Facades/com_Term_chairs.obj
-#lib/airport/KSEA_only/SEATowerCab1.obj
-#lib/airport/KSEA_only/SEATowerCab2.obj
-#PUBLIC
-#lib/airport/Ramp_Equipment/Jetway_250cm.obj
-#lib/airport/Ramp_Equipment/Jetway_400cm.obj
-#lib/airport/Ramp_Equipment/Jetway_500cm.obj
-#lib/airport/Ramp_Equipment/Belt_Loader.obj
-#lib/airport/Ramp_Equipment/Cargo_Container_1.obj
-#lib/airport/Ramp_Equipment/Cargo_Container_6.obj
+
+lib/airport/Ramp_Equipment/Belt_Loader.obj Models/Airport/loader.xml
+lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/Airport/cargobox.xml
+lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/Airport/cargoip.xml
+
 #lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj
 #lib/airport/Ramp_Equipment/Cargo_Dolly_wPod.obj
 #lib/airport/Ramp_Equipment/Cargo_Loader_1.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_1.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_1.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_2.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_2.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_2.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_1.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_3.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_3.obj
-#lib/airport/Ramp_Equipment/Cargo_Palette_3.obj
+
+lib/airport/Ramp_Equipment/Cargo_Palette_1.obj Models/Airport/cargobox.xml
+lib/airport/Ramp_Equipment/Cargo_Palette_2.obj Models/Airport/cargoip.xml
+lib/airport/Ramp_Equipment/Cargo_Palette_3.obj Models/Airport/cargoim.xml
+
 #lib/airport/Ramp_Equipment/Cargo_Pod_Pkng.obj
-#lib/airport/Ramp_Equipment/GPU_1.obj
-#lib/airport/Ramp_Equipment/JetWayExt_4m.obj
-#lib/airport/Ramp_Equipment/JetWayEx_10m.obj
-#lib/airport/Ramp_Equipment/JetWayEx_12m.obj
-#lib/airport/Ramp_Equipment/JetWayEx_14m.obj
-#lib/airport/Ramp_Equipment/JetWayEx_16m.obj
-#lib/airport/Ramp_Equipment/JetWayEx_8m.obj
+
+lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_10m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90 
+lib/airport/Ramp_Equipment/JetWayEx_12m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_14m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_16m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
+
 #lib/airport/Ramp_Equipment/JetWayWallBase.obj
 #lib/airport/Ramp_Equipment/Lugg_Cart_Group.obj
 #lib/airport/Ramp_Equipment/Lugg_Train_3.obj
 #lib/airport/Ramp_Equipment/Lugg_Train_Group.obj
 #lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj
+
+lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj Models/Airport/Vehicle/chariot.xml
+lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj Models/Airport/Vehicle/chariot.xml
+lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/Airport/Vehicle/chariot.xml
+
 #lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj
+
+lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/Airport/Vehicle/chariot.xml
+
 #lib/airport/Ramp_Equipment/Luggage_Cart.obj
 #lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj
 #lib/airport/Ramp_Equipment/Luggage_Truck.obj
 #lib/airport/Ramp_Equipment/Ramp_Parking.obj
-#lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj
 #lib/airport/Ramp_Equipment/Tar_Marks1.obj
-#lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj
-#lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj
-#lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj
