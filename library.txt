@@ -27,23 +27,23 @@ lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/
 #lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/Avgas_Pump.ac 0 0 0 0
 
 #lib/airport/Common_Elements/Hangars/FBO_Modern1.agp Models/Airport/fbo.ac
-lib/airport/Common_Elements/Hangars/FBO_Modern1.agp Models/lib/fboModern1.ac
+lib/airport/Common_Elements/Hangars/FBO_Modern1.agp Models/lib/fboModern1.ac 0 0 0 90
 
-lib/airport/Common_Elements/Hangars/Lg_Maint_Blue.agp Models/lib/LgMaint.ac
-lib/airport/Common_Elements/Hangars/Lg_Maint_Brown.agp Models/lib/LgMaint.ac
-lib/airport/Common_Elements/Hangars/Lg_Maint_Gray.agp Models/lib/LgMaint.ac
-lib/airport/Common_Elements/Hangars/Lg_Maint_Orange.agp Models/lib/LgMaint.ac
-lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp Models/lib/LongRow.ac
-lib/airport/Common_Elements/Hangars/Long_Row_Green.agp Models/lib/LongRow.ac
-lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp Models/lib/MedHangar.ac
-lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp Models/lib/MedHangar.ac
-lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp Models/lib/MedHangar.ac
-lib/airport/Common_Elements/Hangars/Med_Orange_Hangar.agp Models/lib/MedHangar.ac
-lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp Models/lib/SmHangar.ac
-lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
-lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
-lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
-lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Lg.agp Models/lib/FireStationLg.ac
+lib/airport/Common_Elements/Hangars/Lg_Maint_Blue.agp Models/lib/LgMaint.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Lg_Maint_Brown.agp Models/lib/LgMaint.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Lg_Maint_Gray.agp Models/lib/LgMaint.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Lg_Maint_Orange.agp Models/lib/LgMaint.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp Models/lib/LongRow.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Long_Row_Green.agp Models/lib/LongRow.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp Models/lib/MedHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp Models/lib/MedHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp Models/lib/MedHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Med_Orange_Hangar.agp Models/lib/MedHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
+lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Lg.agp Models/lib/FireStationLg.ac 0 0 0 90
 
 #lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Sm.agp
 #lib/airport/Common_Elements/Misc_Buildings/Large_Office_1.agp

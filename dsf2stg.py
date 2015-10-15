@@ -52,7 +52,7 @@ logger = logging.getLogger('dsf2stg')
 logger.setLevel("DEBUG")
 
 libfilename="library.txt"
-inputfilename="EDDF.txt"
+inputfilename="foo.txt"
 path_to_stg =inputfilename
 alt = 72
 
