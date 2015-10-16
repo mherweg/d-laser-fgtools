@@ -248,13 +248,13 @@ lib/airport/Common_Elements/vehicles/Small_Fuel_Truck.obj Models/Airport/Vehicle
 lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj Models/Airport/Vehicle/citerne.xml
 #lib/airport/Common_Elements/Water_Towers/1990.obj
 
-lib/airport/Ramp_Equipment/Belt_Loader.obj Models/Airport/loader.xml
-lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/Airport/cargobox.xml
-lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/Airport/cargoip.xml
+lib/airport/Ramp_Equipment/Belt_Loader.obj Models/lib/belt_loader.ac
+lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/lib/container1.ac
+lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/lib/container6.ac
 
 #lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj
 #lib/airport/Ramp_Equipment/Cargo_Dolly_wPod.obj
-#lib/airport/Ramp_Equipment/Cargo_Loader_1.obj
+#lib/airport/Ramp_Equipment/Cargo_Loader_1.obj Models/lib/loader.ac
 
 lib/airport/Ramp_Equipment/Cargo_Palette_1.obj Models/Airport/cargobox.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_2.obj Models/Airport/cargoip.xml
