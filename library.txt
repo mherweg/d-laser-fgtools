@@ -262,12 +262,12 @@ lib/airport/Ramp_Equipment/Cargo_Palette_3.obj Models/Airport/cargoim.xml
 
 #lib/airport/Ramp_Equipment/Cargo_Pod_Pkng.obj
 
-lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_10m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90 
-lib/airport/Ramp_Equipment/JetWayEx_12m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_14m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_16m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/Airport/Jetway/jetway-10.xml 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/lib/jetway_e4m.ac 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_10m.obj Models/lib/jetway_e10m.ac 0 0 0 -90 
+lib/airport/Ramp_Equipment/JetWayEx_12m.obj Models/lib/jetway_e12m.ac 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_14m.obj Models/lib/jetway_e14m.ac 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_16m.obj Models/lib/jetway_e16m.ac 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/lib/jetway_e8m.ac 0 0 0 -90
 
 #lib/airport/Ramp_Equipment/JetWayWallBase.obj
 #lib/airport/Ramp_Equipment/Lugg_Cart_Group.obj
