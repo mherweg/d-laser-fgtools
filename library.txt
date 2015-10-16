@@ -1,5 +1,9 @@
 lib/cars/car_static.obj Models/Transport/hatchback_red.ac 0 0 0 0
-lib/airport/Common_Elements/Parking/10_Spaces_dual.obj Models/StreetFurniture/10_spaces_dual.ac 0 0 0 90 
+lib/airport/Common_Elements/Parking_Items/Row_of_Cars_10.agp Models/lib/cars10.ac 0 0 0 90
+lib/airport/Common_Elements/Parking_Items/Row_of_Cars_6.agp Models/lib/cars6.ac 0 0 0 90
+lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp Models/lib/cars4.ac 0 0 0 90
+lib/airport/Common_Elements/Parking_Items/Row_of_Cars_2.agp Models/lib/cars2.ac 0 0 0 90
+lib/airport/Common_Elements/Parking/10_Spaces_dual.obj Models/StreetFurniture/10_spaces_dual.ac 0 0 0 180 
 lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
@@ -169,9 +173,8 @@ lib/airport/Common_Elements/Misc_Buildings/com_Office2.obj Models/Commercial/Off
 #lib/airport/Common_Elements/Miscellaneous/Flagpole.obj
 #lib/airport/Common_Elements/Miscellaneous/Large_AC_on_Pad.obj
 #lib/airport/Common_Elements/Miscellaneous/Med_AC_on_Pad.obj
-lib/airport/Common_Elements/Miscellaneous/One_Traffic_Cone.obj Models/Misc/Yellow_Cone.ac
+lib/airport/Common_Elements/Miscellaneous/One_Traffic_Cone.obj Models/lib/cone.ac
 #lib/airport/Common_Elements/Miscellaneous/Pad_Tansformer.obj
-lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj
 #lib/airport/Common_Elements/Miscellaneous/Porta_Potty_1.obj
 #lib/airport/Common_Elements/Miscellaneous/Porta_Potty_2.obj
 #lib/airport/Common_Elements/Parking/Bollard.obj
@@ -188,7 +191,7 @@ lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj
 #lib/airport/Common_Elements/Miscellaneous/AC_Cond_noFence.obj
 #lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
 #lib/airport/Common_Elements/Miscellaneous/Square_Trash_Can.obj
-#lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj Models/lib/stack_of_cones.ac
 #lib/airport/Common_Elements/Parking/Ticket_Dispense_Station.obj
 #lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj
 lib/airport/Common_Elements/Miscellaneous/Tree.obj Models/Trees/platanus_acerifolia_15m.xml
@@ -196,7 +199,7 @@ lib/airport/Common_Elements/Miscellaneous/Tree.obj Models/Trees/platanus_acerifo
 
 #lib/airport/Common_Elements/Parking/1_CarStop.obj
 #lib/airport/Common_Elements/Parking/1_Space_Dual.obj
-lib/airport/Common_Elements/Parking/20_Spaces_dual.obj Models/StreetFurniture/20_spaces_dual.ac
+lib/airport/Common_Elements/Parking/20_Spaces_dual.obj Models/StreetFurniture/20_spaces_dual.ac 0 0 0 180
 #lib/airport/Common_Elements/Parking/2_CarStop.obj
 #lib/airport/Common_Elements/Parking/2_Space_Dual.obj
 #lib/airport/Common_Elements/Parking/2space_wStop.obj
@@ -248,13 +251,13 @@ lib/airport/Common_Elements/vehicles/Small_Fuel_Truck.obj Models/Airport/Vehicle
 lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj Models/Airport/Vehicle/citerne.xml
 #lib/airport/Common_Elements/Water_Towers/1990.obj
 
-lib/airport/Ramp_Equipment/Belt_Loader.obj Models/lib/belt_loader.ac
+lib/airport/Ramp_Equipment/Belt_Loader.obj Models/lib/belt_loader.ac 0 0 0 -90
 lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/lib/container1.ac
 lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/lib/container6.ac
 
 #lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj
 #lib/airport/Ramp_Equipment/Cargo_Dolly_wPod.obj
-#lib/airport/Ramp_Equipment/Cargo_Loader_1.obj Models/lib/loader.ac
+lib/airport/Ramp_Equipment/Cargo_Loader_1.obj Models/lib/loader.ac 0 0 0 -90
 
 lib/airport/Ramp_Equipment/Cargo_Palette_1.obj Models/Airport/cargobox.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_2.obj Models/Airport/cargoip.xml
@@ -271,17 +274,15 @@ lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/lib/jetway_e8m.ac 0 0 0 -90
 
 #lib/airport/Ramp_Equipment/JetWayWallBase.obj
 #lib/airport/Ramp_Equipment/Lugg_Cart_Group.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_3.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_Group.obj
-#lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj
+lib/airport/Ramp_Equipment/Lugg_Train_3.obj Models/lib/chariot3curve.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Group.obj Models/lib/caisses_group.ac 0 0 0 90
 
-lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj Models/Airport/Vehicle/chariot.xml
-lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj Models/Airport/Vehicle/chariot.xml
-lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/Airport/Vehicle/chariot.xml
-
-#lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj
-
-lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/Airport/Vehicle/chariot.xml
+lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj Models/lib/chariot1.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj Models/lib/chariot2.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj Models/lib/chariot3.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/lib/chariot4.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj Models/lib/chariot5.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/chariot5.ac 0 0 0 90
 
 #lib/airport/Ramp_Equipment/Luggage_Cart.obj
 #lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj
