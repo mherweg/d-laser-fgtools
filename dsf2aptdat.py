@@ -20,7 +20,7 @@
 
 # work in progress 
 
-#convert fcade polygons from dsf-txt files into taxiway polygons for apt.dat
+#convert facade polygons from dsf-txt files into taxiway polygons for apt.dat
 
 #INPUT dsf/txt:
 
@@ -72,16 +72,17 @@
 
 
 
-import os, sys, getopt
+import os, sys, getopt, fileinput, subprocess
 helptext = './dsf2aptdat.py -i ICAO'
 
 class Polygon(object):
-    def __init__(self, ID, a,b,c):
+    def __init__(self, ID, a,b,c,text):
         self.edges=[]
         self.ID = ID
         self.a = a
         self.b = b
         self.c = c
+        self.text = text
     def out(self):
         print(self.ID, self.a,self.b,self.c)
         for e in self.edges:
@@ -111,18 +112,20 @@ def read_poly_def(infile):
      
     return pd
     
-def read_poly(infile):
+def read_poly(infile,pd):
     polys=[]
     ID=0
     for line in infile:
         if line.startswith("BEGIN_POLYGON"):
             col = line.split()
-            poly=Polygon(ID,col[1],col[2],col[3])
+            text = pd[int(col[1])]
+            poly=Polygon(ID,col[1],col[2],col[3],text)
+            text = pd[int(poly.a)]
         if line.startswith("BEGIN_WINDING"):
             green=True
         if line.startswith("POLYGON_POINT") and green:
             col = line.split()
-            if len(col)==3:
+            if len(col)==3 or len(col)==4 :
                 #sharp edge
                 #print "sharp edge"
                 edge = Edge(111,col[1],col[2])
@@ -141,28 +144,69 @@ def read_poly(infile):
             #last edge
             edge.style =edge.style+2
             ID+=1
-            #poly.out()
-            polys.append(poly)
+            
+            #whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
+            if text.find("Building") >=0 or text.find("pavement") >=0 or text.find("Fenced_Parking") >=0:
+                print text
+                poly.out()
+                polys.append(poly)
+            else:
+                print "ignoring:", text
+           
     return (polys)
         
-def write_aptdat(polys):
+def write_aptdat(polys,icao):
     #print header, runways
-    for p in polys:
-        print "110 1 0.00 162.0000 Asphalt Taxiway from DSF"
-        for e in p.edges:
-            if e.style == 111:
-                print "111  %s  %s"%(e.y1,e.x1)
-            if e.style == 112:
-                print "112  %s  %s  %s  %s"%(e.y1,e.x1,e.y2,e.x2)
-            if e.style == 113:
-                print "113  %s  %s"%(e.y1,e.x1)
-            if e.style == 114:
-                print "114  %s  %s  %s  %s"%(e.y1,e.x1,e.y2,e.x2)
+    
+    index = 0
+    # modify the ICAO.dat file inplace, write the original version to NAME.dat.bak
+    # no "print" for debugging allowed in this loop
+    # because stdout is written to the ICAO.dat
+    datfilename = icao + ".dat"
+   
+    for line in fileinput.input(files=(datfilename),inplace=1, backup='.bak'):
+        #sys.stderr.write(".")
+        if line.startswith("100 "):
+            #runway found
+            sys.stdout.write(line)
+            #sys.stderr.write(line)
+            #insert my stuff
+            for p in polys:
+                if p.text.find("Building") >=0:
+                    surface_type = "5"  #gravel
+                else:
+                    surface_type = "1"  # asphalt     
+                l = "110  %s 0.00 0.0000 Polygon from DSF %s \r\n"%(surface_type, p.text)
+                sys.stdout.write(l)
+                for e in p.edges:
+                    if e.style == 111:
+                        l= "111  %s  %s\r\n"%(e.y1,e.x1)
+                        sys.stdout.write(l)
+                        #sys.stderr.write("111")
+                    if e.style == 112:
+                        l= "112  %s  %s  %s  %s\r\n"%(e.y1,e.x1,e.y2,e.x2)
+                        sys.stdout.write(l)
+                        #sys.stderr.write("112")
+                    if e.style == 113:
+                        l= "113  %s  %s\r\n"%(e.y1,e.x1)
+                        sys.stdout.write(l)
+                        #sys.stderr.write(l)
+                    if e.style == 114:
+                        l= "114  %s  %s  %s  %s\r\n"%(e.y1,e.x1,e.y2,e.x2)
+                        sys.stdout.write(l)
+                        #sys.stderr.write(l)
+            
+        else:
+            sys.stdout.write(line)
+        
+        
+    
+   
     #print all the rest + 99
             
 
 def main(argv):
-    icao="foo"
+    icao="KSFO"
     counter = 0
    
     try:
@@ -183,15 +227,16 @@ def main(argv):
     except:
         print "input file ", inputfilename, "not found"
         sys.exit()
+    print "reading..."
     pd = read_poly_def(infile)
     #print len(pd) , "polygon definitions found in ", inputfilename
     
     infile.seek(0)
-    polys = read_poly(infile) 
+    polys = read_poly(infile,pd) 
     #for p in polys:
     #    p.out()
-    
-    write_aptdat(polys)
+    print "writing..."
+    write_aptdat(polys,icao)
     
     
     

@@ -72,7 +72,8 @@ def download_stgtxt(sid,icao):
 
 
 # main
-
+c=0
+threedee=0
 try:  
     infile = open(inputfilename, 'r')
 except:
@@ -86,13 +87,21 @@ for a in airports:
     if a['SceneryType'] == 0:
         pass
     else:
+        threedee+=1
+        print threedee,
         icao = a['AirportCode']
         sid = a['RecommendedSceneryId']
         # only download if we do not have it
+        
         if os.path.isfile(icao + ".txt"):
             print "not downloading" , icao
         else:
             download_stgtxt(sid,icao)
+    c+=1
+    
+print "total:", c
+
+
         
 
 
