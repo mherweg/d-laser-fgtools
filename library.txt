@@ -94,9 +94,9 @@ lib/airport/Ramp_Equipment/400cm_Jetway_3.agp Models/Airport/Jetway/jetway.xml 0
 lib/airport/Ramp_Equipment/400cm_Jetway_Group.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/500cm_Jetway_Group.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 
-#lib/airport/Ramp_Equipment/Cargo_Pallete_Pkng.agp
+lib/airport/Ramp_Equipment/Cargo_Pallete_Pkng.agp Models/lib/CargoPalettePkng.ac 0 0 0 90
 
-lib/airport/Ramp_Equipment/Cargo_Pod_Lot.agp 0 0 0 90
+lib/airport/Ramp_Equipment/Cargo_Pod_Lot.agp Models/lib/cargo_pod_lot.ac 0 0 0 90
 
 #lib/airport/Ramp_Equipment/Ramp_Group_Medium.agp
 #lib/airport/Ramp_Equipment/Ramp_Group_Narrow.agp
@@ -275,7 +275,7 @@ lib/airport/Ramp_Equipment/Cargo_Palette_1.obj Models/Airport/cargobox.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_2.obj Models/Airport/cargoip.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_3.obj Models/Airport/cargoim.xml
 
-#lib/airport/Ramp_Equipment/Cargo_Pod_Pkng.obj
+lib/airport/Ramp_Equipment/Cargo_Pod_Pkng.obj Models/lib/CargoPodPkng.ac 0 0 0 -90
 
 lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/lib/jetway_e4m.ac 0 0 0 -90
 lib/airport/Ramp_Equipment/JetWayEx_10m.obj Models/lib/jetway_e10m.ac 0 0 0 -90 
@@ -296,8 +296,64 @@ lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/lib/chariot4.ac 0 0 0
 lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj Models/lib/chariot5.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/chariot5.ac 0 0 0 90
 
-#lib/airport/Ramp_Equipment/Luggage_Cart.obj
-#lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj
+lib/airport/Ramp_Equipment/Luggage_Cart.obj Models/lib/cargobox2x3m.ac
+lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj Models/lib/LuggCartPkng.ac 0 0 0 -90
 lib/airport/Ramp_Equipment/Luggage_Truck.obj Models/lib/chariot1.ac 0 0 0 90
 #lib/airport/Ramp_Equipment/Ramp_Parking.obj
 #lib/airport/Ramp_Equipment/Tar_Marks1.obj
+
+lib/airport/landscape/apron_light.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/AreaFloodLrg.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/AreaFloodMed.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/AreaFloodHighMast.obj Models/Airport/EDXW_lamp_10m.xml
+
+lib/airport/aircraft/heavy_metal/MD-80_Delta.obj Models/Aircraft/737virgin.xml 0 0 0 90 
+lib/airport/aircraft/heavy_metal/MD-80_Alitalia.obj Models/Aircraft/320austrian.xml 0 0 0 90 
+lib/airport/aircraft/heavy_metal/MD-80_Scandinavian.obj  Models/Aircraft/320volare.xml 0 0 0 90 
+			
+lib/airport/aircraft/regional_jet/CRJ100_Austrian_Arrows.obj Models/Aircraft/crj100af-obj.xml 0 0 0 90  		
+lib/airport/aircraft/regional_jet/CRJ100_Air_France.obj Models/Aircraft/crj100af-obj.xml 0 0 0 90  			
+lib/airport/aircraft/regional_jet/Dornier_328_jet_Welcome_Air.obj Models/Aircraft/D328_services.xml 0 0 0 90
+lib/airport/aircraft/regional_jet/Dornier_328_jet_Cirrus_Airlines.obj Models/Aircraft/D328_services.xml 0 0 0 90 
+				
+lib/airport/aircraft/regional_prop/ATR42-500_Air_Dolomiti.obj Models/Aircraft/atr42-iberia.xml 0 0 0 0 
+lib/airport/aircraft/regional_prop/ATR42-500_FedEx.obj Models/Aircraft/bae-ootas-tnt.xml 0 0 0 -90			
+lib/airport/aircraft/regional_prop/ATR72-500_American_Eagle.obj Models/Aircraft/ATR42.xml 0 0 0 -90	
+lib/airport/aircraft/regional_prop/ATR72-500_Lufthansa_Regional.obj Models/Aircraft/fokker50_vlm.ac 0 0 0 0	
+lib/airport/aircraft/regional_prop/Dornier_328_prop_Air_Alps.obj Models/Aircraft/B1900_services.xml 0 0 0 90
+
+lib/airport/aircraft/corporate_biz/P180_avanti_ferrari.obj Models/Aircraft/Citation-II-Type2.ac		
+lib/airport/aircraft/corporate_biz/P180_avanti_white.obj Models/Aircraft/Citation-II-Type1.ac 	
+lib/g10/streetlights/RmpLt1BarMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt1BarMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt1GndMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt1GndMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt2BarMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt2BarMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt2GndMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/RmpLt2GndMnt.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V2.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V2.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V2.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V2.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1V1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt3.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt3.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResShort.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt2.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/ResLt2Dim.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/PrimaryLt1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/PrimaryLt1.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/AreaFloodShort.obj Models/Airport/EDXW_lamp_10m.xml 
+
+lib/g10/streetlights/ParkingLot.obj Models/Airport/EDXW_lamp_10m.xml
+lib/g10/streetlights/AreaFloodSml.obj Models/Airport/EDXW_lamp_10m.xml
+
+
