@@ -145,10 +145,10 @@ def read_poly(infile,pd):
             edge.style =edge.style+2
             ID+=1
             
-            #whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
+            #TODO: longer whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
             if text.find("Building") >=0 or text.find("pavement") >=0 or text.find("Fenced_Parking") >=0:
                 print text
-                poly.out()
+                #poly.out()
                 polys.append(poly)
             else:
                 print "ignoring:", text
@@ -158,7 +158,8 @@ def read_poly(infile,pd):
 def write_aptdat(polys,icao):
     #print header, runways
     
-    index = 0
+    count = 0
+    pcount = 0
     # modify the ICAO.dat file inplace, write the original version to NAME.dat.bak
     # no "print" for debugging allowed in this loop
     # because stdout is written to the ICAO.dat
@@ -173,37 +174,38 @@ def write_aptdat(polys,icao):
             #insert my stuff
             for p in polys:
                 if p.text.find("Building") >=0:
-                    surface_type = "5"  #gravel
+                    surface_type = "2"  #concrete,  gravel=5 did not work
                 else:
                     surface_type = "1"  # asphalt     
                 l = "110  %s 0.00 0.0000 Polygon from DSF %s \r\n"%(surface_type, p.text)
                 sys.stdout.write(l)
+                pcount+=1
                 for e in p.edges:
                     if e.style == 111:
                         l= "111  %s  %s\r\n"%(e.y1,e.x1)
                         sys.stdout.write(l)
                         #sys.stderr.write("111")
+                        count+=1
                     if e.style == 112:
                         l= "112  %s  %s  %s  %s\r\n"%(e.y1,e.x1,e.y2,e.x2)
                         sys.stdout.write(l)
                         #sys.stderr.write("112")
+                        count+=1
                     if e.style == 113:
                         l= "113  %s  %s\r\n"%(e.y1,e.x1)
                         sys.stdout.write(l)
                         #sys.stderr.write(l)
+                        count+=1
                     if e.style == 114:
                         l= "114  %s  %s  %s  %s\r\n"%(e.y1,e.x1,e.y2,e.x2)
                         sys.stdout.write(l)
                         #sys.stderr.write(l)
+                        count+=1
             
         else:
             sys.stdout.write(line)
+    return (count,pcount)
         
-        
-    
-   
-    #print all the rest + 99
-            
 
 def main(argv):
     icao="KSFO"
@@ -229,14 +231,16 @@ def main(argv):
         sys.exit()
     print "reading..."
     pd = read_poly_def(infile)
-    #print len(pd) , "polygon definitions found in ", inputfilename
+    print len(pd) , "polygon type definitions found in ", inputfilename
     
     infile.seek(0)
     polys = read_poly(infile,pd) 
-    #for p in polys:
-    #    p.out()
-    print "writing..."
-    write_aptdat(polys,icao)
+    #print len(polys), "polygons in %s.txt"%(icao)  <-strange result ?
+    #print "inserting into", icao, ".dat"
+    count, pcount = write_aptdat(polys,icao)
+    print
+    print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
+    print "done."
     
     
     
