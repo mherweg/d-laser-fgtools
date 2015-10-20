@@ -52,14 +52,14 @@ logger = logging.getLogger('dsf2stg')
 logger.setLevel("DEBUG")
 
 libfilename="library.txt"
-inputfilename="EDDF.txt"
+inputfilename="foo.txt"
 path_to_stg =inputfilename
 alt = 72
 
 path_to_fgelev = "fgelev"
 path_to_scenery = "/home/mherweg/.fgfs/TerraSync/"
 
-elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
+
 OUR_MAGIC = "dsf2stg"
 
 objects = []
@@ -226,6 +226,8 @@ def main():
     read_obj(infile,od)
     
     linecount=0
+    print "inputfilename:",  inputfilename
+    elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
     parameters.FASTELEV = False
     if parameters.FASTELEV:
         logger.info("probing elevation fast") 
