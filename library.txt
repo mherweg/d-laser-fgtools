@@ -87,10 +87,10 @@ lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Lg.agp Models/lib/FireSt
 #lib/airport/Common_Elements/Misc_Buildings/White_Warehouse.fac
 #lib/airport/Common_Elements/Miscellaneous/AC_Cond_noFence.obj
 #lib/airport/Common_Elements/Miscellaneous/AC_Ground_wFence.agp
-#lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj
+lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj Models/StreetFurniture/Litter_Bin.ac
 #lib/airport/Common_Elements/Miscellaneous/BBQ_Grill.obj
-#lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj
-#lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster_w_wall.obj
+lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj Models/StreetFurniture/trash-container.ac
+lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster_w_wall.obj Models/StreetFurniture/trash-container.ac
 #lib/airport/Common_Elements/Miscellaneous/com_AC_onGround.obj
 #lib/airport/Common_Elements/Miscellaneous/com_Const_Trailer.obj 
 #lib/airport/Common_Elements/Miscellaneous/com_Fence.obj
@@ -107,9 +107,9 @@ lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj Models/Misc/picnic_ta
 #lib/airport/Common_Elements/Miscellaneous/Porta_Potty_1.obj
 #lib/airport/Common_Elements/Miscellaneous/Porta_Potty_2.obj
 #lib/airport/Common_Elements/Miscellaneous/Roof_Poche.obj
-#lib/airport/Common_Elements/Miscellaneous/Round_Trash_Can.obj
+lib/airport/Common_Elements/Miscellaneous/Round_Trash_Can.obj Models/StreetFurniture/Litter_Bin.ac
 #lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
-#lib/airport/Common_Elements/Miscellaneous/Square_Trash_Can.obj
+lib/airport/Common_Elements/Miscellaneous/Square_Trash_Can.obj Models/StreetFurniture/Litter_Bin.ac
 lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj Models/lib/stack_of_cones.ac
 lib/airport/Common_Elements/Miscellaneous/Tree.obj Models/Trees/platanus_acerifolia_15m.xml
 #lib/airport/Common_Elements/Miscellaneous/TreeTest.obj
@@ -154,7 +154,7 @@ lib/airport/Common_Elements/Parking_Items/Row_of_Cars_2.agp Models/lib/cars2.ac 
 lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp Models/lib/cars4.ac 0 0 0 90
 lib/airport/Common_Elements/Parking_Items/Row_of_Cars_6.agp Models/lib/cars6.ac 0 0 0 90
 
-#lib/airport/Common_Elements/Parking/NoParkStripes.obj
+lib/airport/Common_Elements/Parking/NoParkStripes.obj Models/lib/NoParkStripes.ac 0 0 0 90
 #lib/airport/Common_Elements/Parking/Ticket_Dispense_Station.obj
 #lib/airport/Common_Elements/Parking/Yellow_Cap_Lg.obj
 #lib/airport/Common_Elements/Parking/Yellow_Cap_Sm.obj
@@ -165,8 +165,8 @@ lib/airport/Common_Elements/Parking_Items/Row_of_Cars_6.agp Models/lib/cars6.ac 
 #lib/airport/Common_Elements/Parking/Yellow_Lines_4-1.obj
 #lib/airport/Common_Elements/Parking/Yellow_Lines_8-1.obj
 #lib/airport/Common_Elements/Parking/Yellow_Lines_8-2.obj
-#lib/airport/Common_Elements/Parking/Yellow_Triangle-1.obj
-#lib/airport/Common_Elements/Parking/Yellow_Triangle-2.obj
+lib/airport/Common_Elements/Parking/Yellow_Triangle-1.obj Models/lib/YellowTriangle1.ac 0 0 0 90
+lib/airport/Common_Elements/Parking/Yellow_Triangle-2.obj Models/lib/YellowTriangle2.ac 0 0 0 90
 
 lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj Models/Airport/Vehicle/fedextruck.xml 0 0 0 270
 lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle/fedextruck.xml 0 0 0 90
@@ -217,12 +217,12 @@ lib/airport/Ramp_Equipment/GPU_1.obj Models/Airport/Vehicle/generic-trailer-GPU.
 lib/airport/Ramp_Equipment/Jetway_250cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Jetway_400cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Jetway_500cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
-lib/airport/Ramp_Equipment/JetWayEx_10m.obj Models/lib/jetway_e10m.ac 0 0 0 -90 
-lib/airport/Ramp_Equipment/JetWayEx_12m.obj Models/lib/jetway_e12m.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_14m.obj Models/lib/jetway_e14m.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_16m.obj Models/lib/jetway_e16m.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/lib/jetway_e8m.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/lib/jetway_e4m.ac 0 0 0 -90
+lib/airport/Ramp_Equipment/JetWayEx_10m.obj Models/lib/jetway_e10m.ac 0 0 0 90 
+lib/airport/Ramp_Equipment/JetWayEx_12m.obj Models/lib/jetway_e12m.ac 0 0 0 90
+lib/airport/Ramp_Equipment/JetWayEx_14m.obj Models/lib/jetway_e14m.ac 0 0 0 90
+lib/airport/Ramp_Equipment/JetWayEx_16m.obj Models/lib/jetway_e16m.ac 0 0 0 90
+lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/lib/jetway_e8m.ac 0 0 0 90
+lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/lib/jetway_e4m.ac 0 0 0 90
 #lib/airport/Ramp_Equipment/JetWayWallBase.obj
 lib/airport/Ramp_Equipment/Luggage_Cart.obj Models/lib/cargobox2x3m.ac
 lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj Models/lib/LuggCartPkng.ac 0 0 0 -90
@@ -259,8 +259,10 @@ lib/g10/forests/autogen_tree1.obj Models/Trees/deciduous-tree.xml 0 0 0 0
 lib/g10/forests/autogen_tree2.obj Models/Trees/deciduous-tree2.xml 0 0 0 0 
 lib/g10/forests/autogen_tree3.obj Models/Trees/deciduous-tree3.xml 0 0 0 0 
 lib/g10/forests/autogen_tree4.obj Models/Trees/billboard-tree.xml 0 0 0 0
+lib/g10/forests/autogen_tree_any.obj Models/Trees/billboard-tree.xml
 lib/g10/global_objects/CafeTbls4x2.obj Models/Misc/picnic_table.ac 0 0 0 0
 lib/g10/streetlights/AreaFloodHighMast.obj Models/Airport/Apronlamp16m360deg.xml
+# alternative: Models/StreetFurniture/StreetLamp4.xml
 lib/g10/streetlights/AreaFloodLrg.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90
 lib/g10/streetlights/AreaFloodMed.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90
 lib/g10/streetlights/AreaFloodShort.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90 
