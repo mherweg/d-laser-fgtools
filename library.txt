@@ -94,7 +94,9 @@ lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj Models/StreetFurn
 lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj Models/StreetFurniture/trash-container.ac
 lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster_w_wall.obj Models/StreetFurniture/trash-container.ac
 #lib/airport/Common_Elements/Miscellaneous/com_AC_onGround.obj
-#lib/airport/Common_Elements/Miscellaneous/com_Const_Trailer.obj Models/lib/office16x4n.ac 0 0 0 90
+lib/airport/Common_Elements/Miscellaneous/com_Const_Trailer.obj Models/lib/office16x4n.ac 0 0 0 90
+lib/airport/Common_Elements/Miscellaneous/Const_Trailer.agp Models/lib/office16x4n.ac 0 0 0 90
+
 #lib/airport/Common_Elements/Miscellaneous/com_Fence.obj
 #lib/airport/Common_Elements/Miscellaneous/Const_Trailer.agp
 #lib/airport/Common_Elements/Miscellaneous/Drive_Up_Keypad.obj
