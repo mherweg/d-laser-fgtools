@@ -202,8 +202,8 @@ lib/airport/Ramp_Equipment/500cm_Jetway_Group.agp Models/Airport/Jetway/jetway.x
 lib/airport/Ramp_Equipment/Belt_Loader.obj Models/lib/belt_loader.ac 0 0 0 -90
 lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/lib/container1.ac
 lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/lib/container6.ac
-#lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj
-#lib/airport/Ramp_Equipment/Cargo_Dolly_wPod.obj
+lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj Models/lib/CargoDolly.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Cargo_Dolly_wPod.obj Models/lib/CargoDollyWithContainer.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Cargo_Loader_1.obj Models/lib/loader.ac 0 0 0 -90
 lib/airport/Ramp_Equipment/Cargo_Palette_1.obj Models/Airport/cargobox.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_2.obj Models/Airport/cargoip.xml
@@ -242,9 +242,9 @@ lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/chariot5.ac 0 0 0 
 #lib/airport/Ramp_Equipment/Ramp_Parking.obj
 lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/lib/RampParkingStripe.ac 0 0 0 0
 #lib/airport/Ramp_Equipment/Tar_Marks1.obj
-lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
-lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
-lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/jetway.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
+lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
 lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp Models/Airport/tower_small_airfield.xml
 #lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
 #lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.agp
@@ -255,6 +255,9 @@ lib/cars/car.obj Models/Transport/hatchback_blue.ac 0 0 0 0
 lib/cars/car_or_truck.obj Models/Transport/hatchback_green.ac 0 0 0 0
 lib/cars/car_or_truck_static.obj Models/Transport/hatchback_black.ac 0 0 0 0
 lib/cars/car_static.obj Models/Transport/hatchback_red.ac 0 0 0 0
+
+lib/g10/US/commercial/fuel_pump_bp.obj Models/Airport/Avgas_Pump.ac
+
 lib/g10/forests/autogen_tree1.obj Models/Trees/deciduous-tree.xml 0 0 0 0 
 lib/g10/forests/autogen_tree2.obj Models/Trees/deciduous-tree2.xml 0 0 0 0 
 lib/g10/forests/autogen_tree3.obj Models/Trees/deciduous-tree3.xml 0 0 0 0 
