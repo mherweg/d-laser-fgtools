@@ -18,9 +18,24 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
-# work in progress 
-
 #convert facade polygons from dsf-txt files into taxiway polygons for apt.dat
+# and
+# into OSM XML to be read by osm2city
+
+#usage example:
+# ./gateway_pull.py -i KSFO
+# ./dsf2aptdat.py -i KSFO
+
+# BEFORE you run this script use gateway_pull.py  to download ICAO.dat and ICAO.txt file of the airport
+#  
+# the script will modify the ICAO.dat file. Do this only once, otherwise you'll have duplicate polygons in the ICAO.dat file
+#
+# the modified ICAO.dat file can be used for genapts850 of the terragear package to create a .btg.gz with more apron/car park
+# areas
+#
+# the ICAO.osm can be used with osm2city to generate 3D buildings from "facade" polygons
+#
+# if you miss any polygons: check the 2 whitelists in this program!
 
 #INPUT dsf/txt:
 
@@ -75,9 +90,15 @@
 import os, sys, getopt, fileinput, subprocess
 helptext = './dsf2aptdat.py -i ICAO'
 
+nodeid=10000
+minx=False
+maxx=False
+miny=False
+maxy=False
+
 class Polygon(object):
     def __init__(self, ID, a,b,c,text):
-        self.edges=[]
+        self.verts=[]
         self.ID = ID
         self.a = a
         self.b = b
@@ -85,19 +106,38 @@ class Polygon(object):
         self.text = text
     def out(self):
         print(self.ID, self.a,self.b,self.c)
-        for e in self.edges:
+        for e in self.verts:
             print e
         
         
-class Edge(object):
+class Vert(object):
     def __init__(self,style,x1,y1,x2=None,y2=None):
+        global nodeid, minx, miny, maxx, maxy
         self.style=style
         self.x1=x1
         self.y1=y1
+        # needs float type
+        #if nodeid==0:
+            #minx=x1
+            #maxx=x1
+            #miny=y1
+            #maxy=y1
+        
+        #if x1<minx:
+            #minx=x1
+        #if x1>maxx:
+            #maxx=x1
+       
+        #if y1<miny:
+            #miny=y1
+        #if y1>maxy:
+            #maxy=y1
         self.x2=x2
         self.y2=y2
+        self.nodeid=nodeid
+        nodeid+=1
     def __str__(self):
-        return "%s / %s %s %s %s" % (self.style, self.x1,self.y1,self.x2,self.y2)
+        return "%d %s / %s %s %s %s " % (self.nodeid, self.style, self.x1,self.y1,self.x2,self.y2)
         
 
 def read_poly_def(infile):
@@ -126,32 +166,34 @@ def read_poly(infile,pd):
         if line.startswith("POLYGON_POINT") and green:
             col = line.split()
             if len(col)==3 or len(col)==4 :
-                #sharp edge
-                #print "sharp edge"
-                edge = Edge(111,col[1],col[2])
-                poly.edges.append(edge)
+                
+                #print "sharp corner"
+                vert = Vert(111,col[1],col[2])
+                poly.verts.append(vert)
             if len(col)==5:
                 if col[1] == col[3] and col[2] == col[4]:
-                    #print "sharp edge redundant"
-                    edge = Edge(111,col[1],col[2])
+                    #print "sharp corner redundant"
+                    vert = Vert(111,col[1],col[2])
                 else:
-                    #print "true bezier edge"
-                    edge = Edge(112,col[1],col[2],col[3],col[4])
-                poly.edges.append(edge)
+                    print "true bezier rounded corner"
+                    vert = Vert(112,col[1],col[2],col[3],col[4])
+                poly.verts.append(vert)
         if line.startswith("END_WINDING"):
             green=False
         if line.startswith("END_POLYGON"):
-            #last edge
-            edge.style =edge.style+2
+            #last vert
+            vert.style =vert.style+2
             ID+=1
             
-            #TODO: longer whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
-            if text.find("Building") >=0 or text.find("pavement") >=0 or text.find("Fenced_Parking") >=0:
+            # whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
+            # 
+            whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking']
+            if any(x in text for x in whitelist):
                 print text
                 #poly.out()
                 polys.append(poly)
             else:
-                print "ignoring:", text
+                print "SKIP: ", text
            
     return (polys)
         
@@ -180,7 +222,7 @@ def write_aptdat(polys,icao):
                 l = "110  %s 0.00 0.0000 Polygon from DSF %s \r\n"%(surface_type, p.text)
                 sys.stdout.write(l)
                 pcount+=1
-                for e in p.edges:
+                for e in p.verts:
                     if e.style == 111:
                         l= "111  %s  %s\r\n"%(e.y1,e.x1)
                         sys.stdout.write(l)
@@ -206,6 +248,68 @@ def write_aptdat(polys,icao):
             sys.stdout.write(line)
     return (count,pcount)
         
+
+#example osm xml:
+#-------------------
+#<?xml version="1.0" encoding="UTF-8"?>
+#<osm version="0.6" generator="CGImap 0.4.0 (8656 thorn-02.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+# <bounds minlat="51.6634500" minlon="7.1888500" maxlat="51.6642800" maxlon="7.1904000"/>
+#
+#<node id="1096059121" visible="true" version="1" changeset="6923824" timestamp="2011-01-10T08:17:52Z" user="Frank Dengel" uid="66871" lat="51.6635189" lon="7.1893369"/>
+#<way id="94334472" visible="true" version="1" changeset="6923824" timestamp="2011-01-10T08:17:58Z" user="Frank Dengel" uid="66871">
+#  <nd ref="1096059064"/>
+#  <nd ref="1096059024"/>
+#  <nd ref="1096059117"/>
+#  <nd ref="1096059078"/>
+#  <nd ref="1096059064"/>
+#  <tag k="building" v="yes"/>
+# </way>
+#</osm>
+def write_osmxml(polys,icao):
+    
+    bcount=0
+    osmfile = open(icao+'.osm', 'w')
+ 
+    osmfile.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+    osmfile.write('<osm version="0.6" generator="dsf2aptdat.py" copyright="scenery gateway contributors">\n')
+    # do we need bounds ?
+    #osmfile.write '<bounnds minlat="%d" minlon="%d" maxlat="%d51.6642800" maxlon="%d"/>>'
+    
+    whitelist=['Building','modern','Garage','Hangars','urban']
+    for p in polys:  #all nodes for all buildings
+        if any(x in p.text for x in whitelist):
+            for v in p.verts:
+                line='<node id="%d" visible="true" version="1"   lat="%s" lon="%s"/>\n'%(v.nodeid, v.y1, v.x1)
+                osmfile.write(line)
+    for p in polys:  #one way for each building
+        if any(x in p.text for x in whitelist):
+            bcount+=1
+            way_id = 20000 + int(p.ID)
+            line='<way id="%d" visible="true" version="1" >\n'%(way_id)
+            osmfile.write(line)
+            for v in p.verts:
+                line='<nd ref="%d"/>\n'%(v.nodeid,)
+                osmfile.write(line)
+            line='<nd ref="%d"/>\n'%(p.verts[0].nodeid,)   # close the loop: last node = first node
+            osmfile.write(line)
+            line='<tag k="building" v="yes"/>\n'
+            osmfile.write(line)
+            line='<tag k="building:height" v="%s"/>\n'%(p.b,)
+            osmfile.write(line)
+            line='<tag k="facade_file_name" v="%s"/>\n'%(p.text,)
+            osmfile.write(line)
+            osmfile.write("</way>\n")
+    osmfile.write("</osm>\n")
+    osmfile.close()
+    print "wrote %d buildings to %s.osm"%(bcount,icao)
+        
+
+                
+            
+
+
+
+
 
 def main(argv):
     icao="KSFO"
@@ -236,13 +340,13 @@ def main(argv):
     infile.seek(0)
     polys = read_poly(infile,pd) 
     #print len(polys), "polygons in %s.txt"%(icao)  <-strange result ?
-    #print "inserting into", icao, ".dat"
+    print "inserting into", icao, ".dat  (please do this only once per file)"
     count, pcount = write_aptdat(polys,icao)
-    print
+    #print
     print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
+    write_osmxml(polys,icao)
     print "done."
-    
-    
+   
     
             
 
