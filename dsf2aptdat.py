@@ -51,6 +51,18 @@
 #END_WINDING
 #END_POLYGON
 
+#type 3: selectable type for each wall
+#BEGIN_POLYGON 11 30 3
+#BEGIN_WINDING
+#POLYGON_POINT 8.546493171 50.044684426 0.000000000
+#POLYGON_POINT 8.547283476 50.044869874 0.000000000
+#POLYGON_POINT 8.546857927 50.045579130 0.000000000
+#POLYGON_POINT 8.545976433 50.045367655 0.000000000
+#POLYGON_POINT 8.546244934 50.044941450 1.000000000
+#POLYGON_POINT 8.546366520 50.044739735 2.000000000
+#END_WINDING
+#END_POLYGON
+
 # bezier example, 4 "corners"
 #BEGIN_POLYGON 1 10 4
 #BEGIN_WINDING
@@ -61,6 +73,12 @@
 #END_WINDING
 #END_POLYGON
 
+#type 5 : selectable type for each wall and bezier
+#BEGIN_POLYGON 12 30 5
+#BEGIN_WINDING
+#POLYGON_POINT 8.527156476 50.038452332 0.000000000 8.527156476 50.038452332
+#POLYGON_POINT 8.528734393 50.038826396 2.000000000 8.528734393 50.038826396
+#...
 
 #OUTPUT  apt.dat:
 #=================
@@ -149,7 +167,6 @@ def read_poly_def(infile):
             cols = line.split()
             xpath = cols[1]
             pd.append(xpath)
-     
     return pd
     
 def read_poly(infile,pd):
@@ -159,14 +176,22 @@ def read_poly(infile,pd):
         if line.startswith("BEGIN_POLYGON"):
             col = line.split()
             text = pd[int(col[1])]
+            height= col[2]
+            polytype =  col[3]
             poly=Polygon(ID,col[1],col[2],col[3],text)
             text = pd[int(poly.a)]
+            windcount=0
         if line.startswith("BEGIN_WINDING"):
-            green=True
+            if windcount==0:  # only do the first winding
+                green=True
+            else:
+                green=False
+            windcount+=1
+            
         if line.startswith("POLYGON_POINT") and green:
             col = line.split()
+            #ignore col[3] = wall type of each node
             if len(col)==3 or len(col)==4 :
-                
                 #print "sharp corner"
                 vert = Vert(111,col[1],col[2])
                 poly.verts.append(vert)
@@ -175,9 +200,19 @@ def read_poly(infile,pd):
                     #print "sharp corner redundant"
                     vert = Vert(111,col[1],col[2])
                 else:
-                    print "true bezier rounded corner"
+                    #print "true bezier rounded corner"
                     vert = Vert(112,col[1],col[2],col[3],col[4])
                 poly.verts.append(vert)
+            if len(col)==6:
+                # ignore col[3] = wall type for each node
+                if col[1] == col[4] and col[2] == col[5]:
+                    #print "sharp corner redundant. type:",polytype
+                    vert = Vert(111,col[1],col[2])
+                else:
+                    #print "true bezier rounded corner. type:",polytype
+                    vert = Vert(112,col[1],col[2],col[4],col[5])
+                poly.verts.append(vert)
+
         if line.startswith("END_WINDING"):
             green=False
         if line.startswith("END_POLYGON"):
@@ -189,7 +224,7 @@ def read_poly(infile,pd):
             # 
             whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking','classic']
             if any(x in text for x in whitelist):
-                print text
+                #print text
                 #poly.out()
                 polys.append(poly)
             else:
