@@ -187,7 +187,7 @@ def read_poly(infile,pd):
             
             # whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
             # 
-            whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking']
+            whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking','classic']
             if any(x in text for x in whitelist):
                 print text
                 #poly.out()
@@ -275,7 +275,7 @@ def write_osmxml(polys,icao):
     # do we need bounds ?
     #osmfile.write '<bounnds minlat="%d" minlon="%d" maxlat="%d51.6642800" maxlon="%d"/>>'
     
-    whitelist=['Building','modern','Garage','Hangars','urban']
+    whitelist=['Building','modern','Garage','Hangars','urban','Classic_Airports/Facades/classic']
     for p in polys:  #all nodes for all buildings
         if any(x in p.text for x in whitelist):
             for v in p.verts:
@@ -287,11 +287,17 @@ def write_osmxml(polys,icao):
             way_id = 20000 + int(p.ID)
             line='<way id="%d" visible="true" version="1" >\n'%(way_id)
             osmfile.write(line)
+            vertcount=0
             for v in p.verts:
                 line='<nd ref="%d"/>\n'%(v.nodeid,)
                 osmfile.write(line)
-            line='<nd ref="%d"/>\n'%(p.verts[0].nodeid,)   # close the loop: last node = first node
-            osmfile.write(line)
+                vertcount+=1
+            if vertcount == 0:
+                print "no nodes for", p.ID, p.text
+                p.out()
+            else:
+                line='<nd ref="%d"/>\n'%(p.verts[0].nodeid,)   # close the loop: last node = first node
+                osmfile.write(line)
             line='<tag k="building" v="yes"/>\n'
             osmfile.write(line)
             line='<tag k="building:height" v="%s"/>\n'%(p.b,)
@@ -340,10 +346,14 @@ def main(argv):
     infile.seek(0)
     polys = read_poly(infile,pd) 
     #print len(polys), "polygons in %s.txt"%(icao)  <-strange result ?
-    print "inserting into", icao, ".dat  (please do this only once per file)"
-    count, pcount = write_aptdat(polys,icao)
-    #print
-    print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
+    
+    if os.path.isfile(icao+'.dat'): 
+        print "inserting into", icao+".dat  (please do this only once per file)"
+        count, pcount = write_aptdat(polys,icao)
+        print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
+    else:
+        print "ERROR: file not found:", icao+'.dat'
+        
     write_osmxml(polys,icao)
     print "done."
    
