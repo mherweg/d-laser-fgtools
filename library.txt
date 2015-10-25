@@ -240,10 +240,10 @@ lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj Models/lib/chariot3.ac 0 0 0
 lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/lib/chariot4.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj Models/lib/chariot5.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/chariot5.ac 0 0 0 90
-#lib/airport/Ramp_Equipment/Ramp_Group_Medium.agp
-#lib/airport/Ramp_Equipment/Ramp_Group_Narrow.agp
-#lib/airport/Ramp_Equipment/Ramp_Group_Wide.agp
-#lib/airport/Ramp_Equipment/Ramp_Parking.obj
+lib/airport/Ramp_Equipment/Ramp_Group_Medium.agp Models/lib/RampGroup.xml 0 0 0 0
+lib/airport/Ramp_Equipment/Ramp_Group_Narrow.agp Models/lib/RampGroup.xml 0 0 0 0
+lib/airport/Ramp_Equipment/Ramp_Group_Wide.agp Models/lib/RampGroup.xml 0 0 0 0
+lib/airport/Ramp_Equipment/Ramp_Parking.obj Models/lib/RampParking.xml 0 0 0 0
 lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/lib/RampParkingStripe.xml 0 0 0 0
 #lib/airport/Ramp_Equipment/Tar_Marks1.obj
 lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
@@ -298,6 +298,126 @@ lib/g10/streetlights/RmpLt1BarMnt.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90
 lib/g10/streetlights/RmpLt1GndMnt.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90
 lib/g10/streetlights/RmpLt2BarMnt.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90
 lib/g10/streetlights/RmpLt2GndMnt.obj Models/Airport/EDXW_lamp_10m.xml 0 0 0 -90
-#lib/g10/US/industrial/light/MineralsPile.obj
-#lib/g10/US/industrial/light/OilDrums.obj
-#lib/g10/US/industrial/light/SandBunker.obj
+
+lib/g10/US/industrial/light/MineralsPile.obj Models/lib/coal_pile.ac 0 0 0 90
+lib/g10/US/industrial/light/OilDrums.obj Models/Misc/6barrels.ac
+lib/g10/US/industrial/light/SandBunker.obj Models/lib/coal_pile.ac 0 0 0 90
+
+lib/airport/Ramp_Equipment/Lugg_Cart_Group.obj Models/lib/LuggCartGroup.ac 0 0 0 90
+lib/airport/Common_Elements/Miscellaneous/Flagpole.obj Models/Misc/FlagpoleFG.xml 
+
+lib/g10/US/suburban/TrailerSnglShrtFlat.obj Models/lib/office3x10.ac 0 0 0 0
+lib/g10/US/suburban/TrailerSnglShrtFlat.obj Models/lib/office3x10.ac 0 0 0 0
+
+
+#Frequency of usage:
+    #886 no model for lib/airport/lights/slow/taxi_edge.obj
+    #263 no model for lib/airport/Common_Elements/Parking/Asphalt_CracksSm.obj
+
+    #171 no model for lib/airport/Common_Elements/Parking/Asphalt_CracksLg.obj
+     #86 no model for lib/airport/Common_Elements/Parking/Grunge2_XXLg.obj
+     #71 no model for lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
+     #69 no model for lib/airport/Common_Elements/Parking/Grunge2_Lg.obj
+     #68 no model for lib/airport/Common_Elements/Parking/Grunge1_XLg.obj
+    
+     #55 no model for lib/airport/Ramp_Equipment/Tar_Marks1.obj
+     #55 no model for lib/airport/Common_Elements/Parking/Grunge1_Lg.obj
+#54 no model for lib/airport/lights/slow/helipad_edge.obj
+     #54 no model for lib/airport/Common_Elements/Parking/Grunge2_XLg.obj
+
+     #47 no model for lib/airport/Common_Elements/Parking/Grunge1_Med.obj
+#46 no model for lib/g10/US/industrial/light/SecBarrier.obj
+#46 no model for lib/g10/global_objects/CafeTbls2x2.obj
+#44 no model for lib/g10/US/suburban/TrailerSnglShrtPtch.obj
+     #44 no model for lib/airport/Common_Elements/Parking/Grunge1_Sm.obj
+#41 no model for lib/airport/Common_Elements/Miscellaneous/Pad_Tansformer.obj
+#39 no model for lib/g10/global_objects/LawnGrpMed.obj
+     #39 no model for lib/airport/Common_Elements/Parking/Grunge2_Med.obj
+#36 no model for lib/g10/US/industrial/light/StorHut3x3.obj
+#36 no model for lib/airport/Common_Elements/Miscellaneous/Large_AC_on_Pad.obj
+#35 no model for lib/airport/Common_Elements/Parking/1_Space_Dual.obj
+#lib/airport/Common_Elements/Parking/2_Space_Dual.obj
+#lib/airport/Common_Elements/Parking/4_Space_Dual.obj
+     
+#33 no model for lib/g10/US/industrial/light/TinShed10x30Lt.obj
+#30 no model for lib/g10/global_objects/vending_machine_X2.obj
+#30 no model for lib/g10/global_objects/rubbish_bin.obj
+#28 no model for lib/g10/US/industrial/light/WoodShed8x10.obj
+#27 no model for lib/g10/US/suburban/B-RnchLH.obj
+     #26 no model for lib/airport/Common_Elements/Parking/Asphalt_Cracks1.obj
+     #24 no model for lib/airport/lights/slow/thr_g_inset.obj
+     #24 no model for lib/airport/lights/slow/rway_guard.obj
+     #24 no model for lib/airport/Common_Elements/Parking/1_CarStop.obj
+#23 no model for lib/g10/US/industrial/light/FactB10x30D.obj
+#23 no model for lib/airport/Ramp_Equipment/Ramp_Group_Medium.agp
+     #22 no model for lib/airport/lights/slow/calvert_1C.obj
+     #22 no model for lib/airport/Common_Elements/Parking/Grunge2_Sm.obj
+#22 no model for lib/airport/Common_Elements/Parking/Bollard.obj
+#21 no model for lib/g10/US/industrial/light/GateHut3x3.obj
+#21 no model for lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
+#20 no model for lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj
+#19 no model for lib/g10/US/suburban/B-RnchLHGry.obj
+     #19 no model for lib/airport/Common_Elements/Miscellaneous/BBQ_Grill.obj
+#18 no model for lib/g10/US/urban_high/HR60x36.obj
+#18 no model for lib/g10/US/industrial/light/WoodShed8x20.obj
+#18 no model for lib/g10/US/industrial/light/TinShed10x50.obj
+     #18 no model for lib/airport/Common_Elements/Miscellaneous/Water_Tank_Elev.obj
+     #17 no model for lib/airport/Common_Elements/Parking/Ticket_Dispense_Station.obj
+#16 no model for lib/g10/US/industrial/light/Warehse15x30Dk.obj
+     #16 no model for lib/g10/US/commercial/diner.obj
+#15 no model for lib/g10/US/industrial/light/FactB30x45.obj
+#15 no model for lib/g10/US/industrial/light/FactA15x22.obj
+#15 no model for lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Sm.agp
+     #15 no model for lib/airport/beacons/beacon_airport_big.obj
+#14 no model for lib/g10/US/suburban/dGrgSmlWht.obj
+#14 no model for lib/g10/US/suburban/dGdnShed.obj
+#14 no model for lib/g10/US/industrial/light/Warehse15x30Lt.obj
+#14 no model for lib/g10/US/industrial/light/FactA60x30.obj
+#13 no model for lib/g10/US/industrial/light/Shed13x24.obj
+#13 no model for lib/g10/US/industrial/light/SandBunker.obj
+     #13 no model for lib/g10/global_objects/DkGrpMed.obj
+#11 no model for lib/cars/car_static_invar.obj
+#11 no model for lib/airport/Common_Elements/Miscellaneous/Med_AC_on_Pad.obj
+#10 no model for lib/g10/US/industrial/light/Warehse30x30Dk.obj
+#10 no model for lib/g10/US/industrial/light/StorSml2p0.obj
+#10 no model for lib/g10/global_objects/LawnGrpSml1.obj
+    #10 no model for lib/airport/Ramp_Equipment/Ramp_Group_Wide.agp
+      #9 no model for lib/g10/US/suburban/dB-RnchLHGry.obj
+      #9 no model for lib/g10/US/commercial/fuel_pump_benzoil.obj
+      #9 no model for lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj
+      #9 no model for lib/airport/beacons/beacon_airport.obj
+      #8 no model for lib/g10/US/industrial/light/Warehse13x30Lt.obj
+      #8 no model for lib/g10/US/industrial/light/TinShed10x30Dk.obj
+      #8 no model for lib/airport/Common_Elements/Parking/6space_wStop.obj
+      #8 no model for lib/airport/Common_Elements/Miscellaneous/Hangar_Construct.agp
+      #7 no model for lib/g10/US/suburban/dB-RnchLH.obj
+      #7 no model for lib/g10/US/commercial/fuel_pump_ozgas.obj
+      #7 no model for lib/g10/global_objects/LawnGrpSml.obj
+      #7 no model for lib/airport/landscape/windsock_lit.obj
+      #7 no model for lib/airport/Common_Elements/Parking/Yellow_Lines_8-1.obj
+      #7 no model for lib/airport/Common_Elements/Parking/4_Spaces_Dual.obj
+      #7 no model for lib/airport/Common_Elements/Miscellaneous/Hangar_Construct.obj
+      #7 no model for lib/airport/Common_Elements/Miscellaneous/AC_Ground_wFence.agp
+      #6 no model for lib/g10/US/suburban/GdnShed.obj
+      #6 no model for lib/g10/US/industrial/light/Fact30x108B.obj
+      #6 no model for lib/g10/streetlights/HwyLt3BarMnt.obj
+      #6 no model for lib/g10/global_objects/vending_machine.obj
+      #6 no model for lib/airport/lights/slow/app_inset.obj
+      #6 no model for lib/airport/Common_Elements/Parking/Yellow_Lines_8-2.obj
+      #5 no model for lib/g10/US/urban_mid/Rrd17X2.obj
+      #5 no model for lib/g10/US/industrial/power/WindTbn2m5_100.obj
+      #5 no model for lib/g10/US/industrial/light/StorSml2p3.obj
+      #5 no model for lib/g10/US/commercial/tool_locker1.obj
+      #5 no model for lib/g10/global_objects/newspaper_box_X4.obj
+      #5 no model for lib/airport/Common_Elements/Parking/Asphalt_Cracks2.obj
+      #4 no model for lib/g10/US/suburban/TrailerDblShrt.obj
+      #4 no model for lib/g10/US/suburban/dSmlRnchGry.obj
+      #4 no model for lib/g10/US/industrial/light/Whs60x90D.obj
+      #4 no model for lib/g10/US/industrial/light/Whs60x120L.obj
+      #4 no model for lib/airport/Common_Elements/Parking/6_wLines.obj
+      #3 no model for lib/ships/SailBoat.obj
+      #3 no model for lib/g10/US/suburban/U-RnchRHGry.obj
+      #3 no model for lib/g10/US/suburban/TrailerDblLong.obj
+
+
+
