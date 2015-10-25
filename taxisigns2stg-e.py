@@ -22,15 +22,34 @@
 # (lines that begin with "20")
 # and writes stg lines for Flightgear scenery to stdout
 
-# known limitation :
-# * elevation is fixed for all signs 
-
 
 
 import sys, getopt
 import re
-helptext = 'taxisigns2stg.py -f <input apt.dat file> -i <ICAO> -e <elevation>'
+import fgelev
+from vec2d import vec2d 
+import logging
 
+helptext = 'taxisigns2stg-e.py -f <input apt.dat file> -i <ICAO>'
+
+
+logger = logging.getLogger('taxisigns2stg')
+
+path_to_fgelev = "fgelev"
+path_to_scenery = "/home/mherweg/.fgfs/TerraSync"
+elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,'taxisigns')
+
+class Object(object):
+    def __init__(self, lon, lat, hdg, fgpath,zoff, msl=None):
+        self.pos = vec2d(lon, lat)
+        self.hdg = hdg
+        self.msl = msl
+        #self.file = obj_def.file
+        #self.prefix = obj_def.prefix
+        #self.ext = obj_def.ext
+        #self.textures_list = []
+        self.fgpath=fgpath
+        self.zoff=zoff
 
 def main(argv):
    
@@ -38,6 +57,9 @@ def main(argv):
     heading = 0
     filename = "EDDG.dat" 
     airport = 'EDDG'
+   
+    logging.basicConfig(level=logging.WARNING)
+    logger.debug("hello")
    
     try:
         opts, args = getopt.getopt(argv,"hf:i:e:")
@@ -75,7 +97,9 @@ def main(argv):
 
         #                          l             l             heading          0            size           text
     pattern20 = re.compile(r"^20\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
-    count=0                                                                                                                                                   
+    count=0         
+    
+    print "probing elevations. please wait...."                                                                                                                                          
     for line in infile:                                                                                                                                             
                 line = line.strip()                                                                                                                                     
                 # If the airport description ends, break                                                                                                               
@@ -97,18 +121,20 @@ def main(argv):
                         #wed-heading = float(result.group(3))
                         # is this correct ???
                         heading = 360 - float(result.group(3))
+                        o = Object( lon, lat, heading,"",0)  
+                        o.msl = elev_prober(o.pos)
                         
                         #print lat, lon , heading  
                         size = result.group(5)
                         text = result.group(6)
                         # OBJECT_SIGN <text> <longitude> <latitude> <elevation-m> <heading-deg> <size>
-                        print "OBJECT_SIGN", text, lon , lat, elev, heading, size
+                        print "OBJECT_SIGN", text, lon , lat, o.msl, heading, size
                         count+=1
                         
                
     if count == 0:
         print "The input file did not contain any Taxi Signs for airport", airport
-                  
+    elev_prober.save_cache()
     infile.close()
 
 
