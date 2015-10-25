@@ -38,6 +38,8 @@
 # if you miss any polygons: check the 2 whitelists in this program!
 
 #INPUT dsf/txt:
+# http://wiki.x-plane.com/DSF_File_Specification
+# When a polygon primitive actually contains nested polygons (to form holes), each polygon is known as a winding.
 
 #rectangle example:
 

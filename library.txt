@@ -158,7 +158,7 @@ lib/airport/Common_Elements/Parking_Items/Row_of_Cars_2.agp Models/lib/cars2.ac 
 lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp Models/lib/cars4.ac 0 0 0 90
 lib/airport/Common_Elements/Parking_Items/Row_of_Cars_6.agp Models/lib/cars6.ac 0 0 0 90
 
-lib/airport/Common_Elements/Parking/NoParkStripes.obj Models/lib/NoParkStripes.ac 0 0 0 90
+lib/airport/Common_Elements/Parking/NoParkStripes.obj Models/lib/NoParkStripes.xml 0 0 0 90
 #lib/airport/Common_Elements/Parking/Ticket_Dispense_Station.obj
 #lib/airport/Common_Elements/Parking/Yellow_Cap_Lg.obj
 #lib/airport/Common_Elements/Parking/Yellow_Cap_Sm.obj
@@ -169,8 +169,8 @@ lib/airport/Common_Elements/Parking/NoParkStripes.obj Models/lib/NoParkStripes.a
 #lib/airport/Common_Elements/Parking/Yellow_Lines_4-1.obj
 #lib/airport/Common_Elements/Parking/Yellow_Lines_8-1.obj
 #lib/airport/Common_Elements/Parking/Yellow_Lines_8-2.obj
-lib/airport/Common_Elements/Parking/Yellow_Triangle-1.obj Models/lib/YellowTriangle1.ac 0 0 0 90
-lib/airport/Common_Elements/Parking/Yellow_Triangle-2.obj Models/lib/YellowTriangle2.ac 0 0 0 90
+lib/airport/Common_Elements/Parking/Yellow_Triangle-1.obj Models/lib/YellowTriangle1.xml 0 0 0 90
+lib/airport/Common_Elements/Parking/Yellow_Triangle-2.obj Models/lib/YellowTriangle2.xml 0 0 0 90
 
 lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj Models/Airport/Vehicle/fedextruck.xml 0 0 0 270
 lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle/fedextruck.xml 0 0 0 90
@@ -244,7 +244,7 @@ lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/chariot5.ac 0 0 0 
 #lib/airport/Ramp_Equipment/Ramp_Group_Narrow.agp
 #lib/airport/Ramp_Equipment/Ramp_Group_Wide.agp
 #lib/airport/Ramp_Equipment/Ramp_Parking.obj
-lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/lib/RampParkingStripe.ac 0 0 0 0
+lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/lib/RampParkingStripe.xml 0 0 0 0
 #lib/airport/Ramp_Equipment/Tar_Marks1.obj
 lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
