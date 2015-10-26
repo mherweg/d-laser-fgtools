@@ -6,6 +6,7 @@ name "Blender_export__RampGroup.ac"
 kids 1
 OBJECT poly
 name "RampParkingStripe"
+loc 0.0000000 0.1542419 0.0000000
 texture "RampParkingStripe.png"
 texrep 1 1
 numvert 4
