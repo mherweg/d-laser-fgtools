@@ -7,7 +7,9 @@
 #  * press c
 #  * press esc and wait for the next object
 
+#echo `ls $1`
 for FILE in `ls *.ac`
+#for FILE in `ls $1`
 do
     
 	echo $FILE

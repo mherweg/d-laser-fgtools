@@ -29,15 +29,14 @@
 
 import sys, getopt
 import re
-
-
 helptext = 'taxisigns2stg.py -f <input apt.dat file> -i <ICAO> -e <elevation>'
+
 
 def main(argv):
    
     elev  = 500
     heading = 0
-    filename = "apt.dat" 
+    filename = "EDDG.dat" 
     airport = 'EDDG'
    
     try:

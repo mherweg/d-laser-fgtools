@@ -49,16 +49,18 @@ import argparse
 import logging
 
 logger = logging.getLogger('dsf2stg')
-logger.setLevel("DEBUG")
+#logger.setLevel("DEBUG")
 
 libfilename="library.txt"
-inputfilename="foo.txt"
+
+inputfilename="dsf_txt_collection2000/EDDF.txt"
+#inputfilename="/mh/LOWW.txt"
 path_to_stg =inputfilename
 alt = 72
 
 path_to_fgelev = "fgelev"
+#path_to_scenery = "/home/mherweg/scenery/2.1/"
 path_to_scenery = "/home/mherweg/.fgfs/TerraSync/"
-
 
 OUR_MAGIC = "dsf2stg"
 
@@ -146,10 +148,14 @@ def read_lib(libfilename):
                 key = cols[0]
                 value = (cols[1],cols[2],cols[3],cols[4],cols[5],)
                 library[key]= value
-            if len(cols)==2:
+            elif len(cols)==2:
                 key = cols[0]
                 value = (cols[1],0,0,0,0,)
                 library[key]= value
+            else:
+                if line:
+                    print "WARNING: can not parse this line from library:", line
+            
     print len(library) , "entries in library"
                 
 
@@ -211,50 +217,35 @@ def main():
     except:
         print "input file ", inputfilename, "not found"
         sys.exit()
-    
-    
     # 1. Init STG_Manager
     parameters.show()
     stg_manager = stg_io2.STG_Manager(parameters.PATH_TO_OUTPUT, OUR_MAGIC, overwrite=True)
-
     #read translation file
     lib = read_lib(libfilename)
-    
     od = read_obj_def(infile)
     #print od
     infile.seek(0)
     read_obj(infile,od)
-    
     linecount=0
-    print "inputfilename:",  inputfilename
     elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
-    parameters.FASTELEV = False
-    if parameters.FASTELEV:
-        logger.info("probing elevation fast") 
-        msl = elev_prober(objects[0].pos)
-        for o in objects:
-            o.msl = msl
-            stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, 90-o.hdg)
-            linecount+=1
-    else:
-        logger.info("probing elevation")  
-          
-        for o in objects:
-            if o.msl == None:
-                if True: 
-                    o.msl = elev_prober(o.pos) + o.zoff
-                else:
-                    o.msl = 72
-                logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
-            else:
-                #pass
-                logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
-            stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
-            linecount+=1
-        elev_prober.save_cache()
+    logger.info("probing elevation")  
+    for o in objects:
+		if o.msl == None:
+			if True: 
+				o.msl = elev_prober(o.pos) + o.zoff
+			else:
+				o.msl = 72
+			logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
+		else:
+			#pass
+			logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
+		stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
+		linecount+=1
+    elev_prober.save_cache()
         
     stg_manager.write()
     print "wrote" , linecount, "stg lines"
+    print "done."
 
         
 
@@ -263,14 +254,13 @@ if __name__ == "__main__":
     #logger = logging.getLogger()
     
     #logging.basicConfig(level=logging.INFO)
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.WARNING)
     logger.debug("hello")
     
     parser = argparse.ArgumentParser(description="Convert X-plane gateway scenery package to FlightGear")
     parser.add_argument("-i", "--input-path", help="path to x-plane scenery", metavar="PATH", default=None)
     parser.add_argument("-o", "--output-path", help="path to fg scenery", metavar="PATH")
-    parser.add_argument("-n", "--no-blender", action="store_true", help="don't run blender", default=False)
-    parser.add_argument("-f", "--fast-elev", action="store_true", help="lazy elevation probing", default=False)
+   
     parser.add_argument("-e", "--no-elev", action="store_true", help="don't probe elevation", default=False)
 #    parser.add_argument("-c", dest="c", action="store_true", help="do not check for overlapping with static objects")
 #    parser.add_argument("-u", dest="uninstall", action="store_true", help="uninstall ours from .stg")
@@ -280,7 +270,7 @@ if __name__ == "__main__":
     if args.loglevel:
         parameters.set_loglevel(args.loglevel)
     else:
-        parameters.set_loglevel("DEBUG")
+        parameters.set_loglevel("WARNING")
         
     if args.input_path:
         parameters.INPUT_PATH = args.input_path
@@ -290,9 +280,4 @@ if __name__ == "__main__":
     if args.output_path:
         parameters.PATH_TO_OUTPUT = args.output_path
    
-    if args.fast_elev:
-        parameters.FASTELEV = True
-    else:
-        parameters.FASTELEV = False
-        
     main()

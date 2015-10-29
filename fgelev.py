@@ -7,7 +7,7 @@ import calc_tile
 import sys
 from vec2d import vec2d
 
-
+logging.basicConfig()
 logger = logging.getLogger('fgelev')
 #logger.setLevel("DEBUG")
 
