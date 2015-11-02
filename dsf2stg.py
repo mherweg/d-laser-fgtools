@@ -99,26 +99,12 @@ class Object(object):
     def __str__(self):
         return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
 
-# 1. Init STG_Manager
-#stg_manager = stg_io2.STG_Manager(path_to_fg_out, OUR_MAGIC, overwrite=True)
-
-
 
 #library =  {"lib/cars/car_static.obj" : ("Models/Transport/hatchback_red.ac",0,0,0,0), 
             #"lib/airport/Common_Elements/Parking/10_Spaces_dual.obj" : ("Models/StreetFurniture/10_spaces_dual.ac",0,0,0,90), 
             #"lib/airport/Ramp_Equipment/Uni_Jetway_250.obj": ("Models/Airport/Jetway/generic.ac",0,0,0,0),
-            #"lib/airport/Ramp_Equipment/Uni_Jetway_400.obj": ("Models/Airport/Jetway/generic.ac",0,0,0,0),
-            #"lib/airport/Ramp_Equipment/Uni_Jetway_500.obj": ("Models/Airport/Jetway/generic.ac",0,0,0,0),
-            #"lib/airport/Ramp_Equipment/Uni_Jetway_250.obj": ("Models/Airport/Jetway/generic.ac",0,0,0,0),
-            #"lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj": ("Models/Airport/RampParkingStripe.ac",0,0,0,0),
-            #"lib/g10/global_objects/CafeTbls4x2.obj": ("Models/Misc/picnic_table.ac",0,0,0,0),
-            #"lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj": ("Models/Misc/picnic_table.ac",0,0,0,0),
-            #"lib/airport/Ramp_Equipment/GPU_1.obj":  ("Models/Airport/Vehicles/generic-GPU.xml",0,0,0,0),
-            #"lib/g10/forests/autogen_tree1.obj": ("Models/Trees/deciduous-tree.xml",0,0,0,0), 
-            #"lib/g10/forests/autogen_tree2.obj": ("Models/Trees/deciduous-tree.xml",0,0,0,0), 
-            #"lib/g10/forests/autogen_tree3.obj": ("Models/Trees/deciduous-tree.xml",0,0,0,0), 
-            #"lib/g10/forests/autogen_tree4.obj": ("Models/Trees/deciduous-tree.xml",0,0,0,0),
-        #}
+            #...
+            
 library = {}
 
 #print library["lib/cars/car_static.obj"][0]
@@ -156,7 +142,7 @@ def read_lib(libfilename):
                 if line:
                     print "WARNING: can not parse this line from library:", line
             
-    print len(library) , "entries in library"
+    print len(library) , "entries in library.txt"
                 
 
 def read_obj_def(infile):
@@ -198,13 +184,6 @@ def read_obj(infile,od):
                 
                 o = Object(objects_def[index], lon, lat, heading,fgpath,zoff)  
                 objects.append(o)  
-                #stg_file_name = calc_tile.construct_stg_file_name(o.pos)
-                #stg_path = calc_tile.construct_path_to_stg(path_to_fg_out, o.pos)
-                #o.msl=None
-                #path_to_stg = stg_manager.add_object_shared(fgpath , o.pos, o.msl, 90-o.hdg)
-                #print path_to_stg
-                #mk_dirs(path_to_stg + o.prefix)
-                #print "OBJECT_SHARED ", fgpath, lon+xoff, lat+yoff, alt+zoff, heading+hoff
             else:
                 #pass
                 print "no model for", od[index]
@@ -262,8 +241,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output-path", help="path to fg scenery", metavar="PATH")
    
     parser.add_argument("-e", "--no-elev", action="store_true", help="don't probe elevation", default=False)
-#    parser.add_argument("-c", dest="c", action="store_true", help="do not check for overlapping with static objects")
-#    parser.add_argument("-u", dest="uninstall", action="store_true", help="uninstall ours from .stg")
+    parser.add_argument("-u", dest="uninstall", action="store_true", help="uninstall ours from .stg")
     parser.add_argument("-l", "--loglevel", help="set loglevel. Valid levels are VERBOSE, DEBUG, INFO, WARNING, ERROR, CRITICAL")
     args = parser.parse_args() 
     
