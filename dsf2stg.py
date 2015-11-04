@@ -19,21 +19,18 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
-# work in progress 
-
-
 # input:
 # textfile after gateway api download or DSFTool --dsf2text input.dsf output.txt
+
+##                    show-with*/OBJ.DEF ID                           
+#      *from 1=default to 6="totally insane"
+#PROPERTY sim/require_agpoint 1/0
+#PROPERTY sim/require_object 1/0
 
 #OBJECT_DEF lib/cars/car_static.obj
 #OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
 #OBJECT_DEF lib/airport/beacons/beacon_airport.obj
 #OBJECT_DEF lib/airport/aircraft/GA/KingAirC90B.obj
-#OBJECT 0 7.158582390 51.647581197 341.390015
-#OBJECT 0 7.158697215 51.647606802 341.390015
-#OBJECT 0 7.158960952 51.647664134 341.390015
-#OBJECT 0 7.159010291 51.647721467 159.949997
-#OBJECT 0 7.158626347 51.647817207 159.949997
 #OBJECT 0 7.158860481 51.647689739 159.949997
 #OBJECT 0 7.158746553 51.647664691 159.949997
 #OBJECT 1 7.161123181 51.647699233 341.290009

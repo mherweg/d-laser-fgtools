@@ -36,7 +36,7 @@ helptext = 'taxisigns2stg-e.py -f <input apt.dat file> -i <ICAO>'
 logger = logging.getLogger('taxisigns2stg')
 
 path_to_fgelev = "fgelev"
-path_to_scenery = "/home/mherweg/.fgfs/TerraSync"
+path_to_scenery = "~/.fgfs/TerraSync"
 elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,'taxisigns')
 
 class Object(object):
