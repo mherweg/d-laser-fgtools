@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1.0000 1.0000 1.0000  amb 0.2000 0.2000 0.2000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 10 trans 0.0000
-MATERIAL "Material" rgb 1.0000 0.3604 0.0000  amb 0.4533 0.4533 0.4533  emis 0.0449 0.0449 0.0449  spec 0.2500 0.2500 0.2500  shi 50 trans 0.0000
+MATERIAL "Material" rgb 1.0000 0.3604 0.0000  amb 1.0000 0.3600 0.0000  emis 0.1000 0.0348 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
 OBJECT world
 name "Blender_export__stack_of_cones.ac"
 kids 1
