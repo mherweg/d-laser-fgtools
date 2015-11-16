@@ -1,6 +1,6 @@
 lib/airport/aircraft/corporate_biz/P180_avanti_ferrari.obj Models/Aircraft/Citation-II-Type2.ac		
 lib/airport/aircraft/corporate_biz/P180_avanti_white.obj Models/Aircraft/Citation-II-Type1.ac 	
-lib/airport/aircraft/GA/Cessna_172.obj Models/Aircraft/Cessna172_red.xml 
+lib/airport/aircraft/GA/Cessna_172.obj Models/Aircraft/Cessna172_red.xml 0 0 0 180 
 lib/airport/aircraft/GA/KingAirC90B.obj Models/Aircraft/Citation-II-Type1.ac
 lib/airport/aircraft/GA/Osprey_GP5.obj Models/Aircraft/Zlin50xl_low_poly.xml
 lib/airport/aircraft/heavy_metal/747_United.obj Models/Aircraft/B747.xml 0 0 0 90
@@ -31,7 +31,7 @@ lib/airport/Classic_Airports/Control_Towers/Classic_Tower_4.agp Models/Airport/t
 lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp Models/lib/HorizTanks2.ac 0 0 0 90 
 #lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/Avgas_Pump.ac 0 0 0 0
 lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/FGRefuel02.xml 0 0 0 -90
-lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj Models/Airport/Avgas_Pump.ac 0 0 0 0
+lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj Models/Airport/Avgas_Pump.ac 0 0 0 90
 lib/airport/Common_Elements/Fuel_Storage/3_Tank_Array.agp Models/Airport/GenericFuelStore3.ac 0 0 0 0 
 lib/airport/Common_Elements/Fuel_Storage/Single_Tank_Large.obj Models/Industrial/generic_tank_020m_grey.ac 0 0 -90 0
 lib/airport/Common_Elements/Fuel_Storage/Single_Vert_Tank.agp Models/Airport/GenericFuelStore1.ac 0 0 0 0 
@@ -297,10 +297,10 @@ lib/g10/US/commercial/canopy_benzoil.obj Models/lib/canopy17x14.ac 0 0 0 90
 lib/g10/US/commercial/canopy_bp_large.obj Models/lib/canopy18x8.ac 0 0 0 90
 lib/g10/US/commercial/canopy_bp_small.obj Models/lib/canopy38x8.ac 0 0 0 90
 lib/g10/US/commercial/canopy_ozgas.obj Models/lib/canopy18x10.ac 0 0 0 90 
-lib/g10/US/commercial/fuel_pump_76.obj Models/Airport/Avgas_Pump.ac
-lib/g10/US/commercial/fuel_pump_benzoil.obj Models/Airport/Avgas_Pump.ac
-lib/g10/US/commercial/fuel_pump_bp.obj Models/Airport/Avgas_Pump.ac
-lib/g10/US/commercial/fuel_pump_ozgas.obj Models/Airport/Avgas_Pump.ac
+lib/g10/US/commercial/fuel_pump_76.obj Models/Airport/Avgas_Pump.ac 0 0 0 90
+lib/g10/US/commercial/fuel_pump_benzoil.obj Models/Airport/Avgas_Pump.ac 0 0 0 90
+lib/g10/US/commercial/fuel_pump_bp.obj Models/Airport/Avgas_Pump.ac 0 0 0 90
+lib/g10/US/commercial/fuel_pump_ozgas.obj Models/Airport/Avgas_Pump.ac 0 0 0 90
 
 lib/g10/US/industrial/light/TinShed10x30Lt.obj Models/lib/hangarUL10x30.ac 0 0 0 90
 lib/g10/US/industrial/light/TinShed10x30Dk.obj Models/lib/hangarUL10x30.ac 0 0 0 90
@@ -433,7 +433,7 @@ lib/g10/US/suburban/dB-RnchLHGry.obj Models/lib/farm19x12.ac 0 0 0 90
      #20 no model for lib/g10/US/industrial/light/Fact30x108B.obj
      #20 no model for lib/airport/lights/slow/MIRL_yy_inset.obj
      #19 no model for lib/g10/US/commercial/tool_locker1.obj
-     #19 no model for lib/g10/US/commercial/fuel_pump_benzoil.obj
+    
      #19 no model for lib/airport/Common_Elements/Parking/6_wLines.obj
      #18 no model for lib/g10/US/industrial/light/StorSml2p2.obj
      #18 no model for lib/g10/US/industrial/light/StorSml1p1.obj
@@ -467,7 +467,7 @@ lib/g10/global_objects/rooftop_helipad_5.obj Models/Airport/helipad40m.ac
      #12 no model for lib/airport/lights/slow/thr_r_inset.obj
      #12 no model for lib/airport/landscape/windsock.obj
      #12 no model for lib/airport/Common_Elements/Miscellaneous/AC_Cond_noFence.obj
-     #11 no model for lib/g10/US/commercial/fuel_pump_ozgas.obj
+     
      #11 no model for lib/airport/Common_Elements/Parking/6_CarStop.obj
      #10 no model for lib/g10/US/suburban/dT-RnchRHGry.obj
      #10 no model for lib/g10/streetlights/HwyLt3BarMnt.obj
@@ -498,7 +498,7 @@ lib/g10/global_objects/rooftop_helipad_1.obj Models/Airport/helipad40m.ac
       #7 no model for lib/g10/US/suburban/dL-RnchLHRd.obj
       #7 no model for lib/g10/US/industrial/light/StorWd1p1.obj
       #7 no model for lib/g10/US/commercial/store_ozgas.obj
-      #7 no model for lib/g10/US/commercial/fuel_pump_76.obj
+     
       #7 no model for lib/g10/global_objects/newspaper_box_X4.obj
       #7 no model for lib/airport/lights/slow/MIRL_rw.obj
       #7 no model for lib/airport/Common_Elements/Parking/Yellow_Cap_Lg.obj

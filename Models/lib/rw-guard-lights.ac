@@ -1,7 +1,7 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1.0000 1.0000 1.0000  amb 0.2000 0.2000 0.2000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 10 trans 0.0000
-MATERIAL "yellow light" rgb 1.0000 1.0000 0.0000  amb 1.0000 1.0000 1.0000  emis 0.9600 0.9600 0.0000  spec 1.0000 1.0000 0.0000  shi 50 trans 0.0000
-MATERIAL "orange paint" rgb 0.8000 0.1618 0.0000  amb 1.0000 1.0000 1.0000  emis 0.1199 0.0243 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
+MATERIAL "yellow light" rgb 1.0000 1.0000 0.0000  amb 1.0000 1.0000 0.0000  emis 0.9600 0.9600 0.0000  spec 1.0000 1.0000 0.0000  shi 50 trans 0.0000
+MATERIAL "orange paint" rgb 0.8000 0.1618 0.0000  amb 0.8000 0.1000 0.0000  emis 0.1199 0.0243 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
 MATERIAL "grey" rgb 0.3672 0.3672 0.3672  amb 0.2667 0.2667 0.2667  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
 OBJECT world
 name "Blender_export__rw-guard-lights.ac"
