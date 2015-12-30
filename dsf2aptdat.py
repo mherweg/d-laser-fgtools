@@ -18,28 +18,13 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
+# work in progress 
+
 #convert facade polygons from dsf-txt files into taxiway polygons for apt.dat
 # and
 # into OSM XML to be read by osm2city
 
-#usage example:
-# ./gateway_pull.py -i KSFO
-# ./dsf2aptdat.py -i KSFO
-
-# BEFORE you run this script use gateway_pull.py  to download ICAO.dat and ICAO.txt file of the airport
-#  
-# the script will modify the ICAO.dat file. Do this only once, otherwise you'll have duplicate polygons in the ICAO.dat file
-#
-# the modified ICAO.dat file can be used for genapts850 of the terragear package to create a .btg.gz with more apron/car park
-# areas
-#
-# the ICAO.osm can be used with osm2city to generate 3D buildings from "facade" polygons
-#
-# if you miss any polygons: check the 2 whitelists in this program!
-
 #INPUT dsf/txt:
-# http://wiki.x-plane.com/DSF_File_Specification
-# When a polygon primitive actually contains nested polygons (to form holes), each polygon is known as a winding.
 
 #rectangle example:
 
@@ -53,18 +38,6 @@
 #END_WINDING
 #END_POLYGON
 
-#type 3: selectable type for each wall
-#BEGIN_POLYGON 11 30 3
-#BEGIN_WINDING
-#POLYGON_POINT 8.546493171 50.044684426 0.000000000
-#POLYGON_POINT 8.547283476 50.044869874 0.000000000
-#POLYGON_POINT 8.546857927 50.045579130 0.000000000
-#POLYGON_POINT 8.545976433 50.045367655 0.000000000
-#POLYGON_POINT 8.546244934 50.044941450 1.000000000
-#POLYGON_POINT 8.546366520 50.044739735 2.000000000
-#END_WINDING
-#END_POLYGON
-
 # bezier example, 4 "corners"
 #BEGIN_POLYGON 1 10 4
 #BEGIN_WINDING
@@ -75,12 +48,6 @@
 #END_WINDING
 #END_POLYGON
 
-#type 5 : selectable type for each wall and bezier
-#BEGIN_POLYGON 12 30 5
-#BEGIN_WINDING
-#POLYGON_POINT 8.527156476 50.038452332 0.000000000 8.527156476 50.038452332
-#POLYGON_POINT 8.528734393 50.038826396 2.000000000 8.528734393 50.038826396
-#...
 
 #OUTPUT  apt.dat:
 #=================
@@ -110,7 +77,7 @@
 import os, sys, getopt, fileinput, subprocess
 helptext = './dsf2aptdat.py -i ICAO'
 
-nodeid=10000
+nodeid=0
 minx=False
 maxx=False
 miny=False
@@ -169,6 +136,7 @@ def read_poly_def(infile):
             cols = line.split()
             xpath = cols[1]
             pd.append(xpath)
+     
     return pd
     
 def read_poly(infile,pd):
@@ -178,22 +146,14 @@ def read_poly(infile,pd):
         if line.startswith("BEGIN_POLYGON"):
             col = line.split()
             text = pd[int(col[1])]
-            height= col[2]
-            polytype =  col[3]
             poly=Polygon(ID,col[1],col[2],col[3],text)
             text = pd[int(poly.a)]
-            windcount=0
         if line.startswith("BEGIN_WINDING"):
-            if windcount==0:  # only do the first winding
-                green=True
-            else:
-                green=False
-            windcount+=1
-            
+            green=True
         if line.startswith("POLYGON_POINT") and green:
             col = line.split()
-            #ignore col[3] = wall type of each node
             if len(col)==3 or len(col)==4 :
+                
                 #print "sharp corner"
                 vert = Vert(111,col[1],col[2])
                 poly.verts.append(vert)
@@ -205,16 +165,6 @@ def read_poly(infile,pd):
                     #print "true bezier rounded corner"
                     vert = Vert(112,col[1],col[2],col[3],col[4])
                 poly.verts.append(vert)
-            if len(col)==6:
-                # ignore col[3] = wall type for each node
-                if col[1] == col[4] and col[2] == col[5]:
-                    #print "sharp corner redundant. type:",polytype
-                    vert = Vert(111,col[1],col[2])
-                else:
-                    #print "true bezier rounded corner. type:",polytype
-                    vert = Vert(112,col[1],col[2],col[4],col[5])
-                poly.verts.append(vert)
-
         if line.startswith("END_WINDING"):
             green=False
         if line.startswith("END_POLYGON"):
@@ -224,13 +174,14 @@ def read_poly(infile,pd):
             
             # whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
             # 
-            whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking','classic']
+            whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking']
             if any(x in text for x in whitelist):
+            #if text.find("Building") >=0 or text.find("pavement") >=0 or text.find("Fenced_Parking") >=0:
                 #print text
                 #poly.out()
                 polys.append(poly)
-            else:
-                print "SKIP: ", text
+            #else:
+                #print "ignoring:", text
            
     return (polys)
         
@@ -312,7 +263,7 @@ def write_osmxml(polys,icao):
     # do we need bounds ?
     #osmfile.write '<bounnds minlat="%d" minlon="%d" maxlat="%d51.6642800" maxlon="%d"/>>'
     
-    whitelist=['Building','modern','Garage','Hangars','urban','Classic_Airports/Facades/classic']
+    whitelist=['Building','modern','Garage','Hangars','urban']
     for p in polys:  #all nodes for all buildings
         if any(x in p.text for x in whitelist):
             for v in p.verts:
@@ -320,21 +271,20 @@ def write_osmxml(polys,icao):
                 osmfile.write(line)
     for p in polys:  #one way for each building
         if any(x in p.text for x in whitelist):
+            #print str(p.verts)
             bcount+=1
-            way_id = 20000 + int(p.ID)
-            line='<way id="%d" visible="true" version="1" >\n'%(way_id)
+            line='<way id="%d" visible="true" version="1" >\n'%(p.ID)
             osmfile.write(line)
-            vertcount=0
+            first=True
             for v in p.verts:
                 line='<nd ref="%d"/>\n'%(v.nodeid,)
                 osmfile.write(line)
-                vertcount+=1
-            if vertcount == 0:
-                print "no nodes for", p.ID, p.text
-                p.out()
-            else:
-                line='<nd ref="%d"/>\n'%(p.verts[0].nodeid,)   # close the loop: last node = first node
-                osmfile.write(line)
+                if first:
+                    lastline=line
+                    first=False
+                    
+            #line='<nd ref="%d"/>\n'%(p.verts[0].nodeid,)   # close the loop: last node = first node
+            osmfile.write(lastline)
             line='<tag k="building" v="yes"/>\n'
             osmfile.write(line)
             line='<tag k="building:height" v="%s"/>\n'%(p.b,)
@@ -355,7 +305,7 @@ def write_osmxml(polys,icao):
 
 
 def main(argv):
-    icao="KSFO"
+    icao="KMIA"
     counter = 0
    
     try:
@@ -383,14 +333,10 @@ def main(argv):
     infile.seek(0)
     polys = read_poly(infile,pd) 
     #print len(polys), "polygons in %s.txt"%(icao)  <-strange result ?
-    
-    if os.path.isfile(icao+'.dat'): 
-        print "inserting into", icao+".dat  (please do this only once per file)"
-        count, pcount = write_aptdat(polys,icao)
-        print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
-    else:
-        print "ERROR: file not found:", icao+'.dat'
-        
+    print "inserting into", icao, ".dat  (please do this only once per file)"
+    count, pcount = write_aptdat(polys,icao)
+    #print
+    print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
     write_osmxml(polys,icao)
     print "done."
    
