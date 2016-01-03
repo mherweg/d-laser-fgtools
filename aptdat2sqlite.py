@@ -54,7 +54,7 @@ import re, math
 park_only=False
 
 input_filename = "apt.dat.18.9.2015all"
-input_filename = "EDDL.dat"
+input_filename = "KATL.dat"
 infile = open(input_filename, 'r')
 
 #exclude = ("KPHX","KJFK",)
@@ -66,6 +66,9 @@ infile = open(input_filename, 'r')
 push_dist=float(50.0*(1.0/110600))
 #also not bad:
 #push_dist=float(100.0*(1.0/110600))
+
+# parking location from X-plane tend to be too much forward
+park_dist=float(16.0*(1.0/110600))
 
 
 
@@ -83,13 +86,19 @@ pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s
 found = False
 
 
-def find_pusback_node(x,y,heading):
+def find_pusback_node(lon,lat,heading):
     #print push_dist
-    xp= float(x) - (math.sin(math.radians(heading))*push_dist)
-    yp =float(y) - (math.cos(math.radians(heading))*push_dist)
+    xp= float(lon) - (math.sin(math.radians(heading))*push_dist)
+    yp =float(lat) - (math.cos(math.radians(heading))*push_dist)
     return xp,yp
     
-    
+   
+def move_back(lon,lat,heading):
+    heading = float(heading)
+    newlon= float(lon) - (math.sin(math.radians(heading))*park_dist)
+    newlat= float(lat) - (math.cos(math.radians(heading))*park_dist)
+    return(newlon,newlat)
+     
 def calculate_distance(x1,y1,x2,y2):    
     a = numpy.array((x1 ,y1))
     b = numpy.array((x2, y2))
@@ -213,8 +222,6 @@ def add_pushback_routes(lid,newid):
         #else:
             #print "WARNING: no Taxinode found for ", p
         
-
-    
         
 groundnet_counter=0
 parking_counter=0        
@@ -335,8 +342,14 @@ with con:
                         else:
                             pname = newid
                         #print icao, pname, lat, lon , heading
-                        
                         #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+                        
+                        # move parking spot backwards compared to x-plane
+                        if ( fgtype=="gate" ) and (not(fgtype=="ga")):
+                            #print "before", lat,lon,heading
+                            (lon,lat) = move_back(lon,lat,heading)
+                            #print "after ", lat,lon
+                        
                         cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
                         offset=offset+1
                        
@@ -356,6 +369,8 @@ with con:
                             pname = pname.replace('&','_and_')
                     else:
                             pname = newid
+                            
+                    # TODO? move old parking spot backwards compared to x-plane?
                     
                     cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',44)", (lid,icao,pname,lat,lon,heading,newid))
                     offset=offset+1
