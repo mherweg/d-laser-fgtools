@@ -67,6 +67,8 @@ def download_stgtxt(sid,icao):
     else:
         print " 3D :-)"
         zip_fhandle.extract(icao + ".txt")
+        zip_fhandle.extract(icao + ".dat")
+        
 
 
 
