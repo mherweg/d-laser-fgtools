@@ -1,5 +1,5 @@
-lib/airport/aircraft/corporate_biz/P180_avanti_ferrari.obj Models/Aircraft/Citation-II-Type2.ac		
-lib/airport/aircraft/corporate_biz/P180_avanti_white.obj Models/Aircraft/Citation-II-Type1.ac 	
+lib/airport/aircraft/corporate_biz/P180_avanti_ferrari.obj Models/lib/citation.ac		
+lib/airport/aircraft/corporate_biz/P180_avanti_white.obj Models/lib/citation.ac 	
 lib/airport/aircraft/GA/Cessna_172.obj Models/Aircraft/Cessna172_red.xml 0 0 0 180 
 lib/airport/aircraft/GA/KingAirC90B.obj Models/Aircraft/Citation-II-Type1.ac
 lib/airport/aircraft/GA/Osprey_GP5.obj Models/Aircraft/Zlin50xl_low_poly.xml
