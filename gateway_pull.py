@@ -47,7 +47,7 @@ def main(argv):
             icao = arg
         elif opt == "-s":
             sid = arg
-    conn = httplib.HTTPConnection('gateway.x-plane.com')
+    conn = httplib.HTTPSConnection('gateway.x-plane.com')
     
     if sid == "":
         
