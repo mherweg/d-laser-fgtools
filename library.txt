@@ -166,8 +166,8 @@ lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj Models/Airport/Vehicle/fe
 lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle/fedextruck.xml 0 0 0 90
 lib/airport/Common_Elements/Vehicles/Cargo_Truck.obj Models/Transport/Norberttruck.xml 0 0 0 270
 #lib/airport/Common_Elements/Vehicles/comTruck_Base.obj
-lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj Models/Airport/Vehicle/citerne.xml
-lib/airport/Common_Elements/vehicles/Small_Fuel_Truck.obj Models/Airport/Vehicle/citerne.xml
+lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj Models/lib/fuel-truck.xml
+lib/airport/Common_Elements/vehicles/Small_Fuel_Truck.obj Models/lib/fuel-truck.xml
 lib/airport/Common_Elements/Water_Towers/1990.obj Models/Airport/water-tower-150-red-white.xml
 lib/airport/Common_Elements/Water_Towers/com_WT_1930_fence.obj Models/Airport/water-tower-150-red-white.xml
 lib/airport/Common_Elements/Water_Towers/com_WT_1930.obj Models/Airport/water-tower-90-red-white.xml

@@ -54,7 +54,7 @@ import re, math
 park_only=False
 
 input_filename = "apt.dat.18.9.2015all"
-input_filename = "KATL.dat"
+input_filename = "apt.dat"
 infile = open(input_filename, 'r')
 
 #exclude = ("KPHX","KJFK",)

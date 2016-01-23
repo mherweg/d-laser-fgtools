@@ -69,7 +69,7 @@ def main(argv):
             else:
                 out.write(line)
             
-        with open(inputfile,"r") as fp:     # collect all old png-filenames, avoiding duplicates
+        with open(inputfile,"r") as fp:     
             index = 0
             for line in fp:
                 #print line, line[:3]
