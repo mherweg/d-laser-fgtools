@@ -97,6 +97,9 @@ p = re.compile('[^a-zA-Z0-9]')
 found = False
 parking_counter=0
 groundnet_counter=0
+len3=0
+len5=0
+
 
 con = lite.connect('groundnets.db')
 with con:
@@ -105,7 +108,7 @@ with con:
     #find_dups(cur)
     #exit(0)
       
-    #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='HI13')")
+    #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='GMI')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN '0' AND 'M' ")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'N' AND 'Z' ")
@@ -126,6 +129,10 @@ with con:
         if prows:
             #print "parkings found"
             parking_counter+=1
+            if len(icao)==3:
+                len3+=1
+            if len(icao)==5:
+                len5+=1
             for i in range(len(icao)-1):
                 path = os.path.join(path, icao[i])
                 if os.path.exists(path):
@@ -208,6 +215,9 @@ with con:
 
 print "number of airports with parking locations:", parking_counter            
 print "number of AI ground networks:", groundnet_counter
+
+print "Airports with 3-letter code:", len3
+print "Airports with 5-letter code:", len5
         
         
         
