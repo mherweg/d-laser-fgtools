@@ -20,7 +20,7 @@
 #
 
 # input:
-# textfile after gateway api download or DSFTool --dsf2text input.dsf output.txt
+# textfile after gateway api download or "DSFTool --dsf2text input.dsf output.txt"
 
 ##                    show-with*/OBJ.DEF ID                           
 #      *from 1=default to 6="totally insane"
@@ -83,18 +83,19 @@ class Object_def(object):
 
 class Object(object):
     def __init__(self, obj_def, lon, lat, hdg, fgpath,zoff, msl=None):
-        self.pos = vec2d(lon, lat)
-        self.hdg = hdg
-        self.msl = msl
+		self.lon = lon
+		self.lat = lat
+		self.pos = vec2d(lon,lat)
+		self.hdg = hdg
+		self.msl = msl
         #self.file = obj_def.file
-        self.prefix = obj_def.prefix
-        self.ext = obj_def.ext
-        self.textures_list = []
-        self.fgpath=fgpath
-        self.zoff=zoff
-    
+		self.prefix = obj_def.prefix
+		self.ext = obj_def.ext
+		self.textures_list = []
+		self.fgpath=fgpath
+		self.zoff=zoff
     def __str__(self):
-        return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
+		return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
 
 
 #library =  {"lib/cars/car_static.obj" : ("Models/Transport/hatchback_red.ac",0,0,0,0), 
@@ -185,7 +186,43 @@ def read_obj(infile,od):
                 #pass
                 print "no model for", od[index]
     
-    
+def jw_init(icao):
+	path="Airports"
+	#icao="EDDF"    
+	for i in range(len(icao)-1):
+		path = os.path.join(path, icao[i])
+		if os.path.exists(path):
+			pass
+			#print os.listdir(path)
+		else:
+			os.mkdir(path)    
+            #open file for writing
+	gf = '.'.join([icao, 'jetways.xml'])
+	path = os.path.join(path, gf)
+	f = open(path, 'w')
+	f.write('<?xml version="1.0"?>\n')
+	f.write('<PropertyList>\n')
+	return(f)
+	
+def jw_entry(o,f,jw_count):
+	
+	f.write('<jetway n="%d">\n'%(jw_count))
+	f.write('  <model type="string">generic</model>\n')
+	f.write('  <gate type="string">FG</gate>\n')
+	f.write('  <door type="int">1</door>\n')
+	f.write('  <airline type="string">FGFS</airline>\n')
+	f.write('  <latitude-deg type="double">%s</latitude-deg>\n'%(o.lat))
+	f.write('  <longitude-deg type="double">%s</longitude-deg>\n'%(o.lon))
+	f.write('  <elevation-m type="double">%s</elevation-m>\n'%(o.msl))
+	f.write('  <heading-deg type="double">%s</heading-deg>\n'%(o.hdg))
+	f.write('  <initial-position>\n')
+	f.write('    <jetway-extension-m type="double">0</jetway-extension-m>\n')
+	f.write('    <jetway-heading-deg type="double">0</jetway-heading-deg>\n')
+	f.write('    <jetway-pitch-deg type="double">0</jetway-pitch-deg>\n')
+	f.write('    <entrance-heading-deg type="double">0</entrance-heading-deg>\n')
+	f.write('  </initial-position>\n')
+	f.write('</jetway>\n')
+		    
 
 def main():
     try:  
@@ -193,6 +230,11 @@ def main():
     except:
         print "input file ", inputfilename, "not found"
         sys.exit()
+    #print inputfilename
+    n2=os.path.basename(inputfilename)
+    (icao,ext)=os.path.splitext(n2)
+    print icao
+ 
     # 1. Init STG_Manager
     parameters.show()
     stg_manager = stg_io2.STG_Manager(parameters.PATH_TO_OUTPUT, OUR_MAGIC, overwrite=True)
@@ -203,24 +245,43 @@ def main():
     infile.seek(0)
     read_obj(infile,od)
     linecount=0
+    jw_count=0
+    jw_init_flag=False
+
+
     elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
     logger.info("probing elevation")  
     for o in objects:
 		if o.msl == None:
 			if True: 
 				o.msl = elev_prober(o.pos) + o.zoff
+				#o.msl=72
 			else:
 				o.msl = 72
 			logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
 		else:
 			#pass
 			logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
-		stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
+
+		if o.fgpath=="Models/Airport/Jetway/jetway.xml":
+			#print "jetway"
+			if not jw_init_flag:
+				f=jw_init(icao)
+				jw_init_flag=True
+			jw_entry(o,f,jw_count)
+			jw_count+=1
+		else:
+			stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
+			
 		linecount+=1
     elev_prober.save_cache()
         
     stg_manager.write()
     print "wrote" , linecount, "stg lines"
+    if jw_init_flag:
+		f.write('</PropertyList>\n')
+		print "wrote"  , jw_count, "jetway.xml entries"
+		f.close() 
     print "done."
 
         
