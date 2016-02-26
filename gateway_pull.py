@@ -53,7 +53,9 @@ def main(argv):
         
         conn.request("GET", "/apiv1/airport/" + icao)
         r1 = conn.getresponse()
+        #print r1
         r2 = r1.read()
+        #print r2
         result = json.loads(r2)
         sid=result["airport"]["recommendedSceneryId"]
 
@@ -93,14 +95,15 @@ def main(argv):
     myZip = zipfile.ZipFile(icao + ".zip","r")
     
 
-    print "writing ", icao + ".dat",
+    print "writing ", icao + ".dat"
     myZip.extract(icao + ".dat")
     try:
-        #print "writing ", icao + ".txt"
+        
         myZip.extract(icao + ".txt")
     except:
         print "(2D)"
     else:
+        print "writing ", icao + ".txt",
         print " 3D :-)"
 
     #print "deleting ", icao + ".zip"

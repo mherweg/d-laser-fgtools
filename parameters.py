@@ -26,7 +26,7 @@ from pdb import pm
 # -- Scenery folder, typically a geographic name or the ICAO code of the airport
 #PREFIX = "LSZR"
 
-USE_PKL = False             # -- instead of parsing the OSM file, read a previously created cache file $PREFIX/buildings.pkl
+USE_PKL = True             # -- instead of parsing the OSM file, read a previously created cache file $PREFIX/buildings.pkl
 IGNORE_PKL_OVERWRITE = True # -- Ignore overwriting of Cache File
 
 # -- Full path to the scenery folder without trailing slash. This is where we

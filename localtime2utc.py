@@ -51,19 +51,6 @@ def convert2stdout(conf_file,zone):
         else:
             print line.rstrip('"\r\n')
             
-            
-            
-
-
-            
-            
-
-            
-        
-
-
-
-
 def main(argv):
     
     delta=0
@@ -86,15 +73,11 @@ def main(argv):
             
                 
     print '#Input file is ', conf_file
-    print "#converteed from timezone", zone , "to UTC by convert-timezone.py "
+    print "#converted from timezone", zone , "to UTC by convert-timezone.py "
     #print 'Number of arguments:', len(sys.argv), 'arguments.'
     #print 'Argument List:', str(sys.argv)
     convert2stdout(conf_file, zone)
     
-    
-    
-
-
         
 if __name__ == "__main__":
     main(sys.argv[1:])
