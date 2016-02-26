@@ -263,8 +263,8 @@ def main():
 			#pass
 			logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
 
-		if o.fgpath=="Models/Airport/Jetway/jetway.xml":
-			#print "jetway"
+		if o.fgpath in ("Models/Airport/Jetway/jetway.xml" , "Models/Airport/Jetway/jetway-movable.xml"):
+			print o.fgpath
 			if not jw_init_flag:
 				f=jw_init(icao)
 				jw_init_flag=True
