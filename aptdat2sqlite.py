@@ -53,11 +53,9 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "apt.dat.18.9.2015all"
-input_filename = "apt.dat"
+input_filename = "EGTG.dat"
+#input_filename = "EGLL.dat"
 infile = open(input_filename, 'r')
-
-#exclude = ("KPHX","KJFK",)
 
 # lenght of straight pushback route in lat degree
 #at the equator, one latitudinal second measures 30.715 metres, one latitudinal minute is 1843 metres and
@@ -69,6 +67,10 @@ push_dist=float(50.0*(1.0/110600))
 
 # parking location from X-plane tend to be too much forward
 park_dist=float(16.0*(1.0/110600))
+#list of airports where the parking locations will not be changed
+move_back_blacklist = ['EGLL',]
+blacklist= []
+
 
 
 
@@ -84,6 +86,23 @@ pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s
 
 
 found = False
+
+
+def read_blacklist(filename):
+    try:  
+        fp = open(filename, 'r')
+    except:
+        print "blacklist file ", filename, "not found"
+        sys.exit()
+    for line in fp:
+        line = line.strip()
+        if line.startswith("#"):
+            pass
+        else:
+			blacklist.append(line)
+        
+    print len(blacklist) , "entries in blacklist"
+          
 
 
 def find_pusback_node(lon,lat,heading):
@@ -162,8 +181,8 @@ def connect_parkings(lid):
             cur.execute('UPDATE Taxinodes SET holdPointType = "PushBack" WHERE NewID = ? AND Aid = ?',(bestnode_id,lid))
         #else:
             #print "WARNING: no Taxinode found for ", p
-    if countp > 0:
-        print "Parking spots:", countp
+    #if countp > 0:
+    #    print "Parking spots:", countp
             
 
 def set_isOnRunway(lid):
@@ -225,6 +244,10 @@ def add_pushback_routes(lid,newid):
         
 groundnet_counter=0
 parking_counter=0        
+     
+     
+read_blacklist('legacy-groundnets-icao.lst')     
+     
         
 # main apt.dat parsing loop
 con = lite.connect('groundnets.db')
@@ -253,6 +276,7 @@ with con:
                 
                 
                 #process the previous airport
+                
                 if park_only == False and has_groundnet:
                     #print "OK"
                     if lid >= 0 :
@@ -272,9 +296,11 @@ with con:
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
                 
-
-                cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
-                lid = cur.lastrowid
+                if icao in blacklist:
+                    print icao ,"in blacklist - skipped"
+                else:
+                    cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
+                    lid = cur.lastrowid
                     #print "lid:" , lid
                 
                 offset=0
@@ -347,7 +373,11 @@ with con:
                         # move parking spot backwards compared to x-plane
                         if ( fgtype=="gate" ) and (not(fgtype=="ga")):
                             #print "before", lat,lon,heading
-                            (lon,lat) = move_back(lon,lat,heading)
+                            if icao in move_back_blacklist:
+                                print icao , "- using original parking location for", pname
+                            else:
+                                (lon,lat) = move_back(lon,lat,heading)
+                            
                             #print "after ", lat,lon
                         
                         cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
@@ -372,7 +402,7 @@ with con:
                             
                     # TODO? move old parking spot backwards compared to x-plane?
                     
-                    cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',44)", (lid,icao,pname,lat,lon,heading,newid))
+                    cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',17)", (lid,icao,pname,lat,lon,heading,newid))
                     offset=offset+1
                   
                     
