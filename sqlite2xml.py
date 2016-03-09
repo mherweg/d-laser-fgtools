@@ -46,7 +46,9 @@
 #grep -R -l Park Airports | wc -l
 #7970
 
-
+# january 2016
+#number of airports with parking locations: 8473
+#number of AI ground networks: 1140
 
 import sqlite3 as lite
 import sys
@@ -97,6 +99,8 @@ p = re.compile('[^a-zA-Z0-9]')
 found = False
 parking_counter=0
 groundnet_counter=0
+len3=0
+len5=0
 
 con = lite.connect('groundnets.db')
 with con:
@@ -107,10 +111,13 @@ with con:
       
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='HI13')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")
-    #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN '0' AND 'M' ")
-    #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'N' AND 'Z' ")
+    #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'E' AND 'F' ")
+    #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'EDD' AND 'EDE' ")
+    print "cur.execute..."
     cur.execute("SELECT Airports.Id,Airports.Icao FROM Airports  WHERE EXISTS (SELECT 1 FROM Parkings WHERE Airports.Id=Parkings.Aid)")
+    print "cur.fetchall()..."
     rows = cur.fetchall()
+    print "main loop..."
     for row in rows:
         #print row
         aid = row[0]
@@ -126,6 +133,11 @@ with con:
         if prows:
             #print "parkings found"
             parking_counter+=1
+            if len(icao)==3:
+                len3+=1
+            if len(icao)==5:
+                len5+=1
+
             for i in range(len(icao)-1):
                 path = os.path.join(path, icao[i])
                 if os.path.exists(path):
@@ -137,7 +149,7 @@ with con:
             #open file for writing
             gf = '.'.join([icao, 'groundnet.xml'])
             path = os.path.join(path, gf)
-            print aid,path
+            #print aid,path
             f = open(path, 'w')
             #write head
             f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n  <parkingList>\n')
@@ -158,9 +170,15 @@ with con:
     
                 lat = convert_lat(prow[1])
                 lon = convert_lon(prow[2])
-                f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
-                #print ('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
+                #print prow[5], type(prow[5])
+                if (prow[5] == None ):
+                    f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7]))
                 
+                else:
+                    f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
+                
+                    #print icao, prow[0]
+                    
             #write foot
             f.write(" </parkingList>\n")
             
@@ -199,16 +217,20 @@ with con:
                             
                     
                     f.write(' </TaxiWaySegments>\n')
-            
+                else:
+                    print len(prows), "parking locations but no taxi network:" , icao
             f.write("</groundnet>\n")
             #close file
             f.close()
         else:
-            print ".",
+            pass
+            #print ".",
 
 print "number of airports with parking locations:", parking_counter            
 print "number of AI ground networks:", groundnet_counter
-        
+print "Airports with 3-letter code:", len3
+print "Airports with 5-letter code:", len5
+      
         
         
         

@@ -22,7 +22,7 @@
 # http://gateway.x-plane.com/api#get-scenery
 
 # download the airports file (10MB) before running this script:
-# wget http://gateway.x-plane.com/apiv1/airports
+# wget https://gateway.x-plane.com/apiv1/airports
 
 # this tool tries to download all "3D" airport sceneries from gateway.x-plane.com
 # the ICAO.txt for each airport is saved into the current folder.
@@ -36,7 +36,7 @@ import zipfile
 
 
 inputfilename="airports"
-htconn = httplib.HTTPConnection("gateway.x-plane.com")
+htconn = httplib.HTTPSConnection("gateway.x-plane.com")
 
 def download_stgtxt(sid,icao):
       
@@ -64,16 +64,16 @@ def download_stgtxt(sid,icao):
         txtstring = zip_fhandle.read("%s.txt" % icao)
     except:
         print "(2D)"
+        
     else:
         print " 3D :-)"
         zip_fhandle.extract(icao + ".txt")
-
+       
 
 
 
 # main
-c=0
-threedee=0
+
 try:  
     infile = open(inputfilename, 'r')
 except:
@@ -87,21 +87,13 @@ for a in airports:
     if a['SceneryType'] == 0:
         pass
     else:
-        threedee+=1
-        print threedee,
         icao = a['AirportCode']
         sid = a['RecommendedSceneryId']
         # only download if we do not have it
-        
         if os.path.isfile(icao + ".txt"):
             print "not downloading" , icao
         else:
             download_stgtxt(sid,icao)
-    c+=1
-    
-print "total:", c
-
-
         
 
 

@@ -45,12 +45,14 @@ helptext = 'osm-center2stg.py -i <inputfile> -m <path to shared model> -e <eleva
 def main(argv):
     #model = "Models/Industrial/GenericStorageTank15m.ac"
     #model = "Models/Commercial/Petrolstation1.ac"
-    model = "Models/Misc/generic_church_02.ac"
+    #model = "Models/Misc/generic_church_02.ac"
+    model = "Models/Power/windturbine.xml"
     elev  = 500
     heading = 0
-    inputfile = "models/si/churches-center.osm" 
-    osmkey = 'amenity'
-    osmvalue = 'fuel'
+    inputfile = "windkraft.osm" 
+    #tag k="generator:source" v="wind"
+    osmkey = 'generator:source'
+    osmvalue = 'wind'
     try:
         opts, args = getopt.getopt(argv,"hi:m:e:")
     except getopt.GetoptError:
