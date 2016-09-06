@@ -22,7 +22,7 @@
 # http://gateway.x-plane.com/api#get-scenery
 
 # download the airports file (10MB) before running this script:
-# wget https://gateway.x-plane.com/apiv1/airports
+# wget -N https://gateway.x-plane.com/apiv1/airports
 
 # this tool tries to download all "3D" airport sceneries from gateway.x-plane.com
 # the ICAO.txt for each airport is saved into the current folder.

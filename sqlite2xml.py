@@ -50,6 +50,11 @@
 #number of airports with parking locations: 8473
 #number of AI ground networks: 1140
 
+# minus 90 blacklisted airports:
+#number of airports with parking locations: 8439
+#number of AI ground networks: 1139
+
+
 import sqlite3 as lite
 import sys
 import os
@@ -99,8 +104,6 @@ p = re.compile('[^a-zA-Z0-9]')
 found = False
 parking_counter=0
 groundnet_counter=0
-len3=0
-len5=0
 
 con = lite.connect('groundnets.db')
 with con:
@@ -133,11 +136,6 @@ with con:
         if prows:
             #print "parkings found"
             parking_counter+=1
-            if len(icao)==3:
-                len3+=1
-            if len(icao)==5:
-                len5+=1
-
             for i in range(len(icao)-1):
                 path = os.path.join(path, icao[i])
                 if os.path.exists(path):
@@ -152,7 +150,11 @@ with con:
             #print aid,path
             f = open(path, 'w')
             #write head
-            f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n  <parkingList>\n')
+            f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n')
+            f.write(' <icao="%s">\n'%(icao))
+            f.write(' <aid="%s">\n'%(aid))
+            f.write('  <parkingList>\n')
+            print "aid,icao:", aid, icao
             #  <Parking index="0"
             # type="cargo"
             # name="R"
@@ -170,15 +172,12 @@ with con:
     
                 lat = convert_lat(prow[1])
                 lon = convert_lon(prow[2])
-                #print prow[5], type(prow[5])
-                if (prow[5] == None ):
+                if (prow[5] != None ):
+                    f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
+                else:
+                    #print icao, prow[0]
                     f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7]))
                 
-                else:
-                    f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
-                
-                    #print icao, prow[0]
-                    
             #write foot
             f.write(" </parkingList>\n")
             
@@ -228,9 +227,7 @@ with con:
 
 print "number of airports with parking locations:", parking_counter            
 print "number of AI ground networks:", groundnet_counter
-print "Airports with 3-letter code:", len3
-print "Airports with 5-letter code:", len5
-      
+        
         
         
         

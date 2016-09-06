@@ -53,8 +53,8 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "EGTG.dat"
-#input_filename = "EGLL.dat"
+input_filename = "apt.stripped"
+#input_filename = "EGTG.dat"
 infile = open(input_filename, 'r')
 
 # lenght of straight pushback route in lat degree
@@ -69,9 +69,13 @@ push_dist=float(50.0*(1.0/110600))
 park_dist=float(16.0*(1.0/110600))
 #list of airports where the parking locations will not be changed
 move_back_blacklist = ['EGLL',]
+
+# list of 90 airports that have groundnets in FG
+# that shall not be overwritten
+# see:  read_blacklist(filename) and legacy-groundnets-icao.lst
 blacklist= []
 
-
+used=[]
 
 
 p = re.compile('[^a-zA-Z0-9]')
@@ -301,8 +305,9 @@ with con:
                 else:
                     cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
                     lid = cur.lastrowid
-                    #print "lid:" , lid
-                
+                    print "lid:" , lid
+                #print "IDs used", used
+                used=[]
                 offset=0
             elif line.startswith("1300 "):
                 #lat = -555                                                                                                                                             
@@ -380,8 +385,14 @@ with con:
                             
                             #print "after ", lat,lon
                         
-                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
-                        offset=offset+1
+                        if newid in used:
+                            print newid, "reused", icao
+                            exit(1)
+                        else:
+                            cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
+                            offset=offset+1
+                            used.append(newid)
+                            
                        
                  
             elif line.startswith("15 "):
@@ -401,9 +412,12 @@ with con:
                             pname = newid
                             
                     # TODO? move old parking spot backwards compared to x-plane?
-                    
-                    cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',17)", (lid,icao,pname,lat,lon,heading,newid))
-                    offset=offset+1
+                    if newid in used:
+                        print newid, "reused", icao
+                        exit(1)
+                    else:
+                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',17)", (lid,icao,pname,lat,lon,heading,newid))
+                        offset=offset+1
                   
                     
             elif line.startswith("1201 ") and park_only == False:
@@ -453,9 +467,10 @@ with con:
     if park_only:
         dumpall()
     else:
-        add_pushback_routes(lid,newid)
-        set_isOnRunway(lid)
-        groundnet_counter+=1
+        if (has_groundnet):
+            add_pushback_routes(lid,newid)
+            set_isOnRunway(lid)
+            groundnet_counter+=1
                   
     print "number of AI ground networks:", groundnet_counter
     print "all data is stored in groundnets.db"

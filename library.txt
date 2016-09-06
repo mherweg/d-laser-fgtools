@@ -36,7 +36,7 @@ lib/airport/Common_Elements/Fuel_Storage/3_Tank_Array.agp Models/Airport/Generic
 lib/airport/Common_Elements/Fuel_Storage/Single_Tank_Large.obj Models/Industrial/generic_tank_020m_grey.ac 0 0 -90 0
 lib/airport/Common_Elements/Fuel_Storage/Single_Vert_Tank.agp Models/Airport/GenericFuelStore1.ac 0 0 0 0 
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Large.obj Models/Airport/egkk_oil.xml
-lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Medium.obj Models/Industrial/generic_tank_030m_grey.ac 0 0 -85 0
+lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Medium.obj Models/Industrial/GenericStorageTank30m.ac 0 0 -92 0
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Small.obj Models/Industrial/generic_tank_005m_grey.ac 0 0 -95 0
 #lib/airport/Common_Elements/Hangars/Blue_Hangar.fac
 lib/airport/Common_Elements/Hangars/FBO_Modern1.agp Models/lib/fboModern1.ac 0 0 0 90
