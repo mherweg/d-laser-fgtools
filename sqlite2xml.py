@@ -151,8 +151,8 @@ with con:
             f = open(path, 'w')
             #write head
             f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n')
-            f.write(' <icao="%s">\n'%(icao))
-            f.write(' <aid="%s">\n'%(aid))
+            #f.write(' <icao="%s">\n'%(icao))
+            #f.write(' <aid="%s">\n'%(aid))
             f.write('  <parkingList>\n')
             print "aid,icao:", aid, icao
             #  <Parking index="0"
@@ -205,11 +205,12 @@ with con:
                 #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
                 # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
                 
-                cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw LIKE "taxiway"', {"Aid": aid}) 
+                cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw NOT LIKE "runway"', {"Aid": aid}) 
                 arcs = cur.fetchall()
                 if arcs:
                     f.write(' <TaxiWaySegments>\n')
                     for a in arcs:
+                        print (a[0],a[1],a[4],a[3] )
                         f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
                         if a[2]=="twoway":
                             f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
