@@ -53,7 +53,8 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "apt.stripped"
+input_filename = "apt.clean"
+#input_filename = "ZSSS.dat"
 #input_filename = "EGTG.dat"
 infile = open(input_filename, 'r')
 
@@ -105,7 +106,7 @@ def read_blacklist(filename):
         else:
 			blacklist.append(line)
         
-    print len(blacklist) , "entries in blacklist"
+    #print len(blacklist) , "entries in blacklist"
           
 
 
@@ -153,41 +154,6 @@ def dumpall():
     for row in rows:
         print row
         
-def connect_parkings(lid): 
-    # !!! depricated !!!
-    # connect  the parking spots to their nearest node
-    # and add this node als pushback route for that spot
-    # -------- not used any more. see: add_pushback_routes
-   
-    cur = con.cursor()    
-    cur.execute("SELECT NewId,Lat,Lon,Pname,pushBackRoute FROM Parkings WHERE Aid = ? ",(lid,))
-    parkings = cur.fetchall()
-    cur.execute("SELECT NewId,Lat,Lon FROM Taxinodes WHERE Aid = ? ",(lid,))
-    nodes =  cur.fetchall()
-    countp =0
-    for p in parkings:
-        #print "connect_parkings: airportId", p[1]
-        mindist=1.0
-        bestnode_id=-1
-        countp+=1
-        for n in nodes:
-            dist=calc_dist_lazy(p[1],p[2], n[1],n[2])
-            #dist = calculate_distance(p[1],p[2], n[1],n[2])
-            if dist < mindist:
-                mindist=dist
-                #print "new mindist" , dist
-                bestnode_id = n[0]
-            #print p , bestnode
-        if bestnode_id != -1:
-            cur.execute('INSERT INTO Arc(Aid, NewId1, NewId2, onetwo, twrw, name, isPushbackRoute) VALUES (?,?,?,?,?,?,"1")', (lid,p[0],bestnode_id,"twoway","taxiway", p[3]))
-            #print "parking NewID ",  bestnode[3], p[0]
-            cur.execute("UPDATE Parkings SET pushBackRoute = ? WHERE NewId = ? AND Aid = ?;",(bestnode_id, p[0], lid ))
-            cur.execute('UPDATE Taxinodes SET holdPointType = "PushBack" WHERE NewID = ? AND Aid = ?',(bestnode_id,lid))
-        #else:
-            #print "WARNING: no Taxinode found for ", p
-    #if countp > 0:
-    #    print "Parking spots:", countp
-            
 
 def set_isOnRunway(lid):
  # convert edge "runway"   to node isOnRunway (and then remove them?)
@@ -247,8 +213,9 @@ def add_pushback_routes(lid,newid):
         
         
 groundnet_counter=0
-parking_counter=0        
-     
+#parking_counter=0        
+count_arc=0     
+max_parkings=0
      
 read_blacklist('legacy-groundnets-icao.lst')     
      
@@ -286,10 +253,17 @@ with con:
                     if lid >= 0 :
                         groundnet_counter+=1
                         add_pushback_routes(lid,newid)
-                        connect_parkings(lid)
                         set_isOnRunway(lid)
-                        print icao
+                        print icao,"parks,arcs:", offset, count_arc
+                        if offset > max_parkings:
+							max_parkings=offset
+							biggest_airport=icao
+                        if count_arc < 1:
+							print "WARNING count_arc=", count_arc
                         has_groundnet=False
+                        count_arc=0
+                    else:
+						print "WARNING lid:" , lid, icao
                 #else:
                 #    print "."
                 
@@ -300,12 +274,12 @@ with con:
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
                 
-                if icao in blacklist:
-                    print icao ,"in blacklist - skipped"
-                else:
-                    cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
-                    lid = cur.lastrowid
-                    print "lid:" , lid
+                #if icao in blacklist:
+                #    print icao ,"in blacklist - skipped"
+                #else:
+                cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
+                lid = cur.lastrowid
+                #print "INSERT INTO Airports lid, icao" , lid,icao
                 #print "IDs used", used
                 used=[]
                 offset=0
@@ -460,10 +434,11 @@ with con:
                     name = result.group(5)
                     #"CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, n1 TXT, n2 TXT, onetwo TXT, twrw TXT)")
                     cur.execute("INSERT INTO Arc(Aid, OldId1, NewId1, OldId2, NewId2, onetwo, twrw, name,isPushBackRoute) VALUES (?,?,?,?,?,?,?,?,?)", (lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0"))
-
+                    print (icao, lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0")
+                    #print
+                    count_arc=count_arc+1
 
     #process the last airport:
-    #connect_parkings(lid)
     if park_only:
         dumpall()
     else:
@@ -473,8 +448,9 @@ with con:
             groundnet_counter+=1
                   
     print "number of AI ground networks:", groundnet_counter
+    print "Airport with most parking locations:", biggest_airport, max_parkings
     print "all data is stored in groundnets.db"
-    print "now you can run sqlite2xml.py"
+    print "now you can run ./sqlite2xml.py"
 
            
    
