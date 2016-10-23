@@ -71,11 +71,6 @@ park_dist=float(16.0*(1.0/110600))
 #list of airports where the parking locations will not be changed
 move_back_blacklist = ['EGLL',]
 
-# list of 90 airports that have groundnets in FG
-# that shall not be overwritten
-# see:  read_blacklist(filename) and legacy-groundnets-icao.lst
-blacklist= []
-
 used=[]
 
 
@@ -93,6 +88,7 @@ pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s
 found = False
 
 
+<<<<<<< HEAD
 def read_blacklist(filename):
     try:  
         fp = open(filename, 'r')
@@ -109,6 +105,8 @@ def read_blacklist(filename):
     #print len(blacklist) , "entries in blacklist"
           
 
+=======
+>>>>>>> d66fe7499197bcbdc8f22c6dcedd7d4a526b3555
 
 def find_pusback_node(lon,lat,heading):
     #print push_dist
@@ -264,7 +262,11 @@ with con:
                         count_arc=0
                     else:
 						print "WARNING lid:" , lid, icao
+<<<<<<< HEAD
                 #else:
+=======
+                else:
+>>>>>>> d66fe7499197bcbdc8f22c6dcedd7d4a526b3555
                 #    print "."
                 
                 
@@ -274,9 +276,13 @@ with con:
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
                 
+<<<<<<< HEAD
                 #if icao in blacklist:
                 #    print icao ,"in blacklist - skipped"
                 #else:
+=======
+               
+>>>>>>> d66fe7499197bcbdc8f22c6dcedd7d4a526b3555
                 cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
                 lid = cur.lastrowid
                 #print "INSERT INTO Airports lid, icao" , lid,icao
