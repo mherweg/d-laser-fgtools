@@ -333,8 +333,10 @@ lib/g10/US/suburban/dB-RnchLHGry.obj Models/lib/farm19x12.ac 0 0 0 90
 
 lib/g10/US/industrial/light/Shed13x24.obj Models/lib/industrial13x24.ac 0 0 0 90
 lib/g10/US/industrial/light/FactA15x22.obj Models/lib/industrial15x22.ac 0 0 0 90
-lib/ships/SailBoat.obj Models/Maritime/Civilian/red-sailing-boat.ac 
-
+lib/g10/US/suburban/dGreenhse.obj Models/lib/dGreenhse.ac 0 0 0 90 
+lib/ships/SailBoat.obj Models/Maritime/Civilian/red-sailing-boat.ac 0 0 0 90 
+lib/ships/OilRig.obj Models/lib/OilRig.ac 0 0 0 90
+lib/ships/OilPlatform.obj Models/lib/OilPlatform.xml 0 0 0 90
 
 #Frequency of usage:
    #1294 no model for lib/airport/Common_Elements/Parking/Asphalt_Cracks1.obj

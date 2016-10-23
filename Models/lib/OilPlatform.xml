@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <path>OilPlatform.ac</path>
+
+   
+
+    <model>
+	  <path>Models/Effects/lamp_shine3000.xml</path> 
+	  <offsets> 
+	     <x-m>2.43</x-m>
+	     <y-m>2.88</y-m>
+	     <z-m>71.06</z-m>
+	     <heading-deg>-45</heading-deg>
+	  </offsets>
+    </model>
+
+    <model>
+	  <path>Models/Effects/lamp_shine3000.xml</path> 
+	  <offsets> 
+	     <x-m>0</x-m>
+	     <y-m>2</y-m>
+	     <z-m>71.06</z-m>
+	     <heading-deg>135</heading-deg>
+	  </offsets>
+    </model>
+
+    <model>
+	  <path>Models/Effects/lamp_shine3000.xml</path> 
+	  <offsets> 
+	     <x-m>2</x-m>
+	     <y-m>0</y-m>
+	     <z-m>71.06</z-m>
+	     <heading-deg>45</heading-deg>
+	  </offsets>
+    </model>
+
+    <model>
+	  <path>Models/Effects/oilrig09_flame2000.xml</path> 
+	  <offsets> 
+ 	     <x-m>71.7</x-m>
+ 	     <y-m>34.5</y-m>
+ 	     <z-m>74.2</z-m>
+	     <heading-deg>45</heading-deg>
+	  </offsets>
+    </model>
+
+
+    <model>
+	  <path>Models/Effects/smoke_small_slow5000.xml</path> 
+	  <offsets> 
+ 	     <x-m>43.3</x-m>
+ 	     <y-m>20.5</y-m>
+ 	     <z-m>64.4</z-m>
+	     <heading-deg>45</heading-deg>
+	  </offsets>
+    </model>
+
+    <model>
+	  <path>Models/Effects/smoke_small_slow5000.xml</path> 
+	  <offsets> 
+ 	     <x-m>46</x-m>
+ 	     <y-m>20.5</y-m>
+ 	     <z-m>64.4</z-m>
+	     <heading-deg>45</heading-deg>
+	  </offsets>
+    </model>
+
+    <model>
+	  <path>Models/Effects/smoke_small_slow5000.xml</path> 
+	  <offsets> 
+ 	     <x-m>49</x-m>
+ 	     <y-m>20.5</y-m>
+ 	     <z-m>64.4</z-m>
+	     <heading-deg>45</heading-deg>
+	  </offsets>
+    </model>
+
+</PropertyList>
+
