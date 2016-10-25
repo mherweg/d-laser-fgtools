@@ -53,7 +53,7 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "apt.clean"
+input_filename = "test.dat"
 #input_filename = "ZSSS.dat"
 #input_filename = "EGTG.dat"
 infile = open(input_filename, 'r')
@@ -70,12 +70,7 @@ push_dist=float(50.0*(1.0/110600))
 park_dist=float(16.0*(1.0/110600))
 #list of airports where the parking locations will not be changed
 move_back_blacklist = ['EGLL',]
-
-# list of 90 airports that have groundnets in FG
-# that shall not be overwritten
-# see:  read_blacklist(filename) and legacy-groundnets-icao.lst
-blacklist= []
-
+biggest_airport=""
 used=[]
 
 
@@ -93,21 +88,6 @@ pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s
 found = False
 
 
-def read_blacklist(filename):
-    try:  
-        fp = open(filename, 'r')
-    except:
-        print "blacklist file ", filename, "not found"
-        sys.exit()
-    for line in fp:
-        line = line.strip()
-        if line.startswith("#"):
-            pass
-        else:
-			blacklist.append(line)
-        
-    #print len(blacklist) , "entries in blacklist"
-          
 
 
 def find_pusback_node(lon,lat,heading):
@@ -216,9 +196,7 @@ groundnet_counter=0
 #parking_counter=0        
 count_arc=0     
 max_parkings=0
-     
-read_blacklist('legacy-groundnets-icao.lst')     
-     
+  
         
 # main apt.dat parsing loop
 con = lite.connect('groundnets.db')
@@ -273,10 +251,7 @@ with con:
                 icao = apt_header[4]
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
-                
-                #if icao in blacklist:
-                #    print icao ,"in blacklist - skipped"
-                #else:
+               
                 cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
                 lid = cur.lastrowid
                 #print "INSERT INTO Airports lid, icao" , lid,icao
@@ -434,7 +409,7 @@ with con:
                     name = result.group(5)
                     #"CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, n1 TXT, n2 TXT, onetwo TXT, twrw TXT)")
                     cur.execute("INSERT INTO Arc(Aid, OldId1, NewId1, OldId2, NewId2, onetwo, twrw, name,isPushBackRoute) VALUES (?,?,?,?,?,?,?,?,?)", (lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0"))
-                    print (icao, lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0")
+                    #print (icao, lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0")
                     #print
                     count_arc=count_arc+1
 
