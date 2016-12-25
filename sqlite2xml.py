@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
 #(c) 2015 d-laser  http://wiki.flightgear.org/User:Laserman
@@ -71,14 +71,14 @@ def read_blacklist(filename):
     try:  
         fp = open(filename, 'r')
     except:
-        print "blacklist file ", filename, "not found"
+        print("blacklist file ", filename, "not found")
         sys.exit()
     for line in fp:
         line = line.strip()
         if line.startswith("#"):
             pass
         else:
-			blacklist.append(line)
+            blacklist.append(line)
         
     #print len(blacklist) , "entries in blacklist"
           
@@ -116,8 +116,8 @@ def find_dups(cur):
         cur.execute("SELECT Id,Icao FROM Airports WHERE Id=:Aid", {"Aid": aid})
         ap_rows = cur.fetchall()
         for ap in ap_rows:
-            print ap[1] ,
-        print row
+            print(ap[1])
+        print(row)
     
 
 #Umlaute entfernen
@@ -143,11 +143,11 @@ with con:
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'E' AND 'F' ")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'EDD' AND 'EDE' ")
-    print "cur.execute..."
+    print("cur.execute...")
     cur.execute("SELECT Airports.Id,Airports.Icao FROM Airports  WHERE EXISTS (SELECT 1 FROM Parkings WHERE Airports.Id=Parkings.Aid)")
-    print "cur.fetchall()..."
+    print("cur.fetchall()...")
     rows = cur.fetchall()
-    print "main loop..."
+    print("main loop...")
     for row in rows:
         #print row
         aid = row[0]
@@ -157,7 +157,7 @@ with con:
         #mkpath
         path="Airports"
         if icao in blacklist:
-            print icao ,"in blacklist - skipped"
+            print(icao ,"in blacklist - skipped")
         else:        
             cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute,Type,Radius FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
             prows = cur.fetchall()
@@ -183,7 +183,7 @@ with con:
                 #f.write(' <icao="%s">\n'%(icao))
                 #f.write(' <aid="%s">\n'%(aid))
                 f.write('  <parkingList>\n')
-                print "aid,icao:", aid, icao
+                print("aid,icao:", aid, icao)
                 #  <Parking index="0"
                 # type="cargo"
                 # name="R"
@@ -247,7 +247,7 @@ with con:
                         
                         f.write(' </TaxiWaySegments>\n')
                     else:
-                        print len(prows), "parking locations but no taxi network:" , icao
+                        print(len(prows), "parking locations but no taxi network:" , icao)
                 f.write("</groundnet>\n")
                 #close file
                 f.close()
@@ -255,8 +255,8 @@ with con:
                 pass
                 #print ".",
 
-print "number of airports with parking locations:", parking_counter            
-print "number of AI ground networks:", groundnet_counter
+print("number of airports with parking locations:", parking_counter)            
+print("number of AI ground networks:", groundnet_counter)
         
         
         

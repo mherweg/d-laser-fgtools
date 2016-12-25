@@ -54,7 +54,7 @@ import re, math
 park_only=False
 
 input_filename = "test.dat"
-#input_filename = "ZSSS.dat"
+input_filename = "KDFW.dat"
 #input_filename = "EGTG.dat"
 infile = open(input_filename, 'r')
 
@@ -121,18 +121,18 @@ def dumpall():
     
     rows = cur.fetchall()
     for row in rows:
-        print row
-    print "------------nodes----------------------------"    
+        print(row)
+    print("------------nodes----------------------------")    
     cur.execute("SELECT * FROM Taxinodes")
     rows = cur.fetchall()
     for row in rows:
-        print row
+        print(row)
 
-    print "------------arc----------------------------"    
+    print("------------arc----------------------------")    
     cur.execute("SELECT * FROM Arc")
     rows = cur.fetchall()
     for row in rows:
-        print row
+        print(row)
         
 
 def set_isOnRunway(lid):
@@ -200,7 +200,7 @@ max_parkings=0
         
 # main apt.dat parsing loop
 con = lite.connect('groundnets.db')
-print "DB connected, ",
+print("DB connected, ")
 with con:
     
     cur = con.cursor()    
@@ -209,10 +209,10 @@ with con:
     cur.execute("DROP TABLE IF EXISTS Parkings")
     cur.execute("DROP TABLE IF EXISTS Taxinodes")
     cur.execute("DROP TABLE IF EXISTS Arc")
-    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
-    cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
+    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat FLOAT, Lon FLOAT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+    cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat FLOAT, Lon FLOAT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
     cur.execute("CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
-    print "tables created."    
+    print("tables created.")    
 
     id = 0
     lid = -1
@@ -232,16 +232,16 @@ with con:
                         groundnet_counter+=1
                         add_pushback_routes(lid,newid)
                         set_isOnRunway(lid)
-                        print icao,"parks,arcs:", offset, count_arc
+                        print(icao,"parks,arcs:", offset, count_arc)
                         if offset > max_parkings:
-							max_parkings=offset
-							biggest_airport=icao
+                            max_parkings=offset
+                            biggest_airport=icao
                         if count_arc < 1:
-							print "WARNING count_arc=", count_arc
+                            print("WARNING count_arc=", count_arc)
                         has_groundnet=False
                         count_arc=0
                     else:
-						print "WARNING lid:" , lid, icao
+                        print("WARNING lid:" , lid, icao)
                 #else:
                 #    print "."
                 
@@ -328,14 +328,14 @@ with con:
                         if ( fgtype=="gate" ) and (not(fgtype=="ga")):
                             #print "before", lat,lon,heading
                             if icao in move_back_blacklist:
-                                print icao , "- using original parking location for", pname
+                                print(icao , "- using original parking location for", pname)
                             else:
                                 (lon,lat) = move_back(lon,lat,heading)
                             
                             #print "after ", lat,lon
                         
                         if newid in used:
-                            print newid, "reused", icao
+                            print(newid, "reused", icao)
                             exit(1)
                         else:
                             cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
@@ -362,7 +362,7 @@ with con:
                             
                     # TODO? move old parking spot backwards compared to x-plane?
                     if newid in used:
-                        print newid, "reused", icao
+                        print(newid, "reused", icao)
                         exit(1)
                     else:
                         cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',17)", (lid,icao,pname,lat,lon,heading,newid))
@@ -422,10 +422,10 @@ with con:
             set_isOnRunway(lid)
             groundnet_counter+=1
                   
-    print "number of AI ground networks:", groundnet_counter
-    print "Airport with most parking locations:", biggest_airport, max_parkings
-    print "all data is stored in groundnets.db"
-    print "now you can run ./sqlite2xml.py"
+    print("number of AI ground networks:", groundnet_counter)
+    print("Airport with most parking locations:", biggest_airport, max_parkings)
+    print("all data is stored in groundnets.db")
+    print("now you can run ./sqlite2xml.py")
 
            
    
