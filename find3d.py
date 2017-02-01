@@ -50,16 +50,15 @@ def download_stgtxt(sid,icao):
         return
     zip_base64 = result["scenery"]["masterZipBlob"]
     zip_blob = base64.b64decode(zip_base64)
-    #print("writing %s.zip" % icao)
-#    file = open("%s.zip" % icao, "wb")
-#    file.write(zip_blob)
-#    file.close()
+   
     zip_bytearray = io.BytesIO(zip_blob)
     zip_fhandle = zipfile.ZipFile(zip_bytearray)
-
+    
+    icao=icao.upper()
     print("reading", icao, sid)
 #    myZip = zipfile.ZipFile("%s.zip" % icao, "r")
     #datstring = zip_fhandle.read("%s.dat" % icao)
+    zip_fhandle.extract(icao + ".dat")
     try:
         txtstring = zip_fhandle.read("%s.txt" % icao)
     except:

@@ -2,7 +2,7 @@
 # before running this script for the first time:
 
 # download the airports file (10MB) before running find3d.py:
-# wget https://gateway.x-plane.com/apiv1/airports
+# wget -N https://gateway.x-plane.com/apiv1/airports
 
 
 # mkdir dsf_txt_collection2000 done.d

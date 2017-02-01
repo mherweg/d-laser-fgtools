@@ -53,9 +53,7 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "test.dat"
-input_filename = "KDFW.dat"
-#input_filename = "EGTG.dat"
+input_filename = "KRDU.dat"
 infile = open(input_filename, 'r')
 
 # lenght of straight pushback route in lat degree
