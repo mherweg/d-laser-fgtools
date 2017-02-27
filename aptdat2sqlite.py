@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #(c) 2015 d-laser  http://wiki.flightgear.org/User:Laserman
@@ -53,7 +53,7 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "KRDU.dat"
+input_filename = "apt.dat"
 infile = open(input_filename, 'r')
 
 # lenght of straight pushback route in lat degree
@@ -77,6 +77,13 @@ p = re.compile('[^a-zA-Z0-9]')
 # There are two lines that describe parkings: line 15 and line 1300
 pattern15 = re.compile(r"^15\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
 pattern1300 = re.compile(r"^1300\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\w|]*)\s*(.*)$")
+
+#gate details:                    size    type     airlines
+pattern1301 = re.compile(r"^1301\s*(\w*)\s*(\w*)\s*([\w ]*)\s*(.*)$")
+
+
+
+
 # TaxiNode
 pattern1201 = re.compile(r"^1201\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\-0-9\.]*)\s*(.*)$")
 # TaxiWay Segment  / "Arc"
@@ -207,7 +214,7 @@ with con:
     cur.execute("DROP TABLE IF EXISTS Parkings")
     cur.execute("DROP TABLE IF EXISTS Taxinodes")
     cur.execute("DROP TABLE IF EXISTS Arc")
-    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat FLOAT, Lon FLOAT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
+    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat FLOAT, Lon FLOAT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT,Airlines TXT )")
     cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat FLOAT, Lon FLOAT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
     cur.execute("CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
     print("tables created.")    
@@ -341,7 +348,30 @@ with con:
                             used.append(newid)
                             
                        
-                 
+            elif line.startswith("1301 "):
+                result = pattern1301.match(line)
+                #     size(A-F)        type: general_aviation,none,airline      space-seperated airlines
+                #print(result.group(1),result.group(2),result.group(3))
+                
+                sizecode = result.group(1)
+                sizelist= [ 'A','B','C','D','E','F' ]
+                sizedict = {'A':10 ,'B':18  ,'C':20  ,'D':32 ,'E':36 ,'F':40 }
+                if sizecode in (sizelist):
+                    #print('size:' ,sizecode,sizedict[sizecode])
+                    radius = sizedict[sizecode]
+                    cur.execute('UPDATE Parkings SET Radius = ? WHERE NewId = ? AND Aid = ?;',( radius,newid,lid))
+                else:
+                    print ("WARNING sizecode:", sizecode)
+					
+                #radius = get_radius(result.group(1))
+                
+                airlines=result.group(3).upper()
+                airlines = airlines.replace(" ", ",")
+                #airline_list=airlines.split()
+                #print(airline_list)
+                if airlines:
+                    cur.execute('UPDATE Parkings SET Airlines = ? WHERE NewId = ? AND Aid = ?;',( airlines,newid,lid))
+                    #print (airlines,newid,lid)
             elif line.startswith("15 "):
                 result = pattern15.match(line)
                 # Match line 15

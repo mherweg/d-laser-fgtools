@@ -145,7 +145,7 @@ with con:
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'EDD' AND 'EDE' ")
     print("cur.execute...")
     cur.execute("SELECT Airports.Id,Airports.Icao FROM Airports  WHERE EXISTS (SELECT 1 FROM Parkings WHERE Airports.Id=Parkings.Aid)")
-    print("cur.fetchall()...")
+    print("cur.fetchall()...  *please wait*")
     rows = cur.fetchall()
     print("main loop...")
     for row in rows:
@@ -159,7 +159,7 @@ with con:
         if icao in blacklist:
             print(icao ,"in blacklist - skipped")
         else:        
-            cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute,Type,Radius FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
+            cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute,Type,Radius,Airlines FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
             prows = cur.fetchall()
             #print prows, type(prows)
             if prows:
@@ -201,11 +201,17 @@ with con:
         
                     lat = convert_lat(prow[1])
                     lon = convert_lon(prow[2])
+                    
+                    if (prow[8] == None):
+                        airlines = ""
+                    else:
+                        airlines = prow[8]
+                    
                     if (prow[5] != None ):
-                        f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
+                        f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="%s" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5],airlines))
                     else:
                         #print icao, prow[0]
-                        f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7]))
+                        f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" airlineCodes="%s" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],airlines))
                     
                 #write foot
                 f.write(" </parkingList>\n")
