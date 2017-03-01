@@ -208,7 +208,7 @@ def jw_entry(o,f,jw_count):
 	
 	f.write('<jetway n="%d">\n'%(jw_count))
 	f.write('  <model type="string">generic</model>\n')
-	f.write('  <gate type="string">FG</gate>\n')
+	f.write('  <gate type="string">%s</gate>\n'%(jw_count))
 	f.write('  <door type="int">1</door>\n')
 	f.write('  <airline type="string">FGFS</airline>\n')
 	f.write('  <latitude-deg type="double">%s</latitude-deg>\n'%(o.lat))
@@ -264,7 +264,7 @@ def main():
 			logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
 
 		if o.fgpath in ("Models/Airport/Jetway/jetway.xml" , "Models/Airport/Jetway/jetway-movable.xml"):
-			print o.fgpath
+			#print o.fgpath
 			if not jw_init_flag:
 				f=jw_init(icao)
 				jw_init_flag=True
