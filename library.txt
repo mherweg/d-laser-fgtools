@@ -16,18 +16,17 @@ lib/airport/aircraft/regional_prop/ATR42-500_FedEx.obj Models/Aircraft/bae-ootas
 lib/airport/aircraft/regional_prop/ATR72-500_American_Eagle.obj Models/Aircraft/ATR42.xml 0 0 0 -90	
 lib/airport/aircraft/regional_prop/ATR72-500_Lufthansa_Regional.obj Models/Aircraft/fokker50_vlm.ac 0 0 0 0	
 lib/airport/aircraft/regional_prop/Dornier_328_prop_Air_Alps.obj Models/Aircraft/B1900_services.xml 0 0 0 90
+
+#TODO
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_1.agp Models/lib/classic-tower1.xml 0 0 0 0 
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_2.agp Models/lib/classic-tower2.xml 0 0 0 0 
+
+
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_3.agp Models/Airport/EGCC-manInt_60m-tower.ac 0 0 0 0 
-lib/airport/Classic_Airports/Control_Towers/Classic_Tower_4.agp Models/lib/clasic-tower4.xml 0 0 0 0 
-#lib/airport/Classic_Airports/Facades/10m_RTU.obj
-#lib/airport/Classic_Airports/Facades/aCLTerm2_chairs.obj
-#lib/airport/Classic_Airports/Facades/classic1.fac
-#lib/airport/Classic_Airports/Facades/classic2.fac
-#lib/airport/Classic_Airports/Facades/classic3.fac
-#lib/airport/Classic_Airports/Facades/Garage_1.fac
-#lib/airport/Common_Elements/Fence_Facades/Fenced_Parking.fac
-#lib/airport/Common_Elements/Fence_Facades/Fence.fac
+#lib/airport/Classic_Airports/Control_Towers/Classic_Tower_4.agp Models/Airport/atc-tower-100m.ac 0 0 0 0 
+lib/airport/Classic_Airports/Control_Towers/Classic_Tower_4.agp Models/lib/classic-tower4.ac 0 0 0 0 
+
+
 lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp Models/lib/HorizTanks2.ac 0 0 0 90 
 #lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/Avgas_Pump.ac 0 0 0 0
 lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/FGRefuel02.xml 0 0 0 -90
@@ -38,7 +37,6 @@ lib/airport/Common_Elements/Fuel_Storage/Single_Vert_Tank.agp Models/Airport/Gen
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Large.obj Models/Airport/egkk_oil.xml
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Medium.obj Models/Industrial/GenericStorageTank30m.ac 0 0 -92 0
 lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Small.obj Models/Industrial/generic_tank_005m_grey.ac 0 0 -95 0
-#lib/airport/Common_Elements/Hangars/Blue_Hangar.fac
 lib/airport/Common_Elements/Hangars/FBO_Modern1.agp Models/lib/fboModern1.ac 0 0 0 90
 lib/airport/Common_Elements/Hangars/Lg_Maint_Blue.agp Models/lib/LgMaint.ac 0 0 0 90
 lib/airport/Common_Elements/Hangars/Lg_Maint_Brown.agp Models/lib/LgMaint.ac 0 0 0 90
@@ -54,7 +52,6 @@ lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp Models/lib/SmHangar.ac 0 
 lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
 lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
 lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp Models/lib/SmHangar.ac 0 0 0 90
-#lib/airport/Common_Elements/Hangars/White_Hangar.fac
 lib/airport/Common_Elements/Lighting/com_DownLight.obj Models/lib/lamp10m.xml 0 0 0 -90
 lib/airport/Common_Elements/Lighting/com_Flood_20m.obj Models/lib/lamp10m.xml 0 0 0 -90
 lib/airport/Common_Elements/Lighting/com_Flood_36m.obj Models/lib/lamp10m.xml 0 0 0 -90
@@ -66,9 +63,6 @@ lib/airport/Common_Elements/Lighting/Omni_Parking_Lit.obj Models/lib/lamp10m.xml
 lib/airport/Common_Elements/Lighting/Opposing_Flood_Sm.obj Models/lib/lamp10m.xml 0 0 0 -90
 lib/airport/Common_Elements/Lighting/Ovrhd_Flood_Med.obj Models/lib/lamp10m.xml 0 0 0 0 
 lib/airport/Common_Elements/Lighting/Ovrhd_Flood_Small.obj Models/lib/lamp10m.xml 0 0 0 0 
-#lib/airport/Common_Elements/Misc_Buildings/Blue_Warehouse.fac
-#lib/airport/Common_Elements/Misc_Buildings/Cargo_Terminal.fac
-#lib/airport/Common_Elements/Misc_Buildings/com_Lin_Roof_Vent.obj
 lib/airport/Common_Elements/Misc_Buildings/com_Office1.obj Models/Commercial/OfficeBuilding74x18m.ac
 lib/airport/Common_Elements/Misc_Buildings/com_Office2.obj Models/Commercial/OfficeBuilding74x18m.ac
 #lib/airport/Common_Elements/Misc_Buildings/com_Roof_poche.obj
@@ -79,8 +73,6 @@ lib/airport/Common_Elements/Misc_Buildings/Med_Office_1.agp Models/lib/office65x
 lib/airport/Common_Elements/Misc_Buildings/Small_Office_1.agp Models/lib/office32x25.ac 0 0 0 90
 lib/airport/Common_Elements/Misc_Buildings/Small_Office_2.agp Models/lib/office40x25.ac 0 0 0 90
 lib/airport/Common_Elements/Misc_Buildings/Small_Office_3.agp Models/lib/office32x25n.ac 0 0 0 90
-#lib/airport/Common_Elements/Misc_Buildings/White_Office.fac
-#lib/airport/Common_Elements/Misc_Buildings/White_Warehouse.fac
 #lib/airport/Common_Elements/Miscellaneous/AC_Cond_noFence.obj
 #lib/airport/Common_Elements/Miscellaneous/AC_Ground_wFence.agp
 lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj Models/StreetFurniture/Litter_Bin.ac
@@ -127,21 +119,7 @@ lib/airport/Common_Elements/Parking/6space_wStop.obj Models/lib/6space_wStop.ac 
 #lib/airport/Common_Elements/Parking/6_wHandicapL.obj
 #lib/airport/Common_Elements/Parking/6_wLines.obj
 #lib/airport/Common_Elements/Parking/7_CarStop.obj
-#lib/airport/Common_Elements/Parking/Asphalt_Cracks1.obj
-#lib/airport/Common_Elements/Parking/Asphalt_Cracks2.obj
-#lib/airport/Common_Elements/Parking/Asphalt_CracksLg.obj
-#lib/airport/Common_Elements/Parking/Asphalt_CracksSm.obj
 lib/airport/Common_Elements/Parking/Bollard.obj Models/StreetFurniture/EDDI-cone.ac
-#lib/airport/Common_Elements/Parking/Grunge1_Lg.obj
-#lib/airport/Common_Elements/Parking/Grunge1_Med.obj
-#lib/airport/Common_Elements/Parking/Grunge1_Sm.obj
-#lib/airport/Common_Elements/Parking/Grunge1_XLg.obj
-#lib/airport/Common_Elements/Parking/Grunge2_Lg.obj
-#lib/airport/Common_Elements/Parking/Grunge2_Med.obj
-#lib/airport/Common_Elements/Parking/Grunge2_Sm.obj
-#lib/airport/Common_Elements/Parking/Grunge2_XLg.obj
-#lib/airport/Common_Elements/Parking/Grunge2_XXLg.obj
-#lib/airport/Common_Elements/Parking/Handicap_Sign.obj
 lib/airport/Common_Elements/Parking_Items/14_Single_Spaces.agp Models/lib/cars14.ac 0 0 0 90
 lib/airport/Common_Elements/Parking_Items/7_Single_Spaces.agp Models/lib/cars7.ac 0 0 0 90	
 lib/airport/Common_Elements/Parking_Items/Row_of_Cars_10.agp Models/lib/cars10.ac 0 0 0 90
@@ -175,25 +153,19 @@ lib/airport/Common_Elements/Water_Towers/com_WT_fence.obj Models/Airport/water-t
 lib/airport/Common_Elements/Water_Towers/Water_Tower_1930.agp Models/Airport/water-tower-90-red-white.xml
 lib/airport/Common_Elements/Water_Towers/Water_Tower_1960.agp Models/Airport/water-tower-90-red-white.xml
 
-#lib/airport/KSEA_only/Parking/Grunge2_Lg.obj
 lib/airport/landscape/apron_light.obj Models/lib/lamp10m.xml
 lib/airport/lights/slow/helipad_edge.obj Models/Effects/GreenLight6000.xml 0 0 0.5 0 
-# looks bad: lib/airport/lights/slow/helipad_edge.obj Models/Effects/helipad_light_green_2st.ac 0 0 0.5 0
 lib/airport/lights/slow/taxi_edge.obj Models/Effects/taxilampblue.xml 0 0 0.5 0 
 
 lib/airport/lights/slow/rway_guard.obj Models/lib/rw-guard-lights.ac 0 0 0 90
 #alternatives:  	Models/Airport/RGL_simple.xml 
 #					Models/Airport/RGL.xml 
 
+#TODO
 lib/airport/Modern_Airports/Control_Towers/Modern_Tower_1.agp Models/lib/modern-tower1.xml
 lib/airport/Modern_Airports/Control_Towers/Modern_Tower_2.agp Models/lib/modern-tower2.xml
 lib/airport/Modern_Airports/Control_Towers/Modern_Tower_3.agp Models/lib/modern-tower3.xml
-#lib/airport/Modern_Airports/Facades/Garage_1.fac
-#lib/airport/Modern_Airports/Facades/Garage_2.fac
-#lib/airport/Modern_Airports/Facades/Garage_3.fac
-#lib/airport/Modern_Airports/Facades/modern1.fac
-#lib/airport/Modern_Airports/Facades/modern2.fac
-#lib/airport/Modern_Airports/Facades/modern3.fac
+
 lib/airport/Ramp_Equipment/250cm_Jetway_Group.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/400cm_Jetway_2.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/400cm_Jetway_3.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
@@ -226,7 +198,7 @@ lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/lib/jetway_e4m.ac 0 0 0 90
 lib/airport/Ramp_Equipment/JetWayWallBase.obj Models/lib/JetWayWallBase.ac 0 0 0 90 
 lib/airport/Ramp_Equipment/Luggage_Cart.obj Models/lib/cargobox2x3m.ac
 lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj Models/lib/LuggCartPkng.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/Luggage_Truck.obj Models/lib/DFZ30-0.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Luggage_Truck.obj Models/lib/luggage-truck.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Cart_Group.obj Models/lib/LuggCartGroup.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_3.obj Models/lib/chariot3curve.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_Group.obj Models/lib/caisses_group.ac 0 0 0 90
@@ -241,18 +213,19 @@ lib/airport/Ramp_Equipment/Ramp_Group_Narrow.agp Models/lib/RampGroup.xml 0 0 0 
 lib/airport/Ramp_Equipment/Ramp_Group_Wide.agp Models/lib/RampGroup.xml 0 0 0 0
 lib/airport/Ramp_Equipment/Ramp_Parking.obj Models/lib/RampParking.xml 0 0 0 0
 lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/lib/RampParkingStripe.xml 0 0 0 0
-#lib/airport/Ramp_Equipment/Tar_Marks1.obj
 lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
-lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp Models/lib/vintage-tower-hangar.xml
+#TODO
+lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp Models/lib/vintage-tower-hangar.ac 0 0 0 90 
+
 lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp Models/lib/hangar81x16.ac 0 0 0 90
 lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj Models/lib/admin31x12.ac 0 0 0 90
+lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp Models/lib/admin-with-cars.ac 0 0 0 90
 
 #lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.agp
 #lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj
-#lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp
-#lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj
+
 lib/cars/car.obj Models/Transport/hatchback_blue.ac 0 0 0 0
 lib/cars/car_or_truck.obj Models/Transport/hatchback_green.ac 0 0 0 0
 lib/cars/car_or_truck_static.obj Models/Transport/hatchback_black.ac 0 0 0 0
@@ -357,7 +330,7 @@ lib/airport/lights/slow/MIRL_yy.obj	Models/lib/taxilight-HD-yy.ac 0 0 0 90
 lib/airport/lights/slow/MIRL_ry.obj Models/lib/taxilight-HD-yy.ac 0 0 0 90
 lib/airport/lights/slow/MIRL_yw.obj Models/lib/taxilight-HD-ww.ac 0 0 0 90
 
-#lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj	Models/lib/ 0 0 0 90
+lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj Models/lib/large-hangar.ac 0 0 0 90
 lib/g10/US/industrial/light/StorSml2p0.obj Models/lib/garages18x9.ac 0 0 0 90
 lib/g10/US/industrial/light/StorSml2p3.obj Models/lib/garages22x9.ac 0 0 0 90
 
@@ -366,6 +339,7 @@ lib/g10/US/suburban/dGdnShed.obj Models/lib/garden-shed.ac 0 0 0 90
 lib/g10/US/suburban/GrgSmlWht.obj Models/lib/garage-small-white.ac 0 0 0 90
 lib/g10/US/suburban/dGrgSmlWht.obj Models/lib/garage-small-white.ac 0 0 0 90
 
+lib/airport/aircraft/military/fighter_a.obj Models/Aircraft/F-15-lowres.ac 0 0 0 0
 
 #Frequency of usage: 
     #236 no model for lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj
@@ -396,7 +370,6 @@ lib/g10/US/suburban/dGrgSmlWht.obj Models/lib/garage-small-white.ac 0 0 0 90
     #136 no model for lib/g10/US/suburban/SmlRnchGry.obj
     #132 no model for lib/airport/Common_Elements/Miscellaneous/Med_AC_on_Pad.obj
     #130 no model for lib/airport/Common_Elements/Parking/Yellow_Cap_Sm.obj
-    #127 no model for lib/airport/aircraft/military/fighter_a.obj
     #125 no model for lib/g10/US/industrial/light/Warehse15x30Dk.obj
     #121 no model for lib/g10/US/industrial/light/Warehse13x30Lt.obj
     #121 no model for lib/airport/Common_Elements/Parking/Yellow_Lines_1-2.obj
