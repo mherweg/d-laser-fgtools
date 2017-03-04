@@ -18,14 +18,19 @@ lib/airport/aircraft/regional_prop/ATR72-500_Lufthansa_Regional.obj Models/Aircr
 lib/airport/aircraft/regional_prop/Dornier_328_prop_Air_Alps.obj Models/Aircraft/B1900_services.xml 0 0 0 90
 
 #TODO
+
+#small towers:
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_1.agp Models/lib/classic-tower1.xml 0 0 0 0 
+lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp Models/lib/vintage-tower-hangar.ac 0 0 0 90 
+
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_2.agp Models/lib/classic-tower2.xml 0 0 0 0 
-
-
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_3.agp Models/Airport/EGCC-manInt_60m-tower.ac 0 0 0 0 
 #lib/airport/Classic_Airports/Control_Towers/Classic_Tower_4.agp Models/Airport/atc-tower-100m.ac 0 0 0 0 
 lib/airport/Classic_Airports/Control_Towers/Classic_Tower_4.agp Models/lib/classic-tower4.ac 0 0 0 0 
 
+lib/airport/Modern_Airports/Control_Towers/Modern_Tower_1.agp Models/lib/ksfo_new_tower.xml 0 0 0 180
+lib/airport/Modern_Airports/Control_Towers/Modern_Tower_3.agp Models/lib/OMDB-tower.xml
+lib/airport/Modern_Airports/Control_Towers/Modern_Tower_2.agp Models/lib/modern-tower2.xml
 
 lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp Models/lib/HorizTanks2.ac 0 0 0 90 
 #lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp Models/Airport/Avgas_Pump.ac 0 0 0 0
@@ -139,8 +144,10 @@ lib/airport/Common_Elements/Parking/NoParkStripes.obj Models/lib/NoParkStripes.x
 #lib/airport/Common_Elements/Parking/Yellow_Lines_8-2.obj
 lib/airport/Common_Elements/Parking/Yellow_Triangle-1.obj Models/lib/YellowTriangle1.xml 0 0 0 90
 lib/airport/Common_Elements/Parking/Yellow_Triangle-2.obj Models/lib/YellowTriangle2.xml 0 0 0 90
-lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj Models/Airport/Vehicle/fedextruck.xml 0 0 0 270
-lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/Airport/Vehicle/fedextruck.xml 0 0 0 90
+
+lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj Models/lib/trailer-fedex.ac 0 0 0 90
+lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp Models/lib/trailer-ups.ac 0 0 0 90
+
 lib/airport/Common_Elements/Vehicles/Cargo_Truck.obj Models/Transport/Norberttruck.xml 0 0 0 270
 #lib/airport/Common_Elements/Vehicles/comTruck_Base.obj
 lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj Models/lib/fuel-truck.xml
@@ -161,26 +168,21 @@ lib/airport/lights/slow/rway_guard.obj Models/lib/rw-guard-lights.ac 0 0 0 90
 #alternatives:  	Models/Airport/RGL_simple.xml 
 #					Models/Airport/RGL.xml 
 
-#TODO
-lib/airport/Modern_Airports/Control_Towers/Modern_Tower_1.agp Models/lib/modern-tower1.xml
-lib/airport/Modern_Airports/Control_Towers/Modern_Tower_2.agp Models/lib/modern-tower2.xml
-lib/airport/Modern_Airports/Control_Towers/Modern_Tower_3.agp Models/lib/modern-tower3.xml
-
 lib/airport/Ramp_Equipment/250cm_Jetway_Group.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/400cm_Jetway_2.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/400cm_Jetway_3.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/400cm_Jetway_Group.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/500cm_Jetway_Group.agp Models/Airport/Jetway/jetway.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Belt_Loader.obj Models/lib/belt_loader.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/lib/container1.ac
-lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/lib/container6.ac
-lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj Models/lib/CargoDolly.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Cargo_Container_1.obj Models/lib/cargo-container1-HD.ac
+lib/airport/Ramp_Equipment/Cargo_Container_6.obj Models/lib/container6-HD.ac
+lib/airport/Ramp_Equipment/Cargo_Dolly_1.obj Models/lib/cargo-dolly1-HD.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Cargo_Dolly_wPod.obj Models/lib/CargoDollyWithContainer.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Cargo_Loader_1.obj Models/lib/loader.ac 0 0 0 -90
 lib/airport/Ramp_Equipment/Cargo_Palette_1.obj Models/Airport/cargobox.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_2.obj Models/Airport/cargoip.xml
 lib/airport/Ramp_Equipment/Cargo_Palette_3.obj Models/Airport/cargoim.xml
-lib/airport/Ramp_Equipment/Cargo_Pallete_Pkng.agp Models/lib/CargoPalettePkng.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Cargo_Pallete_Pkng.agp Models/lib/cargo-dolly-parking-HD.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Cargo_Pod_Lot.agp Models/lib/cargo_pod_lot.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Cargo_Pod_Pkng.obj Models/lib/CargoPodPkng.ac 0 0 0 -90
 #lib/airport/Ramp_Equipment/Covered_Walkway.fac
@@ -196,18 +198,18 @@ lib/airport/Ramp_Equipment/JetWayEx_16m.obj Models/lib/jetway_e16m.ac 0 0 0 90
 lib/airport/Ramp_Equipment/JetWayEx_8m.obj Models/lib/jetway_e8m.ac 0 0 0 90
 lib/airport/Ramp_Equipment/JetWayExt_4m.obj Models/lib/jetway_e4m.ac 0 0 0 90
 lib/airport/Ramp_Equipment/JetWayWallBase.obj Models/lib/JetWayWallBase.ac 0 0 0 90 
-lib/airport/Ramp_Equipment/Luggage_Cart.obj Models/lib/cargobox2x3m.ac
+lib/airport/Ramp_Equipment/Luggage_Cart.obj Models/lib/luggage-cart-HD.ac
 lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj Models/lib/LuggCartPkng.ac 0 0 0 -90
-lib/airport/Ramp_Equipment/Luggage_Truck.obj Models/lib/luggage-truck.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Luggage_Truck.obj Models/lib/luggage-truck-HD.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Cart_Group.obj Models/lib/LuggCartGroup.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_3.obj Models/lib/chariot3curve.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Lugg_Train_Group.obj Models/lib/caisses_group.ac 0 0 0 90
-lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj Models/lib/chariot1.ac 0 0 0 90
-lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj Models/lib/chariot2.ac 0 0 0 90
-lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj Models/lib/chariot3.ac 0 0 0 90
-lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/lib/chariot4.ac 0 0 0 90
-lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj Models/lib/chariot5.ac 0 0 0 90
-lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/chariot5.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj Models/lib/luggage-truck-HD.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj Models/lib/luggage-train-straight2-HD.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight3.obj Models/lib/luggage-train-straight2-HD.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight4.obj Models/lib/luggage-train-straight2-HD.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight5.obj Models/lib/luggage-train-straight2-HD.ac 0 0 0 90
+lib/airport/Ramp_Equipment/Lugg_Train_Straight.obj Models/lib/luggage-train-straight2-HD.ac 0 0 0 90
 lib/airport/Ramp_Equipment/Ramp_Group_Medium.agp Models/lib/RampGroup.xml 0 0 0 0
 lib/airport/Ramp_Equipment/Ramp_Group_Narrow.agp Models/lib/RampGroup.xml 0 0 0 0
 lib/airport/Ramp_Equipment/Ramp_Group_Wide.agp Models/lib/RampGroup.xml 0 0 0 0
@@ -216,13 +218,12 @@ lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj Models/lib/RampParkingStripe.
 lib/airport/Ramp_Equipment/Uni_Jetway_250cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_400cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
 lib/airport/Ramp_Equipment/Uni_Jetway_500cm.obj Models/Airport/Jetway/jetway-movable.xml 0 0 0 202
-#TODO
-lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp Models/lib/vintage-tower-hangar.ac 0 0 0 90 
 
 lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp Models/lib/hangar81x16.ac 0 0 0 90
 lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj Models/lib/admin31x12.ac 0 0 0 90
 lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp Models/lib/admin-with-cars.ac 0 0 0 90
 
+#TODO:
 #lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.agp
 #lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj
 
@@ -316,39 +317,33 @@ lib/ships/OilPlatform.obj Models/lib/OilPlatform.xml 0 0 0 90
 lib/airport/lights/slow/MIRL_ww.obj Models/lib/taxilight-HD-ww.ac 0 0 0 90
 lib/airport/Common_Elements/Parking/1_CarStop.obj Models/lib/1car-stop.ac 0 0 0 90
 lib/airport/Common_Elements/Parking/2_Space_Dual.obj Models/lib/2_spaces_dual.ac 0 0 0 90
-
 lib/airport/aircraft/general_aviation/prop_a.obj Models/lib/prop_a.ac 0 0 0 90
 lib/airport/aircraft/cargo/prop_a.obj Models/lib/prop_a.ac 0 0 0 90
 lib/airport/aircraft/airliners/prop_a.obj Models/lib/prop_a.ac 0 0 0 90
-
 lib/g10/US/suburban/TrailerSnglLong.obj	Models/lib/2container-office.ac 0 0 0 90
 lib/g10/US/suburban/TrailerDblLong.obj Models/lib/4container-office.ac 0 0 0 90
-
 lib/airport/Common_Elements/Parking/Handicap_Sign.obj Models/lib/handicap-sign.ac 0 0 0 90
-
 lib/airport/lights/slow/MIRL_yy.obj	Models/lib/taxilight-HD-yy.ac 0 0 0 90
 lib/airport/lights/slow/MIRL_ry.obj Models/lib/taxilight-HD-yy.ac 0 0 0 90
 lib/airport/lights/slow/MIRL_yw.obj Models/lib/taxilight-HD-ww.ac 0 0 0 90
-
 lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj Models/lib/large-hangar.ac 0 0 0 90
 lib/g10/US/industrial/light/StorSml2p0.obj Models/lib/garages18x9.ac 0 0 0 90
 lib/g10/US/industrial/light/StorSml2p3.obj Models/lib/garages22x9.ac 0 0 0 90
-
 lib/g10/US/suburban/GdnShed.obj Models/lib/garden-shed.ac 0 0 0 90
 lib/g10/US/suburban/dGdnShed.obj Models/lib/garden-shed.ac 0 0 0 90
 lib/g10/US/suburban/GrgSmlWht.obj Models/lib/garage-small-white.ac 0 0 0 90
 lib/g10/US/suburban/dGrgSmlWht.obj Models/lib/garage-small-white.ac 0 0 0 90
-
 lib/airport/aircraft/military/fighter_a.obj Models/Aircraft/F-15-lowres.ac 0 0 0 0
 
 #Frequency of usage: 
     #236 no model for lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.obj
+    #182 no model for lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.agp
+      
     #222 no model for lib/cars/police_car.obj
     #197 no model for lib/g10/US/suburban/dU-RnchGryNG.obj
     #196 no model for lib/g10/US/industrial/light/StorSml1p1.obj
     #190 no model for lib/g10/US/suburban/dSmlRnchGry.obj
     #186 no model for lib/g10/US/industrial/light/FactB30x45.obj
-    #182 no model for lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.agp
     #181 no model for lib/airport/Common_Elements/Parking/6_wHandicapL.obj
     #180 no model for lib/g10/US/industrial/light/StorSml1p0.obj
     #173 no model for lib/airport/landscape/radar.obj
