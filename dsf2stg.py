@@ -44,6 +44,7 @@ from vec2d import vec2d
 import string
 import argparse
 import logging
+from random import randint
 
 logger = logging.getLogger('dsf2stg')
 #logger.setLevel("DEBUG")
@@ -56,13 +57,37 @@ path_to_stg =inputfilename
 alt = 72
 
 path_to_fgelev = "fgelev"
-#path_to_scenery = "/home/mherweg/scenery/2.1/"
-path_to_scenery = "/home/mherweg/.fgfs/TerraSync/"
+path_to_scenery = "/home/mherweg/scenery/2.0/"
+#path_to_scenery = "/home/mherweg/.fgfs/TerraSync/"
 
 OUR_MAGIC = "dsf2stg"
 
 objects = []
 objects_def = {}
+
+carpool = [
+"hatchback_red.ac"  ,
+"hatchback_blue.ac"  ,
+"hatchback_black.ac"  ,
+"hatchback_black.ac"  ,
+"hatchback_silver.ac"  ,
+"hatchback_silver.ac"  ,
+"hatchback_green.ac"  ,
+"van_blue_dirty.ac" ,
+"van_red.ac" ,
+"van_silver.ac"
+] 
+
+cessnas = [
+"Cessna172.ac",
+"Cessna172_blue.ac",
+"Cessna172_green.ac",
+"Cessna172_red.ac",
+"Cessna172_sky.ac",
+"Cessna172_yellow.ac",
+"Cessna150_no_reg.ac"
+]
+
 
 class Object_def(object):
     def __init__(self, path, ID):
@@ -96,12 +121,6 @@ class Object(object):
 		self.zoff=zoff
     def __str__(self):
 		return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
-
-
-#library =  {"lib/cars/car_static.obj" : ("Models/Transport/hatchback_red.ac",0,0,0,0), 
-            #"lib/airport/Common_Elements/Parking/10_Spaces_dual.obj" : ("Models/StreetFurniture/10_spaces_dual.ac",0,0,0,90), 
-            #"lib/airport/Ramp_Equipment/Uni_Jetway_250.obj": ("Models/Airport/Jetway/generic.ac",0,0,0,0),
-            #...
             
 library = {}
 
@@ -160,6 +179,7 @@ def read_obj_def(infile):
     return od
 
 def read_obj(infile,od):
+    #print "read_obj",
     for line in infile:
         line = line.strip()
         
@@ -185,6 +205,7 @@ def read_obj(infile,od):
             else:
                 #pass
                 print "no model for", od[index]
+
     
 def jw_init(icao):
 	path="Airports"
@@ -233,10 +254,10 @@ def main():
     #print inputfilename
     n2=os.path.basename(inputfilename)
     (icao,ext)=os.path.splitext(n2)
-    print icao
+    print "starting: ", icao
  
     # 1. Init STG_Manager
-    parameters.show()
+    #parameters.show()
     stg_manager = stg_io2.STG_Manager(parameters.PATH_TO_OUTPUT, OUR_MAGIC, overwrite=True)
     #read translation file
     lib = read_lib(libfilename)
@@ -270,6 +291,16 @@ def main():
 				jw_init_flag=True
 			jw_entry(o,f,jw_count)
 			jw_count+=1
+		elif  o.fgpath == "CAR" : 
+			numcars= len(carpool)
+			index = (randint(0,numcars-1))
+			fgpath = ( "Models/Transport/" + carpool[index] )
+			stg_manager.add_object_shared( fgpath , o.pos, o.msl, o.hdg)
+		elif o.fgpath == "CESSNA" : 
+			numplanes= len(cessnas)
+			index = (randint(0,numplanes-1))
+			fgpath = ( "Models/Aircraft/" + cessnas[index] )
+			stg_manager.add_object_shared( fgpath , o.pos, o.msl, o.hdg)       
 		else:
 			stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
 			
@@ -277,10 +308,11 @@ def main():
     elev_prober.save_cache()
         
     stg_manager.write()
-    print "wrote" , linecount, "stg lines"
+    print "wrote" , linecount, "stg lines for ", icao
+  	
     if jw_init_flag:
 		f.write('</PropertyList>\n')
-		print "wrote"  , jw_count, "jetway.xml entries"
+		print "wrote"  , jw_count, "jetway.xml entries for ", icao
 		f.close() 
     print "done."
 

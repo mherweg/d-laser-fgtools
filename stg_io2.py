@@ -30,7 +30,7 @@ class STG_File(object):
         """Read all lines from stg to memory.
            Store our/other lines in two separate lists."""
         self.path_to_stg = calc_tile.construct_path_to_stg(path_to_scenery, lon_lat)
-        self.file_name = self.path_to_stg + "%07i.stg" % tile_index
+        self.file_name = self.path_to_stg + str(tile_index) + ".stg"
         self.other_list = []
         self.our_list = []
         self.magic = magic
