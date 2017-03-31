@@ -50,7 +50,7 @@ infile = open(input_filename, 'r')
 
 tags_fr = ['Multi-moteurs', 'Hélice', 'Hydravion', 'Mono-plan', 'Géant',    'Etats-Unis', 'Mono-moteur', 'ULM'     , 'Bi-plans', 'France', 'Bi-moteurs', 'Militaire', 'Canard', 'Prototype', 'Allemagne', 'Tri-moteurs', 'Quadri-moteurs', 'WW1', 'Réacteur', 'WW2', 'Racer', 'Angleterre', 'Hélicoptère', 'Convertible', 'Suède', 'Imaginaire', 'Autres', 'Italie', 'Ukraine', 'Russie', 'Dual-control', 'Tchécoslovaquie', 'Japon', 'Canada', 'Belgique', 'Liner', 'Voiture', 'Planeur', 'Autriche', 'Australie', 'Fusée', 'Suisse', 'Brésil']
 
-tags_en = ['multi-engine','Helicopter','water plane','Mono-plane','Giant','United States','single engine','Ultralight', 'biplane', 'France','twin engine', 'Military','canard','Prototype','Germany' , 'triple engine', 'quad engine',     'WW1', ' ' , 'WW2',      'racer' ,   'UK' , 'helicopter',      'convertable', 'Sweden'  ,'fictional', 'other', 'Italy', 'Ukraine', 'Russia', 'dual control',  'Czech Republic', 'japan'  , 'Canada', 'Belgium', 'Liner', 'Car', 'Glider',  'Austria', 'Australia', 'spacecraft', 'Switzerland', 'Brazil']
+tags_en = ['multi-engine','prop','seaplane','monoplane','giant','United States','single engine','ultralight', 'biplane', 'France','twin engine', 'military','canard','prototype','Germany' , 'triple engine', 'quad engine',     'WW1', 'jet' , 'WW2',      'racer' ,   'UK' , 'helicopter',      'convertable', 'Sweden'  ,'fictional', 'other', 'Italy', 'Ukraine', 'Russia', 'dual control',  'Czech Republic', 'Japan'  , 'Canada', 'Belgium', 'airliner', 'car', 'Glider',  'Austria', 'Australia', 'spacecraft', 'Switzerland', 'Brazil']
 
 
 
