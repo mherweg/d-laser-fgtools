@@ -70,6 +70,7 @@ def tile_index((lon, lat), x=0, y=0):
     index += (int(floor(lat)) + 90) << 6
     index += y << 3
     index += x
+    #print("tile_index", str(index))
     return index
 
 
@@ -80,8 +81,10 @@ def construct_path_to_stg(base_directory, center_global):
 
 def construct_stg_file_name(center_global):
     """Returns the file name of the stg-file at a given global lat/lon location"""
-    return "%07i.stg" % tile_index(center_global)
-
+    filename = str(tile_index(center_global)) + ".stg"
+    print ("construct_stg_file_name:" , filename)
+    return filename
+	
 
 def construct_btg_file_name(center_global):
     """Returns the file name of the stg-file at a given global lat/lon location"""

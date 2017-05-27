@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
 #(c) 2015 d-laser  http://wiki.flightgear.org/User:Laserman
@@ -50,12 +50,40 @@
 #number of airports with parking locations: 8473
 #number of AI ground networks: 1140
 
+# minus 90 blacklisted airports:
+#number of airports with parking locations: 8439
+#number of AI ground networks: 1139
+
+
 import sqlite3 as lite
 import sys
 import os
 import re
 
 park_only=False
+
+# list of 90 airports that have groundnets in FG
+# that shall not be overwritten
+# see:  read_blacklist(filename) and legacy-groundnets-icao.lst
+blacklist= []
+
+def read_blacklist(filename):
+    try:  
+        fp = open(filename, 'r')
+    except:
+        print("blacklist file ", filename, "not found")
+        sys.exit()
+    for line in fp:
+        line = line.strip()
+        if line.startswith("#"):
+            pass
+        else:
+            blacklist.append(line)
+        
+    #print len(blacklist) , "entries in blacklist"
+          
+
+
 
 def convert_lat(lat):
     if lat < 0:
@@ -88,8 +116,8 @@ def find_dups(cur):
         cur.execute("SELECT Id,Icao FROM Airports WHERE Id=:Aid", {"Aid": aid})
         ap_rows = cur.fetchall()
         for ap in ap_rows:
-            print ap[1] ,
-        print row
+            print(ap[1])
+        print(row)
     
 
 #Umlaute entfernen
@@ -99,8 +127,10 @@ p = re.compile('[^a-zA-Z0-9]')
 found = False
 parking_counter=0
 groundnet_counter=0
-len3=0
-len5=0
+
+
+   
+read_blacklist('legacy-groundnets-icao.lst')  
 
 con = lite.connect('groundnets.db')
 with con:
@@ -113,11 +143,11 @@ with con:
     #cur.execute("SELECT Id,Icao FROM Airports WHERE (Icao='EKVL')")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'E' AND 'F' ")
     #cur.execute("SELECT Id,Icao FROM Airports WHERE Icao BETWEEN 'EDD' AND 'EDE' ")
-    print "cur.execute..."
+    print("cur.execute...")
     cur.execute("SELECT Airports.Id,Airports.Icao FROM Airports  WHERE EXISTS (SELECT 1 FROM Parkings WHERE Airports.Id=Parkings.Aid)")
-    print "cur.fetchall()..."
+    print("cur.fetchall()...  *please wait*")
     rows = cur.fetchall()
-    print "main loop..."
+    print("main loop...")
     for row in rows:
         #print row
         aid = row[0]
@@ -126,111 +156,114 @@ with con:
         #icao=icao.strip()
         #mkpath
         path="Airports"
+        if icao in blacklist:
+            print(icao ,"in blacklist - skipped")
+        else:        
+            cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute,Type,Radius,Airlines FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
+            prows = cur.fetchall()
+            #print prows, type(prows)
+            if prows:
+                #print "parkings found"
+                parking_counter+=1
+                for i in range(len(icao)-1):
+                    path = os.path.join(path, icao[i])
+                    if os.path.exists(path):
+                        pass
+                        #print os.listdir(path)
+                    else:
+                        os.mkdir(path)
+                
+                #open file for writing
+                gf = '.'.join([icao, 'groundnet.xml'])
+                path = os.path.join(path, gf)
+                #print aid,path
+                f = open(path, 'w')
+                #write head
+                f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n')
+                #f.write(' <icao="%s">\n'%(icao))
+                #f.write(' <aid="%s">\n'%(aid))
+                f.write('  <parkingList>\n')
+                print("aid,icao:", aid, icao)
+                #  <Parking index="0"
+                # type="cargo"
+                # name="R"
+                # number="02"
+                # lat="N52 17.655"
+                # lon="E04 44.492"
+                # heading="328.8"
+                # radius="43"
+                # pushBackRoute="616" 
+                # airlineCodes="" />
+                for prow in prows:
+                    #print prow
+                    #write parkings to XML
+                    #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
         
-        cur.execute("SELECT Pname,Lat,Lon,Heading,NewId,pushBackRoute,Type,Radius FROM Parkings WHERE Aid=:Aid", {"Aid": aid}) 
-        prows = cur.fetchall()
-        #print prows, type(prows)
-        if prows:
-            #print "parkings found"
-            parking_counter+=1
-            if len(icao)==3:
-                len3+=1
-            if len(icao)==5:
-                len5+=1
-
-            for i in range(len(icao)-1):
-                path = os.path.join(path, icao[i])
-                if os.path.exists(path):
-                    pass
-                    #print os.listdir(path)
-                else:
-                    os.mkdir(path)
-            
-            #open file for writing
-            gf = '.'.join([icao, 'groundnet.xml'])
-            path = os.path.join(path, gf)
-            #print aid,path
-            f = open(path, 'w')
-            #write head
-            f.write('<?xml version="1.0"?>\n<groundnet>\n  <version>1</version>\n  <parkingList>\n')
-            #  <Parking index="0"
-            # type="cargo"
-            # name="R"
-            # number="02"
-            # lat="N52 17.655"
-            # lon="E04 44.492"
-            # heading="328.8"
-            # radius="43"
-            # pushBackRoute="616" 
-            # airlineCodes="" />
-            for prow in prows:
-                #print prow
-                #write parkings to XML
-                #TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
-    
-                lat = convert_lat(prow[1])
-                lon = convert_lon(prow[2])
-                #print prow[5], type(prow[5])
-                if (prow[5] == None ):
-                    f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7]))
-                
-                else:
-                    f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5]))
-                
-                    #print icao, prow[0]
+                    lat = convert_lat(prow[1])
+                    lon = convert_lon(prow[2])
                     
-            #write foot
-            f.write(" </parkingList>\n")
-            
-            #write nodes
-            #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
-            if not park_only:
-                cur.execute("SELECT Lat,Lon,NewId,isOnRunway,holdPointType FROM TaxiNodes WHERE Aid=:Aid", {"Aid": aid}) 
-                nodes = cur.fetchall()
-                if nodes:
-                    groundnet_counter+=1
-                    f.write(' <TaxiNodes>\n')
-                    for n in nodes:
-                        #TODO  holdPointType
-                        lat = convert_lat(n[0])
-                        lon = convert_lon(n[1])
-                        #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
-                        #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
-                        f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
-                        
+                    if (prow[8] == None):
+                        airlines = ""
+                    else:
+                        airlines = prow[8]
                     
-                    f.write(' </TaxiNodes>\n')
+                    if (prow[5] != None ):
+                        f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" pushBackRoute="%s" airlineCodes="%s" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],prow[5],airlines))
+                    else:
+                        #print icao, prow[0]
+                        f.write('        <Parking index="%d" type="%s" name="%s" lat="%s" lon="%s" heading="%s"  radius="%s" airlineCodes="%s" />\n'%(prow[4],prow[6], prow[0], lat, lon, prow[3],prow[7],airlines))
+                    
+                #write foot
+                f.write(" </parkingList>\n")
                 
-                # write arc
-                # but only taxiways, not runways       WHERE Aid=:Aid AND twrw LIKE "taxiway"
-                #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
-                # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
-                
-                cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw LIKE "taxiway"', {"Aid": aid}) 
-                arcs = cur.fetchall()
-                if arcs:
-                    f.write(' <TaxiWaySegments>\n')
-                    for a in arcs:
-                        f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
-                        if a[2]=="twoway":
-                            f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
+                #write nodes
+                #TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway TXT)")
+                if not park_only:
+                    cur.execute("SELECT Lat,Lon,NewId,isOnRunway,holdPointType FROM TaxiNodes WHERE Aid=:Aid", {"Aid": aid}) 
+                    nodes = cur.fetchall()
+                    if nodes:
+                        groundnet_counter+=1
+                        f.write(' <TaxiNodes>\n')
+                        for n in nodes:
+                            #TODO  holdPointType
+                            lat = convert_lat(n[0])
+                            lon = convert_lon(n[1])
+                            #<node index="632" lat="N52 17.840" lon="E04 45.904" isOnRunway="0" holdPointType="PushBack" />
+                            #<node index="633" lat="N52 17.491" lon="E04 46.832" isOnRunway="0" holdPointType="none" />
+                            f.write('        <node index="%d" lat="%s" lon="%s" isOnRunway="%s" holdPointType="%s"  />\n'%(n[2], lat, lon, n[3],n[4] ))
                             
+                        
+                        f.write(' </TaxiNodes>\n')
                     
-                    f.write(' </TaxiWaySegments>\n')
-                else:
-                    print len(prows), "parking locations but no taxi network:" , icao
-            f.write("</groundnet>\n")
-            #close file
-            f.close()
-        else:
-            pass
-            #print ".",
+                    # write arc
+                    # but only taxiways, not runways       WHERE Aid=:Aid AND twrw LIKE "taxiway"
+                    #TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 TXT, NewId1 TXT, OldId2 TXT, NewId2 TXT, onetwo TXT, twrw TXT, Name TXT)")        
+                    # <arc begin="26" end="329" isPushBackRoute="0" name="Route" />
+                    
+                    cur.execute('SELECT NewId1,NewId2,onetwo,Name,isPushBackRoute FROM Arc WHERE Aid=:Aid AND twrw NOT LIKE "runway"', {"Aid": aid}) 
+                    arcs = cur.fetchall()
+                    if arcs:
+                        f.write(' <TaxiWaySegments>\n')
+                        for a in arcs:
+                            #print (a[0],a[1],a[4],a[3] )
+                            f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[0],a[1],a[4],a[3]  ))
+                            if a[2]=="twoway":
+                                f.write('        <arc begin="%s" end="%s" isPushBackRoute="%s" name="%s"  />\n'%(a[1],a[0],a[4],a[3]  ))
+                                
+                        
+                        f.write(' </TaxiWaySegments>\n')
+                    else:
+                        print(len(prows), "parking locations but no taxi network:" , icao)
+                f.write("</groundnet>\n")
+                #close file
+                f.close()
+            else:
+                pass
+                #print ".",
 
-print "number of airports with parking locations:", parking_counter            
-print "number of AI ground networks:", groundnet_counter
-print "Airports with 3-letter code:", len3
-print "Airports with 5-letter code:", len5
-      
+print("number of airports with parking locations:", parking_counter)            
+print("number of AI ground networks:", groundnet_counter)
+        
         
         
         

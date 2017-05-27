@@ -22,7 +22,7 @@
 # http://gateway.x-plane.com/api#get-scenery
 
 # download the airports file (10MB) before running this script:
-# wget https://gateway.x-plane.com/apiv1/airports
+# wget -N https://gateway.x-plane.com/apiv1/airports
 
 # this tool tries to download all "3D" airport sceneries from gateway.x-plane.com
 # the ICAO.txt for each airport is saved into the current folder.
@@ -50,16 +50,15 @@ def download_stgtxt(sid,icao):
         return
     zip_base64 = result["scenery"]["masterZipBlob"]
     zip_blob = base64.b64decode(zip_base64)
-    #print("writing %s.zip" % icao)
-#    file = open("%s.zip" % icao, "wb")
-#    file.write(zip_blob)
-#    file.close()
+   
     zip_bytearray = io.BytesIO(zip_blob)
     zip_fhandle = zipfile.ZipFile(zip_bytearray)
-
+    
+    icao=icao.upper()
     print("reading", icao, sid)
 #    myZip = zipfile.ZipFile("%s.zip" % icao, "r")
     #datstring = zip_fhandle.read("%s.dat" % icao)
+    zip_fhandle.extract(icao + ".dat")
     try:
         txtstring = zip_fhandle.read("%s.txt" % icao)
     except:

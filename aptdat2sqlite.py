@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #(c) 2015 d-laser  http://wiki.flightgear.org/User:Laserman
@@ -53,11 +53,8 @@ import re, math
 #park_only=True
 park_only=False
 
-input_filename = "apt.dat.18.9.2015all"
 input_filename = "apt.dat"
 infile = open(input_filename, 'r')
-
-#exclude = ("KPHX","KJFK",)
 
 # lenght of straight pushback route in lat degree
 #at the equator, one latitudinal second measures 30.715 metres, one latitudinal minute is 1843 metres and
@@ -69,7 +66,10 @@ push_dist=float(50.0*(1.0/110600))
 
 # parking location from X-plane tend to be too much forward
 park_dist=float(16.0*(1.0/110600))
-
+#list of airports where the parking locations will not be changed
+move_back_blacklist = ['EGLL',]
+biggest_airport=""
+used=[]
 
 
 p = re.compile('[^a-zA-Z0-9]')
@@ -77,6 +77,13 @@ p = re.compile('[^a-zA-Z0-9]')
 # There are two lines that describe parkings: line 15 and line 1300
 pattern15 = re.compile(r"^15\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(.*)$")
 pattern1300 = re.compile(r"^1300\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\w|]*)\s*(.*)$")
+
+#gate details:                    size    type     airlines
+pattern1301 = re.compile(r"^1301\s*(\w*)\s*(\w*)\s*([\w ]*)\s*(.*)$")
+
+
+
+
 # TaxiNode
 pattern1201 = re.compile(r"^1201\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*([\-0-9\.]*)\s*(.*)$")
 # TaxiWay Segment  / "Arc"
@@ -84,6 +91,8 @@ pattern1202 = re.compile(r"^1202\s*([\-0-9\.]*)\s*([\-0-9\.]*)\s*(\w*)\s*(\w*)\s
 
 
 found = False
+
+
 
 
 def find_pusback_node(lon,lat,heading):
@@ -117,54 +126,19 @@ def dumpall():
     
     rows = cur.fetchall()
     for row in rows:
-        print row
-    print "------------nodes----------------------------"    
+        print(row)
+    print("------------nodes----------------------------")    
     cur.execute("SELECT * FROM Taxinodes")
     rows = cur.fetchall()
     for row in rows:
-        print row
+        print(row)
 
-    print "------------arc----------------------------"    
+    print("------------arc----------------------------")    
     cur.execute("SELECT * FROM Arc")
     rows = cur.fetchall()
     for row in rows:
-        print row
+        print(row)
         
-def connect_parkings(lid): 
-    # !!! depricated !!!
-    # connect  the parking spots to their nearest node
-    # and add this node als pushback route for that spot
-    # -------- not used any more. see: add_pushback_routes
-   
-    cur = con.cursor()    
-    cur.execute("SELECT NewId,Lat,Lon,Pname,pushBackRoute FROM Parkings WHERE Aid = ? ",(lid,))
-    parkings = cur.fetchall()
-    cur.execute("SELECT NewId,Lat,Lon FROM Taxinodes WHERE Aid = ? ",(lid,))
-    nodes =  cur.fetchall()
-    countp =0
-    for p in parkings:
-        #print "connect_parkings: airportId", p[1]
-        mindist=1.0
-        bestnode_id=-1
-        countp+=1
-        for n in nodes:
-            dist=calc_dist_lazy(p[1],p[2], n[1],n[2])
-            #dist = calculate_distance(p[1],p[2], n[1],n[2])
-            if dist < mindist:
-                mindist=dist
-                #print "new mindist" , dist
-                bestnode_id = n[0]
-            #print p , bestnode
-        if bestnode_id != -1:
-            cur.execute('INSERT INTO Arc(Aid, NewId1, NewId2, onetwo, twrw, name, isPushbackRoute) VALUES (?,?,?,?,?,?,"1")', (lid,p[0],bestnode_id,"twoway","taxiway", p[3]))
-            #print "parking NewID ",  bestnode[3], p[0]
-            cur.execute("UPDATE Parkings SET pushBackRoute = ? WHERE NewId = ? AND Aid = ?;",(bestnode_id, p[0], lid ))
-            cur.execute('UPDATE Taxinodes SET holdPointType = "PushBack" WHERE NewID = ? AND Aid = ?',(bestnode_id,lid))
-        #else:
-            #print "WARNING: no Taxinode found for ", p
-    if countp > 0:
-        print "Parking spots:", countp
-            
 
 def set_isOnRunway(lid):
  # convert edge "runway"   to node isOnRunway (and then remove them?)
@@ -224,11 +198,14 @@ def add_pushback_routes(lid,newid):
         
         
 groundnet_counter=0
-parking_counter=0        
+#parking_counter=0        
+count_arc=0     
+max_parkings=0
+  
         
 # main apt.dat parsing loop
 con = lite.connect('groundnets.db')
-print "DB connected, ",
+print("DB connected, ")
 with con:
     
     cur = con.cursor()    
@@ -237,10 +214,10 @@ with con:
     cur.execute("DROP TABLE IF EXISTS Parkings")
     cur.execute("DROP TABLE IF EXISTS Taxinodes")
     cur.execute("DROP TABLE IF EXISTS Arc")
-    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat TXT, Lon TXT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT )")
-    cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat TXT, Lon TXT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
+    cur.execute("CREATE TABLE Parkings(Id INTEGER PRIMARY KEY, Aid INTEGER, Icao TXT, Pname TXT, Lat FLOAT, Lon FLOAT, Heading TXT, NewId INT, pushBackRoute TXT, Type TXT, Radius INT,Airlines TXT )")
+    cur.execute("CREATE TABLE Taxinodes(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId INT, NewId INT, Lat FLOAT, Lon FLOAT, Type TXT, Name TXT, isOnRunway INT, holdPointType TXT)")
     cur.execute("CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId1 INT, NewId1 INT, OldId2 INT, NewId2 INT, onetwo TXT, twrw TXT, Name TXT,isPushBackRoute INT)")
-    print "tables created."    
+    print("tables created.")    
 
     id = 0
     lid = -1
@@ -253,15 +230,23 @@ with con:
                 
                 
                 #process the previous airport
+                
                 if park_only == False and has_groundnet:
                     #print "OK"
                     if lid >= 0 :
                         groundnet_counter+=1
                         add_pushback_routes(lid,newid)
-                        connect_parkings(lid)
                         set_isOnRunway(lid)
-                        print icao
+                        print(icao,"parks,arcs:", offset, count_arc)
+                        if offset > max_parkings:
+                            max_parkings=offset
+                            biggest_airport=icao
+                        if count_arc < 1:
+                            print("WARNING count_arc=", count_arc)
                         has_groundnet=False
+                        count_arc=0
+                    else:
+                        print("WARNING lid:" , lid, icao)
                 #else:
                 #    print "."
                 
@@ -271,12 +256,12 @@ with con:
                 icao = apt_header[4]
                 name = ' '.join(apt_header[5:])
                 name = p.sub('_', name)
-                
-
+               
                 cur.execute("INSERT INTO Airports(Name,Icao) VALUES (?,?)", (name, icao))
                 lid = cur.lastrowid
-                    #print "lid:" , lid
-                
+                #print "INSERT INTO Airports lid, icao" , lid,icao
+                #print "IDs used", used
+                used=[]
                 offset=0
             elif line.startswith("1300 "):
                 #lat = -555                                                                                                                                             
@@ -347,13 +332,46 @@ with con:
                         # move parking spot backwards compared to x-plane
                         if ( fgtype=="gate" ) and (not(fgtype=="ga")):
                             #print "before", lat,lon,heading
-                            (lon,lat) = move_back(lon,lat,heading)
+                            if icao in move_back_blacklist:
+                                print(icao , "- using original parking location for", pname)
+                            else:
+                                (lon,lat) = move_back(lon,lat,heading)
+                            
                             #print "after ", lat,lon
                         
-                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
-                        offset=offset+1
+                        if newid in used:
+                            print(newid, "reused", icao)
+                            exit(1)
+                        else:
+                            cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,?,?)", (lid,icao,pname,lat,lon,heading,newid,fgtype,radius))
+                            offset=offset+1
+                            used.append(newid)
+                            
                        
-                 
+            elif line.startswith("1301 "):
+                result = pattern1301.match(line)
+                #     size(A-F)        type: general_aviation,none,airline      space-seperated airlines
+                #print(result.group(1),result.group(2),result.group(3))
+                
+                sizecode = result.group(1)
+                sizelist= [ 'A','B','C','D','E','F' ]
+                sizedict = {'A':10 ,'B':18  ,'C':20  ,'D':32 ,'E':36 ,'F':40 }
+                if sizecode in (sizelist):
+                    #print('size:' ,sizecode,sizedict[sizecode])
+                    radius = sizedict[sizecode]
+                    cur.execute('UPDATE Parkings SET Radius = ? WHERE NewId = ? AND Aid = ?;',( radius,newid,lid))
+                else:
+                    print ("WARNING sizecode:", sizecode)
+					
+                #radius = get_radius(result.group(1))
+                
+                airlines=result.group(3).upper()
+                airlines = airlines.replace(" ", ",")
+                #airline_list=airlines.split()
+                #print(airline_list)
+                if airlines:
+                    cur.execute('UPDATE Parkings SET Airlines = ? WHERE NewId = ? AND Aid = ?;',( airlines,newid,lid))
+                    #print (airlines,newid,lid)
             elif line.startswith("15 "):
                 result = pattern15.match(line)
                 # Match line 15
@@ -371,9 +389,12 @@ with con:
                             pname = newid
                             
                     # TODO? move old parking spot backwards compared to x-plane?
-                    
-                    cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',44)", (lid,icao,pname,lat,lon,heading,newid))
-                    offset=offset+1
+                    if newid in used:
+                        print(newid, "reused", icao)
+                        exit(1)
+                    else:
+                        cur.execute("INSERT INTO Parkings(Aid, Icao, Pname, Lat, Lon, Heading, NewId,Type,Radius) VALUES (?,?,?,?,?,?,?,'gate',17)", (lid,icao,pname,lat,lon,heading,newid))
+                        offset=offset+1
                   
                     
             elif line.startswith("1201 ") and park_only == False:
@@ -416,20 +437,23 @@ with con:
                     name = result.group(5)
                     #"CREATE TABLE Arc(Id INTEGER PRIMARY KEY, Aid INTEGER, OldId TXT, NewId TXT, n1 TXT, n2 TXT, onetwo TXT, twrw TXT)")
                     cur.execute("INSERT INTO Arc(Aid, OldId1, NewId1, OldId2, NewId2, onetwo, twrw, name,isPushBackRoute) VALUES (?,?,?,?,?,?,?,?,?)", (lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0"))
-
+                    #print (icao, lid,n1,newid1,n2,newid2,onetwo,twrw, name, "0")
+                    #print
+                    count_arc=count_arc+1
 
     #process the last airport:
-    #connect_parkings(lid)
     if park_only:
         dumpall()
     else:
-        add_pushback_routes(lid,newid)
-        set_isOnRunway(lid)
-        groundnet_counter+=1
+        if (has_groundnet):
+            add_pushback_routes(lid,newid)
+            set_isOnRunway(lid)
+            groundnet_counter+=1
                   
-    print "number of AI ground networks:", groundnet_counter
-    print "all data is stored in groundnets.db"
-    print "now you can run sqlite2xml.py"
+    print("number of AI ground networks:", groundnet_counter)
+    print("Airport with most parking locations:", biggest_airport, max_parkings)
+    print("all data is stored in groundnets.db")
+    print("now you can run ./sqlite2xml.py")
 
            
    
