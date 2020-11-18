@@ -1,0 +1,35 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -76.286361578 43.084964912 294.679993
+OBJECT 0 -76.286794681 43.084835943 15.070000
+OBJECT 0 -76.287432253 43.085058585 96.010002
+OBJECT 1 -76.286296696 43.085106873 95.050003
+OBJECT 2 -76.287117039 43.085225027 0.000000
+OBJECT 3 -76.286883795 43.085067569 0.000000
+FILTER -1
+OBJECT_DEF lib/cars/police_car.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp
+OBJECT_DEF lib/g10/global_objects/rooftop_helipad_1.obj
+PROPERTY sim/filter/aptid NK55
+PROPERTY sim/exclude_obj -76.288058/43.084484/-76.284148/43.086157
+PROPERTY sim/exclude_for -76.288058/43.084484/-76.284148/43.086157
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,31 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 15.244093698 -26.690104243 196.809998
+OBJECT 1 15.244702482 -26.689908873 196.979996
+OBJECT 0 15.247035860 -26.689414765 188.000000
+OBJECT 2 15.247305818 -26.689424009 188.020004
+OBJECT 3 15.247268464 -26.689444568 188.000000
+OBJECT 4 15.247212000 -26.688961000 11.310000
+OBJECT 5 15.244080923 -26.689272372 27.000000
+OBJECT 5 15.244143976 -26.689300468 27.000000
+OBJECT 6 15.247646757 -26.688904826 190.990005
+OBJECT 7 15.245017000 -26.688875000 190.720001
+OBJECT 0 15.245966927 -26.688747289 189.550003
+OBJECT 8 15.244238157 -26.689335229 27.000000
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_2.agp
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Water_Tank_Elev.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Modern_Airports/Control_Towers/Modern_Tower_3.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,29 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -94.169449904 45.574295714 342.529999
+FILTER -1
+OBJECT_DEF lib/g10/global_objects/rooftop_helipad_2.obj
+PROPERTY sim/filter/aptid MY87
+PROPERTY sim/exclude_obj -94.169881/45.574263/-94.167837/45.575682
+PROPERTY sim/exclude_for -94.169881/45.574263/-94.167837/45.575682
+PROPERTY sim/exclude_obj -94.169673/45.573546/-94.167840/45.574303
+PROPERTY sim/exclude_for -94.169673/45.573546/-94.167840/45.574303
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

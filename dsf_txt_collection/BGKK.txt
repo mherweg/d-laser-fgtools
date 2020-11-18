@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -37.136519115 65.574109767 264.350006
+OBJECT 1 -37.132858914 65.573842874 0.000000
+OBJECT 1 -37.132915347 65.573840782 0.000000
+OBJECT 1 -37.132861235 65.573814274 0.000000
+OBJECT 2 -37.132862730 65.573886128 0.000000
+OBJECT 2 -37.132895656 65.573866685 0.000000
+OBJECT 2 -37.132914235 65.573891075 0.000000
+OBJECT 3 -37.132895718 65.573972439 84.019997
+OBJECT 4 -37.133917781 65.574014045 354.179993
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fuel_Storage/Single_Vert_Tank.agp
+OBJECT_DEF lib/airport/Ramp_Equipment/Cargo_Palette_2.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Cargo_Palette_1.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+PROPERTY sim/filter/aptid BGKK
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,47 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 174.554392728 -36.325379419 9.531926
+OBJECT 1 174.554593539 -36.325196457 111.535744
+OBJECT 2 174.555575652 -36.325750692 270.462921
+OBJECT 3 174.554274934 -36.325343462 189.708527
+OBJECT 4 174.557765046 -36.320150122 301.702057
+OBJECT 5 174.557987738 -36.319363212 219.388794
+OBJECT 6 174.555520431 -36.324360135 142.449280
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_white_avgas100LL.obj
+OBJECT_DEF lib/airport/aircraft/general_aviation/prop_a.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/forklifts/forklift_green_barrel_up.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Lt.obj
+OBJECT_DEF lib/g10/US/industrial/light/GateHut3x3.obj
+PROPERTY sim/filter/aptid NZSL
+PROPERTY sim/exclude_for 174.554856/-36.324328/174.556372/-36.323947
+PROPERTY sim/exclude_net 174.554856/-36.324328/174.556372/-36.323947
+PROPERTY sim/exclude_for 174.554554/-36.324649/174.556372/-36.324268
+PROPERTY sim/exclude_net 174.554554/-36.324649/174.556372/-36.324268
+PROPERTY sim/exclude_for 174.553859/-36.325777/174.554592/-36.325239
+PROPERTY sim/exclude_net 174.553859/-36.325777/174.554592/-36.325239
+PROPERTY sim/exclude_for 174.553826/-36.325531/174.556372/-36.324451
+PROPERTY sim/exclude_net 174.553826/-36.325531/174.556372/-36.324451
+PROPERTY sim/exclude_for 174.555623/-36.319009/174.556351/-36.317161
+PROPERTY sim/exclude_net 174.555623/-36.319009/174.556351/-36.317161
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

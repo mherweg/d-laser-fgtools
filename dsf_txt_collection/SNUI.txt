@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -42.046357174 -16.850681161 144.082748
+OBJECT 1 -42.046087598 -16.850539115 55.407639
+FILTER -1
+OBJECT_DEF lib/g10/US/commercial/store_ozgas.obj
+OBJECT_DEF lib/g10/US/suburban/dZ-RnchRHRd.obj
+PROPERTY sim/filter/aptid SNUI
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

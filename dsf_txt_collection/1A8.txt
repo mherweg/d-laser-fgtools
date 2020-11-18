@@ -1,0 +1,45 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -119.346537180 40.580149439 0.000000
+OBJECT 1 -119.346509106 40.580149216 0.000000
+OBJECT 2 -119.346675987 40.579803659 274.119995
+OBJECT 3 -119.346546022 40.579801688 182.720001
+OBJECT 4 -119.346944979 40.579484217 0.000000
+OBJECT 5 -119.346505299 40.579529755 0.000000
+OBJECT 6 -119.346829142 40.579812669 182.720001
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_white_avgas100LL.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_white_avgasUL91.obj
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Opposing_Flood_Sm.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/g10/forests/autogen_tree4.obj
+OBJECT_DEF lib/g10/forests/autogen_tree3.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+PROPERTY sim/filter/aptid 1A8
+PROPERTY sim/exclude_obj -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_fac -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_for -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_bch -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_net -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_lin -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_pol -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/exclude_str -119.358295/40.573331/-119.345988/40.583492
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

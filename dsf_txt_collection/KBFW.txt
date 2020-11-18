@@ -1,0 +1,31 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj -91.422451/47.247454/-91.407012/47.252852
+PROPERTY sim/exclude_for -91.422451/47.247454/-91.407012/47.252852
+OBJECT 0 -91.410522872 47.251487548 341.800903
+OBJECT 1 -91.407857547 47.252420473 294.775787
+OBJECT 2 -91.410639733 47.251460862 70.821320
+OBJECT 3 -91.410612552 47.251155053 71.570183
+OBJECT 4 -91.407739216 47.252339143 71.810753
+OBJECT 5 -91.409042507 47.252058234 72.474800
+OBJECT 6 -91.411712856 47.250785562 159.843475
+OBJECT 6 -91.411917306 47.250855546 341.499969
+OBJECT 7 -91.409990591 47.251328474 250.321960
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
+OBJECT_DEF lib/airport/aircraft/GA/Osprey_GP5.obj
+OBJECT_DEF lib/g10/US/industrial/light/SiteOffice4x14.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Dk.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_10.agp
+PROPERTY sim/require_agpoint 1/2
+PROPERTY sim/require_object 1/2
+PROPERTY sim/require_agpoint 5/0
+PROPERTY sim/require_object 5/0

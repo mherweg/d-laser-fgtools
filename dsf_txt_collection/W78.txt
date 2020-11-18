@@ -1,0 +1,43 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0b2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+BEGIN_POLYGON 0 0 2
+BEGIN_WINDING
+POLYGON_POINT -78.848802013 36.708670250
+POLYGON_POINT -78.848746075 36.707896285
+POLYGON_POINT -78.848626815 36.707902710
+POLYGON_POINT -78.848682666 36.708675409
+END_WINDING
+END_POLYGON
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -78.850461427 36.714869880 86.680000
+OBJECT 1 -78.850487298 36.715198701 86.680000
+OBJECT 2 -78.849434035 36.709384024 300.190002
+OBJECT 3 -78.849866903 36.710727011 266.679993
+OBJECT 4 -78.849597429 36.709015291 209.070007
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+POLYGON_DEF lib/airport/pavement/asphalt_4D.pol
+PROPERTY sim/filter/aptid W78
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
+PROPERTY sim/require_facade 6/0

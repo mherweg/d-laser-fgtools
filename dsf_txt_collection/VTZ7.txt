@@ -1,0 +1,29 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0b2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 102.522902260 11.718606171 0.000000
+OBJECT 1 102.522955548 11.718523411 334.899994
+OBJECT 2 102.522421931 11.718203976 200.220001
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Flagpole.obj
+OBJECT_DEF lib/g10/EU/suburban/gaze1_4x4.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+PROPERTY sim/filter/aptid VTZ7
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

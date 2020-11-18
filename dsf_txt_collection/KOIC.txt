@@ -1,0 +1,45 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -75.526260139 42.566569002 272.429993
+OBJECT 1 -75.526446621 42.567119224 174.679993
+OBJECT 2 -75.526725329 42.567734081 265.290009
+OBJECT 3 -75.526763912 42.567290589 84.550003
+OBJECT 4 -75.526214165 42.566837224 258.519989
+OBJECT 5 -75.527367177 42.565619926 2.260000
+OBJECT 6 -75.526377596 42.565994326 2.260000
+OBJECT 7 -75.526889757 42.565619926 2.260000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+PROPERTY sim/filter/aptid KOIC
+PROPERTY sim/exclude_obj -75.526210/42.559953/-75.523790/42.565389
+PROPERTY sim/exclude_for -75.526210/42.559953/-75.523790/42.565389
+PROPERTY sim/exclude_obj -75.527760/42.565388/-75.523706/42.567930
+PROPERTY sim/exclude_for -75.527760/42.565388/-75.523706/42.567930
+PROPERTY sim/exclude_obj -75.525784/42.567931/-75.522405/42.573126
+PROPERTY sim/exclude_for -75.525784/42.567931/-75.522405/42.573126
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

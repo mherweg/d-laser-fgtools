@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -92.351247864 34.322232650 103.080002
+OBJECT 1 -92.349799502 34.323420624 271.170013
+OBJECT 2 -92.351039241 34.323204496 9.330000
+OBJECT 3 -92.351570258 34.322262142 191.899994
+OBJECT 4 -92.351176000 34.322622122 11.680000
+OBJECT 4 -92.350971344 34.323493233 9.330000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+PROPERTY sim/filter/aptid 9M8
+PROPERTY sim/exclude_obj -92.353010/34.321907/-92.349633/34.332223
+PROPERTY sim/exclude_for -92.353010/34.321907/-92.349633/34.332223
+PROPERTY sim/exclude_net -92.353010/34.321907/-92.349633/34.332223
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

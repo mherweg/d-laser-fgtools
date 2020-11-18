@@ -1,0 +1,41 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -88.637969059 44.204423329 90.491798
+OBJECT 1 -88.638410155 44.204425581 269.847626
+OBJECT 2 -88.639779263 44.202282541 90.000000
+OBJECT 3 -88.640342679 44.202494855 271.000000
+OBJECT 3 -88.640339788 44.202528011 272.231201
+OBJECT 3 -88.639713964 44.202512469 272.231201
+OBJECT 4 -88.639765252 44.202338013 270.000000
+OBJECT 5 -88.639858079 44.202412878 89.352615
+OBJECT 6 -88.639939899 44.202372900 179.390503
+OBJECT 1 -88.637993808 44.199774799 89.747597
+OBJECT 1 -88.638405330 44.199783526 269.776184
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Runway_Markers/Sheet_Metal/Yellow_Black_Bent.obj
+OBJECT_DEF lib/airport/Common_Elements/Runway_Markers/Sheet_Metal/Yellow_Black.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/container_fire_extinguisher_metal.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/Cargo_Trailer.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_beige_8m_box.obj
+PROPERTY sim/filter/aptid WI91
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

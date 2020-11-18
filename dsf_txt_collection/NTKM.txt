@@ -1,0 +1,40 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -142.267429820 -15.854568170 0.000000
+OBJECT 1 -142.267481930 -15.854540907 0.000000
+OBJECT 2 -142.267334128 -15.854924235 265.109985
+OBJECT 3 -142.267477000 -15.854518000 318.070007
+OBJECT 4 -142.267517288 -15.854503160 229.240005
+OBJECT 5 -142.267538458 -15.854540095 48.580002
+OBJECT 6 -142.267618000 -15.854313000 319.000000
+OBJECT 2 -142.267646443 -15.854592407 174.970001
+OBJECT 7 -142.267644897 -15.854635524 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Flagpole.obj
+OBJECT_DEF lib/g10/global_objects/rubbish_bin.obj
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Dir_Ramp_Lit_Med.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerSnglShrtPtch.obj
+OBJECT_DEF lib/g10/global_objects/vending_machine_X2.obj
+OBJECT_DEF lib/g10/global_objects/LawnGrpMed.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+PROPERTY sim/filter/aptid NTKM
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

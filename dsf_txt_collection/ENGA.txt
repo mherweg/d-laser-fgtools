@@ -1,0 +1,25 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 2.186784881 61.176188334 135.259995
+FILTER -1
+OBJECT_DEF lib/ships/OilRig.obj
+PROPERTY sim/filter/aptid ENGA
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

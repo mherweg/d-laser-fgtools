@@ -1,0 +1,51 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -75.938460071 43.072924267 0.000000
+OBJECT 1 -75.938747052 43.073014853 90.000000
+OBJECT 2 -75.939081136 43.072780868 0.000000
+OBJECT 3 -75.939003185 43.072949519 270.000000
+OBJECT 4 -75.939140193 43.072826856 182.344315
+OBJECT 5 -75.939137953 43.072782899 0.000000
+OBJECT 6 -75.939115885 43.072783168 180.000000
+OBJECT 6 -75.939158568 43.072783720 180.000000
+OBJECT 7 -75.938383111 43.072878133 0.000000
+OBJECT 7 -75.938534539 43.072888622 0.000000
+OBJECT 8 -75.938745647 43.073052182 0.000000
+OBJECT 9 -75.938456377 43.072899340 90.000000
+OBJECT 10 -75.938569886 43.072928820 270.000000
+OBJECT 11 -75.939387531 43.072814682 90.000000
+OBJECT 12 -75.938878242 43.072944830 180.000000
+FILTER -1
+OBJECT_DEF lib/street/waste_management/TrashCan_32g_01.obj
+OBJECT_DEF lib/street/waste_management/Container_2-6Y_random.obj
+OBJECT_DEF lib/street/furniture/Rubbish_bin_06.obj
+OBJECT_DEF lib/public_area/sports/basketball_hoop_02.obj
+OBJECT_DEF lib/public_area/playground/swingSet_02.obj
+OBJECT_DEF lib/garden/furniture/Parasol_05.obj
+OBJECT_DEF lib/garden/furniture/Lounger_07.obj
+OBJECT_DEF lib/garden/furniture/LawnGroup_Medium.obj
+OBJECT_DEF lib/street/various/porta_potty_1.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x20.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+PROPERTY sim/filter/aptid NY72
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

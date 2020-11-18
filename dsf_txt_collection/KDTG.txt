@@ -1,0 +1,44 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.21r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -88.434327436 41.133492819 179.361115
+OBJECT 1 -88.435198170 41.133555234 88.012329
+OBJECT 2 -88.435127754 41.133765128 268.327637
+OBJECT 3 -88.434058987 41.133617990 0.000000
+OBJECT 4 -88.434085271 41.133679360 0.000000
+OBJECT 4 -88.433857914 41.133712025 0.000000
+OBJECT 4 -88.433872370 41.133809029 0.000000
+OBJECT 5 -88.434019561 41.133737761 0.000000
+OBJECT 6 -88.435380182 41.133326748 358.363434
+OBJECT 7 -88.434784136 41.134134738 178.169083
+FILTER -1
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/g10/US/industrial/light/StorSml2p3.obj
+OBJECT_DEF lib/g10/US/industrial/light/StorSml1p0.obj
+OBJECT_DEF lib/industrial_area/storage_tanks/silo_340_1.obj
+OBJECT_DEF lib/industrial_area/storage_tanks/silo_260_1.obj
+OBJECT_DEF lib/industrial_area/storage_tanks/silo_340_2.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+PROPERTY sim/filter/aptid KDTG
+PROPERTY sim/exclude_net -88.436111/41.132894/-88.434073/41.133382
+PROPERTY sim/exclude_net -88.434127/41.132777/-88.433729/41.133754
+PROPERTY sim/exclude_net -88.435904/41.133353/-88.433749/41.134213
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

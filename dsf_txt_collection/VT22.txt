@@ -1,0 +1,43 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -73.269079069 44.398300328 0.000000
+OBJECT 1 -73.269079203 44.398238842 0.000000
+OBJECT 2 -73.269079419 44.398140176 0.000000
+OBJECT 3 -73.269079875 44.397931591 180.000000
+OBJECT 4 -73.268574383 44.397398585 305.779999
+OBJECT 5 -73.268030024 44.398632276 31.430000
+OBJECT 6 -73.268540353 44.398937140 0.000000
+OBJECT 7 -73.268546329 44.398053289 0.000000
+OBJECT 8 -73.268805427 44.397241103 122.790001
+FILTER -1
+OBJECT_DEF lib/public_area/playground/swingSet_02.obj
+OBJECT_DEF lib/g10/EU/suburban/gaze1_4x4.obj
+OBJECT_DEF lib/garden/pools/pool_Small_7x10.obj
+OBJECT_DEF lib/g10/US/suburban/dT-RnchRHRd.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x20.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Lt.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+PROPERTY sim/filter/aptid VT22
+PROPERTY sim/exclude_obj -73.269274/44.396371/-73.265495/44.403945
+PROPERTY sim/exclude_for -73.269274/44.396371/-73.265495/44.403945
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

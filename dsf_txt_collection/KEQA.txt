@@ -1,0 +1,63 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.21r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -96.816503821 37.778052026 316.779999
+OBJECT 1 -96.816481130 37.778068472 134.419998
+OBJECT 2 -96.816480903 37.778082139 225.000000
+OBJECT 3 -96.816498965 37.778068468 224.479996
+OBJECT 4 -96.817367543 37.778648316 226.250000
+OBJECT 5 -96.815423355 37.778905968 317.950012
+OBJECT 5 -96.818017386 37.780506978 315.580017
+OBJECT 6 -96.818123409 37.779131086 43.759998
+OBJECT 7 -96.817170074 37.778296146 46.209999
+OBJECT 8 -96.818297374 37.779466806 46.990002
+OBJECT 9 -96.816265230 37.777114126 0.000000
+OBJECT 10 -96.816571495 37.778650438 135.149994
+OBJECT 11 -96.817305674 37.778339178 45.990002
+BEGIN_POLYGON 0 4 3
+BEGIN_WINDING
+POLYGON_POINT -96.816366808 37.778349103 2.000000000
+POLYGON_POINT -96.816321533 37.778385365 1.000000000
+POLYGON_POINT -96.816204336 37.778479230 2.000000000
+POLYGON_POINT -96.816155874 37.778518044 2.000000000
+POLYGON_POINT -96.816188900 37.778543805 0.000000000
+POLYGON_POINT -96.816399834 37.778374863 2.000000000
+END_WINDING
+END_POLYGON
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_control_pad.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_ground_cable.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_box_white_jetA1.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_box_white_avgas100LL.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/landscape/windsock_lit.obj
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_2.agp
+OBJECT_DEF lib/airport/Common_Elements/vehicles/Fuel_Truck_Small.obj
+POLYGON_DEF lib/airport/Common_Elements/Misc_Buildings/White_Office.fac
+PROPERTY sim/filter/aptid KEQA
+PROPERTY sim/exclude_obj -96.825865/37.766329/-96.811377/37.781278
+PROPERTY sim/exclude_for -96.825682/37.766279/-96.811163/37.781412
+PROPERTY sim/exclude_pol -96.825697/37.766550/-96.811209/37.781351
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
+PROPERTY sim/require_facade 1/0

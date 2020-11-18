@@ -1,0 +1,15 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0b1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for -21.933222/65.395207/-21.917397/65.403345
+OBJECT 0 -21.921434016 65.397719501 277.690002
+OBJECT 1 -21.924167527 65.397753235 139.699997
+OBJECT_DEF lib/cars/car_static_invar.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerDblShrt.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

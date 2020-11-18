@@ -1,0 +1,17 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0b1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -2.698238014 43.499372046 295.500000
+OBJECT 1 -2.691253670 43.503555444 60.000000
+OBJECT 1 -2.687861667 43.502079466 137.279999
+OBJECT 2 -2.690533741 43.502274529 271.000000
+OBJECT_DEF lib/ships/Perry.obj
+OBJECT_DEF lib/ships/SailBoat.obj
+OBJECT_DEF lib/ships/OilRig.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

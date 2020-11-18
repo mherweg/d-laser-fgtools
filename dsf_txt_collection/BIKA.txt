@@ -1,0 +1,13 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for -22.263012/64.772206/-22.254644/64.781157
+OBJECT 0 -22.257155323 64.779709672 0.000000
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

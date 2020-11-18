@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -116.871058574 47.394623345 112.029633
+OBJECT 1 -116.871095669 47.394846588 111.203300
+OBJECT 2 -116.871027404 47.394727914 201.097290
+OBJECT 3 -116.871240726 47.394788287 201.114243
+OBJECT 4 -116.871206526 47.394778547 201.070343
+OBJECT 5 -116.871115741 47.394729450 110.556068
+OBJECT 6 -116.870998068 47.394719436 201.526505
+FILTER -1
+OBJECT_DEF lib/g10/US/suburban/dT-RnchLHGry.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/container_fire_extinguisher_concrete.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/AC_Cond_noFence.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_orange_avgas100LL.obj
+PROPERTY sim/filter/aptid ID23
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

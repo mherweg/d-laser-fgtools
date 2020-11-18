@@ -1,0 +1,26 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for 12.868797/18.967415/12.870546/18.969080
+PROPERTY sim/exclude_bch 12.868797/18.967415/12.870546/18.969080
+OBJECT 0 12.870362502 18.968347421 42.619278
+OBJECT 1 12.870151448 18.968471828 278.054443
+OBJECT 2 12.869943027 18.968367984 329.942139
+OBJECT 3 12.870222879 18.968572094 44.668861
+OBJECT 4 12.870105637 18.968429106 167.500443
+OBJECT 5 12.870160594 18.968326541 229.115906
+OBJECT 6 12.870080255 18.968378786 256.727264
+OBJECT_DEF lib/airport/Ramp_Equipment/Luggage_Cart_Pkng.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/GPU_1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Cargo_Palette_1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Belt_Loader.obj
+OBJECT_DEF lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj
+OBJECT_DEF lib/airport/aircraft/regional_prop/ATR42-500_FedEx.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

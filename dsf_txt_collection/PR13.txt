@@ -1,0 +1,29 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT_MSL 0 -66.077712797 18.417259433 43.200000000 0.000000
+OBJECT 1 -66.077781910 18.417067693 333.989990
+OBJECT_MSL 2 -66.078199149 18.417191672 39.000000000 61.000000
+FILTER -1
+OBJECT_DEF lib/airport/landscape/windsock.obj
+OBJECT_DEF lib/g10/US/urban_high/0600A0358A040.obj
+OBJECT_DEF lib/g10/global_objects/rooftop_helipad_2.obj
+PROPERTY sim/filter/aptid PR13
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

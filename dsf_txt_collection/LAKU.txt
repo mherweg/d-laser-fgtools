@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj 20.411190/42.024550/20.416706/42.034657
+PROPERTY sim/exclude_fac 20.411190/42.024550/20.416706/42.034657
+PROPERTY sim/exclude_for 20.411190/42.024550/20.416706/42.034657
+PROPERTY sim/exclude_obj 20.414951/42.034506/20.420494/42.046245
+PROPERTY sim/exclude_fac 20.414951/42.034506/20.420494/42.046245
+PROPERTY sim/exclude_for 20.414951/42.034506/20.420494/42.046245
+OBJECT 0 20.417360391 42.036003726 14.100000
+OBJECT 1 20.416737968 42.035170937 13.310000
+OBJECT 2 20.417540328 42.035289428 317.450012
+OBJECT 3 20.417498081 42.035772711 94.930000
+OBJECT 4 20.417782456 42.035696483 0.000000
+OBJECT 5 20.417678156 42.035996615 12.850000
+OBJECT 6 20.418245813 42.035728162 282.470001
+OBJECT 7 20.417619021 42.035773516 226.889999
+OBJECT 8 20.418029274 42.035277792 100.279999
+OBJECT 9 20.418008769 42.035614168 282.160004
+OBJECT 9 20.417910246 42.035273090 281.890015
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/g10/global_objects/rooftop_helipad_5.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Ramp_Parking_Stripe.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/GPU_1.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_1.agp
+OBJECT_DEF lib/airport/aircraft/regional_jet/CRJ100_Austrian_Arrows.obj
+OBJECT_DEF lib/g10/US/industrial/light/Whs20x11.obj
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Dir_Flood_Sm.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

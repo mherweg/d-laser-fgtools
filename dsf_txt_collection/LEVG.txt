@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -0.848024709 41.786303083 47.250000
+OBJECT 1 -0.845216248 41.784228945 316.850006
+OBJECT 1 -0.846853040 41.785501498 316.850006
+OBJECT 1 -0.845984222 41.784818947 316.850006
+OBJECT 2 -0.847159886 41.787328780 314.000000
+OBJECT 3 -0.847621448 41.788224619 43.279999
+FILTER -1
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Lg.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Lg_Maint_Blue.agp
+PROPERTY sim/filter/aptid LEVG
+PROPERTY sim/exclude_bch -0.850621/41.782485/-0.843584/41.786116
+PROPERTY sim/exclude_bch -0.852608/41.786057/-0.846038/41.789266
+PROPERTY sim/exclude_bch -0.855935/41.788272/-0.850766/41.790908
+PROPERTY sim/exclude_bch -0.859503/41.790784/-0.852600/41.794042
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

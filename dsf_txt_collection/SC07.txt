@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.5.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -80.951627573 33.675970408 34.292038
+OBJECT 1 -80.951929313 33.676063363 213.000000
+OBJECT 2 -80.951468681 33.675831140 213.990005
+OBJECT 3 -80.951711872 33.675625143 300.000000
+OBJECT 4 -80.951486801 33.675652323 32.000000
+OBJECT 5 -80.951664664 33.675705730 300.000000
+OBJECT 6 -80.951841573 33.676029984 33.000000
+FILTER -1
+OBJECT_DEF lib/airport/beacons/beacon_airport.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/g10/US/suburban/dT-RnchRHGry.obj
+OBJECT_DEF lib/g10/US/suburban/dGrgSmlWht.obj
+OBJECT_DEF lib/g10/global_objects/ResPoolSmall.obj
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+PROPERTY sim/filter/aptid SC07
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

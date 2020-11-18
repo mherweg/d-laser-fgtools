@@ -1,0 +1,14 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 82.192647187 29.273769541 89.722359
+OBJECT 1 82.191586436 29.273756973 268.962555
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+OBJECT_DEF lib/airport/aircraft/regional_prop/Dornier_328_prop_Air_Alps.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

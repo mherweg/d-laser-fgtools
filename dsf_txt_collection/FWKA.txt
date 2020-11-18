@@ -1,0 +1,33 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.21r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 33.891585603 -9.952835794 106.500000
+OBJECT 1 33.891621549 -9.953161200 228.000000
+OBJECT 2 33.891391527 -9.952806706 87.500000
+FILTER -1
+OBJECT_DEF lib/airport/aircraft/general_aviation/turboprop_a.obj
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_2.agp
+OBJECT_DEF lib/airport/aircraft/general_aviation/prop_a.obj
+PROPERTY sim/filter/aptid FWKA
+PROPERTY sim/exclude_net 33.893700/-9.960243/33.898508/-9.955538
+PROPERTY sim/exclude_net 33.891661/-9.957976/33.896469/-9.953270
+PROPERTY sim/exclude_net 33.889524/-9.955773/33.894332/-9.951067
+PROPERTY sim/exclude_net 33.887550/-9.953019/33.892358/-9.948314
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

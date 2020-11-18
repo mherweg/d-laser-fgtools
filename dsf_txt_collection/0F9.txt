@@ -1,0 +1,30 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -96.672939675 34.199123570 294.230011
+OBJECT 0 -96.673010994 34.199173260 270.869995
+OBJECT 1 -96.672992963 34.199268474 90.000000
+OBJECT 2 -96.673056403 34.198640120 179.710007
+FILTER -1
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Dk.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+PROPERTY sim/filter/aptid 0F9
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

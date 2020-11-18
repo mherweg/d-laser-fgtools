@@ -1,0 +1,30 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj 74.024280/38.188579/74.025958/38.189891
+PROPERTY sim/exclude_fac 74.024280/38.188579/74.025958/38.189891
+OBJECT 0 74.025777424 38.189406807 38.564167
+OBJECT 1 74.025585240 38.189438816 5.610206
+OBJECT 2 74.025401814 38.187984670 68.070335
+OBJECT 3 74.025718482 38.189453057 247.636169
+OBJECT 4 74.024963130 38.188753169 157.160004
+OBJECT 5 74.025824620 38.189299482 156.539993
+OBJECT 6 74.025263826 38.189188202 158.059998
+OBJECT 7 74.024781953 38.188677368 157.550003
+OBJECT 8 74.024802960 38.188946533 158.720001
+OBJECT_DEF lib/airport/Ramp_Equipment/Lugg_Train_Straight2.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/GPU_1.obj
+OBJECT_DEF lib/cars/car_or_truck_static.obj
+OBJECT_DEF lib/airport/aircraft/regional_jet/Dornier_328_jet_Cirrus_Airlines.obj
+OBJECT_DEF lib/g10/US/commercial/store_benzoil.obj
+OBJECT_DEF lib/g10/US/commercial/store_ozgas.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+OBJECT_DEF lib/g10/US/commercial/store_services.obj
+OBJECT_DEF lib/g10/US/commercial/store_bp.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

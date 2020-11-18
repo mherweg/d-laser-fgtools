@@ -1,0 +1,22 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+BEGIN_POLYGON 0 0 2
+BEGIN_WINDING
+POLYGON_POINT -123.183396315 45.090469065
+POLYGON_POINT -123.183243593 45.090466803
+POLYGON_POINT -123.183243024 45.090675683
+POLYGON_POINT -123.183395781 45.090675658
+END_WINDING
+END_POLYGON
+OBJECT 0 -123.183390511 45.090582306 270.000000
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+POLYGON_DEF lib/airport/pavement/concrete_1D.pol
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
+PROPERTY sim/require_facade 6/0

@@ -1,0 +1,43 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -164.841986698 62.523833879 113.029999
+OBJECT 1 -164.845426282 62.524703139 0.000000
+OBJECT 2 -164.842184815 62.523900246 114.610001
+OBJECT 3 -164.841968340 62.523843361 114.739998
+OBJECT 4 -164.842312824 62.523887146 0.000000
+OBJECT 4 -164.842333741 62.523891912 0.000000
+OBJECT 4 -164.842323325 62.523902666 0.000000
+OBJECT 5 -164.842321190 62.523894945 113.070000
+OBJECT 6 -164.842094085 62.523962857 294.549988
+OBJECT 7 -164.842108635 62.523845675 24.370001
+OBJECT 8 -164.849425933 62.520816465 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_ground_cable.obj
+OBJECT_DEF lib/cars/car_static_invar.obj
+OBJECT_DEF lib/g10/US/commercial/tool_locker1.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_box_white_avgas100LL.obj
+OBJECT_DEF lib/airport/Common_Elements/Markers/Cones/Red_White_Closed_3.obj
+OBJECT_DEF lib/g10/US/commercial/air_water_disp.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Water_Tank_Elev.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/beacons/beacon_airport.obj
+PROPERTY sim/filter/aptid SXP
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

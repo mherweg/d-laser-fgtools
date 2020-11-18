@@ -1,0 +1,31 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 10.363591792 55.384407860 49.359215
+OBJECT 1 10.364306142 55.384611924 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/beacons/beacon_heliport.obj
+OBJECT_DEF lib/airport/landscape/windsock_lit.obj
+PROPERTY sim/filter/aptid XEKOH
+PROPERTY sim/exclude_obj 10.363277/55.384305/10.364545/55.384698
+PROPERTY sim/exclude_fac 10.363277/55.384305/10.364545/55.384698
+PROPERTY sim/exclude_for 10.363277/55.384305/10.364545/55.384698
+PROPERTY sim/exclude_net 10.363277/55.384305/10.364545/55.384698
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

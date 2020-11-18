@@ -1,0 +1,15 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0b1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for -18.508748/64.649434/-18.480012/64.661964
+OBJECT 0 -18.495761398 64.653587088 25.680000
+OBJECT 1 -18.495580458 64.653578481 0.000000
+OBJECT_DEF lib/cars/car_static_invar.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

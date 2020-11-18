@@ -1,0 +1,62 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.2.1r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_fac -75.860626/39.979069/-75.857323/39.980465
+PROPERTY sim/exclude_fac -75.870682/39.979607/-75.862801/39.982529
+OBJECT 0 -75.860211897 39.979490256 8.300000
+OBJECT 0 -75.859752407 39.979411215 8.570000
+OBJECT 0 -75.859261024 39.979382941 9.690000
+OBJECT 1 -75.867067843 39.980813275 102.099998
+OBJECT 2 -75.869991498 39.981592128 286.700012
+OBJECT 3 -75.870207548 39.981324611 285.070007
+OBJECT 4 -75.870265147 39.981092863 282.100006
+OBJECT 5 -75.869646177 39.980973414 12.530000
+OBJECT 6 -75.869352173 39.981331467 281.890015
+OBJECT 7 -75.869346771 39.981707003 9.920000
+OBJECT 7 -75.869179524 39.981924814 279.459991
+OBJECT 8 -75.868796784 39.980841463 12.380000
+OBJECT 9 -75.867863556 39.980607442 12.580000
+OBJECT 10 -75.865724214 39.980223713 11.980000
+OBJECT 11 -75.864694796 39.980148823 9.460000
+OBJECT 0 -75.858729524 39.979320822 9.090000
+OBJECT 0 -75.858257346 39.979294493 11.690000
+OBJECT 0 -75.857714597 39.979209464 7.350000
+OBJECT 12 -75.861092274 39.979571248 191.309998
+OBJECT 13 -75.861422315 39.979591546 188.130005
+OBJECT 14 -75.861714666 39.979616480 190.559998
+OBJECT 15 -75.862061821 39.979650355 190.539993
+OBJECT 16 -75.870074354 39.980646048 42.799999
+OBJECT 16 -75.869429878 39.980780072 174.899994
+OBJECT 17 -75.869794386 39.980814176 177.139999
+OBJECT 17 -75.869619034 39.980807288 178.699997
+OBJECT 18 -75.869720241 39.980622885 41.500000
+OBJECT 19 -75.869533594 39.980588612 34.220001
+OBJECT 20 -75.863223050 39.980217100 0.000000
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Med_Office_1.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Lg_Maint_Gray.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/aircraft/regional_prop/ATR72-500_American_Eagle.obj
+OBJECT_DEF lib/airport/aircraft/regional_prop/ATR42-500_FedEx.obj
+OBJECT_DEF lib/airport/aircraft/regional_jet/Dornier_328_jet_Welcome_Air.obj
+OBJECT_DEF lib/airport/aircraft/regional_jet/Dornier_328_jet_Cirrus_Airlines.obj
+OBJECT_DEF lib/airport/aircraft/GA/KingAirC90B.obj
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+OBJECT_DEF lib/airport/aircraft/corporate_biz/P180_avanti_white.obj
+OBJECT_DEF lib/airport/aircraft/corporate_biz/P180_avanti_ferrari.obj
+OBJECT_DEF lib/airport/beacons/beacon_airport_big.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
