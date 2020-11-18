@@ -201,6 +201,69 @@ SYNOPSIS:
 
 
 
+[How to use (as an airport scenery creator)](http://wiki.flightgear.org/Project3000)
+------------------------------------------
+
+        git clone https://github.com/mherweg/d-laser-fgtools.git
+
+or [Download zip](https://github.com/mherweg/d-laser-fgtools)
+
+make sure that you have downloaded terrain of the airports that you want to make, otherwise elevation probing will fail and all objects will be at sea level.
+
+Test if fgelev is working on your computer: (be patient, fgelev is slow )
+
+        export FG_ROOT= YOUR FG_ROOT PATH
+        export FG_SCENERY= YOUR TERRASYNC PATH
+        time echo "foo 8.56256161 50.04758962 " | fgelev
+
+a good result example: 107m above MSL
+
+        foo: 107.910
+
+a bad result example: approx 0m MSL
+
+        foo: -0.34
+
+prepare a custom scenery folder:
+
+        mkdir -p /home/YOURUSERNAME/scenery/test/Objects
+        cp -r Models /home/YOURUSERNAME/scenery/test/
+
+write your paths into parameters.py:
+
+        PATH_TO_SCENERY = "/home/YOURUSERNAME/.fgfs/TerraSync"
+        PATH_TO_OUTPUT = "/home/YOURUSERNAME/scenery/test"
+
+you might also have to change the fg_root in fgelev.py:
+
+        fg_root = "/usr/share/games/flightgear"
+
+data found at [dsf_txt_collection](https://github.com/FGMEMBERS-SCENERY/d-laser-fgtools/tree/master/dsf_txt_collection)
+
+or download your own collection of ICAO.txt files; see below
+
+populate 1 airport:
+
+        ./dsf2stg.py -i dsf_txt_collection2000/EDDF.txt
+
+populate all (2000+) airports (It takes a few hours and only makes sense if you have terrain for most of them). Before you do that it is a good idea to download the latest 3D scenery packages from the gateway:
+
+        cd dsf_txt_collection
+	wget -O airports http://gateway.x-plane.com/apiv1/airports
+        ../find3d.py
+
+Finally,
+
+        ./populate.sh > populate.log
+
+getting a new airport:
+
+       cd dsf_txt_collection
+       ../gateway_pull.py -i ICAO
+
+testing the result (of running dsf2stg.py):
+
+       fgfs --aircraft=ufo --airport=EDDF --fg-scenery=/home/YOURUSERNAME/scenery/test
 
 
 
