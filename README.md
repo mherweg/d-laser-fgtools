@@ -201,7 +201,7 @@ SYNOPSIS:
 
 
 
-[How to use (as an airport scenery creator)](http://wiki.flightgear.org/Project3000)
+[Project3000: How to use (as an airport scenery creator)](http://wiki.flightgear.org/Project3000)
 ------------------------------------------
 
         git clone https://github.com/mherweg/d-laser-fgtools.git
@@ -242,14 +242,14 @@ data found at [dsf_txt_collection](https://github.com/FGMEMBERS-SCENERY/d-laser-
 
 or download your own collection of ICAO.txt files; see below
 
-populate 1 airport:
+populate one airport:
 
-        ./dsf2stg.py -i dsf_txt_collection2000/EDDF.txt
+        ./dsf2stg.py -i dsf_txt_collection/EDDF.txt
 
-populate all (2000+) airports (It takes a few hours and only makes sense if you have terrain for most of them). Before you do that it is a good idea to download the latest 3D scenery packages from the gateway:
+populate all (14500+) airports (It takes a few hours and only makes sense if you have terrain for most of them). Before you do that it is a good idea to download the latest 3D scenery packages from the gateway:
 
         cd dsf_txt_collection
-	wget -O airports http://gateway.x-plane.com/apiv1/airports
+        wget -O airports http://gateway.x-plane.com/apiv1/airports
         ../find3d.py
 
 Finally,
