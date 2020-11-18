@@ -74,7 +74,7 @@ class vec2d(object):
         return vec2d(self.x < other.x, self.y < other.y)
 
     def list(self):
-        print "deprecated call to vec2d.list(). Iterate instead."
+        print ("deprecated call to vec2d.list(). Iterate instead.")
         return self.x, self.y
 
     def as_array(self):
@@ -112,23 +112,23 @@ class vec2d(object):
 if __name__ == "__main__":
     a = vec2d(1,2)
     b = vec2d(10,10)
-    print "a   ", a
-    print "b   ", b
-    print "a+b ", a+b
-    print "a-b ", a-b
-    print "a+2 ", a+2
-    print "a*b ", a * b
-    print "a*2 ", a*2
-    # print "2*a ", 2*a --> fails!
-    print "a/2 ", a/2
-    print "a/2.", a/2.
+    print ("a   " + a)
+    print ("b   " + b)
+    print ("a+b ", a+b)
+    print ("a-b ", a-b)
+    print ("a+2 ", a+2)
+    print ("a*b ", a * b)
+    print ("a*2 ", a*2)
+    # print ("2*a ", 2*a) --> fails!
+    print ("a/2 ", a/2)
+    print ("a/2.", a/2.)
 
-    print a.x, a.y
-    print a.lon, a.lat
+    print (a.x, a.y)
+    print (a.lon, a.lat)
     a.lon = 4
-    print a.x, a.lon
+    print (a.x, a.lon)
 
-    print "a  ", a
+    print ("a  " + a)
     for i in a:
-        print " y", i
+        print (" y" + i)
 

@@ -95,7 +95,7 @@ class Object_def(object):
         splitted = path.strip().split('/')
         self.ID = ID
         if len(splitted) > 1:
-            self.prefix = string.join(splitted[:-1], os.sep) + os.sep
+            self.prefix = os.sep.join(splitted[:-1]) + os.sep
         else:
             self.prefix = ""
 
@@ -107,24 +107,24 @@ class Object_def(object):
 
 
 class Object(object):
-    def __init__(self, obj_def, lon, lat, hdg, fgpath,zoff, msl=None):
-		self.lon = lon
-		self.lat = lat
-		self.pos = vec2d(lon,lat)
-		self.hdg = hdg
-		self.msl = msl
-        #self.file = obj_def.file
-		self.prefix = obj_def.prefix
-		self.ext = obj_def.ext
-		self.textures_list = []
-		self.fgpath=fgpath
-		self.zoff=zoff
-    def __str__(self):
-		return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
+	def __init__(self, obj_def, lon, lat, hdg, fgpath,zoff, msl=None):
+	    self.lon = lon
+	    self.lat = lat
+	    self.pos = vec2d(lon,lat)
+	    self.hdg = hdg
+	    self.msl = msl
+	    #self.file = obj_def.file
+	    self.prefix = obj_def.prefix
+	    self.ext = obj_def.ext
+	    self.textures_list = []
+	    self.fgpath=fgpath
+	    self.zoff=zoff
+	def __str__(self):
+	    return "%s : %g %g %g" % (self.file, self.pos.lon, self.pos.lat, self.hdg)
             
 library = {}
 
-#print library["lib/cars/car_static.obj"][0]
+#print (library["lib/cars/car_static.obj"][0])
 
 def mk_dirs(path):
     try:
@@ -137,7 +137,7 @@ def read_lib(libfilename):
     try:  
         libfile = open(libfilename, 'r')
     except:
-        print "library file ", filename, "not found"
+        print ("library file " + filename + " not found")
         sys.exit()
     for line in libfile:
         line = line.strip()
@@ -145,8 +145,8 @@ def read_lib(libfilename):
             pass
         else:
             cols = line.split()
-            #print cols
-            #print len(cols)
+            #print (cols)
+            #print (len(cols))
             if len(cols)==6:
                 key = cols[0]
                 value = (cols[1],cols[2],cols[3],cols[4],cols[5],)
@@ -157,9 +157,9 @@ def read_lib(libfilename):
                 library[key]= value
             else:
                 if line:
-                    print "WARNING: can not parse this line from library:", line
+                    print ("WARNING: can not parse this line from library: " + line)
             
-    print len(library) , "entries in library.txt"
+    print (str(len(library)) + " entries in library.txt")
                 
 
 def read_obj_def(infile):
@@ -167,7 +167,7 @@ def read_obj_def(infile):
     ID=0
     for line in infile:
         #line = line.strip()
-        #print line
+        #print (line)
         if line.startswith("OBJECT_DEF"):
             cols = line.split()
             xpath = cols[1]
@@ -175,11 +175,11 @@ def read_obj_def(infile):
             obj = Object_def(line[11:], ID)
             objects_def[obj.ID] = obj
             ID += 1
-    print ID , "object definitions in source"   
+    print (str(ID) + " object definitions in source")
     return od
 
 def read_obj(infile,od):
-    #print "read_obj",
+    #print ("read_obj")
     for line in infile:
         line = line.strip()
         
@@ -204,7 +204,7 @@ def read_obj(infile,od):
                 objects.append(o)  
             else:
                 #pass
-                print "no model for", od[index]
+                print ("no model for " + od[index])
 
     
 def jw_init(icao):
@@ -214,9 +214,9 @@ def jw_init(icao):
 		path = os.path.join(path, icao[i])
 		if os.path.exists(path):
 			pass
-			#print os.listdir(path)
+			#print (os.listdir(path))
 		else:
-			os.mkdir(path)    
+			os.makedirs(path)    
             #open file for writing
 	gf = '.'.join([icao, 'jetways.xml'])
 	path = os.path.join(path, gf)
@@ -249,12 +249,12 @@ def main():
     try:  
         infile = open(inputfilename, 'r')
     except:
-        print "input file ", inputfilename, "not found"
+        print ("input file ", inputfilename + " not found")
         sys.exit()
-    #print inputfilename
+    #print (inputfilename)
     n2=os.path.basename(inputfilename)
     (icao,ext)=os.path.splitext(n2)
-    print "starting: ", icao
+    print ("starting: " + icao)
  
     # 1. Init STG_Manager
     #parameters.show()
@@ -262,7 +262,7 @@ def main():
     #read translation file
     lib = read_lib(libfilename)
     od = read_obj_def(infile)
-    #print od
+    #print (od)
     infile.seek(0)
     read_obj(infile,od)
     linecount=0
@@ -273,48 +273,48 @@ def main():
     elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
     logger.info("probing elevation")  
     for o in objects:
-		if o.msl == None:
-			if True: 
-				o.msl = elev_prober(o.pos) + o.zoff
-				#o.msl=72
-			else:
-				o.msl = 72
-			logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
-		else:
-			#pass
-			logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
+        if o.msl == None:
+            if True: 
+                o.msl = elev_prober(o.pos) + o.zoff
+                #o.msl=72
+            else:
+                o.msl = 72
+            logger.debug("object %s: elev probed %s" % (o.fgpath, str(o.msl)))
+        else:
+            #pass
+            logger.debug("object %s: using provided MSL=%g" % (o.fgpath, o.msl))
 
-		if o.fgpath in ("Models/Airport/Jetway/jetway.xml" , "Models/Airport/Jetway/jetway-movable.xml"):
-			#print o.fgpath
-			if not jw_init_flag:
-				f=jw_init(icao)
-				jw_init_flag=True
-			jw_entry(o,f,jw_count)
-			jw_count+=1
-		elif  o.fgpath == "CAR" : 
-			numcars= len(carpool)
-			index = (randint(0,numcars-1))
-			fgpath = ( "Models/Transport/" + carpool[index] )
-			stg_manager.add_object_shared( fgpath , o.pos, o.msl, o.hdg)
-		elif o.fgpath == "CESSNA" : 
-			numplanes= len(cessnas)
-			index = (randint(0,numplanes-1))
-			fgpath = ( "Models/Aircraft/" + cessnas[index] )
-			stg_manager.add_object_shared( fgpath , o.pos, o.msl, o.hdg)       
-		else:
-			stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
+        if o.fgpath in ("Models/Airport/Jetway/jetway.xml" , "Models/Airport/Jetway/jetway-movable.xml"):
+            #print (o.fgpath)
+            if not jw_init_flag:
+                f=jw_init(icao)
+                jw_init_flag=True
+            jw_entry(o,f,jw_count)
+            jw_count+=1
+        elif  o.fgpath == "CAR" : 
+            numcars= len(carpool)
+            index = (randint(0,numcars-1))
+            fgpath = ( "Models/Transport/" + carpool[index] )
+            stg_manager.add_object_shared( fgpath , o.pos, o.msl, o.hdg)
+        elif o.fgpath == "CESSNA" : 
+            numplanes= len(cessnas)
+            index = (randint(0,numplanes-1))
+            fgpath = ( "Models/Aircraft/" + cessnas[index] )
+            stg_manager.add_object_shared( fgpath , o.pos, o.msl, o.hdg)       
+        else:
+            stg_manager.add_object_shared(o.fgpath , o.pos, o.msl, o.hdg)
 			
-		linecount+=1
+        linecount+=1
     elev_prober.save_cache()
         
     stg_manager.write()
-    print "wrote" , linecount, "stg lines for ", icao
-  	
+    print ("wrote " + str(linecount) + " stg lines for " + icao)
+
     if jw_init_flag:
-		f.write('</PropertyList>\n')
-		print "wrote"  , jw_count, "jetway.xml entries for ", icao
-		f.close() 
-    print "done."
+        f.write('</PropertyList>\n')
+        print ("wrote "  + str(jw_count) + " jetway.xml entries for ", icao)
+        f.close() 
+    print ("done.")
 
         
 

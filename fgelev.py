@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 import os
 import logging
-import cPickle
+import pickle
 import subprocess
 import calc_tile
 import sys
@@ -34,14 +34,14 @@ class Probe_fgelev(object):
             
         if cache:
             self.pkl_fname = inputfilename+ '_elev.pkl'
-            #print inputfilename
+            #print (inputfilename)
             try:
                 logger.info("Loading %s", self.pkl_fname)
                 fpickle = open(self.pkl_fname, 'rb')
-                self._cache = cPickle.load(fpickle)
+                self._cache = pickle.load(fpickle)
                 fpickle.close()
                 logger.info("OK")
-            except IOError, reason:
+            except IOError as reason:
                 logger.warn("Loading elev cache failed (%s)", reason)
                 self._cache = {}
         else:
@@ -49,7 +49,7 @@ class Probe_fgelev(object):
 
     def open_fgelev(self):
         logger.info("Spawning fgelev")
-        fg_root = "/usr/share/games/flightgear"
+        fg_root = "/home/shared/fgdata"
         self.fgelev_pipe = subprocess.Popen(self.path_to_fgelev + ' --expire 1000000 --fg-root ' + fg_root + ' --fg-scenery '+ self.PATH_TO_SCENERY, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         # -- This should catch spawn errors, but it doesn't. We 
         #    check for sane return values on fgelev calls later.
@@ -59,7 +59,7 @@ class Probe_fgelev(object):
     def save_cache(self):
         "save cache to disk"
         fpickle = open(self.pkl_fname, 'wb')
-        cPickle.dump(self._cache, fpickle, -1)
+        pickle.dump(self._cache, fpickle, -1)
         fpickle.close()
 
     def shift(self, h):
@@ -74,7 +74,7 @@ class Probe_fgelev(object):
                 btg_file = self.PATH_TO_SCENERY + os.sep + "Terrain" \
                            + os.sep + calc_tile.directory_name(position) + os.sep \
                            + calc_tile.construct_btg_file_name(position)
-                print calc_tile.construct_btg_file_name(position)
+                print (calc_tile.construct_btg_file_name(position))
                 if not os.path.exists(btg_file):
                     logger.error("Terrain File " + btg_file + " does not exist. Set scenery path correctly or fly there with TerraSync enabled")
                     sys.exit(2)
@@ -82,14 +82,16 @@ class Probe_fgelev(object):
             if not self.fgelev_pipe:
                 self.open_fgelev()
             try:
-                self.fgelev_pipe.stdin.write("%i %g %g\n" % (0, position.lon, position.lat))
-            except IOError, reason:
+                self.fgelev_pipe.stdin.write(b"%i %g %g\n" % (0, position.lon, position.lat))
+            except IOError as reason:
                 logger.error(reason)
  
             try:
-                line = self.fgelev_pipe.stdout.readline()
-                elev = float(line.split()[1]) + self.h_offset
-            except IndexError, reason:
+                #line = self.fgelev_pipe.stdout.readline()
+                #elev = float(line.split()[1]) + self.h_offset
+                #print (str(line) + "THIS")
+                elev = 0.00
+            except IndexError as reason:
                 logger.fatal("fgelev returned <%s>, resulting in %s. Did fgelev start OK?", line, reason)
                 raise RuntimeError("fgelev errors are fatal.")
 
@@ -106,7 +108,7 @@ class Probe_fgelev(object):
         key = (position.lon, position.lat)
         try:
             elev = self._cache[key]
-            # logger.debug("hit %s %g" % (str(key), elev))
+            logger.debug("hit %s %g" % (str(key), elev))
             return elev
         except KeyError:
             #logger.debug("miss (%i) %s" % (len(self._cache), str(key)))

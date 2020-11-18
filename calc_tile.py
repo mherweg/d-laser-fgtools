@@ -44,14 +44,18 @@ def format_lat(lat):
         return "n%02d" % int(lat)
 
 
-def root_directory_name((lon, lat)):
+def root_directory_name(position):
+    lon=position[0]
+    lat=position[1]
     """Generate the directory name for a location."""
     lon_chunk = floor(lon/10.0) * 10
     lat_chunk = floor(lat/10.0) * 10
     return format_lon(lon_chunk) + format_lat(lat_chunk) + os.sep 
 
 
-def directory_name((lon, lat)):
+def directory_name(position):
+    lon=position[0]
+    lat=position[1]
     """Generate the directory name for a location."""
     lon_floor = floor(lon)
     lat_floor = floor(lat)
@@ -61,7 +65,9 @@ def directory_name((lon, lat)):
          + format_lon(lon_floor) + format_lat(lat_floor)
 
 
-def tile_index((lon, lat), x=0, y=0):
+def tile_index(position, x=0, y=0):
+    lon=position[0]
+    lat=position[1]
     if x == 0 and y == 0:
         y = calc_y(lat)
         x = calc_x(lon, lat)
@@ -70,7 +76,7 @@ def tile_index((lon, lat), x=0, y=0):
     index += (int(floor(lat)) + 90) << 6
     index += y << 3
     index += x
-    #print("tile_index", str(index))
+    #print("tile_index " + str(index))
     return index
 
 
@@ -82,7 +88,7 @@ def construct_path_to_stg(base_directory, center_global):
 def construct_stg_file_name(center_global):
     """Returns the file name of the stg-file at a given global lat/lon location"""
     filename = str(tile_index(center_global)) + ".stg"
-    print ("construct_stg_file_name:" , filename)
+    print ("construct_stg_file_name: " + filename)
     return filename
 	
 
@@ -156,5 +162,5 @@ if __name__ == "__main__":
                           (13.775, 51.9638889, 3171195),
                           (0.258094, 29.226081, 2956745),
                           (-2.216667, 30.008333, 2907651)):
-        print tile_index([lon, lat]) - idx
-        print directory_name([lon, lat])
+        print (tile_index([lon, lat]) - idx)
+        print (directory_name([lon, lat]))
