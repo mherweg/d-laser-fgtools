@@ -1,0 +1,46 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -66.820257921 6.572889088 0.000000
+OBJECT 1 -66.820151854 6.573240321 48.669998
+OBJECT 2 -66.820176407 6.573198368 316.669983
+FILTER -1
+FILTER 0
+OBJECT 3 -66.820962486 6.572338435 0.000000
+OBJECT 4 -66.820194085 6.573247151 227.580002
+OBJECT 5 -66.820216673 6.573288128 226.919998
+FILTER -1
+FILTER 0
+OBJECT 6 -66.820370829 6.572670720 319.119995
+OBJECT 7 -66.820642253 6.572572661 318.480011
+OBJECT 8 -66.820211386 6.572947430 137.059998
+OBJECT 8 -66.820134702 6.573018552 136.910004
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj
+OBJECT_DEF lib/airport/aircraft/cargo/turboprop_b.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_beige_10m_double.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_blue_8m_damaged.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/airport/aircraft/general_aviation/prop_a.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+PROPERTY sim/filter/aptid SVAS
+PROPERTY sim/require_agpoint 2/6
+PROPERTY sim/require_object 2/6
+PROPERTY sim/require_agpoint 3/3
+PROPERTY sim/require_object 3/3
+PROPERTY sim/require_agpoint 4/0
+PROPERTY sim/require_object 4/0

@@ -1,0 +1,42 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -98.232332793 38.748299582 193.179993
+OBJECT 1 -98.232063017 38.747856850 270.559998
+OBJECT 2 -98.232288519 38.746994120 7.590000
+OBJECT 3 -98.232020696 38.747597810 270.820007
+OBJECT 4 -98.232013000 38.747046943 269.440002
+OBJECT 4 -98.232015584 38.747252586 271.220001
+OBJECT 5 -98.231654333 38.746743432 1.220000
+OBJECT 6 -98.231860543 38.748009602 0.000000
+OBJECT 7 -98.232085188 38.747736170 0.000000
+OBJECT 8 -98.232238705 38.748357017 101.470001
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/SiteOffice8x14.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_box_white_avgas100LL.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/aircraft/airliners/prop_a.obj
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_2.agp
+PROPERTY sim/filter/aptid 9K7
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

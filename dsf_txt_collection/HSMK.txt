@@ -1,0 +1,18 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for 29.668297/6.824676/29.669378/6.827100
+PROPERTY sim/exclude_for 29.669308/6.826027/29.670180/6.829109
+PROPERTY sim/exclude_for 29.669727/6.828485/29.670738/6.832917
+PROPERTY sim/exclude_for 29.670494/6.831290/29.671400/6.835999
+PROPERTY sim/exclude_for 29.671087/6.834926/29.672377/6.840258
+OBJECT 0 29.672100988 6.838031682 0.000000
+OBJECT 0 29.669929638 6.827445979 0.000000
+OBJECT_DEF lib/airport/landscape/windsock.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

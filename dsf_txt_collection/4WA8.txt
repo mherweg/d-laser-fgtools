@@ -1,0 +1,40 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -122.268997399 48.834705512 184.899994
+OBJECT 1 -122.268429936 48.834688850 95.300003
+OBJECT 2 -122.268363257 48.835290973 267.769989
+OBJECT 3 -122.269425954 48.834889100 93.599998
+OBJECT 3 -122.268934196 48.835258055 5.830000
+OBJECT 4 -122.268700749 48.834975941 1.310000
+OBJECT 5 -122.268365438 48.835342463 268.779999
+OBJECT 6 -122.268362658 48.835489337 180.000000
+OBJECT 7 -122.269350334 48.834704244 273.769989
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/StorHut3x3.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+OBJECT_DEF lib/cars/car_static_invar.obj
+OBJECT_DEF lib/g10/US/suburban/SmlRnchGry.obj
+OBJECT_DEF lib/g10/US/suburban/L-RnchRHGry.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_blue_8m_box.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerDblLong.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerSnglLong.obj
+PROPERTY sim/filter/aptid 4WA8
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

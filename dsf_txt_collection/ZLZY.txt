@@ -1,0 +1,40 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 100.687146272 38.813447962 253.040009
+OBJECT 0 100.687357539 38.813825882 252.089996
+OBJECT 0 100.687557566 38.814219176 199.750000
+OBJECT 1 100.676207155 38.806946842 183.330002
+OBJECT 2 100.657377610 38.812659774 23.120001
+OBJECT 3 100.674026000 38.805160865 24.040001
+OBJECT 4 100.676183432 38.805058593 113.169998
+OBJECT 5 100.656475660 38.813120152 202.220001
+OBJECT 6 100.654737984 38.814088738 23.160000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Large.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Lg.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/European_Airports/towers/Sweden_14m.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp
+PROPERTY sim/filter/aptid ZLZY
+PROPERTY sim/exclude_for 100.684523/38.812658/100.688609/38.816304
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

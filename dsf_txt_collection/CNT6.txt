@@ -1,0 +1,30 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_fac -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_for -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_bch -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_net -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_lin -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_pol -80.607980/43.583682/-80.597575/43.586665
+PROPERTY sim/exclude_str -80.607980/43.583682/-80.597575/43.586665
+OBJECT 0 -80.607692445 43.585644203 0.000000
+OBJECT 1 -80.607833605 43.585532578 0.000000
+OBJECT 2 -80.607854747 43.585500220 275.559998
+OBJECT 3 -80.607741092 43.585515972 168.250000
+OBJECT 4 -80.607782379 43.585587976 277.559998
+OBJECT 5 -80.607653816 43.585581908 0.000000
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Tree.obj
+OBJECT_DEF lib/g10/global_objects/rubbish_bin.obj
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/g10/global_objects/LawnGrpMed.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/g10/streetlights/AreaFloodHighMast.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

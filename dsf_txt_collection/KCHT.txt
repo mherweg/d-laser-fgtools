@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -93.494043879 39.777787008 233.230011
+OBJECT 1 -93.493685175 39.777775977 323.230011
+OBJECT 1 -93.493496738 39.777885026 323.230011
+OBJECT 2 -93.493337078 39.777354367 143.630005
+OBJECT 3 -93.495085243 39.778842959 232.540009
+OBJECT 4 -93.494252028 39.778149395 233.230011
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5_solar.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Germany.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+PROPERTY sim/filter/aptid KCHT
+PROPERTY sim/exclude_net -93.495256/39.778504/-93.494621/39.778808
+PROPERTY sim/exclude_obj -93.501311/39.776192/-93.490479/39.786970
+PROPERTY sim/exclude_for -93.501311/39.776192/-93.490479/39.786970
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

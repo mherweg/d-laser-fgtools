@@ -1,0 +1,41 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 31.135754540 -10.216818506 0.000000
+OBJECT 1 31.136154929 -10.212897590 1.850000
+OBJECT 2 31.135947250 -10.212562124 271.079987
+OBJECT 2 31.135940477 -10.212337739 271.079987
+OBJECT 3 31.135689687 -10.217016839 90.690002
+OBJECT 4 31.135776222 -10.217348232 181.279999
+OBJECT 5 31.136136831 -10.215158535 93.180000
+OBJECT 6 31.135725140 -10.212049139 90.779999
+OBJECT 6 31.135693822 -10.212939483 0.000000
+OBJECT 7 31.135765337 -10.213189017 87.059998
+FILTER -1
+OBJECT_DEF lib/airport/European_Airports/towers/8m.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Lt.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x20.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+PROPERTY sim/filter/aptid FLKS
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,41 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -97.949401448 26.292065307 270.000000
+OBJECT 1 -97.949191168 26.293686238 180.000000
+OBJECT 2 -97.948971768 26.293051603 90.000000
+OBJECT 3 -97.948952134 26.292961942 180.000000
+OBJECT 4 -97.949317998 26.292945265 180.000000
+OBJECT 5 -97.949299146 26.293306410 90.000000
+OBJECT 5 -97.949390525 26.292073947 90.000000
+OBJECT 6 -97.949237396 26.292036712 178.639999
+FILTER -1
+OBJECT_DEF lib/airport/Ramp_Equipment/Tar_Marks1.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_beige_10m_double.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerSnglLong.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/g10/US/suburban/GdnShed.obj
+PROPERTY sim/filter/aptid 6T0
+PROPERTY sim/exclude_obj -97.949842/26.289818/-97.948862/26.293754
+PROPERTY sim/exclude_fac -97.949842/26.289818/-97.948862/26.293754
+PROPERTY sim/exclude_for -97.949842/26.289818/-97.948862/26.293754
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,61 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -0.593625199 35.173874466 0.000000
+OBJECT 1 -0.593610173 35.173871199 191.690002
+OBJECT 2 -0.593433312 35.173413269 0.000000
+OBJECT 3 -0.593590153 35.174003013 17.610001
+OBJECT 4 -0.593858011 35.174010722 0.000000
+OBJECT 5 -0.593758925 35.173922565 0.000000
+OBJECT 6 -0.593357155 35.173892792 18.350000
+OBJECT 7 -0.593615206 35.173888138 293.299988
+OBJECT 8 -0.593696333 35.174005150 17.049999
+OBJECT 9 -0.593874162 35.173870714 0.000000
+OBJECT 9 -0.593872421 35.173875266 0.000000
+OBJECT 10 -0.593048398 35.173710990 221.570007
+OBJECT 11 -0.593335261 35.173951453 196.339996
+OBJECT 10 -0.593586443 35.173855212 195.070007
+OBJECT 10 -0.593821112 35.173923027 198.850006
+OBJECT 12 -0.593850754 35.173903167 289.519989
+OBJECT 13 -0.593693902 35.173882483 18.549999
+OBJECT 14 -0.593309533 35.173778119 18.900000
+FILTER -1
+OBJECT_DEF lib/g10/global_objects/park_RecycleBin_1.obj
+OBJECT_DEF lib/g10/global_objects/LawnGrpSml.obj
+OBJECT_DEF lib/airport/landscape/windsock.obj
+OBJECT_DEF lib/airport/European_Airports/silos/12m_green.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Tree.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Med_AC_on_Pad.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/container_fire_extinguisher_concrete.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj
+OBJECT_DEF lib/airport/Common_Elements/Markers/Cones/Red_White_Large.obj
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Dir_Flood_Sm.obj
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Opposing_Flood_Sm.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+PROPERTY sim/filter/aptid DAOS
+PROPERTY sim/exclude_obj -0.595019/35.173378/-0.592802/35.174526
+PROPERTY sim/exclude_fac -0.595019/35.173378/-0.592802/35.174526
+PROPERTY sim/exclude_for -0.595019/35.173378/-0.592802/35.174526
+PROPERTY sim/exclude_net -0.595019/35.173378/-0.592802/35.174526
+PROPERTY sim/exclude_lin -0.595019/35.173378/-0.592802/35.174526
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

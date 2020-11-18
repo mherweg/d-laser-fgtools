@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.5.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -61.265216583 16.257038701 14.000000
+OBJECT 1 -61.264619574 16.257038701 192.000000
+OBJECT 2 -61.265401122 16.257227531 14.000000
+OBJECT 3 -61.263714089 16.257267119 190.300003
+OBJECT 4 -61.264787528 16.257387765 191.979996
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Sm.agp
+OBJECT_DEF lib/airport/aircraft/GA/KingAirC90B.obj
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+PROPERTY sim/filter/aptid TFFC
+PROPERTY sim/exclude_for -61.260306/16.256831/-61.259182/16.257831
+PROPERTY sim/exclude_for -61.261420/16.256963/-61.260232/16.257950
+PROPERTY sim/exclude_for -61.262456/16.257111/-61.261339/16.258131
+PROPERTY sim/exclude_for -61.264060/16.256777/-61.262389/16.258357
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

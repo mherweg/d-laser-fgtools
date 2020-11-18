@@ -1,0 +1,32 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -72.429247264 43.033874548 0.230000
+OBJECT 1 -72.429791801 43.034158998 0.230000
+OBJECT 2 -72.429393280 43.033473528 0.230000
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Lt.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Dk.obj
+PROPERTY sim/filter/aptid NH39
+PROPERTY sim/exclude_net -72.429494/43.033349/-72.429143/43.034107
+PROPERTY sim/exclude_obj -72.429928/43.029745/-72.429018/43.034742
+PROPERTY sim/exclude_for -72.429928/43.029745/-72.429018/43.034742
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

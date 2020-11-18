@@ -1,0 +1,44 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -72.016545604 44.572269653 9.310000
+OBJECT 1 -72.016525979 44.573104262 189.009995
+OBJECT 1 -72.016629969 44.570015337 273.799988
+OBJECT 2 -72.017098698 44.568981628 279.260010
+OBJECT 3 -72.016365884 44.572745138 188.000000
+OBJECT 4 -72.016134006 44.573311476 188.000000
+OBJECT 5 -72.016084296 44.573605302 188.000000
+OBJECT 6 -72.015996920 44.573959736 188.000000
+OBJECT 7 -72.015952118 44.574357246 188.000000
+FILTER -1
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5_solar.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Sweden.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Russia.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Poland.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Norway.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Germany.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6.obj
+PROPERTY sim/filter/aptid KCDA
+PROPERTY sim/exclude_obj -72.019914/44.564491/-72.017343/44.568809
+PROPERTY sim/exclude_for -72.019914/44.564491/-72.017343/44.568809
+PROPERTY sim/exclude_obj -72.018963/44.568809/-72.015267/44.574604
+PROPERTY sim/exclude_for -72.018963/44.568809/-72.015267/44.574604
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

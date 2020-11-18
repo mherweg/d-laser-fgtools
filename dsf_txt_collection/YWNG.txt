@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 141.254846410 -32.452645130 244.635529
+OBJECT 1 141.254515232 -32.452770422 70.948944
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Lt.obj
+PROPERTY sim/filter/aptid YWNG
+PROPERTY sim/require_agpoint 2/0
+PROPERTY sim/require_object 2/0

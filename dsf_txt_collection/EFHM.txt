@@ -1,0 +1,19 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 23.083027028 61.690531819 332.290070
+OBJECT 1 23.083324946 61.690646735 151.185547
+OBJECT 2 23.083205007 61.690580106 0.000000
+OBJECT 3 23.082862768 61.690642418 63.434494
+OBJECT 3 23.082764239 61.690620106 62.525127
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

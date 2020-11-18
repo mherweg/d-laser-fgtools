@@ -1,0 +1,17 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0b1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for -18.671410/66.073066/-18.652884/66.079711
+PROPERTY sim/exclude_for -18.683336/66.066606/-18.664090/66.073186
+PROPERTY sim/exclude_net -18.673054/66.071079/-18.665113/66.074436
+OBJECT 0 -18.665821606 66.073766866 213.009995
+OBJECT 1 -18.666057388 66.073332609 212.940002
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/7_Single_Spaces.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,48 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -114.184573658 50.723605004 270.000000
+OBJECT 1 -114.182971651 50.723800200 358.709991
+OBJECT 2 -114.183113596 50.723804065 0.370000
+OBJECT 3 -114.183191436 50.723803099 1.460000
+OBJECT 4 -114.183377643 50.723805998 7.630000
+OBJECT 5 -114.183429537 50.723801166 6.080000
+OBJECT 6 -114.183540955 50.723780875 1.550000
+OBJECT 7 -114.183611164 50.723785707 1.780000
+OBJECT 8 -114.183672216 50.723796335 2.440000
+OBJECT 8 -114.183782108 50.723787639 3.610000
+OBJECT 9 -114.183829423 50.723810829 5.380000
+OBJECT 10 -114.183882843 50.723808896 3.870000
+OBJECT 11 -114.183933211 50.723808896 3.710000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var2.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var14.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var13.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var12.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var11.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var10.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var1.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_old.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_10m_open.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_10m.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer.obj
+PROPERTY sim/filter/aptid EH2
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

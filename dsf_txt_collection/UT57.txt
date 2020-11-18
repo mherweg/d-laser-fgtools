@@ -1,0 +1,31 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -112.591517235 38.573921780 0.000000
+OBJECT 1 -112.591505059 38.573920166 212.990005
+OBJECT 2 -112.591491654 38.573910720 0.000000
+OBJECT 2 -112.591476900 38.573905176 135.000000
+OBJECT 2 -112.591524687 38.573928180 64.870003
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj
+OBJECT_DEF lib/street/various/porta_potty.obj
+OBJECT_DEF lib/industrial_area/goods/pallet_us.obj
+PROPERTY sim/filter/aptid UT57
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

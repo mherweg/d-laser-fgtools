@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 130.879147344 -11.756222484 155.336197
+OBJECT 1 130.883546376 -11.768169000 331.557098
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/StorHut3x3.obj
+OBJECT_DEF lib/g10/US/suburban/dU-RnchGryNG.obj
+PROPERTY sim/filter/aptid YPCM
+PROPERTY sim/require_agpoint 2/0
+PROPERTY sim/require_object 2/0

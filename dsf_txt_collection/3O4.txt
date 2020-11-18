@@ -1,0 +1,31 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.5.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -99.658937080 35.173533623 0.000000
+OBJECT 1 -99.659099655 35.169890306 0.000000
+OBJECT 1 -99.659099655 35.170128168 0.000000
+OBJECT 1 -99.659099020 35.169871776 179.580002
+OBJECT 2 -99.659026042 35.172479748 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+PROPERTY sim/filter/aptid 3O4
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

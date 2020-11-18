@@ -1,0 +1,21 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj -5.637530/34.787716/-5.631959/34.799742
+PROPERTY sim/exclude_fac -5.637530/34.787716/-5.631959/34.799742
+PROPERTY sim/exclude_for -5.637530/34.787716/-5.631959/34.799742
+OBJECT 0 -5.632420761 34.790012910 82.989998
+OBJECT 1 -5.632392211 34.789932578 81.930000
+OBJECT 2 -5.632375638 34.789972804 264.109985
+OBJECT 3 -5.632364546 34.790007846 81.540001
+OBJECT_DEF lib/cars/car_static.obj
+OBJECT_DEF lib/cars/police_car.obj
+OBJECT_DEF lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

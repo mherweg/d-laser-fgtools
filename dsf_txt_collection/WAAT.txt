@@ -1,0 +1,38 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 119.825570499 -3.048635474 348.111359
+OBJECT 1 119.818211118 -3.043647328 309.805603
+OBJECT 2 119.818779546 -3.044199522 299.357788
+OBJECT 3 119.825913599 -3.049045267 343.739838
+OBJECT 4 119.817793636 -3.043439534 66.914848
+OBJECT 5 119.819241293 -3.045461212 58.570400
+OBJECT 5 119.818915202 -3.045103243 0.000000
+OBJECT 6 119.819172093 -3.043923662 213.579849
+FILTER -1
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6_Germany.obj
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x30Lt.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/g10/US/suburban/B-RnchLHGry.obj
+OBJECT_DEF lib/g10/US/suburban/B-RnchLH.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+PROPERTY sim/filter/aptid WAAT
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

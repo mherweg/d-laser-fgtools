@@ -1,0 +1,38 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -123.060979932 44.641056291 270.109253
+OBJECT 1 -123.060979932 44.641518458 270.000000
+OBJECT 0 -123.060979932 44.641289593 270.000000
+OBJECT 1 -123.061303081 44.638959132 278.004913
+OBJECT 2 -123.060423540 44.636217649 269.684479
+OBJECT 3 -123.060517895 44.641679489 180.111801
+OBJECT 4 -123.060953856 44.639324870 270.000000
+OBJECT 4 -123.060956485 44.640538389 270.000000
+OBJECT 5 -123.060960834 44.639973323 270.485565
+OBJECT 6 -123.060423540 44.635853425 269.684479
+OBJECT 6 -123.060420341 44.635496030 269.684479
+OBJECT 6 -123.060418157 44.635139977 269.684479
+OBJECT 6 -123.060418157 44.634793254 269.684479
+OBJECT 7 -123.060601718 44.637427884 90.000000
+OBJECT 8 -123.061405856 44.637928345 0.000000
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+PROPERTY sim/require_agpoint 1/3
+PROPERTY sim/require_object 1/3
+PROPERTY sim/require_agpoint 2/2
+PROPERTY sim/require_object 2/2
+PROPERTY sim/require_agpoint 3/0
+PROPERTY sim/require_object 3/0

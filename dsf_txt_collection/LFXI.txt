@@ -1,0 +1,16 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_fac 5.492003/44.049154/5.500628/44.059277
+PROPERTY sim/exclude_for 5.492003/44.049154/5.500628/44.059277
+OBJECT 0 5.496764802 44.057368994 0.000000
+OBJECT 1 5.493648028 44.052961942 250.350006
+OBJECT_DEF lib/airport/beacons/beacon_mil.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Lg_Maint_Blue.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

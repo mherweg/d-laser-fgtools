@@ -28,15 +28,15 @@
 # the ICAO.txt for each airport is saved into the current folder.
 # you can use those files as input for  xplane2fg  or dsf2stg
 
-from StringIO import StringIO
+from io import StringIO
 import os, sys, io
 import json, base64, getopt
-import httplib
+import http.client
 import zipfile
 
 
 inputfilename="airports"
-htconn = httplib.HTTPSConnection("gateway.x-plane.com")
+htconn = http.client.HTTPSConnection("gateway.x-plane.com")
 
 def download_stgtxt(sid,icao):
       
@@ -46,7 +46,7 @@ def download_stgtxt(sid,icao):
     try:
         result = json.loads(r2)
     except:
-        print "Cannot download",icao, "recommended Scenery ID:", sid, "- no json?"
+        print ("Cannot download",icao, "recommended Scenery ID:", sid, "- no json?")
         return
     zip_base64 = result["scenery"]["masterZipBlob"]
     zip_blob = base64.b64decode(zip_base64)
@@ -62,10 +62,10 @@ def download_stgtxt(sid,icao):
     try:
         txtstring = zip_fhandle.read("%s.txt" % icao)
     except:
-        print "(2D)"
+        print ("(2D)")
         
     else:
-        print " 3D :-)"
+        print (" 3D :-)")
         zip_fhandle.extract(icao + ".txt")
        
 
@@ -76,7 +76,7 @@ def download_stgtxt(sid,icao):
 try:  
     infile = open(inputfilename, 'r')
 except:
-    print "input file ", inputfilename, "not found"
+    print ("input file: " + inputfilename + " not found")
     sys.exit()
     
 r2 = infile.read()    
@@ -90,7 +90,7 @@ for a in airports:
         sid = a['RecommendedSceneryId']
         # only download if we do not have it
         if os.path.isfile(icao + ".txt"):
-            print "not downloading" , icao
+            print ("not downloading" + icao)
         else:
             download_stgtxt(sid,icao)
         

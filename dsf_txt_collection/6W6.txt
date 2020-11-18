@@ -1,0 +1,25 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.3.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -77.026157637 39.794260201 245.149994
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/airport/Vintage_Airports/Hangars/Lg_Open_Ends.agp
+PROPERTY sim/filter/aptid 6W6
+PROPERTY sim/require_agpoint 5/0
+PROPERTY sim/require_object 5/0

@@ -1,0 +1,31 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -59.908095278 4.719327514 26.570000
+OBJECT 1 -59.908767988 4.719445578 210.380005
+OBJECT 2 -59.908104850 4.719385905 301.700012
+FILTER -1
+OBJECT_DEF lib/industrial_area/goods/barrels_4x.obj
+OBJECT_DEF lib/industrial_area/storage_tanks/oiltank_m13_2.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+PROPERTY sim/filter/aptid SYKK
+PROPERTY sim/exclude_for -59.911538/4.715139/-59.906311/4.720362
+PROPERTY sim/exclude_for -59.914728/4.710097/-59.908377/4.715335
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

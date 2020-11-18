@@ -1,0 +1,14 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj -80.209260/43.916082/-80.201838/43.918108
+PROPERTY sim/exclude_for -80.209260/43.916082/-80.201838/43.918108
+OBJECT 0 -80.202969838 43.917684054 344.380005
+OBJECT_DEF lib/g10/US/suburban/Z-RnchRHGry.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

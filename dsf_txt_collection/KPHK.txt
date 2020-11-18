@@ -1,0 +1,34 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -80.691538466 26.788749612 83.629997
+OBJECT 1 -80.692311779 26.789325278 353.920013
+OBJECT 2 -80.691195492 26.788244283 84.349998
+OBJECT 3 -80.690919521 26.788228261 358.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Fuel_Storage/Sing_Tank_Small.obj
+PROPERTY sim/filter/aptid KPHK
+PROPERTY sim/exclude_net -80.691459/26.788646/-80.690899/26.789087
+PROPERTY sim/exclude_net -80.691457/26.788144/-80.691249/26.788660
+PROPERTY sim/exclude_net -80.691454/26.788500/-80.691027/26.788654
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

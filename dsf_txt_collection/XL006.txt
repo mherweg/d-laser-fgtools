@@ -1,0 +1,15 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0b1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj -3.114397/43.346719/-3.114041/43.347134
+PROPERTY sim/exclude_fac -3.114397/43.346719/-3.114041/43.347134
+PROPERTY sim/exclude_for -3.114397/43.346719/-3.114041/43.347134
+OBJECT 0 -3.114130445 43.346865554 337.637512
+OBJECT_DEF lib/g10/streetlights/AreaFloodMed.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

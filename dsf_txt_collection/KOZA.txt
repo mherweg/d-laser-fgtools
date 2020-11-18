@@ -1,0 +1,50 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -101.203996497 30.731926026 270.000000
+OBJECT 1 -101.203670447 30.732424583 86.616760
+OBJECT 2 -101.202129969 30.730007067 81.950363
+OBJECT 3 -101.202536712 30.729509102 258.352448
+OBJECT 4 -101.203252410 30.731655641 86.546669
+OBJECT 5 -101.203995021 30.732104903 270.460114
+OBJECT 6 -101.202912540 30.731611995 261.919067
+OBJECT 0 -101.203011148 30.733157138 266.125061
+OBJECT 5 -101.203138936 30.732704412 356.672607
+OBJECT 7 -101.203399337 30.732691142 357.765656
+OBJECT 7 -101.204197249 30.731749078 278.004791
+OBJECT 8 -101.203587639 30.731870360 357.207336
+OBJECT 9 -101.203139261 30.731948217 0.000000
+OBJECT 9 -101.203146054 30.731815860 0.000000
+OBJECT 10 -101.203513676 30.731470886 0.744056
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/g10/US/suburban/TrailerDblLong.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Tree.obj
+OBJECT_DEF lib/g10/US/commercial/diner.obj
+PROPERTY sim/filter/aptid KOZA
+PROPERTY sim/exclude_net -101.204025/30.731628/-101.203766/30.731833
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

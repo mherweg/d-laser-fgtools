@@ -1,0 +1,43 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+BEGIN_POLYGON 0 5 2
+BEGIN_WINDING
+POLYGON_POINT -6.881798175 53.638568492
+POLYGON_POINT -6.881869719 53.638492689
+POLYGON_POINT -6.881356520 53.638316607
+POLYGON_POINT -6.881269858 53.638419114
+POLYGON_POINT -6.881777561 53.638590159
+END_WINDING
+END_POLYGON
+OBJECT 0 -6.881826734 53.638850786 321.200012
+OBJECT 1 -6.881125397 53.638243675 298.390015
+OBJECT 2 -6.881116715 53.638252830 118.040001
+OBJECT 3 -6.880703285 53.638195690 301.519989
+FILTER -1
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_ground_cable.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_white_avgas100LL.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+POLYGON_DEF lib/airport/Common_Elements/Hangars/White_Hangar.fac
+PROPERTY sim/filter/aptid EIMH
+PROPERTY sim/exclude_net -6.883664/53.638138/-6.881398/53.639091
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
+PROPERTY sim/require_facade 1/0

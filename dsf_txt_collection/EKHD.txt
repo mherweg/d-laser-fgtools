@@ -1,0 +1,16 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj 4.270513/56.343400/4.274675/56.345601
+PROPERTY sim/exclude_fac 4.270513/56.343400/4.274675/56.345601
+OBJECT_MSL 0 4.271882998 56.344294220 41.000000000 0.000000
+OBJECT 1 4.272549340 56.344491979 0.000000
+OBJECT_DEF lib/airport/landscape/windsock_lit.obj
+OBJECT_DEF lib/ships/OilPlatform.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

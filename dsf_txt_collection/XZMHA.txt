@@ -1,0 +1,14 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 100.758003662 51.510050167 275.630005
+OBJECT 1 100.758696601 51.510656506 341.309998
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Cargo_Palette_1.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

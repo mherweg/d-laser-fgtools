@@ -1,0 +1,67 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 149.130996528 -36.134513834 353.829865
+OBJECT 1 149.130900254 -36.134327401 357.137604
+OBJECT 1 149.130871204 -36.134320500 357.137604
+OBJECT 2 149.131058416 -36.134801305 271.464783
+OBJECT 3 149.131259018 -36.134730733 77.471123
+OBJECT 4 149.130500014 -36.134720265 92.419518
+OBJECT 5 149.132065167 -36.134185632 280.060730
+OBJECT 6 149.131806522 -36.134580924 96.677193
+OBJECT 7 149.131451495 -36.135029330 6.340173
+OBJECT 8 149.131397381 -36.135027413 4.763628
+OBJECT 9 149.131372223 -36.135019746 7.124996
+OBJECT 10 149.131284408 -36.135007861 16.699202
+OBJECT 11 149.131232668 -36.134996360 20.575937
+OBJECT 12 149.131211615 -36.134980256 17.878654
+OBJECT 13 149.131752942 -36.134883389 99.462296
+OBJECT 14 149.131763195 -36.134818799 104.036217
+OBJECT 15 149.131757043 -36.134707286 99.462311
+OBJECT 15 149.131752258 -36.134738752 99.462311
+OBJECT 16 149.131304097 -36.134139691 313.315369
+OBJECT 17 149.131271391 -36.134160896 302.799591
+OBJECT 18 149.131161021 -36.134124518 310.601349
+OBJECT 19 149.131146560 -36.134085869 312.737640
+OBJECT 20 149.131758118 -36.134848232 99.462349
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var6.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var2.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_beige_7m.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Const_Trailer.agp
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/caravans/caravan_blue_8m_cover.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var3.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var12.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var11.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var10.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var1.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_old.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_10m_open.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_10m.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer.obj
+OBJECT_DEF lib/cars/car_static_invar.obj
+OBJECT_DEF lib/cars/car_static.obj
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var8.obj
+PROPERTY sim/filter/aptid YBUY
+PROPERTY sim/require_agpoint 2/0
+PROPERTY sim/require_object 2/0

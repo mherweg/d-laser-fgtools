@@ -1,0 +1,40 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj 22.822261/58.992457/22.825332/58.995140
+PROPERTY sim/exclude_fac 22.822261/58.992457/22.825332/58.995140
+PROPERTY sim/exclude_for 22.822261/58.992457/22.825332/58.995140
+PROPERTY sim/exclude_net 22.822261/58.992457/22.825332/58.995140
+OBJECT 0 22.831010468 58.992115607 238.109039
+OBJECT 1 22.824402726 58.992952151 106.080002
+OBJECT 2 22.824131926 58.992995690 10.490000
+OBJECT 3 22.824689886 58.993071729 10.360000
+OBJECT 4 22.822407727 58.994036907 148.830002
+OBJECT 5 22.823021171 58.994735728 327.410004
+OBJECT 6 22.824255715 58.992785168 238.669998
+OBJECT 7 22.823768284 58.993166475 237.919998
+OBJECT 8 22.822933476 58.994656507 238.160004
+OBJECT 9 22.822694114 58.994237519 58.439999
+OBJECT 10 22.822502260 58.993932270 59.320000
+OBJECT 11 22.823880260 58.994038543 327.350006
+OBJECT 12 22.823319722 58.994147189 0.000000
+OBJECT_DEF lib/airport/NAVAIDS/glideslope.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/GPU_1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Cargo_Container_6.obj
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp
+OBJECT_DEF lib/airport/Common_Elements/vehicles/Large_Fuel_Truck.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj
+OBJECT_DEF lib/airport/Modern_Airports/Control_Towers/Modern_Tower_3.agp
+OBJECT_DEF lib/airport/aircraft/corporate_biz/P180_avanti_white.obj
+OBJECT_DEF lib/airport/landscape/apron_light.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
