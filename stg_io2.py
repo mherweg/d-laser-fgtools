@@ -40,7 +40,7 @@ class STG_File(object):
             stg = open(self.file_name, 'r')
             lines = stg.readlines()
             stg.close()
-        except IOError, reason:
+        except IOError as reason:
             logger.warning("error reading %s: %s", self.file_name, reason)
             return
 
@@ -82,7 +82,7 @@ class STG_File(object):
     def make_path_to_stg(self):
         try:
             os.makedirs(self.path_to_stg)
-        except OSError, e:
+        except OSError as e:
             if e.errno != 17:
                 logger.exception("Unable to create path to output %s", self.path_to_stg)
 
@@ -204,7 +204,7 @@ def read_stg_entries(stg_path_and_name, our_magic):
                 hdg = float(splitted[5])
                 entries.append(STGEntry(type_, obj_filename, path, lon, lat, elev, hdg))
                 logger.debug("stg: %s %s", type_, path + os.sep + obj_filename)
-    except IOError, reason:
+    except IOError as reason:
         logger.warning("stg_io:read: Ignoring unreadable file %s", reason)
         return []
     return entries
@@ -237,10 +237,10 @@ def quick_stg_line(path_to_scenery, ac_fname, position, elevation, heading, show
     stg_fname = calc_tile.construct_stg_file_name(position)
     stg_line = "OBJECT_STATIC %s %1.7f %1.7f %1.2f %g\n" % (ac_fname, position.lon, position.lat, elevation, heading)
     if show == 1 or show == 3:
-        print stg_path + stg_fname
+        print (stg_path + stg_fname)
     if show == 2 or show == 3:
-        print stg_line
-#        print "%s\n%s" % (stg_path + stg_fname, stg_line)
+        print (stg_line)
+#        print ("%s\n%s" % (stg_path + stg_fname, stg_line))
     return stg_path, stg_fname, stg_line
 
 

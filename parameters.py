@@ -32,14 +32,14 @@ IGNORE_PKL_OVERWRITE = True # -- Ignore overwriting of Cache File
 # -- Full path to the scenery folder without trailing slash. This is where we
 #    will probe elevation and check for overlap with static objects. Most
 #    likely you'll want to use your TerraSync path here.
-PATH_TO_SCENERY = "/home/mherweg/.fgfs/TerraSync"
+PATH_TO_SCENERY = "/home/shared/terraGIT"
 
 # -- The generated scenery (.stg, .ac, .xml) will be written to this path.
 #    If empty, we'll use the correct location in PATH_TO_SCENERY. Note that
 #    if you use TerraSync for PATH_TO_SCENERY, you MUST choose a different
 #    path here. Otherwise, TerraSync will overwrite the generated scenery.
 #    Also make sure PATH_TO_OUTPUT is included in your $FG_SCENERY.
-PATH_TO_OUTPUT = "/home/mherweg/scenery/test"
+PATH_TO_OUTPUT = "/home/shared/local/sources/P3000/test"
 
 NO_ELEV = False             # -- skip elevation probing
 ELEV_MODE = "FgelevCaching" # -- elev probing mode. Possible values are FgelevCaching (recommended), Manual, or Telnet
@@ -73,9 +73,9 @@ def set_parameters(param_dict):
             elif isinstance(globals()[k], types.ListType):
                 globals()[k] = parse_list(param_dict[k])
             else:
-                print "Parameter", k, "has an unknown type/value:", param_dict[k]
+                print ("Parameter", k, "has an unknown type/value:", param_dict[k])
         else:
-            print "Ignoring unknown parameter", k
+            print ("Ignoring unknown parameter" + k)
 
 
 def get_OSM_file_name():
@@ -99,7 +99,7 @@ def show():
     """
     Prints all parameters as key = value
     """
-    print '--- Using the following parameters: ---'
+    print ('--- Using the following parameters: ---')
     my_globals = globals()
     for k in sorted(my_globals.iterkeys()):
         if k.startswith('__'):
@@ -114,10 +114,10 @@ def show():
             continue
         elif isinstance(my_globals[k], types.ListType):
             value = ', '.join(my_globals[k])
-            print k, '=', value
+            print (k + '=' + value)
         else:
-            print k, '=', my_globals[k]
-    print '------'
+            print (k + '=' + my_globals[k])
+    print ('------')
 
 
 def parse_list(string_value):
@@ -141,7 +141,7 @@ def parse_float(key, string_value):
     try:
         float_value = float(string_value)
     except ValueError:
-        print 'Unable to convert', string_value, 'to decimal number. Relates to key', key
+        print ('Unable to convert ' + string_value + ' to decimal number. Relates to key ' + key)
     return float_value
 
 
@@ -154,7 +154,7 @@ def parse_int(key, string_value):
     try:
         int_value = int(string_value)
     except ValueError:
-        print 'Unable to convert', string_value, 'to number. Relates to key', key
+        print ('Unable to convert ' + string_value + ' to number. Relates to key ' + key)
     return int_value
 
 
@@ -166,13 +166,13 @@ def parse_bool(key, string_value):
         return True
     if string_value.lower() in ("no", "false", "off", "0"):
         return False
-    print "Boolean value %s for %s not understood. Assuming False." % (string_value, key)
+    print ("Boolean value %s for %s not understood. Assuming False." % (string_value, key))
     # FIXME: bail out if not understood!
     return False
 
 
 def read_from_file(filename):
-    print 'Reading parameters from file:', filename
+    print ('Reading parameters from file: ' + filename)
     try:
         f = open(filename, 'r')
         param_dict = {}
@@ -197,8 +197,8 @@ def read_from_file(filename):
 
         set_parameters(param_dict)
         f.close()
-    except IOError, reason:
-        print "Error processing file with parameters:", reason
+    except IOError as reason:
+        print ("Error processing file with parameters: " + reason)
         sys.exit(1)
 
 def show_default():
@@ -214,7 +214,7 @@ def show_default():
         elif line.startswith('# default_args_end'):
             return
         if do_print:
-            print line,
+            print (line)
 
 if __name__ == "__main__":
     # Handling arguments and parameters
