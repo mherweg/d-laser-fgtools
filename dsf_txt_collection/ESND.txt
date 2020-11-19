@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj 14.421659/62.046835/14.439759/62.048979
+PROPERTY sim/exclude_fac 14.421659/62.046835/14.439759/62.048979
+PROPERTY sim/exclude_for 14.421659/62.046835/14.439759/62.048979
+PROPERTY sim/exclude_obj 14.415146/62.046218/14.421847/62.048832
+PROPERTY sim/exclude_fac 14.415146/62.046218/14.421847/62.048832
+PROPERTY sim/exclude_for 14.415146/62.046218/14.421847/62.048832
+PROPERTY sim/exclude_obj 14.393728/62.046483/14.415397/62.048626
+PROPERTY sim/exclude_fac 14.393728/62.046483/14.415397/62.048626
+PROPERTY sim/exclude_for 14.393728/62.046483/14.415397/62.048626
+OBJECT 0 14.419316637 62.046291243 358.460114
+OBJECT 1 14.420396526 62.046282716 358.800232
+OBJECT 2 14.421070943 62.046596690 358.386505
+OBJECT 3 14.418491278 62.046569095 178.567963
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_2.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_3.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Sm.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

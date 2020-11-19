@@ -1,0 +1,33 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -111.893754388 44.681142968 359.253967
+OBJECT 1 -111.894104527 44.681165398 271.080933
+OBJECT 2 -111.893899491 44.681284272 90.000000
+OBJECT 3 -111.893902645 44.680994936 189.162247
+OBJECT 4 -111.894259093 44.681001665 87.614029
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/g10/US/suburban/dGdnShed.obj
+OBJECT_DEF lib/g10/US/suburban/SmlRnchGry.obj
+OBJECT_DEF lib/cars/car_or_truck.obj
+PROPERTY sim/filter/aptid MT47
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

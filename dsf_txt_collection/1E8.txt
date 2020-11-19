@@ -1,0 +1,33 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -75.068700584 44.385939601 97.699997
+OBJECT 1 -75.068678665 44.385878478 98.430000
+OBJECT 2 -75.068679954 44.385998574 97.589996
+OBJECT 3 -75.067857545 44.388022697 175.110001
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var5.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_old.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/sailplane_trailer/sailplane_trailer_var14.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+PROPERTY sim/filter/aptid 1E8
+PROPERTY sim/exclude_obj -75.068806/44.384663/-75.064668/44.392214
+PROPERTY sim/exclude_for -75.068806/44.384663/-75.064668/44.392214
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

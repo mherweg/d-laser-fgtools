@@ -1,0 +1,39 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_obj 17.762132/63.046853/17.771106/63.053081
+PROPERTY sim/exclude_fac 17.762132/63.046853/17.771106/63.053081
+PROPERTY sim/exclude_for 17.762132/63.046853/17.771106/63.053081
+PROPERTY sim/exclude_obj 17.767746/63.037595/17.773657/63.047151
+PROPERTY sim/exclude_fac 17.767746/63.037595/17.773657/63.047151
+PROPERTY sim/exclude_for 17.767746/63.037595/17.773657/63.047151
+PROPERTY sim/exclude_obj 17.763906/63.052486/17.769003/63.058715
+PROPERTY sim/exclude_fac 17.763906/63.052486/17.769003/63.058715
+PROPERTY sim/exclude_for 17.763906/63.052486/17.769003/63.058715
+OBJECT 0 17.764663918 63.048408996 170.289993
+OBJECT 1 17.765243197 63.048454015 170.710007
+OBJECT 2 17.763264669 63.048589506 352.989990
+OBJECT 3 17.763140315 63.047789649 82.930000
+OBJECT 4 17.763807981 63.048807567 353.119995
+OBJECT 5 17.762991331 63.048034750 352.140015
+OBJECT 6 17.764787671 63.047415286 170.539993
+OBJECT 7 17.763927386 63.048117349 48.810001
+OBJECT 8 17.763980336 63.047888643 352.239990
+OBJECT 9 17.765037122 63.047437850 171.380005
+OBJECT_DEF lib/airport/aircraft/regional_prop/ATR72-500_Lufthansa_Regional.obj
+OBJECT_DEF lib/airport/aircraft/regional_prop/Dornier_328_prop_Air_Alps.obj
+OBJECT_DEF lib/g10/US/industrial/light/Warehse15x30Lt.obj
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Small_Office_3.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Classic_Airports/Control_Towers/Classic_Tower_1.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Lugg_Train_Straight1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/GPU_1.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

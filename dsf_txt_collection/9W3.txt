@@ -1,0 +1,39 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -80.024960174 39.092394903 3.630000
+OBJECT 1 -80.024966271 39.092359082 183.270004
+OBJECT 2 -80.024898089 39.092354218 93.130005
+OBJECT 3 -80.025066060 39.092365936 3.160000
+OBJECT 4 -80.025167647 39.091881056 272.390015
+OBJECT 5 -80.024991539 39.092527826 94.230003
+OBJECT 6 -80.025065344 39.092268145 5.190000
+FILTER -1
+OBJECT_DEF lib/public_area/playground/swingSet_02.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj
+OBJECT_DEF lib/g10/EU/suburban/gaze2_4x4.obj
+OBJECT_DEF lib/garden/pools/pool_Small_7x10.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/22m_carousel_blue.obj
+OBJECT_DEF lib/g10/US/suburban/dh-RnchRHGryDk.obj
+OBJECT_DEF lib/g10/US/suburban/B-RnchLH.obj
+PROPERTY sim/filter/aptid 9W3
+PROPERTY sim/exclude_obj -80.025734/39.091330/-80.024611/39.095642
+PROPERTY sim/exclude_for -80.025734/39.091330/-80.024611/39.095642
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,19 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.2.1r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -89.217107867 44.199110400 89.917740
+OBJECT 1 -89.216173821 44.198457903 90.550003
+OBJECT 2 -89.216520321 44.198259564 179.669998
+OBJECT 2 -89.216917611 44.198261908 179.089996
+OBJECT 3 -89.217292616 44.198260341 179.350006
+OBJECT_DEF lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

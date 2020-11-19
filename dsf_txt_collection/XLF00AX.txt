@@ -1,0 +1,26 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 6.414768968 45.442532882 71.290001
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x20.obj
+PROPERTY sim/filter/aptid XLF00AX
+PROPERTY sim/exclude_for 6.413790/45.441412/6.418812/45.443932
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

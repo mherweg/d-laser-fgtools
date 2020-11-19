@@ -1,0 +1,29 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -97.760564012 30.323897536 345.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Large_Office_1.agp
+PROPERTY sim/filter/aptid TX26
+PROPERTY sim/exclude_obj -97.761801/30.322770/-97.758811/30.324860
+PROPERTY sim/exclude_fac -97.761801/30.322770/-97.758811/30.324860
+PROPERTY sim/exclude_for -97.761801/30.322770/-97.758811/30.324860
+PROPERTY sim/exclude_pol -97.761801/30.322770/-97.758811/30.324860
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

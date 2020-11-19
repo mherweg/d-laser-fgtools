@@ -1,0 +1,28 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -111.735898655 45.349960576 0.000000
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/FactA15x22.obj
+PROPERTY sim/filter/aptid S55
+PROPERTY sim/exclude_net -111.736194/45.352855/-111.734294/45.357616
+PROPERTY sim/exclude_net -111.734756/45.354017/-111.732780/45.358703
+PROPERTY sim/exclude_net -111.737268/45.350018/-111.735185/45.352817
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

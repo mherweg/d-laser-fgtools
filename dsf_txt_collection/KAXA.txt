@@ -1,0 +1,39 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -94.273664333 43.080072053 270.000000
+OBJECT 1 -94.274124164 43.081592043 0.000000
+OBJECT 2 -94.274386984 43.082221693 180.000000
+OBJECT 2 -94.274075746 43.082106368 180.000000
+OBJECT 3 -94.273664172 43.080456583 0.000000
+OBJECT 3 -94.274200613 43.080572472 0.000000
+OBJECT 4 -94.273675634 43.081298203 0.000000
+OBJECT 5 -94.273031418 43.080607142 90.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/g10/US/industrial/light/TinShed10x50.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5_solar.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+PROPERTY sim/filter/aptid KAXA
+PROPERTY sim/exclude_obj -94.279524/43.073638/-94.266359/43.082768
+PROPERTY sim/exclude_for -94.279524/43.073638/-94.266359/43.082768
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

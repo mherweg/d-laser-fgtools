@@ -1,0 +1,29 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -78.101813916 36.745504311 225.000000
+OBJECT 1 -78.102207313 36.746163787 94.989998
+FILTER -1
+OBJECT_DEF lib/g10/US/urban_mid/ResEstateSign.obj
+OBJECT_DEF lib/airport/Common_Elements/Water_Towers/Water_Tower_1960.agp
+PROPERTY sim/filter/aptid 35VA
+PROPERTY sim/exclude_for -78.103455/36.743721/-78.100464/36.745575
+PROPERTY sim/exclude_for -78.102455/36.745872/-78.101807/36.746403
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

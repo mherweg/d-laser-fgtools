@@ -1,0 +1,55 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -84.561896735 35.395368115 108.680000
+OBJECT 1 -84.561799663 35.395621280 108.680000
+OBJECT 2 -84.561688997 35.395909900 108.680000
+OBJECT 3 -84.561574652 35.396208115 108.680000
+OBJECT 4 -84.558446161 35.396770683 108.680000
+OBJECT 5 -84.560665198 35.396766218 199.389999
+OBJECT 6 -84.559606876 35.396824819 108.680000
+OBJECT 7 -84.559570753 35.397576507 108.680000
+OBJECT 8 -84.559937449 35.397599422 108.680000
+OBJECT 9 -84.559082155 35.398080093 18.680000
+OBJECT 9 -84.559821319 35.398299012 18.680000
+OBJECT 10 -84.559454874 35.398190482 18.680000
+OBJECT 10 -84.560149314 35.398396155 18.680000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Orange_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp
+OBJECT_DEF lib/g10/US/commercial/sign_xplane_neon.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+PROPERTY sim/filter/aptid KMMI
+PROPERTY sim/exclude_obj -84.565602/35.390774/-84.561201/35.396563
+PROPERTY sim/exclude_for -84.565602/35.390774/-84.561201/35.396563
+PROPERTY sim/exclude_obj -84.563402/35.396559/-84.558049/35.398823
+PROPERTY sim/exclude_for -84.563402/35.396559/-84.558049/35.398823
+PROPERTY sim/exclude_obj -84.562930/35.398753/-84.558043/35.401944
+PROPERTY sim/exclude_for -84.562930/35.398753/-84.558043/35.401944
+PROPERTY sim/exclude_obj -84.561001/35.401874/-84.557215/35.407920
+PROPERTY sim/exclude_for -84.561001/35.401874/-84.557215/35.407920
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

@@ -1,0 +1,28 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 6.981201094 45.909012571 0.000000
+OBJECT 0 6.985085065 45.907445475 0.000000
+OBJECT 0 6.992186263 45.916002930 0.000000
+OBJECT 0 6.988296344 45.917567503 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Markers/Poles/Large_Red_White.obj
+PROPERTY sim/filter/aptid XLF00B6
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

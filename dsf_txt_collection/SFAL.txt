@@ -1,0 +1,48 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -57.776272275 -51.688741474 86.000000
+OBJECT 1 -57.775662685 -51.687881387 0.000000
+OBJECT 2 -57.781420442 -51.684375778 90.000000
+OBJECT 2 -57.781883055 -51.684380844 90.000000
+OBJECT 3 -57.781444120 -51.686691649 90.000000
+OBJECT 3 -57.781839344 -51.686688156 90.000000
+OBJECT 4 -57.779072966 -51.687656792 0.000000
+OBJECT 5 -57.776510209 -51.687786799 90.000000
+OBJECT 5 -57.776594519 -51.687381299 90.000000
+OBJECT 6 -57.779895485 -51.687448840 180.000000
+OBJECT 7 -57.779200261 -51.687558236 90.000000
+OBJECT 8 -57.779204152 -51.687536323 90.000000
+OBJECT 9 -57.777725064 -51.687608567 0.000000
+OBJECT 10 -57.777909008 -51.687533156 0.000000
+FILTER -1
+OBJECT_DEF lib/g10/US/industrial/light/Shed13x24.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x20.obj
+OBJECT_DEF lib/airport/Common_Elements/Runway_Markers/Sheet_Metal/White_Black.obj
+OBJECT_DEF lib/airport/Common_Elements/Runway_Markers/Sheet_Metal/White_Black_2.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_box_white_jetA1.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_white_avgasUL91.obj
+OBJECT_DEF lib/g10/EU/suburban/gar1_6x6.obj
+OBJECT_DEF lib/g10/EU/urban_mid/outBld1-2_6x12.obj
+PROPERTY sim/filter/aptid SFAL
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

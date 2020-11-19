@@ -1,0 +1,25 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -122.897616259 46.974569725 46.500000
+FILTER -1
+OBJECT_DEF lib/airport/aircraft/general_aviation/helo_a.obj
+PROPERTY sim/filter/aptid WN70
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

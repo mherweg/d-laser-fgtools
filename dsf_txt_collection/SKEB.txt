@@ -1,0 +1,16 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -74.809966804 7.596989497 138.012802
+OBJECT 0 -74.809987144 7.596770767 95.440331
+OBJECT 0 -74.809984047 7.596843781 93.576332
+OBJECT 1 -74.810011740 7.596891795 274.144348
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Ovrhd_Flood_Small.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

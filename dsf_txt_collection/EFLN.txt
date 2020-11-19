@@ -1,0 +1,28 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.5.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 29.621507787 63.512628831 113.682686
+OBJECT 0 29.621507787 63.512604351 117.235809
+OBJECT 1 29.621791760 63.512669276 129.226532
+FILTER -1
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/airport/aircraft/GA/Osprey_GP5.obj
+PROPERTY sim/filter/aptid EFLN
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

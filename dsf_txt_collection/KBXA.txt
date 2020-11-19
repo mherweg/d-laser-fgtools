@@ -1,0 +1,43 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -89.863900597 30.809921420 0.000000
+OBJECT 0 -89.863957556 30.809921417 0.000000
+OBJECT 1 -89.860928876 30.805148164 227.119995
+OBJECT 2 -89.860762208 30.806249615 45.540001
+OBJECT 3 -89.861613203 30.807635503 269.980011
+OBJECT 3 -89.860612807 30.808854329 253.610001
+OBJECT 4 -89.860568673 30.812218526 274.160004
+OBJECT 5 -89.860629009 30.805088171 46.400002
+OBJECT 6 -89.861244398 30.805397897 226.369995
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Barriers/concrete/red_white_6m.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Lg_Maint_Blue.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Large_Office_1.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Med_Office_1.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+PROPERTY sim/filter/aptid KBXA
+PROPERTY sim/exclude_obj -89.863694/30.804492/-89.859764/30.807046
+PROPERTY sim/exclude_for -89.863694/30.804492/-89.859764/30.807046
+PROPERTY sim/exclude_obj -89.865689/30.806163/-89.863287/30.821883
+PROPERTY sim/exclude_for -89.865689/30.806163/-89.863287/30.821883
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

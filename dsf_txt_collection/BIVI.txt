@@ -1,0 +1,19 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_for -18.903215/63.415960/-18.871072/63.428068
+OBJECT 0 -18.882865544 63.423825771 53.391476
+OBJECT 1 -18.882722513 63.424736188 0.000000
+OBJECT 2 -18.882727738 63.424670729 25.251554
+OBJECT 3 -18.882990584 63.424670826 0.000000
+OBJECT_DEF lib/airport/aircraft/GA/KingAirC90B.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Water_Tank_Elev.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

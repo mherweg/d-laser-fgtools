@@ -1,0 +1,41 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -109.741544152 38.170982440 0.000000
+OBJECT 0 -109.741827042 38.170986300 0.000000
+OBJECT 1 -109.741864560 38.171020827 10.000000
+FILTER -1
+FILTER 0
+OBJECT 2 -109.741554598 38.171014191 0.000000
+OBJECT 2 -109.741590963 38.171003363 0.000000
+OBJECT 3 -109.741721123 38.170920828 90.000000
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 4 -109.741806531 38.170746733 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Markers/Poles/Thin_Red_White.obj
+OBJECT_DEF lib/airport/Common_Elements/Traffic_Signs/German/no_base/yield.obj
+OBJECT_DEF lib/industrial_area/goods/barrel_open_02.obj
+OBJECT_DEF lib/airport/aircraft/general_aviation/prop_a.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Chocks_2.obj
+PROPERTY sim/filter/aptid UT59
+PROPERTY sim/exclude_for -109.741904/38.170289/-109.741003/38.171027
+PROPERTY sim/exclude_for -109.741003/38.170295/-109.725548/38.170727
+PROPERTY sim/require_agpoint 1/4
+PROPERTY sim/require_object 1/4
+PROPERTY sim/require_agpoint 3/2
+PROPERTY sim/require_object 3/2
+PROPERTY sim/require_agpoint 4/0
+PROPERTY sim/require_object 4/0

@@ -1,0 +1,50 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 1.105999114 52.172324060 291.190002
+OBJECT 1 1.106900377 52.171739312 0.000000
+OBJECT 2 1.107481330 52.172019147 214.949997
+OBJECT 3 1.106077439 52.171997918 0.000000
+OBJECT 4 1.106137515 52.172208092 293.630005
+OBJECT 5 1.106543501 52.172593281 0.000000
+OBJECT 6 1.106325919 52.171824731 0.000000
+OBJECT 7 1.106406880 52.171804204 198.070007
+OBJECT 8 1.106656987 52.172647461 209.839996
+OBJECT 9 1.107219379 52.171666709 350.600006
+OBJECT 10 1.105900727 52.172154686 113.500000
+OBJECT 10 1.106142964 52.172506731 112.779999
+OBJECT 11 1.106227623 52.172057616 117.180000
+OBJECT 11 1.106747325 52.171763421 355.399994
+OBJECT 11 1.106505928 52.172595996 163.350006
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/AC_Ground_wFence.agp
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/airport/European_Airports/towers/Germany_5m.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Towbar_1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Tow_Tractor_1.obj
+OBJECT_DEF lib/airport/Ramp_Equipment/Chocks_1.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/fuel_station_white_avgasUL91.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5_solar.obj
+OBJECT_DEF lib/airport/aircraft/general_aviation/prop_a.obj
+PROPERTY sim/filter/aptid EGSO
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

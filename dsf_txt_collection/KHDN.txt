@@ -1,0 +1,28 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+PROPERTY sim/exclude_net -107.222878/40.484153/-107.219655/40.485270
+OBJECT 0 -107.217762180 40.483369164 290.730011
+OBJECT 0 -107.217694758 40.483514461 289.179993
+OBJECT 1 -107.221389944 40.485515259 115.639999
+OBJECT 2 -107.220989311 40.484407161 26.559999
+OBJECT 3 -107.218347126 40.483849230 23.230000
+OBJECT 4 -107.219348170 40.484297865 293.959991
+OBJECT 5 -107.219819629 40.485105235 62.720001
+OBJECT 6 -107.218988750 40.484061960 23.879999
+OBJECT 7 -107.222298109 40.485096408 25.350000
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+OBJECT_DEF lib/airport/aircraft/GA/KingAirC90B.obj
+OBJECT_DEF lib/airport/aircraft/regional_jet/Dornier_328_jet_Welcome_Air.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Fire_Station_Sm.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

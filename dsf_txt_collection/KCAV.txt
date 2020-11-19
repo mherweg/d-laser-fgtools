@@ -1,0 +1,41 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -93.761092822 42.745696362 0.000000
+OBJECT 1 -93.761133571 42.745002815 314.679993
+OBJECT 2 -93.761070413 42.745107643 133.229996
+OBJECT 3 -93.761109318 42.745075148 313.799988
+OBJECT 4 -93.759601724 42.745255079 86.510002
+OBJECT 4 -93.760910997 42.745513572 270.390015
+OBJECT 5 -93.760334235 42.745046333 312.660004
+OBJECT 6 -93.761646954 42.744791095 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/14_Single_Spaces.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/street/waste_management/Dumpster_m8.obj
+OBJECT_DEF lib/street/waste_management/Dumpster_30Y_random.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/airport/Vintage_Airports/Control_Towers/Hangar_Tower.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+PROPERTY sim/filter/aptid KCAV
+PROPERTY sim/exclude_obj -93.764871/42.735676/-93.754956/42.746054
+PROPERTY sim/exclude_for -93.764871/42.735676/-93.754956/42.746054
+PROPERTY sim/exclude_net -93.762028/42.744674/-93.759632/42.746055
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

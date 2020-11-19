@@ -1,0 +1,32 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 6.069361833 44.316688283 137.600006
+OBJECT 1 6.070255506 44.316712152 135.459076
+OBJECT 2 6.070113348 44.316877734 43.918285
+OBJECT 2 6.069964579 44.316854079 43.918285
+OBJECT 3 6.069446743 44.316946767 312.052551
+FILTER -1
+OBJECT_DEF lib/garden/pools/pool_Small_7x10.obj
+OBJECT_DEF lib/g10/US/industrial/light/SiteOffice8x14.obj
+OBJECT_DEF lib/g10/US/industrial/light/WoodShed8x10.obj
+OBJECT_DEF lib/g10/US/suburban/B-RnchLH.obj
+PROPERTY sim/filter/aptid XLF009T
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

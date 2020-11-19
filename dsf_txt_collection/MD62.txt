@@ -1,0 +1,13 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.4.1r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -75.997304131 39.123060381 300.000000
+OBJECT 0 -75.997371380 39.123085065 300.000000
+OBJECT_DEF lib/airport/lights/slow/FAA_5C_rabbit.obj
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

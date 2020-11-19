@@ -1,0 +1,26 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -62.012338461 -38.891630937 109.910004
+OBJECT 1 -62.017590400 -38.893749337 132.139999
+OBJECT 2 -62.017876061 -38.893946412 48.139999
+OBJECT 3 -62.016153246 -38.894732997 175.149994
+OBJECT 4 -62.016459006 -38.894528770 88.500000
+OBJECT 5 -62.016389129 -38.894427216 178.360001
+OBJECT 6 -62.015849604 -38.895167880 0.000000
+OBJECT 7 -62.016064019 -38.894154183 220.529999
+OBJECT_DEF lib/g10/US/suburban/T-RnchRHRd.obj
+OBJECT_DEF lib/g10/US/suburban/T-RnchRHGry.obj
+OBJECT_DEF lib/g10/US/suburban/h-RnchRHGryDk.obj
+OBJECT_DEF lib/g10/US/suburban/dT-RnchLHGry.obj
+OBJECT_DEF lib/g10/US/suburban/dL-RnchRHGry.obj
+OBJECT_DEF lib/g10/US/suburban/dB-RnchLH.obj
+OBJECT_DEF lib/g10/US/suburban/SmlRnchGry.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

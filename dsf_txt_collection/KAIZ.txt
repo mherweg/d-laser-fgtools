@@ -1,0 +1,54 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -92.545873736 38.102877233 36.970001
+OBJECT 1 -92.545476620 38.102666706 36.970001
+OBJECT 2 -92.549883314 38.099132098 216.970001
+OBJECT 3 -92.550660823 38.099552415 126.970001
+OBJECT 4 -92.550607195 38.099616069 0.000000
+OBJECT 4 -92.550645254 38.099577371 0.000000
+OBJECT 5 -92.550618718 38.099604695 126.970001
+OBJECT 6 -92.550637931 38.099583987 126.970001
+OBJECT 7 -92.550630735 38.099592216 126.970001
+OBJECT 8 -92.550294522 38.099348813 216.970001
+OBJECT 9 -92.550546895 38.100510771 306.970001
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Covered_Station.agp
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Blue_Dumpster_w_wall.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Barrel_Trash_Can.obj
+OBJECT_DEF lib/street/various/vending_machine_x2.obj
+OBJECT_DEF lib/street/various/vending_machine_03.obj
+OBJECT_DEF lib/street/various/vending_machine_05.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.agp
+PROPERTY sim/filter/aptid KAIZ
+PROPERTY sim/exclude_obj -92.557579/38.088761/-92.552387/38.092464
+PROPERTY sim/exclude_for -92.557579/38.088761/-92.552387/38.092464
+PROPERTY sim/exclude_obj -92.555034/38.092368/-92.549780/38.095093
+PROPERTY sim/exclude_for -92.555034/38.092368/-92.549780/38.095093
+PROPERTY sim/exclude_obj -92.553161/38.094820/-92.546297/38.098748
+PROPERTY sim/exclude_for -92.553161/38.094820/-92.546297/38.098748
+PROPERTY sim/exclude_obj -92.551614/38.098553/-92.544248/38.101599
+PROPERTY sim/exclude_for -92.551614/38.098553/-92.544248/38.101599
+PROPERTY sim/exclude_obj -92.547438/38.101477/-92.542285/38.104325
+PROPERTY sim/exclude_for -92.547438/38.101477/-92.542285/38.104325
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

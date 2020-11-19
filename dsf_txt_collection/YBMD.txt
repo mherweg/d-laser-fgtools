@@ -1,0 +1,25 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.2.0r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 145.327009825 -15.870898559 130.186478
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+PROPERTY sim/filter/aptid YBMD
+PROPERTY sim/require_agpoint 2/0
+PROPERTY sim/require_object 2/0

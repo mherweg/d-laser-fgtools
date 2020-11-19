@@ -1,0 +1,35 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+OBJECT 0 -58.206551508 -34.744442979 48.432884
+OBJECT 1 -58.207104198 -34.743733128 0.000000
+OBJECT 2 -58.206853475 -34.744195103 51.709713
+OBJECT 3 -58.207043218 -34.743763837 0.000000
+OBJECT 4 -58.183612567 -34.744281729 346.504913
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+OBJECT_DEF lib/cars/car.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5_solar.obj
+OBJECT_DEF lib/airport/Common_Elements/Lighting/Omni_Parking_Lit.obj
+OBJECT_DEF lib/ships/SailBoat.obj
+PROPERTY sim/filter/aptid XSA0002
+PROPERTY sim/exclude_obj -58.209160/-34.751035/-58.197871/-34.741461
+PROPERTY sim/exclude_for -58.209160/-34.751035/-58.197871/-34.741461
+PROPERTY sim/require_agpoint 6/0
+PROPERTY sim/require_object 6/0

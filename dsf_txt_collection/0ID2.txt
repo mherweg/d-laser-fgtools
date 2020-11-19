@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0b2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -113.770099574 44.440124242 213.809998
+OBJECT 1 -113.770762389 44.440068980 216.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/Small_Fuel_Station.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Med_Blue_Hangar.agp
+PROPERTY sim/filter/aptid 0ID2
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

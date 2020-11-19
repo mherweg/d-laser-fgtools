@@ -1,0 +1,44 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.1r2
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -166.799217833 68.344800181 201.619995
+OBJECT 1 -166.799230069 68.345443426 251.559998
+OBJECT 2 -166.797398933 68.346428312 291.690002
+OBJECT 3 -166.798297620 68.346069265 0.000000
+OBJECT 4 -166.798155722 68.346076745 292.919983
+OBJECT 5 -166.799029268 68.345287946 114.680000
+OBJECT 6 -166.796935008 68.346301647 0.000000
+OBJECT 6 -166.797007192 68.346312954 0.000000
+OBJECT 7 -166.797866000 68.346034000 202.770004
+OBJECT 8 -166.797054909 68.346605415 166.949997
+OBJECT 9 -166.797582342 68.346563166 7.310000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Picnic_Table.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Water_Tank_Elev.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Stack_of_Cones.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Sm_Propane_Tank.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Porta_Potty_1.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/One_Traffic_Cone.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Hangar_Construct.obj
+OBJECT_DEF lib/g10/EU/suburban/gar1_6x6.obj
+OBJECT_DEF lib/airport/European_Airports/silos/12m_green.obj
+PROPERTY sim/filter/aptid PAPO
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

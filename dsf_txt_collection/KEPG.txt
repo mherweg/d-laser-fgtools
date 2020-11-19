@@ -1,0 +1,38 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -96.110702539 40.871063107 94.600151
+OBJECT 1 -96.111077122 40.871052265 0.000000
+OBJECT 2 -96.112377430 40.870915765 0.000000
+OBJECT 2 -96.112377643 40.871007142 0.000000
+OBJECT 3 -96.111713780 40.870832537 0.000000
+OBJECT 4 -96.110396148 40.870846032 90.447609
+OBJECT 5 -96.110484910 40.870993066 270.487610
+OBJECT 6 -96.110284526 40.870520595 87.610870
+FILTER -1
+OBJECT_DEF lib/cars/car_or_truck_static.obj
+OBJECT_DEF lib/airport/Common_Elements/Vehicles/Cargo_Truck_Long.agp
+OBJECT_DEF lib/g10/US/suburban/TrailerSnglShrtFlat.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerDblLong.obj
+OBJECT_DEF lib/g10/US/suburban/TrailerSnglLong.obj
+OBJECT_DEF lib/airport/Common_Elements/Miscellaneous/Const_Trailer.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+PROPERTY sim/filter/aptid KEPG
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

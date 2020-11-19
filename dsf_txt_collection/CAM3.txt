@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.5.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -123.712547794 48.756295861 179.322006
+OBJECT 0 -123.712355987 48.756422318 149.394577
+OBJECT 0 -123.712113032 48.756624647 148.271851
+FILTER -1
+OBJECT_DEF lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
+PROPERTY sim/filter/aptid CAM3
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

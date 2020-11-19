@@ -1,0 +1,37 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.1.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -81.554096623 40.645755543 92.320000
+OBJECT 0 -81.554088129 40.645985901 92.315887
+OBJECT 1 -81.555127678 40.645695213 36.869659
+OBJECT 2 -81.556114475 40.645767164 2.202577
+OBJECT 3 -81.554577897 40.645839270 352.746857
+OBJECT 4 -81.554636024 40.645693331 80.671669
+OBJECT 1 -81.555138473 40.646017572 358.090881
+OBJECT 5 -81.552491315 40.645854201 0.000000
+FILTER -1
+OBJECT_DEF lib/airport/Vintage_Airports/Hangars/Corrugated_Row.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Gray_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/European_Airports/hangars/28x26x6.obj
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_4.agp
+OBJECT_DEF lib/airport/aircraft/general_aviation/turboprop_b.obj
+PROPERTY sim/filter/aptid 2D7
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

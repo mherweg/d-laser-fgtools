@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.7.0r3
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -8.979726520 52.105047845 338.443085
+OBJECT 1 -8.979901062 52.104916866 332.951843
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/vehicles/Fuel_Truck_Small.obj
+OBJECT_DEF lib/airport/European_Airports/hangars/25x20x5.obj
+PROPERTY sim/filter/aptid EIRT
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

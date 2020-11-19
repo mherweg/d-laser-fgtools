@@ -1,0 +1,33 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.3.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+OBJECT 0 -67.626098238 -27.651212932 10.030000
+OBJECT 0 -67.626070876 -27.651217476 9.770000
+OBJECT 1 -67.626240459 -27.651188307 9.440000
+BEGIN_POLYGON 0 6 3
+BEGIN_WINDING
+POLYGON_POINT -67.626016632 -27.651220972 0.000000000
+POLYGON_POINT -67.626489901 -27.651151342 0.000000000
+POLYGON_POINT -67.626489901 -27.651151342 0.000000000
+POLYGON_POINT -67.626016632 -27.651220972 0.000000000
+END_WINDING
+END_POLYGON
+OBJECT 2 -67.625876609 -27.650907196 280.540009
+OBJECT 3 -67.625704806 -27.650520882 254.580002
+OBJECT 4 -67.625901433 -27.650748950 101.980003
+OBJECT 5 -67.625979279 -27.651067632 102.260002
+OBJECT_DEF lib/airport/Common_Elements/Parking/Handicap_Sign.obj
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/14_Single_Spaces.agp
+OBJECT_DEF lib/airport/aircraft/GA/KingAirC90B.obj
+OBJECT_DEF lib/airport/aircraft/GA/Cessna_172.obj
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Brown_Hangar.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Sm_Blue_Hangar.agp
+POLYGON_DEF lib/airport/Common_Elements/Fence_Facades/Fenced_Parking.fac
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
+PROPERTY sim/require_facade 1/0

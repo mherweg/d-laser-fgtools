@@ -1,0 +1,45 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor2.0.0r4
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -93.198586134 39.097481893 90.000000
+OBJECT 1 -93.198723885 39.098741630 90.000000
+OBJECT 2 -93.198758041 39.099048088 90.000000
+OBJECT 3 -93.198562302 39.097099534 90.000000
+OBJECT 4 -93.196892973 39.097136833 0.000000
+OBJECT 5 -93.196289115 39.097696340 270.000000
+OBJECT 5 -93.196657774 39.097697122 270.000000
+OBJECT 5 -93.197022432 39.097697895 270.000000
+OBJECT 6 -93.198307768 39.097950278 0.000000
+OBJECT 7 -93.198408286 39.098038944 90.000000
+FILTER -1
+OBJECT_DEF lib/airport/Common_Elements/Fueling_Stations/2_horiz_tanks.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Beige.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/Long_Row_Green.agp
+OBJECT_DEF lib/airport/Common_Elements/Hangars/FBO_Modern1.agp
+OBJECT_DEF lib/airport/Common_Elements/Misc_Buildings/Large_Office_1.agp
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_10.agp
+OBJECT_DEF lib/airport/Common_Elements/Parking_Items/Row_of_Cars_6.agp
+OBJECT_DEF lib/airport/Vintage_Airports/Terminals/Admin_Bldg.obj
+PROPERTY sim/filter/aptid KMHL
+PROPERTY sim/exclude_obj -93.201365/39.086862/-93.199283/39.096006
+PROPERTY sim/exclude_for -93.201365/39.086862/-93.199283/39.096006
+PROPERTY sim/exclude_obj -93.212591/39.095794/-93.195010/39.102467
+PROPERTY sim/exclude_for -93.212591/39.095794/-93.195010/39.102467
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0

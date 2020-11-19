@@ -1,0 +1,27 @@
+PROPERTY sim/west -180
+PROPERTY sim/east 180
+PROPERTY sim/north 90
+PROPERTY sim/south -90
+PROPERTY sim/planet earth
+PROPERTY sim/creation_agent WorldEditor1.6.0r1
+PROPERTY laminar/internal_revision 0
+PROPERTY sim/overlay 1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+FILTER -1
+FILTER 0
+OBJECT 0 -22.573662065 66.101021918 243.429993
+FILTER -1
+OBJECT_DEF lib/cars/car_static_invar.obj
+PROPERTY sim/filter/aptid BIBI
+PROPERTY sim/exclude_for -22.579842/66.097023/-22.568069/66.102684
+PROPERTY sim/exclude_for -22.572550/66.093155/-22.561701/66.098801
+PROPERTY sim/require_agpoint 1/0
+PROPERTY sim/require_object 1/0
