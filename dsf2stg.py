@@ -52,13 +52,11 @@ logger = logging.getLogger('dsf2stg')
 libfilename="library.txt"
 
 inputfilename="dsf_txt_collection2000/EDDF.txt"
-#inputfilename="/mh/LOWW.txt"
 path_to_stg =inputfilename
 alt = 72
 
 path_to_fgelev = "fgelev"
-path_to_scenery = "/home/mherweg/scenery/2.0/"
-#path_to_scenery = "/home/mherweg/.fgfs/TerraSync/"
+path_to_scenery = "/home/shared/terraGIT"
 
 OUR_MAGIC = "dsf2stg"
 
@@ -270,7 +268,7 @@ def main():
     jw_init_flag=False
 
 
-    elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery,inputfilename)
+    elev_prober = fgelev.Probe_fgelev(path_to_fgelev, path_to_scenery, inputfilename)
     logger.info("probing elevation")  
     for o in objects:
         if o.msl == None:

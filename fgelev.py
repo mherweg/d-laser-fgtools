@@ -50,11 +50,16 @@ class Probe_fgelev(object):
     def open_fgelev(self):
         logger.info("Spawning fgelev")
         fg_root = "/home/shared/fgdata"
-        self.fgelev_pipe = subprocess.Popen(self.path_to_fgelev + ' --expire 1000000 --fg-root ' + fg_root + ' --fg-scenery '+ self.PATH_TO_SCENERY, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        # -- This should catch spawn errors, but it doesn't. We 
-        #    check for sane return values on fgelev calls later.
-#        if self.fgelev_pipe.poll() != 0:
-#            raise RuntimeError("Spawning fgelev failed.")
+        self.fgelev_pipe = subprocess.Popen(self.path_to_fgelev + ' --expire 1000000 --fg-root ' + fg_root + ' --fg-scenery '+ self.PATH_TO_SCENERY,
+                                            shell=True,
+                                            stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+
+        """
+        This should catch spawn errors, but it doesn't. We 
+        check for sane return values on fgelev calls later.
+        """
+        #        if self.fgelev_pipe.poll() != 0:
+        #            raise RuntimeError("Spawning fgelev failed.")
 
     def save_cache(self):
         "save cache to disk"
@@ -83,14 +88,17 @@ class Probe_fgelev(object):
                 self.open_fgelev()
             try:
                 self.fgelev_pipe.stdin.write(b"%i %g %g\n" % (0, position.lon, position.lat))
+                self.fgelev_pipe.stdin.flush()
             except IOError as reason:
                 logger.error(reason)
  
             try:
-                #line = self.fgelev_pipe.stdout.readline()
-                #elev = float(line.split()[1]) + self.h_offset
-                #print (str(line) + "THIS")
-                elev = 0.00
+                QueuedElev = self.fgelev_pipe.stdout.readline().decode("utf-8")
+                if ":" in QueuedElev:
+                    line = QueuedElev
+                else:
+                    line = "foo: 0.00"
+                elev = float(line.split()[1]) + self.h_offset
             except IndexError as reason:
                 logger.fatal("fgelev returned <%s>, resulting in %s. Did fgelev start OK?", line, reason)
                 raise RuntimeError("fgelev errors are fatal.")
@@ -98,7 +106,7 @@ class Probe_fgelev(object):
             return elev
 
         if self.fake:
-            return 0.
+            return (0)
 
         position = vec2d(position[0], position[1])
 
