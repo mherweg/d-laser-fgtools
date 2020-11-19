@@ -2,9 +2,8 @@
 
 various tools for [Flightgear](http://www.flightgear.org) development
 
-[contact me](http://wiki.flightgear.org/User:Laserman/)
 
-required: Python 2.x
+some of the tools might not be compatible with Python 3
 
 # managing apt.dat (the airports database)
 
@@ -33,8 +32,9 @@ insert/update one of more airports into Postgres DB:
 
 
 # Generating many groundnet files
-parking/startup locations for >7000 airports + groundnet including
-pushBackRoutes Taxinodes and Taxiway Segments. read more details in the comment
+parking/startup locations for ~15000 airports + groundnet including
+pushBackRoutes Taxinodes and Taxiway Segments by using the latest apt.dat from X-Plane.
+Read more details in the comment
 at the beginning of the 2 python files
 
 * Step 1:
@@ -59,7 +59,7 @@ the script writes to stdout.
 I used this to generate stg lines for hundreds of churches and castles. 
 The input.osm  file is downloaded from http://overpass-turbo.eu
 It will be good for churches, chimneys, wind-power generators, fuel tanks, ... because the
-heading does not matter. It is not good for soccer fields of filling stations
+heading does not matter. It is not good for soccer fields of fuel stations
 which need correct heading/alignment.
 
 here is an exampele query for overpass-turbo.eu
