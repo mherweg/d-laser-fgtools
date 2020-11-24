@@ -20,12 +20,10 @@
 
 #import socket
 import json, base64, os, getopt, sys
-#import http.client
-import httplib
+import http.client
 import zipfile
 
 helptext = 'gateway_pull.py -i <ICAO> \ngateway_pull.py -s <sceneryId>'
-
 
 def main(argv):
     
@@ -37,25 +35,25 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hi:s:")
     except getopt.GetoptError:
-        print helptext
+        print (helptext)
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print helptext
+            print (helptext)
             sys.exit()
         elif opt == "-i":
             icao = arg
         elif opt == "-s":
             sid = arg
-    conn = httplib.HTTPSConnection('gateway.x-plane.com')
+    conn = http.client.HTTPSConnection('gateway.x-plane.com')
     
     if sid == "":
         
         conn.request("GET", "/apiv1/airport/" + icao)
         r1 = conn.getresponse()
-        #print r1
+        #print (r1)
         r2 = r1.read()
-        #print r2
+        #print (r2)
         result = json.loads(r2)
         sid=result["airport"]["recommendedSceneryId"]
 
@@ -65,60 +63,55 @@ def main(argv):
                 if k2 in ["dateDeclined","dateAccepted","DateAccepted","DateApproved","DateDeclined","userId","type"]:
                     pass
                 else:
-                    print k2, v2
+                    print (k2, v2)
             if s['Status']=="Approved":
                     sids.append(s['sceneryId'])
             if s["sceneryId"]  ==  sid:
                 author = s["userName"]
-            print "-----------------"
+            print ("-----------------")
             
-        print "approved scenery ids for " + icao + ":", sids            
-        #print "highest approved id:", max(sids)
-        print "recommended SceneryId:" , sid , "by author:", author
-
+        print ("approved scenery ids for " + icao + ":" + str(sids))
+        #print ("highest approved id:", max(sids))
+        print ("recommended SceneryId:" + str(sid) + "by author: " + author)
 
     conn.request("GET", "/apiv1/scenery/" + str(sid))
     r1 = conn.getresponse()
     r2 = r1.read()
     result = json.loads(r2)
-    #print result
+    #print (result)
     encoded_zip = result["scenery"]["masterZipBlob"]
 
     blob = base64.b64decode(encoded_zip)
 
-    #print "writing ", icao + ".zip"
+    #print ("writing " + icao + ".zip"_
     file = open(icao + ".zip","wb")
     file.write(blob)
     file.close()
 
-    #print "reading ", icao + ".zip"
+    #print ("reading " + icao + ".zip")
     myZip = zipfile.ZipFile(icao + ".zip","r")
     
 
-    print "writing ", icao + ".dat"
+    print ("writing " + icao + ".dat")
     myZip.extract(icao + ".dat")
     try:
         
         myZip.extract(icao + ".txt")
     except:
-        print "(2D)"
+        print ("(2D)")
     else:
-        print "writing ", icao + ".txt",
-        print " 3D :-)"
+        print ("writing " + icao + ".txt")
+        print (" 3D :-)")
 
-    #print "deleting ", icao + ".zip"
+    #print ("deleting " + icao + ".zip")
     os.remove(icao + ".zip")
-
-
-
-
 
 #newFileByteArray = bytearray(zipfile)
 #newFile.write(blob)
 
 #for zipContentFile in myZip.namelist():
 #    data = myZip.read(zipContentFile)
-#    #print zipContentFile
+#    #print (zipContentFile)
 #    file = open(zipContentFile, 'w+b')
 #    file.write(data)
 #    file.close()
@@ -126,9 +119,5 @@ def main(argv):
 #myZip = zipfile.ZipFile(icao + "_Scenery_Pack.zip","r")
 #myZip.extract(icao + "_Scenery_Pack/Earth nav data/apt.dat")
 
-
-
 if __name__ == "__main__":
    main(sys.argv[1:])
-
-
