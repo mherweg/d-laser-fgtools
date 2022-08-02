@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2015 Martin Herweg    m.herweg@gmx.de
+# Copyright (C) 2020 Benedikt Wolf (D-ECHO)
+# Copyright (C) 2020 Israel Hernandez (IAHM-COL)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -72,8 +74,6 @@
 #112  50.10968462  014.25453213  50.10970992  014.25450756 22
 #113  50.10968998  014.25447146 22
 
-
-
 import os, sys, getopt, fileinput, subprocess
 helptext = './dsf2aptdat.py -i ICAO'
 
@@ -94,8 +94,7 @@ class Polygon(object):
     def out(self):
         print(self.ID, self.a,self.b,self.c)
         for e in self.verts:
-            print e
-        
+            print (e)
         
 class Vert(object):
     def __init__(self,style,x1,y1,x2=None,y2=None):
@@ -125,13 +124,12 @@ class Vert(object):
         nodeid+=1
     def __str__(self):
         return "%d %s / %s %s %s %s " % (self.nodeid, self.style, self.x1,self.y1,self.x2,self.y2)
-        
 
 def read_poly_def(infile):
     pd=[]
     for line in infile:
         #line = line.strip()
-        #print line
+        #print (line)
         if line.startswith("POLYGON_DEF"):
             cols = line.split()
             xpath = cols[1]
@@ -150,62 +148,62 @@ def read_poly(infile,pd):
             text = pd[int(poly.a)]
         if line.startswith("BEGIN_WINDING"):
             green=True
-            cache1=-1;
-            cache2=-1;
+            cache1=-1
+            cache2=-1
         if line.startswith("POLYGON_POINT") and green:
             col = line.split()
             if(cache1==-1):
-		    cache1=col[1];
-		    cache2=col[2];
-            if len(col)==3 or len(col)==4 :
-                
-                #print "sharp corner"
+                cache1=col[1]
+                cache2=col[2]
+            if len(col)==3 or len(col)==4:
+                #print ("sharp corner")
                 vert = Vert(111,col[1],col[2])
                 poly.verts.append(vert)
             if len(col)==5:
                 if col[1] == col[3] and col[2] == col[4]:
-                    #print "sharp corner redundant"
+                    #print ("sharp corner redundant")
                     vert = Vert(111,col[1],col[2])
                 else:
-                    #print "true bezier rounded corner"
+                    #print ("true bezier rounded corner")
                     vert = Vert(112,col[1],col[2],col[3],col[4])
                 poly.verts.append(vert)
         if line.startswith("END_WINDING"):
             green=False
-            x=len(poly.verts)-1;
+            x=len(poly.verts)-1
             if x>=1:
                 if cache1==poly.verts[x].x1 and cache2==poly.verts[x].y1:
-                     poly.verts.pop(x);
-                     cache1=-1;
-                     cache2=-1;
-                     x=x-1;
-                poly.verts[x].style=poly.verts[x].style+2;	
+                     poly.verts.pop(x)
+                     cache1=-1
+                     cache2=-1
+                     x=x-1
+                poly.verts[x].style=poly.verts[x].style+2
         if line.startswith("END_POLYGON"):
             #last vert
-          #  vert.style =vert.style+2
-          #  ID+=1
+            #  vert.style =vert.style+2
+            #  ID+=1
             
             # whitelist: Garage, hangar, modern, Warehouse, Terminal , Office...
             # 
             whitelist=['Building','modern','urban', 'Garage','Hangars','pavement','Fenced_Parking','line']
             if any(x in text for x in whitelist):
             #if text.find("Building") >=0 or text.find("pavement") >=0 or text.find("Fenced_Parking") >=0:
-                #print text
+                #print (text)
                 #poly.out()
                 polys.append(poly)
             #else:
-                #print "ignoring:", text
+                #print ("ignoring: " + text)
            
     return (polys)
         
 def write_aptdat(polys,icao):
-    #print header, runways
-    
+    """
+    modify the ICAO.dat file inplace, write the original version to NAME.dat.bak
+    no "print" for debugging allowed in this loop
+    because stdout is written to the ICAO.dat
+    """
+    #print (header +  runways)
     count = 0
     pcount = 0
-    # modify the ICAO.dat file inplace, write the original version to NAME.dat.bak
-    # no "print" for debugging allowed in this loop
-    # because stdout is written to the ICAO.dat
     datfilename = icao + ".dat"
     for line in fileinput.input(files=(datfilename),inplace=1, backup='.bak'):
         #sys.stderr.write(".")
@@ -219,14 +217,14 @@ def write_aptdat(polys,icao):
                     surface_type = "2"  #concrete,  gravel=5 did not work
                 else:
                     surface_type = "1"  # asphalt   
-		t="";
-		if p.text.find("lib/airport/lines/") >=0:
-			l = "120  Line from DSF %s \r\n"%(p.text)
-			s=p.text.split("/");
-			s2=s[3].split("_");
-			t=s2[0];
-		else:
-			l = "110  %s 0.00 0.0000 Polygon from DSF %s \r\n"%(surface_type, p.text)
+                t=""
+                if p.text.find("lib/airport/lines/") >=0:
+                    l = "120  Line from DSF %s \r\n"%(p.text)
+                    s=p.text.split("/")
+                    s2=s[3].split("_")
+                    t=s2[0]
+                else:
+                    l = "110  %s 0.00 0.0000 Polygon from DSF %s \r\n"%(surface_type, p.text)
                 sys.stdout.write(l)
                 pcount+=1
                 for e in p.verts:
@@ -250,11 +248,10 @@ def write_aptdat(polys,icao):
                         sys.stdout.write(l)
                         #sys.stderr.write(l)
                         count+=1
-            
+                    
         else:
             sys.stdout.write(line)
     return (count,pcount)
-        
 
 #example osm xml:
 #-------------------
@@ -290,7 +287,7 @@ def write_osmxml(polys,icao):
                 osmfile.write(line)
     for p in polys:  #one way for each building
         if any(x in p.text for x in whitelist):
-            #print str(p.verts)
+            #print (str(p.verts))
             bcount+=1
             line='<way id="%d" visible="true" version="1" >\n'%(p.ID)
             osmfile.write(line)
@@ -313,14 +310,7 @@ def write_osmxml(polys,icao):
             osmfile.write("</way>\n")
     osmfile.write("</osm>\n")
     osmfile.close()
-    print "wrote %d buildings to %s.osm"%(bcount,icao)
-        
-
-                
-            
-
-
-
+    print ("wrote %d buildings to %s.osm"%(bcount,icao))
 
 
 def main(argv):
@@ -330,11 +320,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hi:")
     except getopt.GetoptError:
-        print helptext
+        print (helptext)
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print helptext
+            print (helptext)
             sys.exit()
         elif opt == "-i":
             icao = arg
@@ -343,34 +333,23 @@ def main(argv):
     try:  
         infile = open(inputfilename, 'r')
     except:
-        print "input file ", inputfilename, "not found"
+        print ("input file " +  inputfilename + " not found")
         sys.exit()
-    print "reading..."
+    print ("reading...")
     pd = read_poly_def(infile)
-    print len(pd) , "polygon type definitions found in ", inputfilename
+    print (str(len(pd)) + " polygon type definitions found in " + inputfilename)
     
     infile.seek(0)
     polys = read_poly(infile,pd) 
-    #print len(polys), "polygons in %s.txt"%(icao)  <-strange result ?
-    print "inserting into", icao, ".dat  (please do this only once per file)"
+    #print (len(polys) + "polygons in %s.txt"%(icao)) @  <-strange result ?
+    print ("inserting into " + icao + ".dat  (please do this only once per file)")
     count, pcount = write_aptdat(polys,icao)
     #print
-    print "inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao)
+    print ("inserted %d polygons and %d nodes into %s.dat"%(pcount,count,icao))
     write_osmxml(polys,icao)
-    print "done."
-   
-    
-            
+    print ("done.")
 
 if __name__ == "__main__":
    main(sys.argv[1:])
 
 #EOF
-
-
-                
-
-
-
-
-
